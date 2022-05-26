@@ -25,10 +25,10 @@ class HudView: UIView {
         setup()
     }
     
-    /*deinit {
+    deinit {
         NotificationCenter.default.removeObserver(self, name: .AppWillEnterForeground, object: nil)
         NotificationCenter.default.removeObserver(self, name: .AppDidEnterBackground, object: nil)
-    }*/
+    }
     
     func startAnimating() {
         animationView.play()
@@ -56,8 +56,8 @@ class HudView: UIView {
         animationView.loopMode = .loop
         
         // Notifications
-        /*NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: .AppWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: .AppDidEnterBackground, object: nil)*/
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: .AppWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: .AppDidEnterBackground, object: nil)
     }
     
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B270E312840013000F4FFED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E302840013000F4FFED /* Constants.swift */; };
+		9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E33284001A000F4FFED /* NetworkManager.swift */; };
+		9B270E36284001AB00F4FFED /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E35284001AB00F4FFED /* Reachability.swift */; };
+		9B270E38284001B700F4FFED /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E37284001B700F4FFED /* WebService.swift */; };
 		9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93115F283E79E20052EF1B /* UIView+Utils.swift */; };
 		9B931164283E814B0052EF1B /* splashScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931162283E814B0052EF1B /* splashScreen.json */; };
 		9B931165283E814B0052EF1B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931163283E814B0052EF1B /* loading.json */; };
@@ -48,6 +52,10 @@
 		263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfoSpace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D78F0F175E868A96314CB68 /* Pods-InfoSpace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.debug.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.debug.xcconfig"; sourceTree = "<group>"; };
 		31E5FDD4CEBABEBE203666EE /* Pods-InfoSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.release.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.release.xcconfig"; sourceTree = "<group>"; };
+		9B270E302840013000F4FFED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B270E33284001A000F4FFED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9B270E35284001AB00F4FFED /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		9B270E37284001B700F4FFED /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		9B93115F283E79E20052EF1B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9B931162283E814B0052EF1B /* splashScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashScreen.json; sourceTree = "<group>"; };
 		9B931163283E814B0052EF1B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -104,6 +112,16 @@
 				31E5FDD4CEBABEBE203666EE /* Pods-InfoSpace.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B270E322840018900F4FFED /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9B270E33284001A000F4FFED /* NetworkManager.swift */,
+				9B270E35284001AB00F4FFED /* Reachability.swift */,
+				9B270E37284001B700F4FFED /* WebService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		9B931161283E7F8C0052EF1B /* AnimationFiles */ = {
@@ -190,6 +208,7 @@
 		9BB44415283D5FB10043EF4E /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				9B270E322840018900F4FFED /* Network */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -198,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB4441C283D62190043EF4E /* Extensions */,
+				9B270E302840013000F4FFED /* Constants.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -442,6 +462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B270E38284001B700F4FFED /* WebService.swift in Sources */,
+				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
@@ -449,6 +471,8 @@
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
 				9BAC290D283E894B005CC5AB /* CustomNavigationController.swift in Sources */,
+				9B270E36284001AB00F4FFED /* Reachability.swift in Sources */,
+				9B270E312840013000F4FFED /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

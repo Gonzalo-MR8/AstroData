@@ -14,11 +14,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Reachability
+        NetworkManager.shared.startReachability()
+        
         window = CustomNavigationController.instance.configure()
         
         return true
     }
 
-
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Reachability
+        NetworkManager.shared.startReachability()
+        
+        // Notifications
+        NotificationCenter.default.post(name: .AppWillEnterForeground, object: nil)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Reachability
+        NetworkManager.shared.stopReachability()
+        
+        // Notifications
+        NotificationCenter.default.post(name: .AppDidEnterBackground, object: nil)
+    }
 }
 
