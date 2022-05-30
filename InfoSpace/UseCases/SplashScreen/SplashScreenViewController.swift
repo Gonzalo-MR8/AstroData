@@ -10,11 +10,13 @@ import Lottie
 
 class SplashScreenViewController: UIViewController {
 
+    private let viewModel = SplashScreenViewModel()
+    
     @IBOutlet weak var viewAnimation: AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewAnimation.loopMode = .loop
         viewAnimation.contentMode  = .scaleAspectFill
         viewAnimation.play()
@@ -23,10 +25,9 @@ class SplashScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //sleep(1)
-        
-        //let destinationVC: = MainViewController.initAndLoad()
-        
-        //CustomNavigationController.instance.navigate(to: destinationVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+            let dashboardVC = DashboardViewController.initAndLoad()
+            CustomNavigationController.instance.navigate(to: dashboardVC, animated: true)
+        }
     }
 }

@@ -2,9 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,11 +28,11 @@
                     <blurEffect style="regular"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9s-C8-cOF" customClass="AnimationView" customModule="Lottie">
-                    <rect key="frame" x="167" y="190" width="80" height="80"/>
+                    <rect key="frame" x="117" y="140" width="180" height="180"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" priority="999" constant="80" id="S3H-Bn-tpI"/>
-                        <constraint firstAttribute="height" constant="80" id="vL3-XZ-xLR"/>
+                        <constraint firstAttribute="width" priority="999" constant="180" id="S3H-Bn-tpI"/>
+                        <constraint firstAttribute="height" constant="180" id="vL3-XZ-xLR"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
@@ -40,7 +40,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zM3-sX-ENb" secondAttribute="trailing" id="8jH-vb-NeF"/>
                 <constraint firstAttribute="bottom" secondItem="zM3-sX-ENb" secondAttribute="bottom" id="J0s-hb-aJv"/>
@@ -56,9 +56,4 @@
     <designables>
         <designable name="B9s-C8-cOF"/>
     </designables>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

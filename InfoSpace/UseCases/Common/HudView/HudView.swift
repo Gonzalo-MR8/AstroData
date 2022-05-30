@@ -8,6 +8,8 @@
 import UIKit
 import Lottie
 
+protocol HudViewProtocol { }
+
 class HudView: UIView {
 
     @IBOutlet weak var viewBlur: UIVisualEffectView!
@@ -60,4 +62,28 @@ class HudView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: .AppDidEnterBackground, object: nil)
     }
     
+}
+
+extension HudViewProtocol where Self: UIViewController {
+    func showHudView() {
+        let hudView = HudView()
+        view.addSubview(hudView)
+        
+        hudView.translatesAutoresizingMaskIntoConstraints = false
+        hudView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        hudView.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
+        hudView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        hudView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        hudView.startAnimating()
+        
+        hudView.tag = Constants.hudViewTag
+    }
+    
+    func hideHudView() {
+        view.subviews.forEach { subview in
+            if subview.tag == Constants.hudViewTag {
+                subview.removeFromSuperview()
+            }
+        }
+    }
 }

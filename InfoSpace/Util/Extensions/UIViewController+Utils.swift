@@ -18,7 +18,7 @@ extension UIViewController {
             
             return vc
         }
-
+        
         return instantiateFromNib(self)
     }
     
@@ -46,4 +46,3 @@ extension UIViewController {
         return false
     }
 }
-

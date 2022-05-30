@@ -13,7 +13,7 @@ extension UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(contentView)
-
+        
         contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         contentView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
