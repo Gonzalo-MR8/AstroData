@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CairoFont.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="NotoSansJP-Medium.otf">
+            <string>NotoSansJP-Medium</string>
+        </array>
+        <array key="NotoSansJP-Regular.otf">
+            <string>NotoSansJP-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PlanetCell" customModule="InfoSpace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="260"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="260"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nh-WK-RbL" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                        <rect key="frame" x="5" y="60" width="190" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-Fo-M0e">
+                                <rect key="frame" x="113" y="30" width="67" height="140"/>
+                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="120"/>
+                                <color key="textColor" name="TextSecondaryColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsN-zZ-lP2">
+                                <rect key="frame" x="12" y="60" width="168" height="38"/>
+                                <fontDescription key="fontDescription" name="NotoSansJP-Medium" family="Noto Sans JP" pointSize="26"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezt-Av-l4u">
+                                <rect key="frame" x="12" y="100" width="168" height="61"/>
+                                <string key="text">Earth description 1234
+Earth description 1234
+Earth description 1234</string>
+                                <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="White"/>
+                        <constraints>
+                            <constraint firstItem="ezt-Av-l4u" firstAttribute="trailing" secondItem="xsN-zZ-lP2" secondAttribute="trailing" id="1rI-pi-e5b"/>
+                            <constraint firstAttribute="trailing" secondItem="SRX-Fo-M0e" secondAttribute="trailing" constant="10" id="514-pf-cfO"/>
+                            <constraint firstItem="xsN-zZ-lP2" firstAttribute="leading" secondItem="8Nh-WK-RbL" secondAttribute="leading" constant="12" id="HTo-kB-tp3"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ezt-Av-l4u" secondAttribute="bottom" constant="10" id="HXf-Yr-9Zc"/>
+                            <constraint firstItem="ezt-Av-l4u" firstAttribute="leading" secondItem="xsN-zZ-lP2" secondAttribute="leading" id="RNz-b9-cvz"/>
+                            <constraint firstAttribute="height" constant="200" id="ffe-UO-L0P"/>
+                            <constraint firstItem="xsN-zZ-lP2" firstAttribute="top" secondItem="8Nh-WK-RbL" secondAttribute="top" constant="60" id="gxo-wl-5hz"/>
+                            <constraint firstItem="ezt-Av-l4u" firstAttribute="top" secondItem="xsN-zZ-lP2" secondAttribute="bottom" constant="2" id="mSB-kq-VUG"/>
+                            <constraint firstItem="SRX-Fo-M0e" firstAttribute="centerY" secondItem="8Nh-WK-RbL" secondAttribute="centerY" id="tZV-Z6-vwx"/>
+                            <constraint firstAttribute="trailing" secondItem="xsN-zZ-lP2" secondAttribute="trailing" constant="10" id="wU3-0J-2zy"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earth" translatesAutoresizingMaskIntoConstraints="NO" id="YMi-iU-qcG">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="110" id="pEw-P4-iD0"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8Nh-WK-RbL" secondAttribute="bottom" id="Akr-hI-j1R"/>
+                <constraint firstAttribute="trailing" secondItem="8Nh-WK-RbL" secondAttribute="trailing" constant="5" id="WJo-Hk-fdG"/>
+                <constraint firstItem="YMi-iU-qcG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lzS-ve-RjW"/>
+                <constraint firstItem="8Nh-WK-RbL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="pWS-9q-evS"/>
+                <constraint firstAttribute="trailing" secondItem="YMi-iU-qcG" secondAttribute="trailing" id="wCU-4B-KbJ"/>
+                <constraint firstItem="YMi-iU-qcG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zIA-Kk-BWl"/>
+            </constraints>
+            <size key="customSize" width="200" height="260"/>
+            <connections>
+                <outlet property="imageViewPlanet" destination="YMi-iU-qcG" id="svv-93-T9O"/>
+                <outlet property="labelDescription" destination="ezt-Av-l4u" id="gAq-TU-4vm"/>
+                <outlet property="labelSatelites" destination="SRX-Fo-M0e" id="CIf-Ua-DBc"/>
+                <outlet property="labelTitle" destination="xsN-zZ-lP2" id="aSw-fa-g0K"/>
+            </connections>
+            <point key="canvasLocation" x="240.57971014492756" y="196.20535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="earth" width="320" height="316"/>
+        <namedColor name="TextColor">
+            <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TextSecondaryColor">
+            <color red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.050980392156862744" green="0.23529411764705882" blue="0.3411764705882353" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -8,6 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */; };
+		9B1F8C7528466CC400BCCEBE /* Planeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7428466CC400BCCEBE /* Planeta.swift */; };
+		9B1F8C7828466D9500BCCEBE /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */; };
+		9B1F8C7B28466DF700BCCEBE /* PlanetsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */; };
+		9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */; };
+		9B21F6902846D57F00D64B79 /* StarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B21F68F2846D57F00D64B79 /* StarViews.swift */; };
+		9B2236F62845639B005F47B7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2236F52845639B005F47B7 /* Colors.xcassets */; };
+		9B2236FC28456E65005F47B7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2236FB28456E65005F47B7 /* View.swift */; };
+		9B2236FE28456ECA005F47B7 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2236FD28456ECA005F47B7 /* UIColor+Utils.swift */; };
+		9B22370028456F26005F47B7 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2236FF28456F26005F47B7 /* UIImageView+Utils.swift */; };
+		9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22370228457A01005F47B7 /* UICollectionViewCell+Utils.swift */; };
+		9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22370428457A33005F47B7 /* PlanetCell.swift */; };
+		9B22370728457A33005F47B7 /* PlanetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370528457A33005F47B7 /* PlanetCell.xib */; };
+		9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370828457E97005F47B7 /* NotoSansJP-Light.otf */; };
+		9B22370F28457E97005F47B7 /* NotoSansJP-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370928457E97005F47B7 /* NotoSansJP-Medium.otf */; };
+		9B22371028457E97005F47B7 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370A28457E97005F47B7 /* NotoSansJP-Regular.otf */; };
+		9B22371128457E97005F47B7 /* NotoSansJP-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370B28457E97005F47B7 /* NotoSansJP-Thin.otf */; };
+		9B22371228457E97005F47B7 /* NotoSansJP-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370C28457E97005F47B7 /* NotoSansJP-Black.otf */; };
+		9B22371328457E97005F47B7 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B22370D28457E97005F47B7 /* NotoSansJP-Bold.otf */; };
+		9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B223714284588D9005F47B7 /* DashboardItemCell.swift */; };
+		9B223717284588D9005F47B7 /* DashboardItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B223715284588D9005F47B7 /* DashboardItemCell.xib */; };
 		9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22A76228453E65002762AF /* DashboardViewController.swift */; };
 		9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B22A76328453E65002762AF /* DashboardViewController.xib */; };
 		9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22A76628453E8E002762AF /* DashboardViewModel.swift */; };
@@ -56,6 +76,26 @@
 		2D78F0F175E868A96314CB68 /* Pods-InfoSpace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.debug.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.debug.xcconfig"; sourceTree = "<group>"; };
 		31E5FDD4CEBABEBE203666EE /* Pods-InfoSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.release.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.release.xcconfig"; sourceTree = "<group>"; };
 		9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		9B1F8C7428466CC400BCCEBE /* Planeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planeta.swift; sourceTree = "<group>"; };
+		9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsDataManager.swift; sourceTree = "<group>"; };
+		9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItem.swift; sourceTree = "<group>"; };
+		9B21F68F2846D57F00D64B79 /* StarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViews.swift; sourceTree = "<group>"; };
+		9B2236F52845639B005F47B7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9B2236FB28456E65005F47B7 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		9B2236FD28456ECA005F47B7 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		9B2236FF28456F26005F47B7 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		9B22370228457A01005F47B7 /* UICollectionViewCell+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Utils.swift"; sourceTree = "<group>"; };
+		9B22370428457A33005F47B7 /* PlanetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCell.swift; sourceTree = "<group>"; };
+		9B22370528457A33005F47B7 /* PlanetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetCell.xib; sourceTree = "<group>"; };
+		9B22370828457E97005F47B7 /* NotoSansJP-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.otf"; sourceTree = "<group>"; };
+		9B22370928457E97005F47B7 /* NotoSansJP-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Medium.otf"; sourceTree = "<group>"; };
+		9B22370A28457E97005F47B7 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
+		9B22370B28457E97005F47B7 /* NotoSansJP-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.otf"; sourceTree = "<group>"; };
+		9B22370C28457E97005F47B7 /* NotoSansJP-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.otf"; sourceTree = "<group>"; };
+		9B22370D28457E97005F47B7 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
+		9B223714284588D9005F47B7 /* DashboardItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItemCell.swift; sourceTree = "<group>"; };
+		9B223715284588D9005F47B7 /* DashboardItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardItemCell.xib; sourceTree = "<group>"; };
 		9B22A76228453E65002762AF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		9B22A76328453E65002762AF /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		9B22A76628453E8E002762AF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -133,11 +173,61 @@
 		9B053FB02842A1F800A8AA40 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B223701284579C6005F47B7 /* Cells */,
 				9B22A76228453E65002762AF /* DashboardViewController.swift */,
 				9B22A76328453E65002762AF /* DashboardViewController.xib */,
 				9B22A76628453E8E002762AF /* DashboardViewModel.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		9B1F8C7628466D7400BCCEBE /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */,
+				9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		9B21F68E2846D55700D64B79 /* StarViews */ = {
+			isa = PBXGroup;
+			children = (
+				9B21F68F2846D57F00D64B79 /* StarViews.swift */,
+			);
+			path = StarViews;
+			sourceTree = "<group>";
+		};
+		9B2236F728456A69005F47B7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9B22370C28457E97005F47B7 /* NotoSansJP-Black.otf */,
+				9B22370D28457E97005F47B7 /* NotoSansJP-Bold.otf */,
+				9B22370828457E97005F47B7 /* NotoSansJP-Light.otf */,
+				9B22370928457E97005F47B7 /* NotoSansJP-Medium.otf */,
+				9B22370A28457E97005F47B7 /* NotoSansJP-Regular.otf */,
+				9B22370B28457E97005F47B7 /* NotoSansJP-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9B2236FA28456E4B005F47B7 /* CustomUIItems */ = {
+			isa = PBXGroup;
+			children = (
+				9B2236FB28456E65005F47B7 /* View.swift */,
+			);
+			path = CustomUIItems;
+			sourceTree = "<group>";
+		};
+		9B223701284579C6005F47B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B22370428457A33005F47B7 /* PlanetCell.swift */,
+				9B22370528457A33005F47B7 /* PlanetCell.xib */,
+				9B223714284588D9005F47B7 /* DashboardItemCell.swift */,
+				9B223715284588D9005F47B7 /* DashboardItemCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		9B270E322840018900F4FFED /* Network */ = {
@@ -225,6 +315,8 @@
 		9BB44414283D5FAA0043EF4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B1F8C7428466CC400BCCEBE /* Planeta.swift */,
+				9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +324,7 @@
 		9BB44415283D5FB10043EF4E /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				9B1F8C7628466D7400BCCEBE /* Firebase */,
 				9B270E322840018900F4FFED /* Network */,
 			);
 			path = Provider;
@@ -240,6 +333,7 @@
 		9BB44416283D5FBB0043EF4E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				9B2236FA28456E4B005F47B7 /* CustomUIItems */,
 				9BB4441C283D62190043EF4E /* Extensions */,
 				9B270E302840013000F4FFED /* Constants.swift */,
 			);
@@ -249,8 +343,10 @@
 		9BB44417283D5FC30043EF4E /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9B2236F728456A69005F47B7 /* Fonts */,
 				9B931161283E7F8C0052EF1B /* AnimationFiles */,
 				9BB443EC283D55850043EF4E /* Assets.xcassets */,
+				9B2236F52845639B005F47B7 /* Colors.xcassets */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -261,6 +357,9 @@
 				9BB4441D283D62410043EF4E /* UIApplication+Utils.swift */,
 				9BB4441F283D64AA0043EF4E /* UIViewController+Utils.swift */,
 				9B93115F283E79E20052EF1B /* UIView+Utils.swift */,
+				9B2236FD28456ECA005F47B7 /* UIColor+Utils.swift */,
+				9B2236FF28456F26005F47B7 /* UIImageView+Utils.swift */,
+				9B22370228457A01005F47B7 /* UICollectionViewCell+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +367,7 @@
 		9BB44422283D65660043EF4E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9B21F68E2846D55700D64B79 /* StarViews */,
 				9BB44423283D65740043EF4E /* HudView */,
 			);
 			path = Common;
@@ -407,11 +507,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B931164283E814B0052EF1B /* splashScreen.json in Resources */,
+				9B22370728457A33005F47B7 /* PlanetCell.xib in Resources */,
 				9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */,
 				9BB44427283D65C70043EF4E /* HudView.xib in Resources */,
+				9B22371028457E97005F47B7 /* NotoSansJP-Regular.otf in Resources */,
+				9B22371128457E97005F47B7 /* NotoSansJP-Thin.otf in Resources */,
+				9B22371228457E97005F47B7 /* NotoSansJP-Black.otf in Resources */,
+				9B22371328457E97005F47B7 /* NotoSansJP-Bold.otf in Resources */,
 				9B931165283E814B0052EF1B /* loading.json in Resources */,
 				9BB443F0283D55850043EF4E /* LaunchScreen.storyboard in Resources */,
+				9B2236F62845639B005F47B7 /* Colors.xcassets in Resources */,
 				9BB443ED283D55850043EF4E /* Assets.xcassets in Resources */,
+				9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */,
+				9B223717284588D9005F47B7 /* DashboardItemCell.xib in Resources */,
+				9B22370F28457E97005F47B7 /* NotoSansJP-Medium.otf in Resources */,
 				9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,20 +588,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1F8C7B28466DF700BCCEBE /* PlanetsDataManager.swift in Sources */,
+				9B21F6902846D57F00D64B79 /* StarViews.swift in Sources */,
 				9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */,
 				9B270E38284001B700F4FFED /* WebService.swift in Sources */,
+				9B2236FC28456E65005F47B7 /* View.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
+				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
+				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,
+				9B2236FE28456ECA005F47B7 /* UIColor+Utils.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
+				9B22370028456F26005F47B7 /* UIImageView+Utils.swift in Sources */,
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
+				9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */,
+				9B1F8C7828466D9500BCCEBE /* FirebaseDataManager.swift in Sources */,
+				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
 				9B270E36284001AB00F4FFED /* Reachability.swift in Sources */,
 				9B270E312840013000F4FFED /* Constants.swift in Sources */,
 				9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */,
+				9B1F8C7528466CC400BCCEBE /* Planeta.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

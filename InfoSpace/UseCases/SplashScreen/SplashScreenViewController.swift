@@ -20,14 +20,20 @@ class SplashScreenViewController: UIViewController {
         viewAnimation.loopMode = .loop
         viewAnimation.contentMode  = .scaleAspectFill
         viewAnimation.play()
+        getPlanets()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
-            let dashboardVC = DashboardViewController.initAndLoad()
-            CustomNavigationController.instance.navigate(to: dashboardVC, animated: true)
-        }
+    private func getPlanets() {
+        viewModel.getPlanets(completion: { result in
+            switch result {
+            case .failure(let error):
+                print("Error: \(error)")
+            case .success(let planets):
+                DispatchQueue.main.async {
+                    let dashboardVC = DashboardViewController.initAndLoad(planets: planets)
+                    CustomNavigationController.instance.navigate(to: dashboardVC, animated: true)
+                }
+            }
+        })
     }
 }
