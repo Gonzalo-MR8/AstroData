@@ -29,23 +29,30 @@ extension UIView {
         return view
     }
     
+    private func generateAleatoriePositionInView() -> (CGFloat, CGFloat) {
+        var xPosition = CGFloat.random(in: 0...self.frame.width / 2)
+        var yPosition = CGFloat.random(in: 0...self.frame.height / 2)
+        
+        let xNegate = Int.random(in: 0...1)
+        let yNegate = Int.random(in: 0...1)
+        
+        if xNegate == 0 {
+            xPosition.negate()
+        }
+        
+        if yNegate == 0 {
+            yPosition.negate()
+        }
+        
+        return (xPosition, yPosition)
+    }
+    
     func createStars(numberOfStarsRange: ClosedRange<Int>) {
         let numberOfStars = Int.random(in: numberOfStarsRange)
         
         for star in 0...numberOfStars {
-            var xPosition = CGFloat.random(in: 0...self.frame.width / 2)
-            var yPosition = CGFloat.random(in: 0...self.frame.height / 2)
             
-            let xNegate = Int.random(in: 0...1)
-            let yNegate = Int.random(in: 0...1)
-            
-            if xNegate == 0 {
-                xPosition.negate()
-            }
-            
-            if yNegate == 0 {
-                yPosition.negate()
-            }
+            let (xPosition, yPosition) = self.generateAleatoriePositionInView()
             
             if star <= numberOfStars / 20 {
                 let starView = BigStarView()
@@ -55,8 +62,16 @@ extension UIView {
                 starView.translatesAutoresizingMaskIntoConstraints = false
                 starView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: xPosition).isActive = true
                 starView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: yPosition).isActive = true
-            } else if star <= numberOfStars / 10  {
+            } else if star <= numberOfStars / 10 {
                 let starView = NormalStarView()
+                starView.setup()
+                self.insertSubview(starView, at: 0)
+                
+                starView.translatesAutoresizingMaskIntoConstraints = false
+                starView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: xPosition).isActive = true
+                starView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: yPosition).isActive = true
+            } else if star <= numberOfStars / 6 {
+                let starView = NormalWhiteStarView()
                 starView.setup()
                 self.insertSubview(starView, at: 0)
                 

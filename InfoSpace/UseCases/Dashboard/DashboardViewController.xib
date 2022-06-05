@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="NotoSansJP-Bold.otf">
-            <string>NotoSansJP-Bold</string>
+        <array key="spacerangeracad.ttf">
+            <string>SpaceRangerAcademy</string>
         </array>
     </customFonts>
     <objects>
@@ -19,6 +19,9 @@
                 <outlet property="collectionViewDashboard" destination="IPh-bq-Q99" id="iCY-FL-liy"/>
                 <outlet property="collectionViewPlanets" destination="1tu-aG-Y9z" id="B6V-52-Xr2"/>
                 <outlet property="containerView" destination="v0e-s1-9lM" id="3XH-DV-PeF"/>
+                <outlet property="imageViewComet" destination="LIc-t5-AJz" id="J8f-TS-Ol8"/>
+                <outlet property="imageViewMoon" destination="6Mr-jo-MXh" id="9L6-Bj-WiG"/>
+                <outlet property="imageViewSatelite" destination="aGN-yg-tgU" id="HAq-oG-j7j"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,12 +36,33 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-s1-9lM" customClass="View" customModule="InfoSpace" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon" translatesAutoresizingMaskIntoConstraints="NO" id="6Mr-jo-MXh">
+                                    <rect key="frame" x="332" y="257" width="150" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="150" id="ezQ-QK-ojw"/>
+                                        <constraint firstAttribute="width" constant="150" id="ruL-LN-yV9"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="satelite" translatesAutoresizingMaskIntoConstraints="NO" id="aGN-yg-tgU">
+                                    <rect key="frame" x="22" y="50" width="90" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="58" id="8hg-Pk-2xs"/>
+                                        <constraint firstAttribute="width" constant="90" id="wNj-pN-vwp"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="LIc-t5-AJz">
+                                    <rect key="frame" x="10" y="512" width="66" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="66" id="Ygy-J3-Gyg"/>
+                                        <constraint firstAttribute="height" constant="44" id="cQe-uN-eVk"/>
+                                    </constraints>
+                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Space Travaler" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xY-9G-V0Y">
-                                    <rect key="frame" x="62" y="60" width="290" height="105"/>
+                                    <rect key="frame" x="0.0" y="70" width="414" height="105"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="105" id="6Gh-eK-wtq"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="36"/>
+                                    <fontDescription key="fontDescription" name="SpaceRangerAcademy" family="Space Ranger Academy" pointSize="38"/>
                                     <color key="textColor" name="White"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -79,27 +103,32 @@
                             </subviews>
                             <color key="backgroundColor" name="White"/>
                             <constraints>
-                                <constraint firstItem="IPh-bq-Q99" firstAttribute="top" secondItem="8xY-9G-V0Y" secondAttribute="bottom" constant="10" id="8V4-Ny-tDr"/>
+                                <constraint firstItem="IPh-bq-Q99" firstAttribute="top" secondItem="8xY-9G-V0Y" secondAttribute="bottom" id="8V4-Ny-tDr"/>
+                                <constraint firstItem="aGN-yg-tgU" firstAttribute="top" secondItem="v0e-s1-9lM" secondAttribute="top" constant="50" id="9Bm-Kx-wxB"/>
                                 <constraint firstItem="1tu-aG-Y9z" firstAttribute="top" secondItem="IPh-bq-Q99" secondAttribute="bottom" constant="25" id="FZy-Y2-XAC"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1tu-aG-Y9z" secondAttribute="bottom" constant="20" id="Lvd-0Z-Fb5"/>
-                                <constraint firstItem="8xY-9G-V0Y" firstAttribute="top" secondItem="v0e-s1-9lM" secondAttribute="top" constant="60" id="RcN-oI-Nfn"/>
+                                <constraint firstItem="LIc-t5-AJz" firstAttribute="top" secondItem="IPh-bq-Q99" secondAttribute="bottom" constant="6" id="OCL-AZ-vKt"/>
+                                <constraint firstItem="8xY-9G-V0Y" firstAttribute="top" secondItem="v0e-s1-9lM" secondAttribute="top" constant="70" id="RcN-oI-Nfn"/>
                                 <constraint firstItem="8xY-9G-V0Y" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" id="TPP-PD-78l"/>
+                                <constraint firstItem="aGN-yg-tgU" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" constant="22" id="UN4-pZ-Ky3"/>
                                 <constraint firstItem="1tu-aG-Y9z" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" id="aBz-5T-W9g"/>
                                 <constraint firstItem="IPh-bq-Q99" firstAttribute="width" secondItem="v0e-s1-9lM" secondAttribute="width" multiplier="0.8" id="dMV-2b-qMl"/>
                                 <constraint firstItem="IPh-bq-Q99" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" id="fPc-fA-f02"/>
+                                <constraint firstItem="LIc-t5-AJz" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" constant="10" id="gXy-UX-vUH"/>
+                                <constraint firstItem="6Mr-jo-MXh" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" constant="200" id="j1J-7f-lbn"/>
                                 <constraint firstItem="1tu-aG-Y9z" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" id="k9T-jt-Vqj"/>
-                                <constraint firstItem="8xY-9G-V0Y" firstAttribute="width" secondItem="v0e-s1-9lM" secondAttribute="width" multiplier="0.7" id="nmO-b4-RcT"/>
+                                <constraint firstItem="6Mr-jo-MXh" firstAttribute="top" secondItem="8xY-9G-V0Y" secondAttribute="bottom" constant="82" id="oPA-Cv-65m"/>
                                 <constraint firstAttribute="trailing" secondItem="1tu-aG-Y9z" secondAttribute="trailing" id="qPv-Dg-CG6"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
-                                    <color key="value" name="TertiaryColor"/>
+                                    <color key="value" name="primaryColor"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="gradientMidColor">
                                     <color key="value" name="SecondaryColor"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                    <color key="value" name="PrimaryColor"/>
+                                    <color key="value" name="TertiaryColor"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
@@ -117,6 +146,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="kgc-KZ-3Kw" secondAttribute="bottom" id="7Y7-In-jrG"/>
+                <constraint firstItem="8xY-9G-V0Y" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="fug-8v-fzC"/>
                 <constraint firstItem="kgc-KZ-3Kw" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="iqw-ZN-9Qe"/>
                 <constraint firstItem="v0e-s1-9lM" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="500" id="mtz-lt-pvk"/>
                 <constraint firstItem="kgc-KZ-3Kw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nCa-Zt-gLA"/>
@@ -126,9 +156,9 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="PrimaryColor">
-            <color red="0.050980392156862744" green="0.43529411764705883" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="comet" width="891" height="595"/>
+        <image name="moon" width="851.5" height="852"/>
+        <image name="satelite" width="828" height="530"/>
         <namedColor name="SecondaryColor">
             <color red="0.14901960784313725" green="0.0" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -137,6 +167,9 @@
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.050980392156862744" green="0.43529411764705883" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

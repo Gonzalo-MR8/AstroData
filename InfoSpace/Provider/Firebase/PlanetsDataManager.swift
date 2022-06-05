@@ -9,7 +9,7 @@ import Foundation
 
 class PlanetsDataManager: FirebaseDataManager {
     
-    private let kPlanetsPath = "Planetas.json"
+    private let kPlanetsPath = "planetas.json"
     static var shared = PlanetsDataManager()
     
     func getPlanets(completion: @escaping (Result<Planets, WebServiceError>) -> ()) {

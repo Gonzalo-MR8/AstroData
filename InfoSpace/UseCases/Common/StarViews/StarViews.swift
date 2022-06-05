@@ -12,7 +12,19 @@ class SmallStarView: View {
     
     func setup() {
         self.roundedBorders = true
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = Colors.white.value
+        
+        self.widthAnchor.constraint(equalToConstant: kSize).isActive = true
+        self.heightAnchor.constraint(equalToConstant: kSize).isActive = true
+    }
+}
+
+class NormalWhiteStarView: View {
+    private let kSize: CGFloat = 5
+    
+    func setup() {
+        self.roundedBorders = true
+        self.backgroundColor = Colors.white.value
         
         self.widthAnchor.constraint(equalToConstant: kSize).isActive = true
         self.heightAnchor.constraint(equalToConstant: kSize).isActive = true
@@ -24,7 +36,7 @@ class NormalStarView: View {
     
     func setup() {
         self.roundedBorders = true
-        self.backgroundColor = UIColor.blue
+        self.backgroundColor = Colors.blueStar.value
         
         self.widthAnchor.constraint(equalToConstant: kSize).isActive = true
         self.heightAnchor.constraint(equalToConstant: kSize).isActive = true
@@ -32,11 +44,11 @@ class NormalStarView: View {
 }
 
 class BigStarView: View {
-    private let kSize: CGFloat = 10
+    private let kSize: CGFloat = 8
     
     func setup() {
         self.roundedBorders = true
-        self.backgroundColor = UIColor.brown
+        self.backgroundColor = Colors.brownStar.value
         
         self.widthAnchor.constraint(equalToConstant: kSize).isActive = true
         self.heightAnchor.constraint(equalToConstant: kSize).isActive = true

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B027440284A817C00C2303A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B02743F284A817C00C2303A /* Colors.swift */; };
 		9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */; };
 		9B1F8C7528466CC400BCCEBE /* Planeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7428466CC400BCCEBE /* Planeta.swift */; };
 		9B1F8C7828466D9500BCCEBE /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */; };
@@ -35,6 +36,28 @@
 		9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E33284001A000F4FFED /* NetworkManager.swift */; };
 		9B270E36284001AB00F4FFED /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E35284001AB00F4FFED /* Reachability.swift */; };
 		9B270E38284001B700F4FFED /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E37284001B700F4FFED /* WebService.swift */; };
+		9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28E317284CE06700F79F7B /* PlanetDetailViewController.swift */; };
+		9B28E31A284CE06700F79F7B /* PlanetDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E318284CE06700F79F7B /* PlanetDetailViewController.xib */; };
+		9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28E31B284CE0A800F79F7B /* PlanetDetailViewModel.swift */; };
+		9B28E33C284D120B00F79F7B /* spacerangeracadital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E321284D120A00F79F7B /* spacerangeracadital.ttf */; };
+		9B28E33D284D120B00F79F7B /* spacerangerbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E322284D120A00F79F7B /* spacerangerbold.ttf */; };
+		9B28E33E284D120B00F79F7B /* spacerangersemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E323284D120A00F79F7B /* spacerangersemital.ttf */; };
+		9B28E340284D120B00F79F7B /* spaceranger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E325284D120A00F79F7B /* spaceranger.ttf */; };
+		9B28E341284D120B00F79F7B /* spacerangerhalfital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E326284D120A00F79F7B /* spacerangerhalfital.ttf */; };
+		9B28E342284D120B00F79F7B /* spacerangerout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E327284D120A00F79F7B /* spacerangerout.ttf */; };
+		9B28E345284D120B00F79F7B /* spacerangerlaser.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E32A284D120A00F79F7B /* spacerangerlaser.ttf */; };
+		9B28E346284D120B00F79F7B /* spacerangerexpandital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E32B284D120A00F79F7B /* spacerangerexpandital.ttf */; };
+		9B28E347284D120B00F79F7B /* spacerangerexpand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E32C284D120B00F79F7B /* spacerangerexpand.ttf */; };
+		9B28E349284D120B00F79F7B /* spacerangerital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E32E284D120B00F79F7B /* spacerangerital.ttf */; };
+		9B28E34B284D120B00F79F7B /* spacerangerboldital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E330284D120B00F79F7B /* spacerangerboldital.ttf */; };
+		9B28E34C284D120B00F79F7B /* spaceranger3d.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E331284D120B00F79F7B /* spaceranger3d.ttf */; };
+		9B28E34E284D120B00F79F7B /* spaceranger3dital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E333284D120B00F79F7B /* spaceranger3dital.ttf */; };
+		9B28E34F284D120B00F79F7B /* spacerangerchromeital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E334284D120B00F79F7B /* spacerangerchromeital.ttf */; };
+		9B28E350284D120B00F79F7B /* spacerangerhalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E335284D120B00F79F7B /* spacerangerhalf.ttf */; };
+		9B28E351284D120B00F79F7B /* spacerangercondital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E336284D120B00F79F7B /* spacerangercondital.ttf */; };
+		9B28E353284D120B00F79F7B /* spacerangercond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E338284D120B00F79F7B /* spacerangercond.ttf */; };
+		9B28E355284D120B00F79F7B /* spacerangeracad.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E33A284D120B00F79F7B /* spacerangeracad.ttf */; };
+		9B28E356284D120B00F79F7B /* spacerangerchrome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B28E33B284D120B00F79F7B /* spacerangerchrome.ttf */; };
 		9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2AC06D2843B1F1005D022E /* SplashScreenViewModel.swift */; };
 		9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93115F283E79E20052EF1B /* UIView+Utils.swift */; };
 		9B931164283E814B0052EF1B /* splashScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931162283E814B0052EF1B /* splashScreen.json */; };
@@ -75,6 +98,7 @@
 		263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfoSpace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D78F0F175E868A96314CB68 /* Pods-InfoSpace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.debug.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.debug.xcconfig"; sourceTree = "<group>"; };
 		31E5FDD4CEBABEBE203666EE /* Pods-InfoSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.release.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.release.xcconfig"; sourceTree = "<group>"; };
+		9B02743F284A817C00C2303A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9B1F8C7428466CC400BCCEBE /* Planeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planeta.swift; sourceTree = "<group>"; };
 		9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
@@ -103,6 +127,28 @@
 		9B270E33284001A000F4FFED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9B270E35284001AB00F4FFED /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9B270E37284001B700F4FFED /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		9B28E317284CE06700F79F7B /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
+		9B28E318284CE06700F79F7B /* PlanetDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetDetailViewController.xib; sourceTree = "<group>"; };
+		9B28E31B284CE0A800F79F7B /* PlanetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewModel.swift; sourceTree = "<group>"; };
+		9B28E321284D120A00F79F7B /* spacerangeracadital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangeracadital.ttf; sourceTree = "<group>"; };
+		9B28E322284D120A00F79F7B /* spacerangerbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerbold.ttf; sourceTree = "<group>"; };
+		9B28E323284D120A00F79F7B /* spacerangersemital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangersemital.ttf; sourceTree = "<group>"; };
+		9B28E325284D120A00F79F7B /* spaceranger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spaceranger.ttf; sourceTree = "<group>"; };
+		9B28E326284D120A00F79F7B /* spacerangerhalfital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerhalfital.ttf; sourceTree = "<group>"; };
+		9B28E327284D120A00F79F7B /* spacerangerout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerout.ttf; sourceTree = "<group>"; };
+		9B28E32A284D120A00F79F7B /* spacerangerlaser.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerlaser.ttf; sourceTree = "<group>"; };
+		9B28E32B284D120A00F79F7B /* spacerangerexpandital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerexpandital.ttf; sourceTree = "<group>"; };
+		9B28E32C284D120B00F79F7B /* spacerangerexpand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerexpand.ttf; sourceTree = "<group>"; };
+		9B28E32E284D120B00F79F7B /* spacerangerital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerital.ttf; sourceTree = "<group>"; };
+		9B28E330284D120B00F79F7B /* spacerangerboldital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerboldital.ttf; sourceTree = "<group>"; };
+		9B28E331284D120B00F79F7B /* spaceranger3d.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spaceranger3d.ttf; sourceTree = "<group>"; };
+		9B28E333284D120B00F79F7B /* spaceranger3dital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spaceranger3dital.ttf; sourceTree = "<group>"; };
+		9B28E334284D120B00F79F7B /* spacerangerchromeital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerchromeital.ttf; sourceTree = "<group>"; };
+		9B28E335284D120B00F79F7B /* spacerangerhalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerhalf.ttf; sourceTree = "<group>"; };
+		9B28E336284D120B00F79F7B /* spacerangercondital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangercondital.ttf; sourceTree = "<group>"; };
+		9B28E338284D120B00F79F7B /* spacerangercond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangercond.ttf; sourceTree = "<group>"; };
+		9B28E33A284D120B00F79F7B /* spacerangeracad.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangeracad.ttf; sourceTree = "<group>"; };
+		9B28E33B284D120B00F79F7B /* spacerangerchrome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacerangerchrome.ttf; sourceTree = "<group>"; };
 		9B2AC06D2843B1F1005D022E /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		9B93115F283E79E20052EF1B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9B931162283E814B0052EF1B /* splashScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashScreen.json; sourceTree = "<group>"; };
@@ -201,12 +247,8 @@
 		9B2236F728456A69005F47B7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9B22370C28457E97005F47B7 /* NotoSansJP-Black.otf */,
-				9B22370D28457E97005F47B7 /* NotoSansJP-Bold.otf */,
-				9B22370828457E97005F47B7 /* NotoSansJP-Light.otf */,
-				9B22370928457E97005F47B7 /* NotoSansJP-Medium.otf */,
-				9B22370A28457E97005F47B7 /* NotoSansJP-Regular.otf */,
-				9B22370B28457E97005F47B7 /* NotoSansJP-Thin.otf */,
+				9B28E31E284D11AF00F79F7B /* SpaceRanger */,
+				9B28E31D284D117D00F79F7B /* NotoSansJP */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -238,6 +280,55 @@
 				9B270E37284001B700F4FFED /* WebService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9B28E316284CE04400F79F7B /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				9B28E317284CE06700F79F7B /* PlanetDetailViewController.swift */,
+				9B28E318284CE06700F79F7B /* PlanetDetailViewController.xib */,
+				9B28E31B284CE0A800F79F7B /* PlanetDetailViewModel.swift */,
+			);
+			path = Planet;
+			sourceTree = "<group>";
+		};
+		9B28E31D284D117D00F79F7B /* NotoSansJP */ = {
+			isa = PBXGroup;
+			children = (
+				9B22370C28457E97005F47B7 /* NotoSansJP-Black.otf */,
+				9B22370D28457E97005F47B7 /* NotoSansJP-Bold.otf */,
+				9B22370828457E97005F47B7 /* NotoSansJP-Light.otf */,
+				9B22370928457E97005F47B7 /* NotoSansJP-Medium.otf */,
+				9B22370A28457E97005F47B7 /* NotoSansJP-Regular.otf */,
+				9B22370B28457E97005F47B7 /* NotoSansJP-Thin.otf */,
+			);
+			path = NotoSansJP;
+			sourceTree = "<group>";
+		};
+		9B28E31E284D11AF00F79F7B /* SpaceRanger */ = {
+			isa = PBXGroup;
+			children = (
+				9B28E325284D120A00F79F7B /* spaceranger.ttf */,
+				9B28E331284D120B00F79F7B /* spaceranger3d.ttf */,
+				9B28E333284D120B00F79F7B /* spaceranger3dital.ttf */,
+				9B28E33A284D120B00F79F7B /* spacerangeracad.ttf */,
+				9B28E321284D120A00F79F7B /* spacerangeracadital.ttf */,
+				9B28E322284D120A00F79F7B /* spacerangerbold.ttf */,
+				9B28E330284D120B00F79F7B /* spacerangerboldital.ttf */,
+				9B28E33B284D120B00F79F7B /* spacerangerchrome.ttf */,
+				9B28E334284D120B00F79F7B /* spacerangerchromeital.ttf */,
+				9B28E338284D120B00F79F7B /* spacerangercond.ttf */,
+				9B28E336284D120B00F79F7B /* spacerangercondital.ttf */,
+				9B28E32C284D120B00F79F7B /* spacerangerexpand.ttf */,
+				9B28E32B284D120A00F79F7B /* spacerangerexpandital.ttf */,
+				9B28E335284D120B00F79F7B /* spacerangerhalf.ttf */,
+				9B28E326284D120A00F79F7B /* spacerangerhalfital.ttf */,
+				9B28E32E284D120B00F79F7B /* spacerangerital.ttf */,
+				9B28E32A284D120A00F79F7B /* spacerangerlaser.ttf */,
+				9B28E327284D120A00F79F7B /* spacerangerout.ttf */,
+				9B28E323284D120A00F79F7B /* spacerangersemital.ttf */,
+			);
+			path = SpaceRanger;
 			sourceTree = "<group>";
 		};
 		9B931161283E7F8C0052EF1B /* AnimationFiles */ = {
@@ -305,6 +396,7 @@
 		9BB44413283D5F6F0043EF4E /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				9B28E316284CE04400F79F7B /* Planet */,
 				9BB44422283D65660043EF4E /* Common */,
 				9BCC498A283E82D000EF9869 /* SplashScreen */,
 				9B053FB02842A1F800A8AA40 /* Dashboard */,
@@ -336,6 +428,7 @@
 				9B2236FA28456E4B005F47B7 /* CustomUIItems */,
 				9BB4441C283D62190043EF4E /* Extensions */,
 				9B270E302840013000F4FFED /* Constants.swift */,
+				9B02743F284A817C00C2303A /* Colors.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -506,21 +599,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B28E33E284D120B00F79F7B /* spacerangersemital.ttf in Resources */,
+				9B28E34C284D120B00F79F7B /* spaceranger3d.ttf in Resources */,
 				9B931164283E814B0052EF1B /* splashScreen.json in Resources */,
 				9B22370728457A33005F47B7 /* PlanetCell.xib in Resources */,
 				9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */,
+				9B28E355284D120B00F79F7B /* spacerangeracad.ttf in Resources */,
 				9BB44427283D65C70043EF4E /* HudView.xib in Resources */,
 				9B22371028457E97005F47B7 /* NotoSansJP-Regular.otf in Resources */,
 				9B22371128457E97005F47B7 /* NotoSansJP-Thin.otf in Resources */,
 				9B22371228457E97005F47B7 /* NotoSansJP-Black.otf in Resources */,
 				9B22371328457E97005F47B7 /* NotoSansJP-Bold.otf in Resources */,
 				9B931165283E814B0052EF1B /* loading.json in Resources */,
+				9B28E33C284D120B00F79F7B /* spacerangeracadital.ttf in Resources */,
 				9BB443F0283D55850043EF4E /* LaunchScreen.storyboard in Resources */,
+				9B28E356284D120B00F79F7B /* spacerangerchrome.ttf in Resources */,
+				9B28E34B284D120B00F79F7B /* spacerangerboldital.ttf in Resources */,
+				9B28E341284D120B00F79F7B /* spacerangerhalfital.ttf in Resources */,
+				9B28E346284D120B00F79F7B /* spacerangerexpandital.ttf in Resources */,
 				9B2236F62845639B005F47B7 /* Colors.xcassets in Resources */,
 				9BB443ED283D55850043EF4E /* Assets.xcassets in Resources */,
+				9B28E351284D120B00F79F7B /* spacerangercondital.ttf in Resources */,
+				9B28E349284D120B00F79F7B /* spacerangerital.ttf in Resources */,
 				9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */,
+				9B28E353284D120B00F79F7B /* spacerangercond.ttf in Resources */,
+				9B28E33D284D120B00F79F7B /* spacerangerbold.ttf in Resources */,
+				9B28E34E284D120B00F79F7B /* spaceranger3dital.ttf in Resources */,
+				9B28E345284D120B00F79F7B /* spacerangerlaser.ttf in Resources */,
+				9B28E342284D120B00F79F7B /* spacerangerout.ttf in Resources */,
+				9B28E34F284D120B00F79F7B /* spacerangerchromeital.ttf in Resources */,
+				9B28E31A284CE06700F79F7B /* PlanetDetailViewController.xib in Resources */,
 				9B223717284588D9005F47B7 /* DashboardItemCell.xib in Resources */,
+				9B28E347284D120B00F79F7B /* spacerangerexpand.ttf in Resources */,
 				9B22370F28457E97005F47B7 /* NotoSansJP-Medium.otf in Resources */,
+				9B28E350284D120B00F79F7B /* spacerangerhalf.ttf in Resources */,
+				9B28E340284D120B00F79F7B /* spaceranger.ttf in Resources */,
 				9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,8 +720,11 @@
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
 				9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */,
+				9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */,
 				9B1F8C7828466D9500BCCEBE /* FirebaseDataManager.swift in Sources */,
+				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
 				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
+				9B027440284A817C00C2303A /* Colors.swift in Sources */,
 				9B270E36284001AB00F4FFED /* Reachability.swift in Sources */,
 				9B270E312840013000F4FFED /* Constants.swift in Sources */,
 				9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */,

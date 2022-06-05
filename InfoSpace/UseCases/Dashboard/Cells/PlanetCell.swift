@@ -9,6 +9,9 @@ import UIKit
 
 class PlanetCell: UICollectionViewCell {
 
+    private let kScaleMultiplier: CGFloat = 1.1
+    private let kAnimationDuration: TimeInterval = 0.2
+    
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var labelSatelites: UILabel!
@@ -27,13 +30,13 @@ class PlanetCell: UICollectionViewCell {
     }
     
     func transformToLarge() {
-        UIView.animate(withDuration: 0.2) {
-            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        UIView.animate(withDuration: kAnimationDuration) { [self] in
+            self.transform = CGAffineTransform(scaleX: kScaleMultiplier, y: kScaleMultiplier)
         }
     }
     
     func transformToStandard() {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: kAnimationDuration) {
             self.transform = CGAffineTransform.identity
         }
     }
