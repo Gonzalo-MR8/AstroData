@@ -13,7 +13,12 @@ struct Planet: Codable {
     let headerImageUrl: String
     let satellites: Int?
     let title: String
-    let galleryImagesUrl: [String]?
+    let galleryImagesUrl: [PlanetImage]
+}
+
+struct PlanetImage: Codable {
+    let title: String
+    let imageUrl: String
 }
 
 typealias Planets = [Planet]

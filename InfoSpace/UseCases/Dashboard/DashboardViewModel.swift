@@ -10,7 +10,7 @@ import Foundation
 final class DashboardViewModel {
     
     private var planets: Planets = []
-    private let dashboardItems: DashboardItems = [DashboardItem(title: "Mars rover images", assetImageName: "marsRover"), DashboardItem(title: "Astronomic picture of the day", assetImageName: "camera"), DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid"), DashboardItem(title: "Space library", assetImageName: "library")]
+    private let dashboardItems: DashboardItems = [DashboardItem(title: "Mars rover images", assetImageName: "marsRover"), DashboardItem(title: "Astronomy picture of the day", assetImageName: "camera"), DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid"), DashboardItem(title: "Space library", assetImageName: "library")]
     
     // MARK: - Planets methods
     
