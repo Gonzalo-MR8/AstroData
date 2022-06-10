@@ -22,7 +22,7 @@ class ImageGalleryCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     }
 
     func configure(imageUrl: String) {
-        imageView.downloadImage(from: imageUrl)
+        imageView.setImage(with: imageUrl)
     }
     
     private func setupGestureRecognizers() {

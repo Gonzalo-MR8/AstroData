@@ -37,5 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Notifications
         NotificationCenter.default.post(name: .AppDidEnterBackground, object: nil)
     }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .portrait
+    }
 }
 

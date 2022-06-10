@@ -63,7 +63,7 @@
                                     <color key="textColor" name="black"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMy-N3-Qiw">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMy-N3-Qiw">
                                     <rect key="frame" x="20.5" y="502.5" width="373" height="23.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="16"/>
                                     <color key="textColor" name="textColor"/>

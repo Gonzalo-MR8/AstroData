@@ -8,26 +8,12 @@
 import UIKit
 
 extension UIImageView {
-    private func getImageData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    func downloadImage(from urlString: String?, placeholder: UIImage? = UIImage(named: "moon")) {
-        self.image = placeholder
+    func setImage(with imageUrlString: String?, placeholderImage: UIImage? = UIImage(named: "placeholderIcon"), completion: ((UIImage?) -> Void)? = nil) {
+        self.image = placeholderImage
         
-        guard let image = urlString, image.count > 0, let url = URL(string: image) else {
-            return
-        }
-        
-        getImageData(from: url) { data, response, error in
-            guard let data = data, error == nil else {
-                self.image = placeholder
-                return
-            }
-
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = UIImage(data: data)
-            }
+        ImageDownloader.shared.downloadImage(with: imageUrlString, placeholderImage: placeholderImage) { image in
+            self.image = image
+            completion?(image)
         }
     }
     

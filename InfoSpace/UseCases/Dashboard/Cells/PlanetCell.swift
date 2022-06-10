@@ -26,7 +26,7 @@ class PlanetCell: UICollectionViewCell {
         labelTitle.text = planet.title
         labelDescription.text = planet.description
         labelSatelites.text = String(planet.satellites ?? 0)
-        imageViewPlanet.downloadImage(from: planet.headerImageUrl)
+        imageViewPlanet.setImage(with: planet.headerImageUrl)
     }
     
     func transformToLarge() {

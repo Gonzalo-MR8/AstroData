@@ -70,6 +70,7 @@
 		9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93115F283E79E20052EF1B /* UIView+Utils.swift */; };
 		9B931164283E814B0052EF1B /* splashScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931162283E814B0052EF1B /* splashScreen.json */; };
 		9B931165283E814B0052EF1B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931163283E814B0052EF1B /* loading.json */; };
+		9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98B61F2852DA7D00975043 /* ImageDownloader.swift */; };
 		9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB443E3283D55840043EF4E /* AppDelegate.swift */; };
 		9BB443ED283D55850043EF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB443EC283D55850043EF4E /* Assets.xcassets */; };
 		9BB443F0283D55850043EF4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB443EE283D55850043EF4E /* LaunchScreen.storyboard */; };
@@ -169,6 +170,7 @@
 		9B93115F283E79E20052EF1B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9B931162283E814B0052EF1B /* splashScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashScreen.json; sourceTree = "<group>"; };
 		9B931163283E814B0052EF1B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		9B98B61F2852DA7D00975043 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		9BB443E0283D55840043EF4E /* InfoSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfoSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB443E3283D55840043EF4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BB443EC283D55850043EF4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				9BB4441C283D62190043EF4E /* Extensions */,
 				9B270E302840013000F4FFED /* Constants.swift */,
 				9B02743F284A817C00C2303A /* Colors.swift */,
+				9B98B61F2852DA7D00975043 /* ImageDownloader.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				9B82C9E528521A85003EAF59 /* ImagesGalleryViewModel.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
+				9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */,
 				9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */,
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,

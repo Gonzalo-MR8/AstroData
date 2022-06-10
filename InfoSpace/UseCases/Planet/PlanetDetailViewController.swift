@@ -51,7 +51,7 @@ class PlanetDetailViewController: UIViewController {
     
     private func configure() {
         let planet = viewModel.getPlanet()
-        imageViewHeader.downloadImage(from: planet.headerImageUrl)
+        imageViewHeader.setImage(with: planet.headerImageUrl)
         labelTitle.text = planet.title
         labelDescription.text = planet.description
         labelSatelites.text = String(planet.satellites ?? 0)

@@ -17,6 +17,6 @@ class PlanetImageCell: UICollectionViewCell {
     }
 
     public func configure(stringUrl: String) {
-        imageView.downloadImage(from: stringUrl)
+        imageView.setImage(with: stringUrl)
     }
 }
