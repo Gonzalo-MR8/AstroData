@@ -10,7 +10,7 @@
 		9B027440284A817C00C2303A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B02743F284A817C00C2303A /* Colors.swift */; };
 		9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */; };
 		9B1F8C7528466CC400BCCEBE /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7428466CC400BCCEBE /* Planet.swift */; };
-		9B1F8C7828466D9500BCCEBE /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */; };
+		9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */; };
 		9B1F8C7B28466DF700BCCEBE /* PlanetsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */; };
 		9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */; };
 		9B21F6902846D57F00D64B79 /* StarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B21F68F2846D57F00D64B79 /* StarViews.swift */; };
@@ -81,6 +81,7 @@
 		9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4441F283D64AA0043EF4E /* UIViewController+Utils.swift */; };
 		9BB44425283D65BF0043EF4E /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB44424283D65BF0043EF4E /* HudView.swift */; };
 		9BB44427283D65C70043EF4E /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB44426283D65C70043EF4E /* HudView.xib */; };
+		9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB736D1285659E800B8D867 /* Bundle+Utils.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
 		D1B6F28422BB5FBE923926C4 /* Pods_InfoSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */; };
@@ -110,7 +111,7 @@
 		9B02743F284A817C00C2303A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9B1F8C7428466CC400BCCEBE /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
-		9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataDataManager.swift; sourceTree = "<group>"; };
 		9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsDataManager.swift; sourceTree = "<group>"; };
 		9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItem.swift; sourceTree = "<group>"; };
 		9B21F68F2846D57F00D64B79 /* StarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViews.swift; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 		9BB4441F283D64AA0043EF4E /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		9BB44424283D65BF0043EF4E /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		9BB44426283D65C70043EF4E /* HudView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HudView.xib; sourceTree = "<group>"; };
+		9BB736D1285659E800B8D867 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,7 +250,7 @@
 		9B1F8C7628466D7400BCCEBE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				9B1F8C7728466D9500BCCEBE /* FirebaseDataManager.swift */,
+				9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */,
 				9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */,
 			);
 			path = Firebase;
@@ -498,6 +500,7 @@
 		9BB4441C283D62190043EF4E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9BB736D1285659E800B8D867 /* Bundle+Utils.swift */,
 				9BB4441D283D62410043EF4E /* UIApplication+Utils.swift */,
 				9BB4441F283D64AA0043EF4E /* UIViewController+Utils.swift */,
 				9B93115F283E79E20052EF1B /* UIView+Utils.swift */,
@@ -775,12 +778,13 @@
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
+				9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */,
 				9B22370028456F26005F47B7 /* UIImageView+Utils.swift in Sources */,
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
 				9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */,
 				9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */,
-				9B1F8C7828466D9500BCCEBE /* FirebaseDataManager.swift in Sources */,
+				9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */,
 				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
 				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
 				9B027440284A817C00C2303A /* Colors.swift in Sources */,

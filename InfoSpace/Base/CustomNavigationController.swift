@@ -60,7 +60,7 @@ class CustomNavigationController: UINavigationController {
     
     func dismissVC(animated: Bool, completion: (() -> Void)? = nil) {
         if let topViewController = UIApplication.topViewController(controller: self) {
-            if (topViewController.isModal()) {
+            if topViewController.isModal() {
                 topViewController.dismiss(animated: animated, completion: completion)
             } else {
                 topViewController.navigationController?.popViewController(animated: animated)

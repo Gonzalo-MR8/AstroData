@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,17 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="lnC-l1-dAJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Mhg-xY-7Z4">
+                                <rect key="frame" x="0.0" y="192" width="414" height="512"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="512" id="yIV-8P-o8v"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="secondaryColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="lnC-l1-dAJ" secondAttribute="bottom" id="9yj-zz-IxU"/>
-                            <constraint firstItem="lnC-l1-dAJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Efp-fV-qya"/>
-                            <constraint firstItem="lnC-l1-dAJ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="JZM-rb-i2R"/>
-                            <constraint firstItem="lnC-l1-dAJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fYc-89-HsF"/>
+                            <constraint firstItem="Mhg-xY-7Z4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Ass-0f-c5Q"/>
+                            <constraint firstItem="Mhg-xY-7Z4" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="EKj-6b-bmp"/>
+                            <constraint firstItem="Mhg-xY-7Z4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jYU-V5-7Ad"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,9 +40,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchScreenImage" width="600" height="600"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="placeholderIcon" width="512" height="512"/>
+        <namedColor name="secondaryColor">
+            <color red="0.14901960784313725" green="0.0" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

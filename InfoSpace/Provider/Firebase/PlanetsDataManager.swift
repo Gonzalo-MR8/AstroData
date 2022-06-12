@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PlanetsDataManager: FirebaseDataManager {
+class PlanetsDataManager: FirebaseDataDataManager {
     
     private let kPlanetsPath = "planetas.json"
     static var shared = PlanetsDataManager()

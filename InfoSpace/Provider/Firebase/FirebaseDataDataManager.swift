@@ -13,12 +13,12 @@ enum WebServiceError: Error {
     case generic(error: Error)
 }
 
-class FirebaseDataManager {
+class FirebaseDataDataManager {
     
     let baseUrl: String
     
     init() {
-        var url = "https://infospace-4c8c9-default-rtdb.europe-west1.firebasedatabase.app/"
+        var url = Bundle.string(for: InfoConstants.kFirebaseDataUrl)!
         
         if !url.hasSuffix("/") {
             url = url + "/"

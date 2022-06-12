@@ -21,3 +21,7 @@ struct Constants {
     /// H 8, U 22, D 4, V 23, i 9, E 5, W 24
     static let hudViewTag = 8224239524
 }
+
+struct InfoConstants {
+    static let kFirebaseDataUrl = "kFirebaseDataUrl"
+}
