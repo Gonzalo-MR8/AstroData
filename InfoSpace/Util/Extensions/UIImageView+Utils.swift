@@ -9,11 +9,15 @@ import UIKit
 
 extension UIImageView {
     func setImage(with imageUrlString: String?, placeholderImage: UIImage? = UIImage(named: "placeholderIcon"), completion: ((UIImage?) -> Void)? = nil) {
-        self.image = placeholderImage
+        DispatchQueue.main.async {
+            self.image = placeholderImage
+        }
         
         ImageDownloader.shared.downloadImage(with: imageUrlString, placeholderImage: placeholderImage) { image in
-            self.image = image
-            completion?(image)
+            DispatchQueue.main.async {
+                self.image = image
+                completion?(image)
+            }
         }
     }
     

@@ -76,12 +76,12 @@ extension HudViewProtocol where Self: UIViewController {
         hudView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         hudView.startAnimating()
         
-        hudView.tag = Constants.hudViewTag
+        hudView.tag = Constants.kHudViewTag
     }
     
     func hideHudView() {
         view.subviews.forEach { subview in
-            if subview.tag == Constants.hudViewTag {
+            if subview.tag == Constants.kHudViewTag {
                 subview.removeFromSuperview()
             }
         }

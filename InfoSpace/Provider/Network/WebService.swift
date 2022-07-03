@@ -105,6 +105,13 @@ struct WebService {
     }
 }
 
+enum WebServiceError: Error {
+    case noData
+    case decondingError
+    case generic(error: Error)
+    case unknown
+}
+
 extension WebService {
     init(url: String, customHeaders: [String: String]) {
         self.url = url

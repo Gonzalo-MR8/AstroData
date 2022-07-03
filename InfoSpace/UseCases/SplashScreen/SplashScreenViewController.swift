@@ -20,17 +20,22 @@ class SplashScreenViewController: UIViewController {
         viewAnimation.loopMode = .loop
         viewAnimation.contentMode  = .scaleAspectFill
         viewAnimation.play()
-        getPlanets()
+        getInitialData()
     }
     
-    private func getPlanets() {
-        viewModel.getPlanets(completion: { result in
+    private func getInitialData() {
+        viewModel.getInitialData(completion: { result in
             switch result {
             case .failure(let error):
                 print("Error: \(error)")
-            case .success(let planets):
                 DispatchQueue.main.async {
-                    let dashboardVC = DashboardViewController.initAndLoad(planets: planets)
+                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Error al descargar los datos iniciales, ¿Quieres intentarlo de nuevo?", completion: {
+                        self.getInitialData()
+                    })
+                }
+            case .success(let dashboardData):
+                DispatchQueue.main.async {
+                    let dashboardVC = DashboardViewController.initAndLoad(dashboardData: dashboardData)
                     CustomNavigationController.instance.navigate(to: dashboardVC, animated: true)
                 }
             }

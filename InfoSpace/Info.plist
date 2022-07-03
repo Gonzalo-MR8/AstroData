@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>kNasaApiKey</key>
+	<string>LbsN7fNjbFndMv29UtfdfaFisfJHAsXfP3ThCn2f</string>
+	<key>kNasaBaseUrl</key>
+	<string>https://api.nasa.gov/</string>
 	<key>kFirebaseDataUrl</key>
 	<string>https://infospace-4c8c9-default-rtdb.europe-west1.firebasedatabase.app/</string>
 	<key>UIApplicationSceneManifest</key>

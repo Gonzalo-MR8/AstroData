@@ -72,6 +72,15 @@ class CustomNavigationController: UINavigationController {
         }
     }
     
+    func presentDefaultAlert(title: String, message: String, actionTitle: String = "Vale", completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { action in
+            alert.dismiss(animated: true)
+            completion?()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func popToViewController(classVC: AnyClass, animated: Bool) {
         if let viewController = self.getViewControllerInStack(classVC: classVC) {
             self.popToViewController(viewController, animated: animated)

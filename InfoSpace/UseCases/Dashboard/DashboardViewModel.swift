@@ -7,28 +7,34 @@
 
 import Foundation
 
+typealias DashboardData = (Planets, APOD)
+
 final class DashboardViewModel {
     
-    private var planets: Planets = []
-    private let dashboardItems: DashboardItems = [DashboardItem(title: "Mars rover images", assetImageName: "marsRover"), DashboardItem(title: "Astronomy picture of the day", assetImageName: "camera"), DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid"), DashboardItem(title: "Space library", assetImageName: "library")]
+    private var dashboardData: DashboardData!
+    private let dashboardItems: DashboardItems = [
+        DashboardItem(title: "Mars rover images", assetImageName: "marsRover"),
+        DashboardItem(title: "Astronomy picture of the day", assetImageName: "camera"),
+        DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid"),
+        DashboardItem(title: "Space library", assetImageName: "library")]
     
     // MARK: - Planets methods
     
-    init(planets: Planets) {
-        self.planets = planets
+    init(dashboardData: DashboardData) {
+        self.dashboardData = dashboardData
         sortPlanets()
     }
     
     func sortPlanets() {
-        planets.sort(by: { $0.id < $1.id })
+        dashboardData.0.sort(by: { $0.id < $1.id })
     }
     
     func numberOfPlanets() -> Int {
-        return planets.count
+        return dashboardData.0.count
     }
     
     func getPlanet(position: Int) -> Planet {
-        return planets[position]
+        return dashboardData.0[position]
     }
     
     // MARK: - DashboardItems methods
@@ -39,5 +45,11 @@ final class DashboardViewModel {
     
     func getDashboardItem(position: Int) -> DashboardItem {
         return dashboardItems[position]
+    }
+    
+    // MARK: - DashboardData methods
+    
+    func getApod() -> APOD {
+        return dashboardData.1
     }
 }

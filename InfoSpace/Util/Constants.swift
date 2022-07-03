@@ -19,9 +19,12 @@ extension NSNotification.Name {
 struct Constants {
     /// Tag id for the hud view, so it can be retrieved later without keeping a reference to it, this number is built based on the position of each letter of "HudView" in the alphabet
     /// H 8, U 22, D 4, V 23, i 9, E 5, W 24
-    static let hudViewTag = 8224239524
+    static let kHudViewTag = 8224239524
+    static let kShortDateFormat = "yyyy-MM-dd"
 }
 
 struct InfoConstants {
+    static let kNasaApiKey      = "kNasaApiKey"
     static let kFirebaseDataUrl = "kFirebaseDataUrl"
+    static let kNasaBaseUrl     = "kNasaBaseUrl"
 }

@@ -29,10 +29,10 @@ class DashboardViewController: UIViewController {
     
     private var centerPlanetCell: PlanetCell?
     
-    static func initAndLoad(planets: Planets) -> DashboardViewController {
+    static func initAndLoad(dashboardData: DashboardData) -> DashboardViewController {
         let dashboardViewController = DashboardViewController.initAndLoad()
         
-        dashboardViewController.viewModel = DashboardViewModel(planets: planets)
+        dashboardViewController.viewModel = DashboardViewModel(dashboardData: dashboardData)
         
         return dashboardViewController
     }
@@ -127,12 +127,28 @@ extension DashboardViewController: UICollectionViewDataSource {
 
 extension DashboardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == collectionViewPlanets {
+        guard collectionView == collectionViewDashboard else {
+            // CollectionViewPlanets
             collectionViewPlanets.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             let detailVC = PlanetDetailViewController.initAndLoad(planet: viewModel.getPlanet(position: indexPath.row))
             CustomNavigationController.instance.navigate(to: detailVC, animated: true)
-        } else {
-            print("Tapped dashboard item")
+            return
+        }
+        
+        // CollectionViewDashboard
+        if indexPath.row == 0 {
+            // Rover mars photos
+            print("Tapped rover item")
+        } else if indexPath.row == 1 {
+            // Astronomy picture of the day
+            let apodVC = APODViewController.initAndLoad(apod: viewModel.getApod())
+            CustomNavigationController.instance.navigate(to: apodVC, animated: true)
+        } else if indexPath.row == 2 {
+            // Asteroids near the earth
+            print("Tapped asteroids item")
+        } else if indexPath.row == 3 {
+            // Space library
+            print("Tapped space library item")
         }
     }
 }
@@ -188,7 +204,3 @@ extension DashboardViewController: UIScrollViewDelegate {
         }
     }
 }
-
-// MARK: - HudViewProtocol
-
-extension DashboardViewController: HudViewProtocol { }
