@@ -138,17 +138,20 @@ extension DashboardViewController: UICollectionViewDelegate {
         // CollectionViewDashboard
         if indexPath.row == 0 {
             // Rover mars photos
-            print("Tapped rover item")
+            let marsRoverVC = MarsRoverViewController.initAndLoad(initInformation: "")
+            CustomNavigationController.instance.navigate(to: marsRoverVC, animated: true)
         } else if indexPath.row == 1 {
             // Astronomy picture of the day
             let apodVC = APODViewController.initAndLoad(apod: viewModel.getApod())
             CustomNavigationController.instance.navigate(to: apodVC, animated: true)
         } else if indexPath.row == 2 {
             // Asteroids near the earth
-            print("Tapped asteroids item")
+            let asteroidsNearEarthVC = AsteroidsNearEarthViewController.initAndLoad(initInformation: "")
+            CustomNavigationController.instance.navigate(to: asteroidsNearEarthVC, animated: true)
         } else if indexPath.row == 3 {
             // Space library
-            print("Tapped space library item")
+            let spaceLibraryVC = SpaceLibraryViewController.initAndLoad(initInformation: "")
+            CustomNavigationController.instance.navigate(to: spaceLibraryVC, animated: true)
         }
     }
 }

@@ -72,6 +72,15 @@
 		9B2B836728615D79002BABDC /* APODTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B836528615D79002BABDC /* APODTitleCell.swift */; };
 		9B2B836828615D79002BABDC /* APODTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B836628615D79002BABDC /* APODTitleCell.xib */; };
 		9B38CD19286F5FEC006712EE /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD18286F5FEC006712EE /* Label.swift */; };
+		9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD1E2872230E006712EE /* AsteroidsNearEarthViewController.swift */; };
+		9B38CD212872230E006712EE /* AsteroidsNearEarthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B38CD1F2872230E006712EE /* AsteroidsNearEarthViewController.xib */; };
+		9B38CD2328722327006712EE /* AsteroidsNearEarthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD2228722327006712EE /* AsteroidsNearEarthViewModel.swift */; };
+		9B38CD2628722340006712EE /* MarsRoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD2428722340006712EE /* MarsRoverViewController.swift */; };
+		9B38CD2728722340006712EE /* MarsRoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B38CD2528722340006712EE /* MarsRoverViewController.xib */; };
+		9B38CD292872234F006712EE /* MarsRoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD282872234F006712EE /* MarsRoverViewModel.swift */; };
+		9B38CD2C28722362006712EE /* SpaceLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */; };
+		9B38CD2D28722362006712EE /* SpaceLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */; };
+		9B38CD2F28722373006712EE /* SpaceLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD2E28722373006712EE /* SpaceLibraryViewModel.swift */; };
 		9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C3609285C093C00E19B8C /* HeaderView.swift */; };
 		9B3C360D285C095100E19B8C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3C360C285C095100E19B8C /* HeaderView.xib */; };
 		9B3D44E82862883C007AB312 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D44E72862883C007AB312 /* Button.swift */; };
@@ -196,6 +205,15 @@
 		9B2B836528615D79002BABDC /* APODTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODTitleCell.swift; sourceTree = "<group>"; };
 		9B2B836628615D79002BABDC /* APODTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODTitleCell.xib; sourceTree = "<group>"; };
 		9B38CD18286F5FEC006712EE /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		9B38CD1E2872230E006712EE /* AsteroidsNearEarthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidsNearEarthViewController.swift; sourceTree = "<group>"; };
+		9B38CD1F2872230E006712EE /* AsteroidsNearEarthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsteroidsNearEarthViewController.xib; sourceTree = "<group>"; };
+		9B38CD2228722327006712EE /* AsteroidsNearEarthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidsNearEarthViewModel.swift; sourceTree = "<group>"; };
+		9B38CD2428722340006712EE /* MarsRoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewController.swift; sourceTree = "<group>"; };
+		9B38CD2528722340006712EE /* MarsRoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarsRoverViewController.xib; sourceTree = "<group>"; };
+		9B38CD282872234F006712EE /* MarsRoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewModel.swift; sourceTree = "<group>"; };
+		9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryViewController.swift; sourceTree = "<group>"; };
+		9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceLibraryViewController.xib; sourceTree = "<group>"; };
+		9B38CD2E28722373006712EE /* SpaceLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryViewModel.swift; sourceTree = "<group>"; };
 		9B3C3609285C093C00E19B8C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9B3C360C285C095100E19B8C /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		9B3D44E72862883C007AB312 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -418,6 +436,36 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9B38CD1A287221AA006712EE /* MarsRover */ = {
+			isa = PBXGroup;
+			children = (
+				9B38CD2428722340006712EE /* MarsRoverViewController.swift */,
+				9B38CD2528722340006712EE /* MarsRoverViewController.xib */,
+				9B38CD282872234F006712EE /* MarsRoverViewModel.swift */,
+			);
+			path = MarsRover;
+			sourceTree = "<group>";
+		};
+		9B38CD1C287221F2006712EE /* AsteroidsNearEarth */ = {
+			isa = PBXGroup;
+			children = (
+				9B38CD1E2872230E006712EE /* AsteroidsNearEarthViewController.swift */,
+				9B38CD1F2872230E006712EE /* AsteroidsNearEarthViewController.xib */,
+				9B38CD2228722327006712EE /* AsteroidsNearEarthViewModel.swift */,
+			);
+			path = AsteroidsNearEarth;
+			sourceTree = "<group>";
+		};
+		9B38CD1D28722211006712EE /* SpaceLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */,
+				9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */,
+				9B38CD2E28722373006712EE /* SpaceLibraryViewModel.swift */,
+			);
+			path = SpaceLibrary;
+			sourceTree = "<group>";
+		};
 		9B3C360B285C094100E19B8C /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,10 +590,13 @@
 			isa = PBXGroup;
 			children = (
 				9B8769E12857A83900FEB405 /* APOD */,
+				9B38CD1C287221F2006712EE /* AsteroidsNearEarth */,
 				9BB44422283D65660043EF4E /* Common */,
 				9B053FB02842A1F800A8AA40 /* Dashboard */,
 				9B82C9DA285210BC003EAF59 /* ImagesGallery */,
+				9B38CD1A287221AA006712EE /* MarsRover */,
 				9B28E316284CE04400F79F7B /* PlanetDetail */,
+				9B38CD1D28722211006712EE /* SpaceLibrary */,
 				9BCC498A283E82D000EF9869 /* SplashScreen */,
 			);
 			path = UseCases;
@@ -774,6 +825,7 @@
 				9B28E34B284D120B00F79F7B /* spacerangerboldital.ttf in Resources */,
 				9B28E341284D120B00F79F7B /* spacerangerhalfital.ttf in Resources */,
 				9B28E346284D120B00F79F7B /* spacerangerexpandital.ttf in Resources */,
+				9B38CD2D28722362006712EE /* SpaceLibraryViewController.xib in Resources */,
 				9B2236F62845639B005F47B7 /* Colors.xcassets in Resources */,
 				9BB443ED283D55850043EF4E /* Assets.xcassets in Resources */,
 				9B28E351284D120B00F79F7B /* spacerangercondital.ttf in Resources */,
@@ -789,6 +841,7 @@
 				9B28E34F284D120B00F79F7B /* spacerangerchromeital.ttf in Resources */,
 				9B82C9E328521211003EAF59 /* ImageGalleryCell.xib in Resources */,
 				9B2B835C28615D41002BABDC /* APODImageCell.xib in Resources */,
+				9B38CD212872230E006712EE /* AsteroidsNearEarthViewController.xib in Resources */,
 				9B8CABDE2850091100C4667B /* PlanetImageCell.xib in Resources */,
 				9B28E31A284CE06700F79F7B /* PlanetDetailViewController.xib in Resources */,
 				9B2B836028615D52002BABDC /* APODUrlCell.xib in Resources */,
@@ -797,6 +850,7 @@
 				9B22370F28457E97005F47B7 /* NotoSansJP-Medium.otf in Resources */,
 				9B28E350284D120B00F79F7B /* spacerangerhalf.ttf in Resources */,
 				9B82C9DE285210F1003EAF59 /* ImagesGalleryViewController.xib in Resources */,
+				9B38CD2728722340006712EE /* MarsRoverViewController.xib in Resources */,
 				9B28E340284D120B00F79F7B /* spaceranger.ttf in Resources */,
 				9B3C360D285C095100E19B8C /* HeaderView.xib in Resources */,
 				9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */,
@@ -883,6 +937,7 @@
 				9B38CD19286F5FEC006712EE /* Label.swift in Sources */,
 				9B2236FC28456E65005F47B7 /* View.swift in Sources */,
 				9B82C9E528521A85003EAF59 /* ImagesGalleryViewModel.swift in Sources */,
+				9B38CD292872234F006712EE /* MarsRoverViewModel.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
 				9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */,
@@ -894,10 +949,12 @@
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,
+				9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */,
 				9B2236FE28456ECA005F47B7 /* UIColor+Utils.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
+				9B38CD2F28722373006712EE /* SpaceLibraryViewModel.swift in Sources */,
 				9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */,
 				9B22370028456F26005F47B7 /* UIImageView+Utils.swift in Sources */,
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
@@ -907,6 +964,7 @@
 				9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */,
 				9B8769E92857A87100FEB405 /* APODViewModel.swift in Sources */,
 				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
+				9B38CD2628722340006712EE /* MarsRoverViewController.swift in Sources */,
 				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
 				9B2B835728615D0B002BABDC /* APODDateCell.swift in Sources */,
 				9B027440284A817C00C2303A /* Colors.swift in Sources */,
@@ -914,8 +972,10 @@
 				9B270E312840013000F4FFED /* Constants.swift in Sources */,
 				9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */,
 				9B2B836728615D79002BABDC /* APODTitleCell.swift in Sources */,
+				9B38CD2328722327006712EE /* AsteroidsNearEarthViewModel.swift in Sources */,
 				9B8CABDD2850091100C4667B /* PlanetImageCell.swift in Sources */,
 				9B8769DE2857A2DD00FEB405 /* APODDataManager.swift in Sources */,
+				9B38CD2C28722362006712EE /* SpaceLibraryViewController.swift in Sources */,
 				9B1F8C7528466CC400BCCEBE /* Planet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
