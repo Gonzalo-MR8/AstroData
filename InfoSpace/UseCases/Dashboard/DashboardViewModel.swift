@@ -7,16 +7,17 @@
 
 import Foundation
 
-typealias DashboardData = (Planets, APOD)
+typealias DashboardData = (Planets, APOD, SpaceLibraryItems)
 
 final class DashboardViewModel {
     
     private var dashboardData: DashboardData!
     private let dashboardItems: DashboardItems = [
-        DashboardItem(title: "Mars rover images", assetImageName: "marsRover"),
         DashboardItem(title: "Astronomy picture of the day", assetImageName: "camera"),
-        DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid"),
-        DashboardItem(title: "Space library", assetImageName: "library")]
+        DashboardItem(title: "Space library", assetImageName: "library"),
+        //DashboardItem(title: "Mars rover images", assetImageName: "marsRover"),
+        //DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid")
+    ]
     
     // MARK: - Planets methods
     

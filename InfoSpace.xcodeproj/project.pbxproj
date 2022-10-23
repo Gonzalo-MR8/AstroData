@@ -33,6 +33,7 @@
 		9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22A76228453E65002762AF /* DashboardViewController.swift */; };
 		9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B22A76328453E65002762AF /* DashboardViewController.xib */; };
 		9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22A76628453E8E002762AF /* DashboardViewModel.swift */; };
+		9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25530728F1B9A500A8110E /* NasaLibraryDataManager.swift */; };
 		9B270E312840013000F4FFED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E302840013000F4FFED /* Constants.swift */; };
 		9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E33284001A000F4FFED /* NetworkManager.swift */; };
 		9B270E36284001AB00F4FFED /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E35284001AB00F4FFED /* Reachability.swift */; };
@@ -116,6 +117,7 @@
 		9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB736D1285659E800B8D867 /* Bundle+Utils.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
+		9BE6E44E28F6536A003A63DF /* SpaceLibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E44D28F6536A003A63DF /* SpaceLibraryItem.swift */; };
 		D1B6F28422BB5FBE923926C4 /* Pods_InfoSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +168,7 @@
 		9B22A76228453E65002762AF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		9B22A76328453E65002762AF /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		9B22A76628453E8E002762AF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		9B25530728F1B9A500A8110E /* NasaLibraryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryDataManager.swift; sourceTree = "<group>"; };
 		9B270E302840013000F4FFED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B270E33284001A000F4FFED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9B270E35284001AB00F4FFED /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -253,6 +256,7 @@
 		9BB736D1285659E800B8D867 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		9BE6E44D28F6536A003A63DF /* SpaceLibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +504,7 @@
 			children = (
 				9B8769DB2857A17400FEB405 /* NasaDataManager.swift */,
 				9B8769DD2857A2DD00FEB405 /* APODDataManager.swift */,
+				9B25530728F1B9A500A8110E /* NasaLibraryDataManager.swift */,
 			);
 			path = NasaProvider;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				9B8769DF2857A37200FEB405 /* APOD.swift */,
 				9B1F8C7428466CC400BCCEBE /* Planet.swift */,
 				9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */,
+				9BE6E44D28F6536A003A63DF /* SpaceLibraryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -942,6 +948,7 @@
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
 				9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */,
 				9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */,
+				9BE6E44E28F6536A003A63DF /* SpaceLibraryItem.swift in Sources */,
 				9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */,
 				9B2B836328615D60002BABDC /* APODDescriptionCell.swift in Sources */,
 				9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */,
@@ -952,6 +959,7 @@
 				9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */,
 				9B2236FE28456ECA005F47B7 /* UIColor+Utils.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
+				9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
 				9B38CD2F28722373006712EE /* SpaceLibraryViewModel.swift in Sources */,

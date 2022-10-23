@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="U80-RB-1a2">
-                        <rect key="frame" x="16" y="8" width="288" height="224"/>
+                        <rect key="frame" x="16" y="8" width="288" height="207"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oer-NC-MLS" customClass="ImageView" customModule="InfoSpace" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="288" height="170"/>
@@ -41,43 +41,43 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksf-d6-got">
-                                <rect key="frame" x="0.0" y="182" width="288" height="29"/>
+                                <rect key="frame" x="0.0" y="182" width="288" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Copyright:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN9-Qg-DcD">
-                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="25"/>
                                         <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="15"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="autor" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3S-di-9ul">
-                                        <rect key="frame" x="88.5" y="0.0" width="199.5" height="29"/>
+                                        <rect key="frame" x="88.5" y="0.0" width="199.5" height="25"/>
                                         <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mq5-Un-iFf" customClass="View" customModule="InfoSpace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="223" width="288" height="1"/>
-                                <color key="backgroundColor" name="tertiaryColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="FBi-ep-Ydw"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
-                                        <color key="value" name="primaryColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientMidColor">
-                                        <color key="value" name="secondaryColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                        <color key="value" name="tertiaryColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mq5-Un-iFf" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                        <rect key="frame" x="16" y="231" width="288" height="1"/>
+                        <color key="backgroundColor" name="tertiaryColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="FBi-ep-Ydw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
+                                <color key="value" name="primaryColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientMidColor">
+                                <color key="value" name="secondaryColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
+                                <color key="value" name="tertiaryColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjl-4e-VFN">
                         <rect key="frame" x="16" y="8" width="288" height="170"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -91,9 +91,12 @@
                     <constraint firstItem="U80-RB-1a2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Gqt-Qf-3eI"/>
                     <constraint firstItem="Mjl-4e-VFN" firstAttribute="bottom" secondItem="oer-NC-MLS" secondAttribute="bottom" id="Qdt-cI-okK"/>
                     <constraint firstItem="Mjl-4e-VFN" firstAttribute="trailing" secondItem="oer-NC-MLS" secondAttribute="trailing" id="Tr3-E5-FoD"/>
+                    <constraint firstItem="mq5-Un-iFf" firstAttribute="top" secondItem="U80-RB-1a2" secondAttribute="bottom" constant="16" id="VCe-6f-tM4"/>
+                    <constraint firstItem="mq5-Un-iFf" firstAttribute="trailing" secondItem="U80-RB-1a2" secondAttribute="trailing" id="W48-kd-yRm"/>
+                    <constraint firstItem="mq5-Un-iFf" firstAttribute="leading" secondItem="U80-RB-1a2" secondAttribute="leading" id="bIX-gJ-5e2"/>
                     <constraint firstItem="Mjl-4e-VFN" firstAttribute="top" secondItem="oer-NC-MLS" secondAttribute="top" id="eZA-Fc-Xzu"/>
                     <constraint firstItem="Mjl-4e-VFN" firstAttribute="leading" secondItem="oer-NC-MLS" secondAttribute="leading" id="p0j-ST-Jzm"/>
-                    <constraint firstAttribute="bottom" secondItem="U80-RB-1a2" secondAttribute="bottom" constant="8" id="sUr-70-vpJ"/>
+                    <constraint firstAttribute="bottom" secondItem="mq5-Un-iFf" secondAttribute="bottom" constant="8" id="v4c-mJ-37M"/>
                     <constraint firstItem="U80-RB-1a2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zh0-fe-60O"/>
                 </constraints>
             </tableViewCellContentView>
@@ -102,11 +105,11 @@
             <connections>
                 <outlet property="imageViewApod" destination="oer-NC-MLS" id="DYS-EW-dll"/>
                 <outlet property="imageViewHeight" destination="LfM-Nx-23t" id="Rim-ai-dg3"/>
-                <outlet property="labelCopyright" destination="p3S-di-9ul" id="Y1r-tr-2eX"/>
+                <outlet property="labelCopyright" destination="GN9-Qg-DcD" id="6bI-J0-0aX"/>
+                <outlet property="labelCopyrightAutor" destination="p3S-di-9ul" id="iI5-4w-gcF"/>
                 <outlet property="stackViewCopyright" destination="ksf-d6-got" id="pxS-g1-DMH"/>
-                <outlet property="viewBottomDecorative" destination="mq5-Un-iFf" id="KdD-8h-ScJ"/>
             </connections>
-            <point key="canvasLocation" x="132" y="99"/>
+            <point key="canvasLocation" x="131.8840579710145" y="98.4375"/>
         </tableViewCell>
     </objects>
     <resources>

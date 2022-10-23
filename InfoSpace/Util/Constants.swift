@@ -21,10 +21,12 @@ struct Constants {
     /// H 8, U 22, D 4, V 23, i 9, E 5, W 24
     static let kHudViewTag = 8224239524
     static let kShortDateFormat = "yyyy-MM-dd"
+    static let kLongDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 }
 
 struct InfoConstants {
-    static let kNasaApiKey      = "kNasaApiKey"
-    static let kFirebaseDataUrl = "kFirebaseDataUrl"
-    static let kNasaBaseUrl     = "kNasaBaseUrl"
+    static let kNasaApiKey          = "kNasaApiKey"
+    static let kFirebaseDataUrl     = "kFirebaseDataUrl"
+    static let kNasaBaseUrl         = "kNasaBaseUrl"
+    static let kNasaLibraryBaseUrl  = "kNasaLibraryBaseUrl"
 }

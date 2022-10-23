@@ -12,14 +12,15 @@ typealias EmptyBlock = () -> ()
 
 class CustomNavigationController: UINavigationController {
 
+    // Here we have to create and instantiate the rootViewController
     static let instance = CustomNavigationController(rootViewController: SplashScreenViewController.initAndLoad())
 
     func configure() -> UIWindow {
-        //Configure Navigation Controller appearance
+        // Configure Navigation Controller appearance
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.setNavigationBarHidden(true, animated: false)
         
-        //Create a window that is the same size as the screen
+        // Create a window that is the same size as the screen
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         window.rootViewController = self
@@ -75,8 +76,8 @@ class CustomNavigationController: UINavigationController {
     func presentDefaultAlert(title: String, message: String, actionTitle: String = "Vale", completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { action in
-            alert.dismiss(animated: true)
             completion?()
+            alert.dismiss(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
     }

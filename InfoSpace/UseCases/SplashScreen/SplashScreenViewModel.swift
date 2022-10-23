@@ -15,6 +15,7 @@ final class SplashScreenViewModel {
         var wsError: WebServiceError?
         var planets: Planets?
         var apod: APOD?
+        var spaceLibraryItems: SpaceLibraryItems?
         
         group.enter()
         getAPOD(completion: { result in
@@ -40,13 +41,25 @@ final class SplashScreenViewModel {
             }
         })
         
+        group.enter()
+        getSpaceLibrary(completion: { result in
+            switch result {
+            case .failure(let error):
+                wsError = error
+                group.leave()
+            case .success(let spaceLibraryItemsData):
+                spaceLibraryItems = spaceLibraryItemsData
+                group.leave()
+            }
+        })
+        
         group.notify(queue: .main, execute: {
-            guard let planets = planets, let apod = apod else {
+            guard let planets = planets, let apod = apod, let spaceLibraryItems = spaceLibraryItems else {
                 completion(.failure(wsError ?? WebServiceError.unknown))
                 return
             }
-
-            completion(.success((planets, apod)))
+            
+            completion(.success((planets, apod, spaceLibraryItems)))
         })
     }
     
@@ -74,4 +87,15 @@ final class SplashScreenViewModel {
         })
     }
     
+    private func getSpaceLibrary(completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getLibraryBegin(completion: { result in
+            switch result {
+            case .failure(let error):
+                print("Space library WS error: \(error)")
+                completion(.failure(error))
+            case .success(let spaceLibraryItems):
+                completion(.success(spaceLibraryItems))
+            }
+        })
+    }
 }

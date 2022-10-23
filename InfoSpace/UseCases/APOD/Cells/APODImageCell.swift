@@ -12,8 +12,8 @@ class APODImageCell: UITableViewCell {
     @IBOutlet weak var imageViewApod: ImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var labelCopyright: UILabel!
+    @IBOutlet weak var labelCopyrightAutor: UILabel!
     @IBOutlet weak var stackViewCopyright: UIStackView!
-    @IBOutlet weak var viewBottomDecorative: View!
     
     private let kImageViewWidth: CGFloat = 0.9
     
@@ -47,12 +47,11 @@ class APODImageCell: UITableViewCell {
         adjustImageView(frameWidth: frameWidth)
         
         if let copyright = apod.copyright {
-            labelCopyright.text = copyright
-            stackViewCopyright.isHidden = false
-            viewBottomDecorative.isHidden = false
+            labelCopyright.text = "Copyright:"
+            labelCopyrightAutor.text = copyright
         } else {
-            stackViewCopyright.isHidden = true
-            viewBottomDecorative.isHidden = true
+            labelCopyright.text = "No Copyright"
+            labelCopyrightAutor.text = ""
         }
     }
     

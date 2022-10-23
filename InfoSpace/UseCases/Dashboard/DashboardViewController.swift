@@ -46,7 +46,7 @@ class DashboardViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         
         snapToCenter()
     }
@@ -136,22 +136,23 @@ extension DashboardViewController: UICollectionViewDelegate {
         }
         
         // CollectionViewDashboard
-        if indexPath.row == 0 {
-            // Rover mars photos
-            let marsRoverVC = MarsRoverViewController.initAndLoad(initInformation: "")
-            CustomNavigationController.instance.navigate(to: marsRoverVC, animated: true)
-        } else if indexPath.row == 1 {
+        switch indexPath.row {
+        case 0:
             // Astronomy picture of the day
             let apodVC = APODViewController.initAndLoad(apod: viewModel.getApod())
             CustomNavigationController.instance.navigate(to: apodVC, animated: true)
-        } else if indexPath.row == 2 {
-            // Asteroids near the earth
-            let asteroidsNearEarthVC = AsteroidsNearEarthViewController.initAndLoad(initInformation: "")
-            CustomNavigationController.instance.navigate(to: asteroidsNearEarthVC, animated: true)
-        } else if indexPath.row == 3 {
+        case 1:
             // Space library
             let spaceLibraryVC = SpaceLibraryViewController.initAndLoad(initInformation: "")
             CustomNavigationController.instance.navigate(to: spaceLibraryVC, animated: true)
+        case 2:
+            // Rover mars photos
+            let marsRoverVC = MarsRoverViewController.initAndLoad(initInformation: "")
+            CustomNavigationController.instance.navigate(to: marsRoverVC, animated: true)
+        default:
+            // Asteroids near the earth
+            let asteroidsNearEarthVC = AsteroidsNearEarthViewController.initAndLoad(initInformation: "")
+            CustomNavigationController.instance.navigate(to: asteroidsNearEarthVC, animated: true)
         }
     }
 }

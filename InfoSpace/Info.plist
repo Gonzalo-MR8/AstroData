@@ -8,6 +8,8 @@
 	<string>https://api.nasa.gov/</string>
 	<key>kFirebaseDataUrl</key>
 	<string>https://infospace-4c8c9-default-rtdb.europe-west1.firebasedatabase.app/</string>
+	<key>kNasaLibraryBaseUrl</key>
+	<string>https://images-api.nasa.gov/search</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
