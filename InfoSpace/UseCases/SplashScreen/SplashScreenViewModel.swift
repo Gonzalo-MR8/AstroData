@@ -8,7 +8,6 @@
 import Foundation
 
 final class SplashScreenViewModel {
-    
     func getInitialData(completion: @escaping (Result<DashboardData, WebServiceError>) -> ()) {
         let group = DispatchGroup()
         

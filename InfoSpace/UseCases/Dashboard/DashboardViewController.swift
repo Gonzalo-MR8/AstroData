@@ -164,7 +164,7 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == collectionViewPlanets {
             return CGSize(width: collectionView.frame.width / 2.5, height: collectionView.frame.height - kCollectionViewPlanetsHeightMargin)
         } else {
-            return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height / 2)
+            return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height)
         }
     }
 }

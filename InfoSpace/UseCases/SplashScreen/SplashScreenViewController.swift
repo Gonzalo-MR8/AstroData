@@ -18,7 +18,7 @@ class SplashScreenViewController: UIViewController {
         super.viewDidLoad()
         
         viewAnimation.loopMode = .loop
-        viewAnimation.contentMode  = .scaleAspectFill
+        viewAnimation.contentMode = .scaleAspectFill
         viewAnimation.play()
         getInitialData()
     }

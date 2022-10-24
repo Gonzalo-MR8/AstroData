@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,7 +51,7 @@
                                     </constraints>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="LIc-t5-AJz">
-                                    <rect key="frame" x="10" y="512" width="66" height="44"/>
+                                    <rect key="frame" x="10" y="346.5" width="66" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="66" id="Ygy-J3-Gyg"/>
                                         <constraint firstAttribute="height" constant="44" id="cQe-uN-eVk"/>
@@ -67,10 +67,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IPh-bq-Q99">
-                                    <rect key="frame" x="41.5" y="175" width="331" height="331"/>
+                                    <rect key="frame" x="41.5" y="175" width="331" height="165.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="IPh-bq-Q99" secondAttribute="height" multiplier="1:1" id="OEq-fJ-d0c"/>
+                                        <constraint firstAttribute="width" secondItem="IPh-bq-Q99" secondAttribute="height" multiplier="2:1" id="OEq-fJ-d0c"/>
                                     </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="78E-Vr-djf">
                                         <size key="itemSize" width="128" height="128"/>
@@ -84,7 +84,7 @@
                                     </connections>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-aG-Y9z">
-                                    <rect key="frame" x="0.0" y="531" width="414" height="290"/>
+                                    <rect key="frame" x="0.0" y="581" width="414" height="290"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="290" id="gXX-n8-f4d"/>
@@ -105,8 +105,8 @@
                             <constraints>
                                 <constraint firstItem="IPh-bq-Q99" firstAttribute="top" secondItem="8xY-9G-V0Y" secondAttribute="bottom" id="8V4-Ny-tDr"/>
                                 <constraint firstItem="aGN-yg-tgU" firstAttribute="top" secondItem="v0e-s1-9lM" secondAttribute="top" constant="50" id="9Bm-Kx-wxB"/>
-                                <constraint firstItem="1tu-aG-Y9z" firstAttribute="top" secondItem="IPh-bq-Q99" secondAttribute="bottom" constant="25" id="FZy-Y2-XAC"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1tu-aG-Y9z" secondAttribute="bottom" constant="20" id="Lvd-0Z-Fb5"/>
+                                <constraint firstItem="1tu-aG-Y9z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IPh-bq-Q99" secondAttribute="bottom" constant="25" id="FZy-Y2-XAC"/>
+                                <constraint firstAttribute="bottom" secondItem="1tu-aG-Y9z" secondAttribute="bottom" constant="25" id="Lvd-0Z-Fb5"/>
                                 <constraint firstItem="LIc-t5-AJz" firstAttribute="top" secondItem="IPh-bq-Q99" secondAttribute="bottom" constant="6" id="OCL-AZ-vKt"/>
                                 <constraint firstItem="8xY-9G-V0Y" firstAttribute="top" secondItem="v0e-s1-9lM" secondAttribute="top" constant="70" id="RcN-oI-Nfn"/>
                                 <constraint firstItem="8xY-9G-V0Y" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" id="TPP-PD-78l"/>
