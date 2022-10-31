@@ -72,6 +72,12 @@
 		9B2B836428615D60002BABDC /* APODDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B836228615D60002BABDC /* APODDescriptionCell.xib */; };
 		9B2B836728615D79002BABDC /* APODTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B836528615D79002BABDC /* APODTitleCell.swift */; };
 		9B2B836828615D79002BABDC /* APODTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B836628615D79002BABDC /* APODTitleCell.xib */; };
+		9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */; };
+		9B34CFAC290F10D500E642A1 /* YearsFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */; };
+		9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */; };
+		9B380986290E0D40007851B2 /* ContentTypeFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B380984290E0D40007851B2 /* ContentTypeFilterCell.xib */; };
+		9B38098E290E0D98007851B2 /* ContentTypeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38098C290E0D98007851B2 /* ContentTypeItemCell.swift */; };
+		9B38098F290E0D98007851B2 /* ContentTypeItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B38098D290E0D98007851B2 /* ContentTypeItemCell.xib */; };
 		9B38CD19286F5FEC006712EE /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD18286F5FEC006712EE /* Label.swift */; };
 		9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD1E2872230E006712EE /* AsteroidsNearEarthViewController.swift */; };
 		9B38CD212872230E006712EE /* AsteroidsNearEarthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B38CD1F2872230E006712EE /* AsteroidsNearEarthViewController.xib */; };
@@ -85,6 +91,14 @@
 		9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C3609285C093C00E19B8C /* HeaderView.swift */; };
 		9B3C360D285C095100E19B8C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3C360C285C095100E19B8C /* HeaderView.xib */; };
 		9B3D44E82862883C007AB312 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D44E72862883C007AB312 /* Button.swift */; };
+		9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DEAC52906E74E008A5141 /* FilterView.swift */; };
+		9B4DEACA2906E75F008A5141 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4DEAC92906E75F008A5141 /* FilterView.xib */; };
+		9B4F83332909FA87006E8954 /* HeaderFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F83312909FA87006E8954 /* HeaderFilterCell.swift */; };
+		9B4F83342909FA87006E8954 /* HeaderFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4F83322909FA87006E8954 /* HeaderFilterCell.xib */; };
+		9B4F8337290DCD7F006E8954 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F8335290DCD7F006E8954 /* SeparatorCell.swift */; };
+		9B4F8338290DCD7F006E8954 /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */; };
+		9B4F833B290DCE00006E8954 /* SearchFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */; };
+		9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */; };
 		9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */; };
 		9B82C9DE285210F1003EAF59 /* ImagesGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */; };
 		9B82C9E228521211003EAF59 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */; };
@@ -207,6 +221,12 @@
 		9B2B836228615D60002BABDC /* APODDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODDescriptionCell.xib; sourceTree = "<group>"; };
 		9B2B836528615D79002BABDC /* APODTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODTitleCell.swift; sourceTree = "<group>"; };
 		9B2B836628615D79002BABDC /* APODTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODTitleCell.xib; sourceTree = "<group>"; };
+		9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsFilterCell.swift; sourceTree = "<group>"; };
+		9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearsFilterCell.xib; sourceTree = "<group>"; };
+		9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTypeFilterCell.swift; sourceTree = "<group>"; };
+		9B380984290E0D40007851B2 /* ContentTypeFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentTypeFilterCell.xib; sourceTree = "<group>"; };
+		9B38098C290E0D98007851B2 /* ContentTypeItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTypeItemCell.swift; sourceTree = "<group>"; };
+		9B38098D290E0D98007851B2 /* ContentTypeItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentTypeItemCell.xib; sourceTree = "<group>"; };
 		9B38CD18286F5FEC006712EE /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		9B38CD1E2872230E006712EE /* AsteroidsNearEarthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidsNearEarthViewController.swift; sourceTree = "<group>"; };
 		9B38CD1F2872230E006712EE /* AsteroidsNearEarthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsteroidsNearEarthViewController.xib; sourceTree = "<group>"; };
@@ -220,6 +240,14 @@
 		9B3C3609285C093C00E19B8C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9B3C360C285C095100E19B8C /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		9B3D44E72862883C007AB312 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		9B4DEAC52906E74E008A5141 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		9B4DEAC92906E75F008A5141 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
+		9B4F83312909FA87006E8954 /* HeaderFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilterCell.swift; sourceTree = "<group>"; };
+		9B4F83322909FA87006E8954 /* HeaderFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderFilterCell.xib; sourceTree = "<group>"; };
+		9B4F8335290DCD7F006E8954 /* SeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
+		9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorCell.xib; sourceTree = "<group>"; };
+		9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterCell.swift; sourceTree = "<group>"; };
+		9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFilterCell.xib; sourceTree = "<group>"; };
 		9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGalleryViewController.swift; sourceTree = "<group>"; };
 		9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesGalleryViewController.xib; sourceTree = "<group>"; };
 		9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
@@ -440,6 +468,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9B380987290E0D4F007851B2 /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				9B38098C290E0D98007851B2 /* ContentTypeItemCell.swift */,
+				9B38098D290E0D98007851B2 /* ContentTypeItemCell.xib */,
+			);
+			path = CollectionCells;
+			sourceTree = "<group>";
+		};
 		9B38CD1A287221AA006712EE /* MarsRover */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +514,34 @@
 				9B3C360C285C095100E19B8C /* HeaderView.xib */,
 			);
 			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		9B4DEAC42906E6B5008A5141 /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				9B380987290E0D4F007851B2 /* CollectionCells */,
+				9B4DEACB2906EEA2008A5141 /* TableCells */,
+				9B4DEAC52906E74E008A5141 /* FilterView.swift */,
+				9B4DEAC92906E75F008A5141 /* FilterView.xib */,
+			);
+			path = FilterView;
+			sourceTree = "<group>";
+		};
+		9B4DEACB2906EEA2008A5141 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				9B4F83312909FA87006E8954 /* HeaderFilterCell.swift */,
+				9B4F83322909FA87006E8954 /* HeaderFilterCell.xib */,
+				9B4F8335290DCD7F006E8954 /* SeparatorCell.swift */,
+				9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */,
+				9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */,
+				9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */,
+				9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */,
+				9B380984290E0D40007851B2 /* ContentTypeFilterCell.xib */,
+				9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */,
+				9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		9B82C9DA285210BC003EAF59 /* ImagesGallery */ = {
@@ -671,6 +736,7 @@
 		9BB44422283D65660043EF4E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9B4DEAC42906E6B5008A5141 /* FilterView */,
 				9B3C360B285C094100E19B8C /* HeaderView */,
 				9B21F68E2846D55700D64B79 /* StarViews */,
 				9BB44423283D65740043EF4E /* HudView */,
@@ -811,11 +877,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B38098F290E0D98007851B2 /* ContentTypeItemCell.xib in Resources */,
 				9B28E33E284D120B00F79F7B /* spacerangersemital.ttf in Resources */,
+				9B380986290E0D40007851B2 /* ContentTypeFilterCell.xib in Resources */,
 				9B28E34C284D120B00F79F7B /* spaceranger3d.ttf in Resources */,
 				9B931164283E814B0052EF1B /* splashScreen.json in Resources */,
 				9B22370728457A33005F47B7 /* PlanetCell.xib in Resources */,
+				9B34CFAC290F10D500E642A1 /* YearsFilterCell.xib in Resources */,
 				9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */,
+				9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */,
 				9B2B836428615D60002BABDC /* APODDescriptionCell.xib in Resources */,
 				9B28E355284D120B00F79F7B /* spacerangeracad.ttf in Resources */,
 				9BB44427283D65C70043EF4E /* HudView.xib in Resources */,
@@ -830,9 +900,11 @@
 				9B28E356284D120B00F79F7B /* spacerangerchrome.ttf in Resources */,
 				9B28E34B284D120B00F79F7B /* spacerangerboldital.ttf in Resources */,
 				9B28E341284D120B00F79F7B /* spacerangerhalfital.ttf in Resources */,
+				9B4F83342909FA87006E8954 /* HeaderFilterCell.xib in Resources */,
 				9B28E346284D120B00F79F7B /* spacerangerexpandital.ttf in Resources */,
 				9B38CD2D28722362006712EE /* SpaceLibraryViewController.xib in Resources */,
 				9B2236F62845639B005F47B7 /* Colors.xcassets in Resources */,
+				9B4F8338290DCD7F006E8954 /* SeparatorCell.xib in Resources */,
 				9BB443ED283D55850043EF4E /* Assets.xcassets in Resources */,
 				9B28E351284D120B00F79F7B /* spacerangercondital.ttf in Resources */,
 				9B28E349284D120B00F79F7B /* spacerangerital.ttf in Resources */,
@@ -851,6 +923,7 @@
 				9B8CABDE2850091100C4667B /* PlanetImageCell.xib in Resources */,
 				9B28E31A284CE06700F79F7B /* PlanetDetailViewController.xib in Resources */,
 				9B2B836028615D52002BABDC /* APODUrlCell.xib in Resources */,
+				9B4DEACA2906E75F008A5141 /* FilterView.xib in Resources */,
 				9B223717284588D9005F47B7 /* DashboardItemCell.xib in Resources */,
 				9B28E347284D120B00F79F7B /* spacerangerexpand.ttf in Resources */,
 				9B22370F28457E97005F47B7 /* NotoSansJP-Medium.otf in Resources */,
@@ -942,7 +1015,9 @@
 				9B270E38284001B700F4FFED /* WebService.swift in Sources */,
 				9B38CD19286F5FEC006712EE /* Label.swift in Sources */,
 				9B2236FC28456E65005F47B7 /* View.swift in Sources */,
+				9B38098E290E0D98007851B2 /* ContentTypeItemCell.swift in Sources */,
 				9B82C9E528521A85003EAF59 /* ImagesGalleryViewModel.swift in Sources */,
+				9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */,
 				9B38CD292872234F006712EE /* MarsRoverViewModel.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
@@ -951,14 +1026,17 @@
 				9BE6E44E28F6536A003A63DF /* SpaceLibraryItem.swift in Sources */,
 				9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */,
 				9B2B836328615D60002BABDC /* APODDescriptionCell.swift in Sources */,
+				9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */,
 				9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */,
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
+				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,
 				9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */,
 				9B2236FE28456ECA005F47B7 /* UIColor+Utils.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
+				9B4F833B290DCE00006E8954 /* SearchFilterCell.swift in Sources */,
 				9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
@@ -977,6 +1055,8 @@
 				9B2B835728615D0B002BABDC /* APODDateCell.swift in Sources */,
 				9B027440284A817C00C2303A /* Colors.swift in Sources */,
 				9B270E36284001AB00F4FFED /* Reachability.swift in Sources */,
+				9B4F83332909FA87006E8954 /* HeaderFilterCell.swift in Sources */,
+				9B4F8337290DCD7F006E8954 /* SeparatorCell.swift in Sources */,
 				9B270E312840013000F4FFED /* Constants.swift in Sources */,
 				9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */,
 				9B2B836728615D79002BABDC /* APODTitleCell.swift in Sources */,

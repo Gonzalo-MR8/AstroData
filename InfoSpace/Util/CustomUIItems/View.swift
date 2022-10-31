@@ -10,6 +10,9 @@ import UIKit
 @IBDesignable
 class View: UIView {
     
+    /// Tag id for the BorderGradientViewTag, so it can be retrieved later without keeping a reference to it, this number is built based on the position of each letter of "COVERVIEW" in the alphabet
+    private let kBorderGradientViewTag = 31522518229523
+    
     @IBInspectable
     var alphaBgColor: CGFloat = 1.0 {
         didSet {
@@ -42,6 +45,12 @@ class View: UIView {
     }
     
     @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
+    @IBInspectable var borderGradient: Bool = false {
         didSet {
             layoutSubviews()
         }
@@ -150,5 +159,34 @@ class View: UIView {
         
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint
+        
+        // BorderGradient
+        
+        if borderGradient {
+            let coverView = View()
+            
+            coverView.tag = kBorderGradientViewTag
+            
+            coverView.backgroundColor = backgroundColor
+            coverView.alphaBgColor = alphaBgColor
+            coverView.roundedBorders = roundedBorders
+            coverView.cornerRadius = cornerRadius
+            coverView.topRoundedBorders = topRoundedBorders
+            
+            coverView.widthAnchor.constraint(equalToConstant: self.frame.width - borderWidth).isActive = true
+            coverView.heightAnchor.constraint(equalToConstant: self.frame.height - borderWidth).isActive = true
+            
+            self.insertSubview(coverView, at: 0)
+            
+            coverView.translatesAutoresizingMaskIntoConstraints = false
+            coverView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            coverView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        } else {
+            self.subviews.forEach { subview in
+                if subview.tag == kBorderGradientViewTag {
+                    subview.removeFromSuperview()
+                }
+            }
+        }
     }
 }

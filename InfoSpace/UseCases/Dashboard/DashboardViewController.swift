@@ -43,12 +43,10 @@ class DashboardViewController: UIViewController {
         configureCollectionViewPlanets()
         configureCollectionViewDashboard()
         createBackgroundElements()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        snapToCenter()
+        DispatchQueue.main.async {
+            self.collectionViewPlanets.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: false)
+        }
     }
     
     // MARK: - Private methods

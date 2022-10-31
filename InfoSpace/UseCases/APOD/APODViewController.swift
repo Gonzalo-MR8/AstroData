@@ -142,6 +142,8 @@ extension APODViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - HeaderViewProtocol
+
 extension APODViewController: HeaderViewProtocol {
     func didPressBack() {
         CustomNavigationController.instance.dismissVC(animated: true)
