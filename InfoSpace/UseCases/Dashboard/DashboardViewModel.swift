@@ -53,4 +53,8 @@ final class DashboardViewModel {
     func getApod() -> APOD {
         return dashboardData.1
     }
+    
+    func getSpaceLibraryItems() -> SpaceLibraryItems {
+        return dashboardData.2
+    }
 }

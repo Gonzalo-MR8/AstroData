@@ -16,12 +16,18 @@ struct SpaceLibraryItems: Codable {
 struct Collection: Codable {
     let version: String
     let href: String
-    let items: [Item]
+    let spaceItems: [SpaceItem]
     let links: [CollectionLink]
+    
+    enum CodingKeys: String, CodingKey {
+        case version, href
+        case spaceItems = "items"
+        case links
+    }
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct SpaceItem: Codable {
     let href: String
     let data: [Datum]
     let links: [ItemLink]

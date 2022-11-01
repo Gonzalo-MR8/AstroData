@@ -72,6 +72,8 @@
 		9B2B836428615D60002BABDC /* APODDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B836228615D60002BABDC /* APODDescriptionCell.xib */; };
 		9B2B836728615D79002BABDC /* APODTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B836528615D79002BABDC /* APODTitleCell.swift */; };
 		9B2B836828615D79002BABDC /* APODTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B836628615D79002BABDC /* APODTitleCell.xib */; };
+		9B2E4AF629117B4B001A0FA5 /* SpaceLibraryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E4AF429117B4B001A0FA5 /* SpaceLibraryItemCell.swift */; };
+		9B2E4AF729117B4B001A0FA5 /* SpaceLibraryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */; };
 		9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */; };
 		9B34CFAC290F10D500E642A1 /* YearsFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */; };
 		9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */; };
@@ -221,6 +223,8 @@
 		9B2B836228615D60002BABDC /* APODDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODDescriptionCell.xib; sourceTree = "<group>"; };
 		9B2B836528615D79002BABDC /* APODTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODTitleCell.swift; sourceTree = "<group>"; };
 		9B2B836628615D79002BABDC /* APODTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODTitleCell.xib; sourceTree = "<group>"; };
+		9B2E4AF429117B4B001A0FA5 /* SpaceLibraryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItemCell.swift; sourceTree = "<group>"; };
+		9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceLibraryItemCell.xib; sourceTree = "<group>"; };
 		9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsFilterCell.swift; sourceTree = "<group>"; };
 		9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearsFilterCell.xib; sourceTree = "<group>"; };
 		9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTypeFilterCell.swift; sourceTree = "<group>"; };
@@ -468,6 +472,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9B2E4AF329117B35001A0FA5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B2E4AF429117B4B001A0FA5 /* SpaceLibraryItemCell.swift */,
+				9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9B380987290E0D4F007851B2 /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +513,7 @@
 		9B38CD1D28722211006712EE /* SpaceLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				9B2E4AF329117B35001A0FA5 /* Cells */,
 				9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */,
 				9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */,
 				9B38CD2E28722373006712EE /* SpaceLibraryViewModel.swift */,
@@ -910,6 +924,7 @@
 				9B28E349284D120B00F79F7B /* spacerangerital.ttf in Resources */,
 				9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */,
 				9B28E353284D120B00F79F7B /* spacerangercond.ttf in Resources */,
+				9B2E4AF729117B4B001A0FA5 /* SpaceLibraryItemCell.xib in Resources */,
 				9B28E33D284D120B00F79F7B /* spacerangerbold.ttf in Resources */,
 				9B28E34E284D120B00F79F7B /* spaceranger3dital.ttf in Resources */,
 				9B8769E72857A86500FEB405 /* APODViewController.xib in Resources */,
@@ -1046,6 +1061,7 @@
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
 				9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */,
+				9B2E4AF629117B4B001A0FA5 /* SpaceLibraryItemCell.swift in Sources */,
 				9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */,
 				9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */,
 				9B8769E92857A87100FEB405 /* APODViewModel.swift in Sources */,

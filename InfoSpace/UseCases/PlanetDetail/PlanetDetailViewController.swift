@@ -24,7 +24,7 @@ class PlanetDetailViewController: UIViewController {
     private let kCollectionViewTopBottomInsets = 40
     private let kAnimationDuration: TimeInterval = 0.3
     private let kCollectionViewItemsPerRow: CGFloat = 3
-    private let kCollectionViewCellInsets: CGFloat = 1
+    private let kCollectionViewCellInsets: CGFloat = 3
     
     private var isDragged: Bool = false
     

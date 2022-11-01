@@ -11,14 +11,17 @@ class SpaceLibraryViewController: UIViewController {
 
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var filterView: FilterView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var spaceItemsCollectionView: UICollectionView!
     
     private var viewModel: SpaceLibraryViewModel!
     
-    static func initAndLoad(initInformation: String) -> SpaceLibraryViewController {
+    private let kCollectionViewCellInset:CGFloat = 10
+    private let kCollectionViewNumberOfItemsPerRow:CGFloat = 2
+    
+    static func initAndLoad(spaceLibraryItems: SpaceLibraryItems) -> SpaceLibraryViewController {
         let spaceLibraryViewController = SpaceLibraryViewController.initAndLoad()
         
-        spaceLibraryViewController.viewModel = SpaceLibraryViewModel()
+        spaceLibraryViewController.viewModel = SpaceLibraryViewModel(spaceLibraryItems: spaceLibraryItems)
         
         return spaceLibraryViewController
     }
@@ -29,24 +32,37 @@ class SpaceLibraryViewController: UIViewController {
         headerView.labelTitle.text = "Space Library"
         headerView.delegate = self
         filterView.isHidden = true
-        configureTable()
+        configureCollectionView()
     }
     
-    private func configureTable() {
-        tableView.register(APODDescriptionCell.nib, forCellReuseIdentifier: APODDescriptionCell.identifier)
+    private func configureCollectionView() {
+        spaceItemsCollectionView.register(SpaceLibraryItemCell.nib, forCellWithReuseIdentifier: SpaceLibraryItemCell.identifier)
     }
 }
 
-extension SpaceLibraryViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+// MARK: - UICollectionViewDataSource
+
+extension SpaceLibraryViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.getNumberOfSpaceItems()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: APODDescriptionCell.identifier) as! APODDescriptionCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let spaceItem = viewModel.getSpaceItem(position: indexPath.row)
         
-        cell.configure(description: "SÑDLOVJISDBFILUVBIUSFABVIUBSFOUBNVDSFIUBVIUADFSBIVBISAFBIVUBJSIÑBVIUBISFJDBVIUSFDBVHBSFDIHBVJKSFDBVIJBSDFIHBVIBDSIYBVKJBDSHKJVBYISDBFVJKBSDIJVNBUIDFSBVJK BSDFIHJBNVUIGDSBJVBUYIDSBVUIBGSDKJVBIYDSBVJBDSWJKBVIYEWBSDUVIYBSDKJBVHIBSDIYUFBJUERWIHVJONDSFUIVBNUISBDVIJDSBNJVBJKSDBVKJSBDFHIVBIUSDBVIUDBIUVBIEBVIHBSDVLJSDBVLISHABVLSBFLIBUVBILUS")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceLibraryItemCell.identifier, for: indexPath) as! SpaceLibraryItemCell
+        
+        cell.configure(spaceItem: spaceItem)
+        
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension SpaceLibraryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width - kCollectionViewCellInset) / kCollectionViewNumberOfItemsPerRow, height: (collectionView.frame.width - kCollectionViewCellInset) / kCollectionViewNumberOfItemsPerRow)
     }
 }
 

@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="filterView" destination="xH3-TA-ltj" id="pCg-nK-NZT"/>
                 <outlet property="headerView" destination="CHM-Pc-wxa" id="FSl-a1-qQq"/>
-                <outlet property="tableView" destination="9Za-4r-FwA" id="V7d-Of-mEO"/>
+                <outlet property="spaceItemsCollectionView" destination="Pze-Bb-eWQ" id="fgj-j2-5Py"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,23 +31,29 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="COD-rH-m1J">
-                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                    <rect key="frame" x="0.0" y="84" width="414" height="812"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xH3-TA-ltj" customClass="FilterView" customModule="InfoSpace" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" priority="500" constant="230" id="IBd-Kl-nfl"/>
+                                <constraint firstAttribute="height" priority="500" constant="225" id="IBd-Kl-nfl"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Za-4r-FwA">
-                            <rect key="frame" x="0.0" y="230" width="414" height="548"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-Bb-eWQ">
+                            <rect key="frame" x="0.0" y="650" width="414" height="162"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LLy-h9-C2x">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                            </collectionViewFlowLayout>
                             <connections>
-                                <outlet property="dataSource" destination="-1" id="GLP-mk-fnx"/>
-                                <outlet property="delegate" destination="-1" id="Yab-pl-u8U"/>
+                                <outlet property="dataSource" destination="-1" id="018-3Z-uBt"/>
+                                <outlet property="delegate" destination="-1" id="9iz-BE-Uma"/>
                             </connections>
-                        </tableView>
+                        </collectionView>
                     </subviews>
                 </stackView>
             </subviews>
@@ -57,9 +63,9 @@
                 <constraint firstItem="CHM-Pc-wxa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mti-bL-jaa"/>
                 <constraint firstItem="COD-rH-m1J" firstAttribute="top" secondItem="CHM-Pc-wxa" secondAttribute="bottom" id="T0b-Co-2aN"/>
                 <constraint firstItem="COD-rH-m1J" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="a6z-fX-5hB"/>
+                <constraint firstAttribute="bottom" secondItem="COD-rH-m1J" secondAttribute="bottom" id="emA-kO-mMz"/>
                 <constraint firstItem="CHM-Pc-wxa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fgC-cp-ufI"/>
                 <constraint firstItem="COD-rH-m1J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oTe-Fr-GIl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="COD-rH-m1J" secondAttribute="bottom" id="qGC-nn-sio"/>
                 <constraint firstItem="CHM-Pc-wxa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rMn-fA-1v4"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
