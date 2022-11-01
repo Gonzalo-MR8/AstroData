@@ -19,17 +19,6 @@ class APODImageCell: UITableViewCell {
     
     private var apod: APOD!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     private func adjustImageView(frameWidth: CGFloat) {
         let ratio = imageViewApod.image!.size.width / imageViewApod.image!.size.height
         let scaledHeight = (frameWidth * kImageViewWidth) / ratio

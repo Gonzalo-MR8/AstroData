@@ -20,12 +20,6 @@ class APODDateCell: UITableViewCell {
         
         datePicker.maximumDate = Date()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func updateSelectedDate(state: Bool) {
         DispatchQueue.main.async { [self] in

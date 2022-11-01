@@ -14,11 +14,7 @@ class ContentTypeItemCell: UICollectionViewCell {
     
     let kSelectedBorderWidth: CGFloat = 0
     let kUnselectedBorderWidth: CGFloat = 2
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    
     func configure(text: String, isSelected: Bool) {
         textLabel.text = text
         

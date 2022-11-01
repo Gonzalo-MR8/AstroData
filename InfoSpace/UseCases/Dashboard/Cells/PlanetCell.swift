@@ -16,11 +16,6 @@ class PlanetCell: UICollectionViewCell {
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var labelSatelites: UILabel!
     @IBOutlet weak var imageViewPlanet: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func configure(planet: Planet) {
         labelTitle.text = planet.title

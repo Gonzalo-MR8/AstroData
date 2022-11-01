@@ -12,11 +12,6 @@ class DashboardItemCell: UICollectionViewCell {
     @IBOutlet weak var blur: UIVisualEffectView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func configure(dashboardItem: DashboardItem) {
         labelTitle.text = dashboardItem.title
