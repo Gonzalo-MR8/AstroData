@@ -106,7 +106,7 @@ extension APODViewController: UITableViewDataSource {
                 viewModel.getNewAPOD(date: date, completion: { result in
                     switch result {
                     case .failure(let error):
-                        print("Error \(error)")
+                        print("Apod date picker \(error)")
                         cell.updateSelectedDate(state: false)
                         DispatchQueue.main.async {
                             self.hideHudView()
