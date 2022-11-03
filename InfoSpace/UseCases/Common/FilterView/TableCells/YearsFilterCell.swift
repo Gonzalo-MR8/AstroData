@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol YearsFilterCellProtocol: AnyObject {
+    func changeYearsSelected(yearStart: String?, yearEnd: String?)
+}
+
 class YearsFilterCell: UITableViewCell {
 
     @IBOutlet weak var yearStartTextField: UITextField!
@@ -26,10 +30,14 @@ class YearsFilterCell: UITableViewCell {
     
     var years: [String] = ["1920", "1920","1920","1920","1920","1920","1920","1920","1920","1920","1920","1920","1920","1920"]
     
-    func configure() {
+    weak var delegate: YearsFilterCellProtocol?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         createYearsPickers()
     }
-    
+
     // MARK: - Year picker
     
     private func createYearsPickers() {
@@ -109,11 +117,19 @@ class YearsFilterCell: UITableViewCell {
         let rowEnd = picker.selectedRow(inComponent: 1)
         let yearEnd = rowEnd == 0 ? nil : years[rowEnd - 1]
         
-        //changeCenter?(center)
         yearEndTextField.text = rowEnd == 0 ? nil : yearEnd!
+        
+        delegate?.changeYearsSelected(yearStart: yearStart, yearEnd: yearEnd)
         
         yearStartTextField.resignFirstResponder()
         yearEndTextField.resignFirstResponder()
+    }
+    
+    func reset() {
+        yearStartTextField.text = nil
+        yearEndTextField.text = nil
+        picker.selectRow(0, inComponent: 0, animated: false)
+        picker.selectRow(0, inComponent: 1, animated: false)
     }
 }
 

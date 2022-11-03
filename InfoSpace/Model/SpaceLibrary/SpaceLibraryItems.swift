@@ -1,5 +1,5 @@
 //
-//  SpaceLibraryItem.swift
+//  SpaceLibraryItems.swift
 //  InfoSpace
 //
 //  Created by GonzaloMR on 12/10/22.
@@ -17,7 +17,7 @@ struct Collection: Codable {
     let version: String
     let href: String
     let spaceItems: [SpaceItem]
-    let links: [CollectionLink]
+    let links: [CollectionLink]?
     
     enum CodingKeys: String, CodingKey {
         case version, href
@@ -29,19 +29,19 @@ struct Collection: Codable {
 // MARK: - Item
 struct SpaceItem: Codable {
     let href: String
-    let data: [Datum]
-    let links: [ItemLink]
+    let data: [SpaceItemData]
+    let links: [ItemLink]?
 }
 
 // MARK: - Datum
-struct Datum: Codable {
-    let center: Center
+struct SpaceItemData: Codable {
+    let center: String?
     let title, nasaID: String
     let mediaType: MediaType
-    let keywords: [String]
+    let keywords: [String]?
     let dateCreated: Date
     let description508, secondaryCreator: String?
-    let datumDescription: String
+    let description: String?
     let album: [String]?
     let photographer, location: String?
 
@@ -53,17 +53,16 @@ struct Datum: Codable {
         case dateCreated = "date_created"
         case description508 = "description_508"
         case secondaryCreator = "secondary_creator"
-        case datumDescription = "description"
-        case album, photographer, location
+        case album, photographer, location, description
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.center = try container.decode(Center.self, forKey: .center)
+        self.center = try container.decodeIfPresent(String.self, forKey: .center)
         self.title = try container.decode(String.self, forKey: .title)
         self.nasaID = try container.decode(String.self, forKey: .nasaID)
         self.mediaType = try container.decode(MediaType.self, forKey: .mediaType)
-        self.keywords = try container.decode([String].self, forKey: .keywords)
+        self.keywords = try container.decodeIfPresent([String].self, forKey: .keywords)
         
         let formatter = DateFormatter.dateFormatterUTC
         formatter.dateFormat = Constants.kLongDateFormat
@@ -80,20 +79,11 @@ struct Datum: Codable {
         
         self.description508 = try container.decodeIfPresent(String.self, forKey: .description508)
         self.secondaryCreator = try container.decodeIfPresent(String.self, forKey: .secondaryCreator)
-        self.datumDescription = try container.decode(String.self, forKey: .datumDescription)
+        self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.album = try container.decodeIfPresent([String].self, forKey: .album)
         self.photographer = try container.decodeIfPresent(String.self, forKey: .photographer)
         self.location = try container.decodeIfPresent(String.self, forKey: .location)
     }
-}
-
-enum Center: String, Codable {
-    case hq = "HQ"
-    case jpl = "JPL"
-    case jsc = "JSC"
-    case maf = "MAF"
-    case msfc = "MSFC"
-    case ssc = "SSC"
 }
 
 enum MediaType: String, Codable {
@@ -105,13 +95,8 @@ enum MediaType: String, Codable {
 // MARK: - ItemLink
 struct ItemLink: Codable {
     let href: String
-    let rel: Rel
+    let rel: String
     let render: MediaType?
-}
-
-enum Rel: String, Codable {
-    case captions = "captions"
-    case preview = "preview"
 }
 
 // MARK: - CollectionLink

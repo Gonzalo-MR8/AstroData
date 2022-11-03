@@ -87,7 +87,7 @@ final class SplashScreenViewModel {
     }
     
     private func getSpaceLibrary(completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
-        NasaLibraryDataManager.shared.getLibraryBegin(completion: { result in
+        NasaLibraryDataManager.shared.getLibraryDefault(page: 1, completion: { result in
             switch result {
             case .failure(let error):
                 print("Space library WS error: \(error)")

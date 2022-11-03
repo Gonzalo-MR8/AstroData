@@ -32,6 +32,7 @@ class SpaceLibraryViewController: UIViewController {
         headerView.labelTitle.text = "Space Library"
         headerView.delegate = self
         filterView.isHidden = true
+        filterView.delegate = self
         configureCollectionView()
     }
     
@@ -81,3 +82,34 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
         })
     }
 }
+
+extension SpaceLibraryViewController: FilterViewProtocol {
+    func changeFilters(filters: SpaceLibraryFilters) {
+        viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
+            switch result {
+            case .failure(let failure):
+                print("Change spaceLibrary filters error: \(failure)")
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.spaceItemsCollectionView.reloadData()
+                }
+            }
+        })
+    }
+    
+    func resetFilters() {
+        viewModel.getSpaceLibraryItemsBegin(page: 1, completion: { result in
+            switch result {
+            case .failure(let failure):
+                print("Reset spaceLibrary filters error: \(failure)")
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.spaceItemsCollectionView.reloadData()
+                }
+            }
+        })
+    }
+}
+// MARK: - HudViewProtocol
+
+extension SpaceLibraryViewController: HudViewProtocol {}

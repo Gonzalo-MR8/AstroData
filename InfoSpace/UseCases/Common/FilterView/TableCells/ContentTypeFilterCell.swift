@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ContentTypeFilterCellProtocol: AnyObject {
+    func changeSelectedTypes(mediaTypes: [MediaType]?)
+}
+
 typealias ContentTypeItem = (MediaType, String)
 
 class ContentTypeFilterCell: UITableViewCell {
@@ -14,16 +18,25 @@ class ContentTypeFilterCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let kTypes: [ContentTypeItem] = [(.image,"IMAGENES"), (.video, "VIDEOS"), (.audio, "AUDIOS")]
-    var selectedTypes: [MediaType] = []
+    private var selectedTypes: [MediaType] = [.image, .video, .audio]
     
-    func configure() {
+    weak var delegate: ContentTypeFilterCellProtocol?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         configureCollectionView()
     }
-    
+
     private func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ContentTypeItemCell.nib, forCellWithReuseIdentifier: ContentTypeItemCell.identifier)
+    }
+    
+    func reset() {
+        selectedTypes = [.image, .video, .audio]
+        collectionView.reloadData()
     }
 }
 
@@ -38,9 +51,9 @@ extension ContentTypeFilterCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentTypeItemCell.identifier, for: indexPath) as! ContentTypeItemCell
         
         if selectedTypes.contains(where: { $0 == kTypes[indexPath.row].0 }) {
-            cell.configure(text: kTypes[indexPath.row].1, isSelected: false)
-        } else {
             cell.configure(text: kTypes[indexPath.row].1, isSelected: true)
+        } else {
+            cell.configure(text: kTypes[indexPath.row].1, isSelected: false)
         }
         
         return cell
@@ -52,12 +65,17 @@ extension ContentTypeFilterCell: UICollectionViewDataSource {
 extension ContentTypeFilterCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectedTypes.contains(where: { $0 == kTypes[indexPath.row].0 }) {
-            selectedTypes.removeAll { $0 == kTypes[indexPath.row].0 }
+            if selectedTypes.count == 1 {
+                CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Tienes que tener seleccionado un tipo de contenido al menos")
+            } else {
+                selectedTypes.removeAll { $0 == kTypes[indexPath.row].0 }
+            }
         } else {
             selectedTypes.append(kTypes[indexPath.row].0)
         }
     
-        //selectedTypes?(selectedTypes)
         collectionView.reloadData()
+            
+        delegate?.changeSelectedTypes(mediaTypes: selectedTypes)
     }
 }

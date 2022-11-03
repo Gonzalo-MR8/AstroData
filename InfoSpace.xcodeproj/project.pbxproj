@@ -118,6 +118,8 @@
 		9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93115F283E79E20052EF1B /* UIView+Utils.swift */; };
 		9B931164283E814B0052EF1B /* splashScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931162283E814B0052EF1B /* splashScreen.json */; };
 		9B931165283E814B0052EF1B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931163283E814B0052EF1B /* loading.json */; };
+		9B980A0829134B3B00F6F2D9 /* ButtonsFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B980A0629134B3B00F6F2D9 /* ButtonsFilterCell.swift */; };
+		9B980A0929134B3B00F6F2D9 /* ButtonsFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B980A0729134B3B00F6F2D9 /* ButtonsFilterCell.xib */; };
 		9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98B61F2852DA7D00975043 /* ImageDownloader.swift */; };
 		9BB2C11B28580F810057DB4E /* DateFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB2C11A28580F810057DB4E /* DateFormatter+Utils.swift */; };
 		9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB443E3283D55840043EF4E /* AppDelegate.swift */; };
@@ -133,7 +135,8 @@
 		9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB736D1285659E800B8D867 /* Bundle+Utils.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
-		9BE6E44E28F6536A003A63DF /* SpaceLibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E44D28F6536A003A63DF /* SpaceLibraryItem.swift */; };
+		9BD9D9572911EFB100621C02 /* SpaceLibraryFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9D9562911EFB100621C02 /* SpaceLibraryFilters.swift */; };
+		9BE6E44E28F6536A003A63DF /* SpaceLibraryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */; };
 		D1B6F28422BB5FBE923926C4 /* Pods_InfoSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +272,8 @@
 		9B93115F283E79E20052EF1B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9B931162283E814B0052EF1B /* splashScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashScreen.json; sourceTree = "<group>"; };
 		9B931163283E814B0052EF1B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		9B980A0629134B3B00F6F2D9 /* ButtonsFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsFilterCell.swift; sourceTree = "<group>"; };
+		9B980A0729134B3B00F6F2D9 /* ButtonsFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsFilterCell.xib; sourceTree = "<group>"; };
 		9B98B61F2852DA7D00975043 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		9BB2C11A28580F810057DB4E /* DateFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Utils.swift"; sourceTree = "<group>"; };
 		9BB443E0283D55840043EF4E /* InfoSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfoSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,7 +293,8 @@
 		9BB736D1285659E800B8D867 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
-		9BE6E44D28F6536A003A63DF /* SpaceLibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItem.swift; sourceTree = "<group>"; };
+		9BD9D9562911EFB100621C02 /* SpaceLibraryFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryFilters.swift; sourceTree = "<group>"; };
+		9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,6 +560,8 @@
 				9B380984290E0D40007851B2 /* ContentTypeFilterCell.xib */,
 				9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */,
 				9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */,
+				9B980A0629134B3B00F6F2D9 /* ButtonsFilterCell.swift */,
+				9B980A0729134B3B00F6F2D9 /* ButtonsFilterCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -689,10 +697,10 @@
 		9BB44414283D5FAA0043EF4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9BD9D9552911EF9300621C02 /* SpaceLibrary */,
 				9B8769DF2857A37200FEB405 /* APOD.swift */,
 				9B1F8C7428466CC400BCCEBE /* Planet.swift */,
 				9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */,
-				9BE6E44D28F6536A003A63DF /* SpaceLibraryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -775,6 +783,15 @@
 				9B2AC06D2843B1F1005D022E /* SplashScreenViewModel.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		9BD9D9552911EF9300621C02 /* SpaceLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */,
+				9BD9D9562911EFB100621C02 /* SpaceLibraryFilters.swift */,
+			);
+			path = SpaceLibrary;
 			sourceTree = "<group>";
 		};
 		BEB9B7F12172C950099775CF /* Frameworks */ = {
@@ -892,6 +909,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B38098F290E0D98007851B2 /* ContentTypeItemCell.xib in Resources */,
+				9B980A0929134B3B00F6F2D9 /* ButtonsFilterCell.xib in Resources */,
 				9B28E33E284D120B00F79F7B /* spacerangersemital.ttf in Resources */,
 				9B380986290E0D40007851B2 /* ContentTypeFilterCell.xib in Resources */,
 				9B28E34C284D120B00F79F7B /* spaceranger3d.ttf in Resources */,
@@ -1038,12 +1056,13 @@
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
 				9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */,
 				9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */,
-				9BE6E44E28F6536A003A63DF /* SpaceLibraryItem.swift in Sources */,
+				9BE6E44E28F6536A003A63DF /* SpaceLibraryItems.swift in Sources */,
 				9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */,
 				9B2B836328615D60002BABDC /* APODDescriptionCell.swift in Sources */,
 				9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */,
 				9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */,
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
+				9BD9D9572911EFB100621C02 /* SpaceLibraryFilters.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
@@ -1074,6 +1093,7 @@
 				9B4F83332909FA87006E8954 /* HeaderFilterCell.swift in Sources */,
 				9B4F8337290DCD7F006E8954 /* SeparatorCell.swift in Sources */,
 				9B270E312840013000F4FFED /* Constants.swift in Sources */,
+				9B980A0829134B3B00F6F2D9 /* ButtonsFilterCell.swift in Sources */,
 				9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */,
 				9B2B836728615D79002BABDC /* APODTitleCell.swift in Sources */,
 				9B38CD2328722327006712EE /* AsteroidsNearEarthViewModel.swift in Sources */,

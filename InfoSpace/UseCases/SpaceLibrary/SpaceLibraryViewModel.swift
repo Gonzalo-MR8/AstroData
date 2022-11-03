@@ -15,11 +15,24 @@ final class SpaceLibraryViewModel {
         self.spaceLibraryItems = spaceLibraryItems
     }
     
-    func getSpaceLibraryItemsBegin(completion: @escaping (Result<Void, WebServiceError>) -> ()) {
-        NasaLibraryDataManager.shared.getLibraryBegin(completion: { result in
+    func getSpaceLibraryItemsBegin(page: Int, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
             switch result {
             case .failure(let error):
-                print("getSpaceLibraryItemsBegin WS error: \(error)")
+                print("getSpaceLibraryItemsDefault WS error: \(error)")
+                completion(.failure(error))
+            case .success(let spaceLibraryItems):
+                self.spaceLibraryItems = spaceLibraryItems
+                completion(.success(()))
+            }
+        })
+    }
+    
+    func getSpaceLibraryItemsFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getLibraryFilters(filters: filters, completion: { result in
+            switch result {
+            case .failure(let error):
+                print("getSpaceLibraryItemsFilters WS error: \(error)")
                 completion(.failure(error))
             case .success(let spaceLibraryItems):
                 self.spaceLibraryItems = spaceLibraryItems
