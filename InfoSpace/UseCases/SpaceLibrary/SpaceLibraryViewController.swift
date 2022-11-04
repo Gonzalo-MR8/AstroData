@@ -85,26 +85,38 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
+        showHudView()
         viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
             switch result {
             case .failure(let failure):
                 print("Change spaceLibrary filters error: \(failure)")
+                DispatchQueue.main.async {
+                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
+                    self.hideHudView()
+                }
             case .success(_):
                 DispatchQueue.main.async {
                     self.spaceItemsCollectionView.reloadData()
+                    self.hideHudView()
                 }
             }
         })
     }
     
     func resetFilters() {
+        showHudView()
         viewModel.getSpaceLibraryItemsBegin(page: 1, completion: { result in
             switch result {
             case .failure(let failure):
                 print("Reset spaceLibrary filters error: \(failure)")
+                DispatchQueue.main.async {
+                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al pulsar el boton reset, intentelo de nuevo")
+                    self.hideHudView()
+                }
             case .success(_):
                 DispatchQueue.main.async {
                     self.spaceItemsCollectionView.reloadData()
+                    self.hideHudView()
                 }
             }
         })

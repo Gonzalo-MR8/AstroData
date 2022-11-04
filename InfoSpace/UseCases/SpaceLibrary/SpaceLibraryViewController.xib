@@ -37,7 +37,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" priority="500" constant="270" id="IBd-Kl-nfl"/>
+                                <constraint firstAttribute="height" priority="500" constant="275" id="IBd-Kl-nfl"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-Bb-eWQ">

@@ -101,6 +101,7 @@
 		9B4F8338290DCD7F006E8954 /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */; };
 		9B4F833B290DCE00006E8954 /* SearchFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */; };
 		9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */; };
+		9B58014A29148CBC009288FD /* FontTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B58014929148CBC009288FD /* FontTypes.swift */; };
 		9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */; };
 		9B82C9DE285210F1003EAF59 /* ImagesGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */; };
 		9B82C9E228521211003EAF59 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */; };
@@ -255,6 +256,7 @@
 		9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorCell.xib; sourceTree = "<group>"; };
 		9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterCell.swift; sourceTree = "<group>"; };
 		9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFilterCell.xib; sourceTree = "<group>"; };
+		9B58014929148CBC009288FD /* FontTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTypes.swift; sourceTree = "<group>"; };
 		9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGalleryViewController.swift; sourceTree = "<group>"; };
 		9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesGalleryViewController.xib; sourceTree = "<group>"; };
 		9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			children = (
 				9B28E31E284D11AF00F79F7B /* SpaceRanger */,
 				9B28E31D284D117D00F79F7B /* NotoSansJP */,
+				9B58014929148CBC009288FD /* FontTypes.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
 				9BD9D9572911EFB100621C02 /* SpaceLibraryFilters.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
+				9B58014A29148CBC009288FD /* FontTypes.swift in Sources */,
 				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,

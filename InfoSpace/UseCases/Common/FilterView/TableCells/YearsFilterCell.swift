@@ -20,7 +20,8 @@ class YearsFilterCell: UITableViewCell {
     private let picker = UIPickerView()
     
     private let kToolbarHeight: CGFloat = 40
-    private let kToolBarFontSize: CGFloat = 14
+    private let kToolBarButtonsFontSize: CGFloat = 16
+    private let kToolBarTitleFontSize: CGFloat = 24
     
     private let kCornerRadius: CGFloat = 16.0
     
@@ -28,32 +29,45 @@ class YearsFilterCell: UITableViewCell {
     private let placeholderYearStartText = "Año de inicio"
     private let placeholderYearEndText = "Año de fin"
     
-    var years: [String] = ["1920", "1920","1920","1920","1920","1920","1920","1920","1920","1920","1920","1920","1920","1920"]
+    var years: [String] = []
     
     weak var delegate: YearsFilterCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        generateYears()
         createYearsPickers()
     }
 
+    private func generateYears() {
+        let currentYear = Calendar.current.component(.year, from: Date())
+        let lastYear = 1900
+        
+        for i in lastYear...currentYear {
+            years.append(String(i))
+        }
+    }
+    
     // MARK: - Year picker
     
     private func createYearsPickers() {
-        //let fontData = Fonts.dictFonts[FontTypes.kBodyRegular]!
-        //let font = UIFont(name: fontData.name, size: kCountryToolBarFontSize)!
+        let fontDataButtons = FontData(name: FontNames.kNotoSansJPRegular)
+        let fontButtons = UIFont(name: fontDataButtons.name, size: kToolBarButtonsFontSize)!
+        
+        let fontDataTitle = FontData(name: FontNames.kSpaceRangerCond)
+        let fontTitle = UIFont(name: fontDataTitle.name, size: kToolBarTitleFontSize)!
         
         // Tool bar
         toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: bounds.width, height: kToolbarHeight))
         
-        toolBar.barTintColor = Colors.tertiaryColor.value
+        toolBar.barTintColor = Colors.elementColor.value
         
         let buttonCancel = UIButton.init()
         buttonCancel.setTitle("Cancelar", for: .normal)
         buttonCancel.setTitleColor(Colors.white.value, for: .normal)
         buttonCancel.addTarget(self, action: #selector(yearsPickerCancelPressed(_:)), for: .touchUpInside)
-        //buttonCancel.titleLabel?.font = font
+        buttonCancel.titleLabel?.font = fontButtons
         
         let buttonToolBarCancel = UIBarButtonItem(customView: buttonCancel)
         
@@ -61,7 +75,7 @@ class YearsFilterCell: UITableViewCell {
         buttonAccept.setTitle("Aceptar", for: .normal)
         buttonAccept.setTitleColor(Colors.white.value, for: .normal)
         buttonAccept.addTarget(self, action: #selector(yearsPickerAcceptPressed(_:)), for: .touchUpInside)
-        //buttonAccept.titleLabel?.font = font
+        buttonAccept.titleLabel?.font = fontButtons
         
         let buttonToolBarAccept = UIBarButtonItem(customView: buttonAccept)
         
@@ -69,7 +83,7 @@ class YearsFilterCell: UITableViewCell {
         labelText.textAlignment = .center
         labelText.text = "Filtro de años"
         labelText.textColor = Colors.white.value
-        //labelText.font = font
+        labelText.font = fontTitle
         
         let labelToolBarText = UIBarButtonItem(customView: labelText)
         
@@ -112,14 +126,17 @@ class YearsFilterCell: UITableViewCell {
         let rowStart = picker.selectedRow(inComponent: 0)
         let yearStart = rowStart == 0 ? nil : years[rowStart - 1]
         
-        yearStartTextField.text = rowStart == 0 ? nil : yearStart!
-        
         let rowEnd = picker.selectedRow(inComponent: 1)
         let yearEnd = rowEnd == 0 ? nil : years[rowEnd - 1]
         
-        yearEndTextField.text = rowEnd == 0 ? nil : yearEnd!
-        
-        delegate?.changeYearsSelected(yearStart: yearStart, yearEnd: yearEnd)
+        if rowStart > rowEnd {
+            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "El año de inicio no puede ser mayor que el año de final")
+        } else {
+            yearStartTextField.text = rowStart == 0 ? nil : yearStart!
+            yearEndTextField.text = rowEnd == 0 ? nil : yearEnd!
+            
+            delegate?.changeYearsSelected(yearStart: yearStart, yearEnd: yearEnd)
+        }
         
         yearStartTextField.resignFirstResponder()
         yearEndTextField.resignFirstResponder()
@@ -139,7 +156,7 @@ extension YearsFilterCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let yearName = row == 0 ? placeholderText : years[row - 1]
         
-        return NSAttributedString(string: yearName, attributes: [NSAttributedString.Key.foregroundColor: Colors.tertiaryColor.value])
+        return NSAttributedString(string: yearName, attributes: [NSAttributedString.Key.foregroundColor: Colors.elementColor.value])
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
