@@ -9,14 +9,14 @@ import Foundation
 
 // MARK: - SpaceLibraryItems
 struct SpaceLibraryItems: Codable {
-    let collection: Collection
+    var collection: Collection
 }
 
 // MARK: - Collection
 struct Collection: Codable {
     let version: String
     let href: String
-    let spaceItems: [SpaceItem]
+    var spaceItems: [SpaceItem]
     let links: [CollectionLink]?
     
     enum CodingKeys: String, CodingKey {

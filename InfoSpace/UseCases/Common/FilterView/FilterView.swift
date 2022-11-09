@@ -26,31 +26,19 @@ class FilterView: View {
     @IBOutlet weak var filtersTableView: UITableView!
     
     private var cellTypes: [FilterCellType] = [.header, .separator, .search, .separator, .contentType, .separator, .years, .separator, .buttons]
-    
-    private var filters: SpaceLibraryFilters!
     private var reset: Bool = false
+    
+    public var filters: SpaceLibraryFilters!
     
     weak var delegate: FilterViewProtocol?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        setup()
+    func configure(page: Int) {
+        setupNib()
+        configureTable()
+        filters = SpaceLibraryFilters(page: page)
     }
     
     // MARK: - Private methods
-    
-    private func setup() {
-        setupNib()
-        configureTable()
-        filters = SpaceLibraryFilters(page: 1)
-    }
     
     private func configureTable() {
         filtersTableView.register(HeaderFilterCell.nib, forCellReuseIdentifier: HeaderFilterCell.identifier)
@@ -151,6 +139,7 @@ extension FilterView: YearsFilterCellProtocol {
 
 extension FilterView: ButtonsFilterCellProtocol {
     func applyButtonPressed() {
+        filters.page = 1
         delegate?.changeFilters(filters: filters)
     }
     

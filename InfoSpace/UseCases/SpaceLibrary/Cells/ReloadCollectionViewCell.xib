@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ReloadCollectionViewCell" customModule="InfoSpace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ob8-lD-mYJ" customClass="AnimationView" customModule="Lottie">
+                        <rect key="frame" x="0.0" y="10" width="320" height="120"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ob8-lD-mYJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9I4-0R-BKG"/>
+                <constraint firstAttribute="trailing" secondItem="ob8-lD-mYJ" secondAttribute="trailing" id="Vmg-Hh-mNC"/>
+                <constraint firstItem="ob8-lD-mYJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="el1-2o-Xci"/>
+                <constraint firstAttribute="bottom" secondItem="ob8-lD-mYJ" secondAttribute="bottom" id="xlB-BB-0PI"/>
+            </constraints>
+            <connections>
+                <outlet property="animationView" destination="ob8-lD-mYJ" id="JbC-Hb-dIl"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="ob8-lD-mYJ"/>
+    </designables>
+</document>

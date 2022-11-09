@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9B027440284A817C00C2303A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B02743F284A817C00C2303A /* Colors.swift */; };
 		9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */; };
+		9B0EF17D291B19D400A87F1E /* ReloadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EF17B291B19D400A87F1E /* ReloadCollectionViewCell.swift */; };
+		9B0EF17E291B19D400A87F1E /* ReloadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0EF17C291B19D400A87F1E /* ReloadCollectionViewCell.xib */; };
 		9B19495C286902CE00B8322B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19495B286902CE00B8322B /* Utils.swift */; };
 		9B1F8C7528466CC400BCCEBE /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7428466CC400BCCEBE /* Planet.swift */; };
 		9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */; };
@@ -164,6 +166,8 @@
 		31E5FDD4CEBABEBE203666EE /* Pods-InfoSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoSpace.release.xcconfig"; path = "Target Support Files/Pods-InfoSpace/Pods-InfoSpace.release.xcconfig"; sourceTree = "<group>"; };
 		9B02743F284A817C00C2303A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		9B0EF17B291B19D400A87F1E /* ReloadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B0EF17C291B19D400A87F1E /* ReloadCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReloadCollectionViewCell.xib; sourceTree = "<group>"; };
 		9B19495B286902CE00B8322B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9B1F8C7428466CC400BCCEBE /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataDataManager.swift; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 			children = (
 				9B2E4AF429117B4B001A0FA5 /* SpaceLibraryItemCell.swift */,
 				9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */,
+				9B0EF17B291B19D400A87F1E /* ReloadCollectionViewCell.swift */,
+				9B0EF17C291B19D400A87F1E /* ReloadCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -934,6 +940,7 @@
 				9BB443F0283D55850043EF4E /* LaunchScreen.storyboard in Resources */,
 				9B28E356284D120B00F79F7B /* spacerangerchrome.ttf in Resources */,
 				9B28E34B284D120B00F79F7B /* spacerangerboldital.ttf in Resources */,
+				9B0EF17E291B19D400A87F1E /* ReloadCollectionViewCell.xib in Resources */,
 				9B28E341284D120B00F79F7B /* spacerangerhalfital.ttf in Resources */,
 				9B4F83342909FA87006E8954 /* HeaderFilterCell.xib in Resources */,
 				9B28E346284D120B00F79F7B /* spacerangerexpandital.ttf in Resources */,
@@ -1061,6 +1068,7 @@
 				9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */,
 				9BE6E44E28F6536A003A63DF /* SpaceLibraryItems.swift in Sources */,
 				9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */,
+				9B0EF17D291B19D400A87F1E /* ReloadCollectionViewCell.swift in Sources */,
 				9B2B836328615D60002BABDC /* APODDescriptionCell.swift in Sources */,
 				9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */,
 				9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */,

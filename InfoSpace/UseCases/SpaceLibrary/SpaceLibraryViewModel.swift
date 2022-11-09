@@ -41,6 +41,32 @@ final class SpaceLibraryViewModel {
         })
     }
     
+    func getSpaceLibraryItemsBeginNewPage(page: Int, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
+            switch result {
+            case .failure(let error):
+                print("getSpaceLibraryItemsBeginNewPage WS error: \(error)")
+                completion(.failure(error))
+            case .success(let spaceLibraryItems):
+                self.spaceLibraryItems.collection.spaceItems.append(contentsOf: spaceLibraryItems.collection.spaceItems)
+                completion(.success(()))
+            }
+        })
+    }
+    
+    func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getLibraryFilters(filters: filters, completion: { result in
+            switch result {
+            case .failure(let error):
+                print("getSpaceLibraryItemsFiltersNewPage WS error: \(error)")
+                completion(.failure(error))
+            case .success(let spaceLibraryItems):
+                self.spaceLibraryItems.collection.spaceItems.append(contentsOf: spaceLibraryItems.collection.spaceItems)
+                completion(.success(()))
+            }
+        })
+    }
+    
     func getNumberOfSpaceItems() -> Int {
         return spaceLibraryItems.collection.spaceItems.count
     }
