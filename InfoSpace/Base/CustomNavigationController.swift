@@ -8,8 +8,6 @@
 import UIKit
 import SafariServices
 
-typealias EmptyBlock = () -> ()
-
 class CustomNavigationController: UINavigationController {
 
     // Here we have to create and instantiate the rootViewController
