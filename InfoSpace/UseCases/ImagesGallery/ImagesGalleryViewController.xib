@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,7 +88,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6X-0e-qQI" customClass="View" customModule="InfoSpace" customModuleProvider="target">
                     <rect key="frame" x="100" y="76" width="294" height="28"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title label text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT5-IF-uvA">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title label text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT5-IF-uvA">
                             <rect key="frame" x="10" y="3" width="274" height="22"/>
                             <fontDescription key="fontDescription" name="NotoSansJP-Medium" family="Noto Sans JP" pointSize="15"/>
                             <color key="textColor" name="white"/>
@@ -98,9 +98,9 @@
                     <viewLayoutGuide key="safeArea" id="mXg-j7-jn9"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="6oM-3M-hJO"/>
-                        <constraint firstItem="UT5-IF-uvA" firstAttribute="centerY" secondItem="r6X-0e-qQI" secondAttribute="centerY" id="CzF-6G-Utp"/>
+                        <constraint firstItem="UT5-IF-uvA" firstAttribute="top" secondItem="mXg-j7-jn9" secondAttribute="top" constant="3" id="DiH-J2-7qu"/>
                         <constraint firstItem="mXg-j7-jn9" firstAttribute="trailing" secondItem="UT5-IF-uvA" secondAttribute="trailing" constant="10" id="LkZ-A4-Af6"/>
+                        <constraint firstItem="mXg-j7-jn9" firstAttribute="bottom" secondItem="UT5-IF-uvA" secondAttribute="bottom" constant="3" id="jNM-vk-Naa"/>
                         <constraint firstItem="UT5-IF-uvA" firstAttribute="leading" secondItem="mXg-j7-jn9" secondAttribute="leading" constant="10" id="ovQ-24-rIs"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -134,7 +134,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -8,7 +8,7 @@
 import UIKit
 
 class ImagesGalleryViewController: UIViewController {
-
+    
     private var viewModel: ImagesGalleryViewModel!
     
     @IBOutlet weak var collectionViewGallery: UICollectionView!
@@ -32,12 +32,25 @@ class ImagesGalleryViewController: UIViewController {
         super.viewDidLoad()
 
         collectionViewGallery.register(ImageGalleryCell.nib, forCellWithReuseIdentifier: ImageGalleryCell.identifier)
+        configureTitle()
     }
     
     @IBAction func buttonClosePressed(_ sender: Any) {
         CustomNavigationController.instance.dismissVC(animated: true)
     }
     
+    private func configureTitle() {
+        let collectionViewCenterPoint = view.convert(collectionViewGallery.center, to: collectionViewGallery)
+        
+        guard let centerIndexPath = collectionViewGallery.indexPathForItem(at: collectionViewCenterPoint) else { return }
+        
+        if let title = viewModel.getTitle(position: centerIndexPath.row) {
+            viewTitle.isHidden = false
+            labelTitle.text = title
+        } else {
+            viewTitle.isHidden = true
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -56,8 +69,6 @@ extension ImagesGalleryViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 // MARK: - UICollectionViewDelegate
@@ -68,18 +79,22 @@ extension ImagesGalleryViewController: UICollectionViewDelegate {
             let indexToScrollTo = IndexPath(item: position, section: indexPath.section)
             self.collectionViewGallery.scrollToItem(at: indexToScrollTo, at: .left, animated: false)
             isScrolled = true
-        }
-        
-        if let title = viewModel.getTitle(position: indexPath.row) {
-            viewTitle.isHidden = false
-            labelTitle.text = title
-        } else {
-            viewTitle.isHidden = true
+            configureTitle()
         }
         
         guard let imageCell = cell as? ImageGalleryCell else { return }
         
         imageCell.resetScroll()
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension ImagesGalleryViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard scrollView is UICollectionView else { return }
+        
+        configureTitle()
     }
 }
 
