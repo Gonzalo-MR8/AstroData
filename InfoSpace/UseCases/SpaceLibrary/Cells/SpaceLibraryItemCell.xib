@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,25 +33,87 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKB-CZ-MsX" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                        <rect key="frame" x="7" y="7" width="26" height="26"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headphones" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oei-DY-DnM">
+                                <rect key="frame" x="2.6666666666666661" y="3.3333333333333321" width="21" height="20"/>
+                                <color key="tintColor" name="elementColor"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="white"/>
+                        <constraints>
+                            <constraint firstItem="oei-DY-DnM" firstAttribute="centerX" secondItem="BKB-CZ-MsX" secondAttribute="centerX" id="CEc-93-5uL"/>
+                            <constraint firstAttribute="width" secondItem="BKB-CZ-MsX" secondAttribute="height" multiplier="1:1" id="KAc-gC-Yl8"/>
+                            <constraint firstAttribute="width" constant="26" id="QZO-BR-RFt"/>
+                            <constraint firstItem="oei-DY-DnM" firstAttribute="centerY" secondItem="BKB-CZ-MsX" secondAttribute="centerY" id="fj4-Xf-Od8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedBorders" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3n-Ua-RfN" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                        <rect key="frame" x="95" y="70" width="70" height="70"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pt1-G3-mbj">
+                                <rect key="frame" x="23" y="21" width="24" height="28"/>
+                                <color key="tintColor" name="white"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="fmn-li-erk"/>
+                                    <constraint firstAttribute="width" secondItem="Pt1-G3-mbj" secondAttribute="height" multiplier="3:4" id="hRA-00-Umt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="black"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="G3n-Ua-RfN" secondAttribute="height" multiplier="1:1" id="43f-pg-C60"/>
+                            <constraint firstItem="Pt1-G3-mbj" firstAttribute="centerY" secondItem="G3n-Ua-RfN" secondAttribute="centerY" id="b4A-9b-Zzo"/>
+                            <constraint firstItem="Pt1-G3-mbj" firstAttribute="centerX" secondItem="G3n-Ua-RfN" secondAttribute="centerX" id="lik-ie-7TD"/>
+                            <constraint firstAttribute="width" constant="70" id="sRW-e4-CIO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="alphaBgColor">
+                                <real key="value" value="0.75"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedBorders" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="G3n-Ua-RfN" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1Xa-Qs-9bQ"/>
+                <constraint firstItem="BKB-CZ-MsX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="F44-j6-OJb"/>
                 <constraint firstItem="4Uk-Yy-x0U" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="Yoo-O1-g7J"/>
                 <constraint firstAttribute="bottom" secondItem="4Uk-Yy-x0U" secondAttribute="bottom" constant="2" id="ZEr-WQ-jRg"/>
+                <constraint firstItem="BKB-CZ-MsX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="gF7-m2-Z1d"/>
                 <constraint firstAttribute="trailing" secondItem="4Uk-Yy-x0U" secondAttribute="trailing" constant="2" id="phe-h7-nrP"/>
                 <constraint firstItem="4Uk-Yy-x0U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="tBz-XN-RYh"/>
+                <constraint firstItem="G3n-Ua-RfN" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="xym-wb-RYk"/>
             </constraints>
             <size key="customSize" width="260" height="210"/>
             <connections>
+                <outlet property="audioView" destination="BKB-CZ-MsX" id="9hX-5Q-2y3"/>
                 <outlet property="imageView" destination="4Uk-Yy-x0U" id="h17-hc-527"/>
+                <outlet property="videoView" destination="G3n-Ua-RfN" id="qNk-fQ-rPs"/>
             </connections>
             <point key="canvasLocation" x="292.30769230769232" y="45.497630331753555"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="headphones" catalog="system" width="128" height="121"/>
+        <image name="play" catalog="system" width="117" height="128"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="elementColor">
+            <color red="0.45882352941176469" green="0.094117647058823528" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="textSecondaryColor">
             <color red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

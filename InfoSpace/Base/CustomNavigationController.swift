@@ -71,7 +71,7 @@ class CustomNavigationController: UINavigationController {
         }
     }
     
-    func presentDefaultAlert(title: String, message: String, actionTitle: String = "Vale", completion: (() -> Void)? = nil) {
+    func presentDefaultAlert(title: String, message: String, actionTitle: String = "Okey", completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { action in
             completion?()

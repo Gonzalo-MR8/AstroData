@@ -64,7 +64,12 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
         if reload {
             return viewModel.getNumberOfSpaceItems() + 1
         } else {
-            return viewModel.getNumberOfSpaceItems()
+            if viewModel.getNumberOfSpaceItems() == 0 {
+                reload = true
+                return 1
+            } else {
+                return viewModel.getNumberOfSpaceItems()
+            }
         }
     }
     
