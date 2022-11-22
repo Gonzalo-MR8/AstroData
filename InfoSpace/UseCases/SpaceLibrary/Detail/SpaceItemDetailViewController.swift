@@ -9,7 +9,7 @@ import UIKit
 
 enum SpaceItemDetailCellType {
     case title
-    case image
+    case image(UIImage)
 }
 
 class SpaceItemDetailViewController: UIViewController {
@@ -18,7 +18,7 @@ class SpaceItemDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel: SpaceItemDetailViewModel!
-    private var cellTypes: [SpaceItemDetailCellType] = [.title, .image]
+    private var cellTypes: [SpaceItemDetailCellType] = []
     
     static func initAndLoad(spaceItem: SpaceItem) -> SpaceItemDetailViewController {
         let spaceItemDetailViewController = SpaceItemDetailViewController.initAndLoad()
@@ -31,18 +31,39 @@ class SpaceItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headerView.labelTitle.text = viewModel.getSpaceItem().spaceItemdata.first?.nasaID
+        headerView.labelTitle.text = viewModel.getSpaceItem().spaceItemdata.nasaID
         headerView.options = false
         headerView.delegate = self
         
         configureTable()
+        configureCells()
     }
 
     private func configureTable() {
         tableView.register(SIDetailTitleCell.nib, forCellReuseIdentifier: SIDetailTitleCell.identifier)
         tableView.register(SIDetailImageCell.nib, forCellReuseIdentifier: SIDetailImageCell.identifier)
     }
+    
+    private func configureCells() {
+        cellTypes.removeAll()
+        
+        cellTypes.append(.title)
+        
+        let spaceItem: SpaceItem = viewModel.getSpaceItem()
+        
+        Utils.shared.downloadUIImage(with: spaceItem.links.first?.href) { [self] result in
+            if let image = result {
+                cellTypes.append(.image(image))
+            }
+            
+            DispatchQueue.main.async { [self] in
+                tableView.reloadData()
+            }
+        }
+    }
 }
+
+// MARK: - UITableViewDataSource
 
 extension SpaceItemDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,13 +78,13 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .title:
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailTitleCell.identifier) as! SIDetailTitleCell
             
-            cell.configure(title: spaceItem.spaceItemdata.first?.title ?? "No titulo")
+            cell.configure(title: spaceItem.spaceItemdata.title)
             
             return cell
-        case .image:
+        case .image(let image):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as! SIDetailImageCell
             
-            cell.configure(spaceItem: spaceItem, frameWidth: self.view.frame.width)
+            cell.configure(image: image, spaceItem: spaceItem, frameWidth: self.view.frame.width)
             
             return cell
         }

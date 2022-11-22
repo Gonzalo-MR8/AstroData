@@ -14,11 +14,11 @@ class SpaceLibraryItemCell: UICollectionViewCell {
     @IBOutlet weak var videoView: View!
     
     func configure(spaceItem: SpaceItem) {
-        if let itemLink = spaceItem.links?.first {
+        if let itemLink = spaceItem.links.first {
             imageView.setImage(with: itemLink.href)
         }
         
-        switch spaceItem.spaceItemdata.first?.mediaType {
+        switch spaceItem.spaceItemdata.mediaType {
         case .image:
             audioView.isHidden = true
             videoView.isHidden = true
@@ -28,9 +28,6 @@ class SpaceLibraryItemCell: UICollectionViewCell {
         case .audio:
             videoView.isHidden = true
             audioView.isHidden = false
-        case .none:
-            audioView.isHidden = true
-            videoView.isHidden = true
         }
     }
 

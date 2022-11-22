@@ -26,20 +26,28 @@ struct Collection: Codable {
     }
 }
 
-// MARK: - Item
+// MARK: - SpaceItem
 struct SpaceItem: Codable {
     let href: String
-    let spaceItemdata: [SpaceItemData]
-    let links: [ItemLink]?
+    let spaceItemdata: SpaceItemData
+    let links: [ItemLink]
     
     enum CodingKeys: String, CodingKey {
         case href
         case spaceItemdata = "data"
         case links
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.href = try container.decode(String.self, forKey: .href)
+        let spaceItemsData = try container.decode([SpaceItemData].self, forKey: .spaceItemdata)
+        self.spaceItemdata = spaceItemsData.first!
+        self.links = try container.decodeIfPresent([ItemLink].self, forKey: .links) ?? []
+    }
 }
 
-// MARK: - Datum
+// MARK: - SpaceItemData
 struct SpaceItemData: Codable {
     let center: String?
     let title, nasaID: String

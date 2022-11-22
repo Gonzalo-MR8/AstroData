@@ -38,7 +38,9 @@ class NasaLibraryDataManager {
                 }
                 
                 do {
-                    let libraryItems = try JSONDecoder().decode(SpaceLibraryItems.self, from: data)
+                    var libraryItems = try JSONDecoder().decode(SpaceLibraryItems.self, from: data)
+                    
+                    libraryItems.collection.spaceItems = libraryItems.collection.spaceItems.filter({ $0.links.count > 0 })
                     
                     completion(.success(libraryItems))
                 } catch let error {
