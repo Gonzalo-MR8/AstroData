@@ -81,6 +81,8 @@
 		9B34262D292D6348004BB8BC /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B34262B292D6348004BB8BC /* TitleCell.xib */; };
 		9B342630292D6355004BB8BC /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34262E292D6355004BB8BC /* DescriptionCell.swift */; };
 		9B342631292D6355004BB8BC /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B34262F292D6355004BB8BC /* DescriptionCell.xib */; };
+		9B342634292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B342632292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift */; };
+		9B342635292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B342633292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.xib */; };
 		9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */; };
 		9B34CFAC290F10D500E642A1 /* YearsFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */; };
 		9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */; };
@@ -243,6 +245,8 @@
 		9B34262B292D6348004BB8BC /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		9B34262E292D6355004BB8BC /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		9B34262F292D6355004BB8BC /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		9B342632292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIDetailMultipurposeTextCell.swift; sourceTree = "<group>"; };
+		9B342633292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIDetailMultipurposeTextCell.xib; sourceTree = "<group>"; };
 		9B34CFA9290F10D500E642A1 /* YearsFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsFilterCell.swift; sourceTree = "<group>"; };
 		9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearsFilterCell.xib; sourceTree = "<group>"; };
 		9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTypeFilterCell.swift; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 			children = (
 				9B1219E62929BD2F00D9FF9F /* SIDetailImageCell.swift */,
 				9B1219E72929BD2F00D9FF9F /* SIDetailImageCell.xib */,
+				9B342632292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift */,
+				9B342633292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -529,6 +535,8 @@
 				9B34262B292D6348004BB8BC /* TitleCell.xib */,
 				9B34262E292D6355004BB8BC /* DescriptionCell.swift */,
 				9B34262F292D6355004BB8BC /* DescriptionCell.xib */,
+				9B4F8335290DCD7F006E8954 /* SeparatorCell.swift */,
+				9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */,
 			);
 			path = CommonCells;
 			sourceTree = "<group>";
@@ -599,8 +607,6 @@
 			children = (
 				9B4F83312909FA87006E8954 /* HeaderFilterCell.swift */,
 				9B4F83322909FA87006E8954 /* HeaderFilterCell.xib */,
-				9B4F8335290DCD7F006E8954 /* SeparatorCell.swift */,
-				9B4F8336290DCD7F006E8954 /* SeparatorCell.xib */,
 				9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */,
 				9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */,
 				9B380983290E0D40007851B2 /* ContentTypeFilterCell.swift */,
@@ -956,6 +962,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B342635292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.xib in Resources */,
 				9B34262D292D6348004BB8BC /* TitleCell.xib in Resources */,
 				9B38098F290E0D98007851B2 /* ContentTypeItemCell.xib in Resources */,
 				9B980A0929134B3B00F6F2D9 /* ButtonsFilterCell.xib in Resources */,
@@ -1120,6 +1127,7 @@
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9B58014A29148CBC009288FD /* FontTypes.swift in Sources */,
 				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
+				9B342634292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,
 				9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */,

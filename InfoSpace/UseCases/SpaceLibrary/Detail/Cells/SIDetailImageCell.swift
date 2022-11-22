@@ -12,10 +12,10 @@ class SIDetailImageCell: UITableViewCell {
     @IBOutlet weak var itemImageView: ImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
-    private var spaceItem: SpaceItem!
+    private var links: [ItemLink]!
     
-    func configure(image: UIImage, spaceItem: SpaceItem, frameWidth: CGFloat) {
-        self.spaceItem = spaceItem
+    func configure(image: UIImage, links: [ItemLink], frameWidth: CGFloat) {
+        self.links = links
 
         itemImageView.image = image
         
@@ -24,7 +24,7 @@ class SIDetailImageCell: UITableViewCell {
     }
     
     @IBAction func imageViewPressed(_ sender: Any) {
-        if let itemLink = spaceItem.links.first {
+        if let itemLink = links.first {
             let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [itemLink.href], position: 0)
             CustomNavigationController.instance.present(to: galleryVC, animated: true)
         }

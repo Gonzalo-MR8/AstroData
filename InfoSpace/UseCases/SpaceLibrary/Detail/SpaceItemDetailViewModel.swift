@@ -15,7 +15,11 @@ final class SpaceItemDetailViewModel {
         self.spaceItem = spaceItem
     }
     
-    public func getSpaceItem() -> SpaceItem {
-        return spaceItem
+    public func getSpaceItemData() -> SpaceItemData {
+        return spaceItem.spaceItemdata
+    }
+    
+    public func getSpaceItemLinks() -> [ItemLink] {
+        return spaceItem.links
     }
 }

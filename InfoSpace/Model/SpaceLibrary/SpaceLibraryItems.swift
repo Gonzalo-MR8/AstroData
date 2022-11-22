@@ -49,15 +49,11 @@ struct SpaceItem: Codable {
 
 // MARK: - SpaceItemData
 struct SpaceItemData: Codable {
-    let center: String?
     let title, nasaID: String
     let mediaType: MediaType
-    let keywords: [String]?
+    let keywords, album: [String]?
     let dateCreated: Date
-    let description508, secondaryCreator: String?
-    let description: String?
-    let album: [String]?
-    let photographer, location: String?
+    let secondaryCreator, description, photographer, location, center: String?
 
     enum CodingKeys: String, CodingKey {
         case center, title
@@ -65,7 +61,6 @@ struct SpaceItemData: Codable {
         case mediaType = "media_type"
         case keywords
         case dateCreated = "date_created"
-        case description508 = "description_508"
         case secondaryCreator = "secondary_creator"
         case album, photographer, location, description
     }
@@ -91,7 +86,6 @@ struct SpaceItemData: Codable {
                                                    debugDescription: "Date string \(strDate) does not match format expected \(Constants.kLongDateFormat)")
         }
         
-        self.description508 = try container.decodeIfPresent(String.self, forKey: .description508)
         self.secondaryCreator = try container.decodeIfPresent(String.self, forKey: .secondaryCreator)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.album = try container.decodeIfPresent([String].self, forKey: .album)

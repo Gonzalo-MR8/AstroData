@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>kNasaDetailBaseUrl</key>
+	<string>https://images.nasa.gov/details-</string>
 	<key>kNasaApiKey</key>
 	<string>LbsN7fNjbFndMv29UtfdfaFisfJHAsXfP3ThCn2f</string>
 	<key>kNasaBaseUrl</key>

@@ -11,6 +11,12 @@ enum SpaceItemDetailCellType {
     case title
     case image(UIImage)
     case description
+    case separator
+    case date(String)
+    case center(String)
+    case secondaryCreator(String)
+    case photographer(String)
+    case location(String)
     case openWeb(URL)
 }
 
@@ -21,6 +27,8 @@ class SpaceItemDetailViewController: UIViewController {
     
     private var viewModel: SpaceItemDetailViewModel!
     private var cellTypes: [SpaceItemDetailCellType] = []
+    
+    private let baseDetailUrl: String = Bundle.string(for: InfoConstants.kNasaDetailBaseUrl)!
     
     static func initAndLoad(spaceItem: SpaceItem) -> SpaceItemDetailViewController {
         let spaceItemDetailViewController = SpaceItemDetailViewController.initAndLoad()
@@ -33,7 +41,7 @@ class SpaceItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headerView.labelTitle.text = viewModel.getSpaceItem().spaceItemdata.nasaID
+        headerView.labelTitle.text = viewModel.getSpaceItemData().nasaID
         headerView.options = false
         headerView.delegate = self
         
@@ -46,6 +54,8 @@ class SpaceItemDetailViewController: UIViewController {
         tableView.register(TitleCell.nib, forCellReuseIdentifier: TitleCell.identifier)
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
         tableView.register(SIDetailImageCell.nib, forCellReuseIdentifier: SIDetailImageCell.identifier)
+        tableView.register(SIDetailMultipurposeTextCell.nib, forCellReuseIdentifier: SIDetailMultipurposeTextCell.identifier)
+        tableView.register(SeparatorCell.nib, forCellReuseIdentifier: SeparatorCell.identifier)
     }
     
     private func configureCells() {
@@ -53,18 +63,41 @@ class SpaceItemDetailViewController: UIViewController {
         
         cellTypes.append(.title)
         
-        let spaceItem: SpaceItem = viewModel.getSpaceItem()
+        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
-        Utils.shared.downloadUIImage(with: spaceItem.links.first?.href) { [self] result in
+        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks().first?.href) { [self] result in
             if let image = result {
                 cellTypes.append(.image(image))
             }
             
-            if spaceItem.spaceItemdata.description != nil {
+            let formatter = DateFormatter.dateFormatterLocale
+            formatter.dateFormat = Constants.kShortDateFormat
+            
+            cellTypes.append(.date(formatter.string(from: spaceItemData.dateCreated)))
+            
+            if let center = spaceItemData.center {
+                cellTypes.append(.center(center))
+            }
+            
+            if let secondaryCreator = spaceItemData.secondaryCreator {
+                cellTypes.append(.secondaryCreator(secondaryCreator))
+            }
+            
+            if let photographer = spaceItemData.photographer {
+                cellTypes.append(.photographer(photographer))
+            }
+            
+            if let location = spaceItemData.location {
+                cellTypes.append(.location(location))
+            }
+            
+            cellTypes.append(.separator)
+            
+            if spaceItemData.description != nil {
                 cellTypes.append(.description)
             }
             
-            if let url = URL(string: "https://images.nasa.gov/details-\(spaceItem.spaceItemdata.nasaID)") {
+            if let url = URL(string: baseDetailUrl + spaceItemData.nasaID) {
                 cellTypes.append(.openWeb(url))
             }
             
@@ -84,31 +117,65 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = cellTypes[indexPath.row]
-        let spaceItem: SpaceItem = viewModel.getSpaceItem()
+        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
         switch cellType {
         case .title:
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as! TitleCell
             
-            cell.configure(title: spaceItem.spaceItemdata.title)
+            cell.configure(title: spaceItemData.title)
             
             return cell
         case .image(let image):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as! SIDetailImageCell
             
-            cell.configure(image: image, spaceItem: spaceItem, frameWidth: self.view.frame.width)
+            cell.configure(image: image, links: viewModel.getSpaceItemLinks(), frameWidth: self.view.frame.width)
             
             return cell
         case .description:
             let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as! DescriptionCell
             
-            cell.configure(description: spaceItem.spaceItemdata.description!)
+            cell.configure(description: spaceItemData.description!)
+            
+            return cell
+        case .date(let date):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            
+            cell.configure(title: "Date created: ", text: date)
+            
+            return cell
+        case .center(let center):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            
+            cell.configure(title: "Center: ", text: center)
+            
+            return cell
+        case .secondaryCreator(let secondaryCreator):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            
+            cell.configure(title: "Secondary Creator: ", text: secondaryCreator)
+            
+            return cell
+        case .photographer(let photographer):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            
+            cell.configure(title: "Photographer: ", text: photographer)
+            
+            return cell
+        case .location(let location):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            
+            cell.configure(title: "Location: ", text: location)
             
             return cell
         case .openWeb(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
             
             cell.configure(url: url, buttonText: "OPEN IN WEB")
+            
+            return cell
+        case .separator:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as! SeparatorCell
             
             return cell
         }

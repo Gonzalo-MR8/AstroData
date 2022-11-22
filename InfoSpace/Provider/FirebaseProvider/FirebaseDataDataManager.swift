@@ -9,7 +9,7 @@ import Foundation
 
 class FirebaseDataDataManager {
     
-    let baseUrl: String
+    private let baseUrl: String
     
     init() {
         var url = Bundle.string(for: InfoConstants.kFirebaseDataUrl)!

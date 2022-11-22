@@ -29,4 +29,5 @@ struct InfoConstants {
     static let kFirebaseDataUrl     = "kFirebaseDataUrl"
     static let kNasaBaseUrl         = "kNasaBaseUrl"
     static let kNasaLibraryBaseUrl  = "kNasaLibraryBaseUrl"
+    static let kNasaDetailBaseUrl   = "kNasaDetailBaseUrl"
 }

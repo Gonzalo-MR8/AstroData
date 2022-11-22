@@ -11,7 +11,7 @@ class NasaDataManager {
     
     private let kParameterApiKey = "api_key"
     
-    let baseUrl: String
+    private let baseUrl: String
     
     init() {
         var url = Bundle.string(for: InfoConstants.kNasaBaseUrl)!

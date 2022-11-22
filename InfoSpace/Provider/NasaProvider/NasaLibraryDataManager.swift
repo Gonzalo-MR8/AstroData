@@ -9,7 +9,7 @@ import Foundation
 
 class NasaLibraryDataManager {
     
-    let baseUrl: String = Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl)!
+    private let baseUrl: String = Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl)!
     
     private let kParameterSearchText = "q"
     private let kParameterYearStart = "year_start"
