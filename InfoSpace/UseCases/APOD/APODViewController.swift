@@ -76,9 +76,9 @@ class APODViewController: UIViewController {
     private func configureTable() {
         tableView.register(APODDateCell.nib, forCellReuseIdentifier: APODDateCell.identifier)
         tableView.register(APODImageCell.nib, forCellReuseIdentifier: APODImageCell.identifier)
-        tableView.register(APODUrlCell.nib, forCellReuseIdentifier: APODUrlCell.identifier)
-        tableView.register(APODTitleCell.nib, forCellReuseIdentifier: APODTitleCell.identifier)
-        tableView.register(APODDescriptionCell.nib, forCellReuseIdentifier: APODDescriptionCell.identifier)
+        tableView.register(OpenUrlCell.nib, forCellReuseIdentifier: OpenUrlCell.identifier)
+        tableView.register(TitleCell.nib, forCellReuseIdentifier: TitleCell.identifier)
+        tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
     }
 }
 
@@ -93,7 +93,7 @@ extension APODViewController: UITableViewDataSource {
         
         switch cellType {
         case .title:
-            let cell = tableView.dequeueReusableCell(withIdentifier: APODTitleCell.identifier) as! APODTitleCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as! TitleCell
             
             cell.configure(title: apod.title)
             
@@ -127,13 +127,13 @@ extension APODViewController: UITableViewDataSource {
             
             return cell
         case .buttonUrl(let url):
-            let cell = tableView.dequeueReusableCell(withIdentifier: APODUrlCell.identifier) as! APODUrlCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
             
             cell.configure(url: url)
             
             return cell
         case .description:
-            let cell = tableView.dequeueReusableCell(withIdentifier: APODDescriptionCell.identifier) as! APODDescriptionCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as! DescriptionCell
             
             cell.configure(description: apod.explanation)
             

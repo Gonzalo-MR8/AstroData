@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,14 +16,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="APODTitleCell" customModule="InfoSpace" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TitleCell" customModule="InfoSpace" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-jf-lNq" customClass="Label" customModule="InfoSpace" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDQ-vY-Zdu" customClass="Label" customModule="InfoSpace" customModuleProvider="target">
                         <rect key="frame" x="16" y="16" width="288" height="26"/>
                         <fontDescription key="fontDescription" name="SpaceRangerAcademy" family="Space Ranger Academy" pointSize="28"/>
                         <color key="textColor" name="tertiaryColor"/>
@@ -43,23 +43,24 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GPv-jf-lNq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="00G-C0-5eb"/>
-                    <constraint firstItem="GPv-jf-lNq" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="2Mi-gF-vfL"/>
-                    <constraint firstAttribute="bottom" secondItem="GPv-jf-lNq" secondAttribute="bottom" constant="8" id="C2t-gr-cwr"/>
-                    <constraint firstItem="GPv-jf-lNq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="kmm-qW-iqV"/>
+                    <constraint firstItem="DDQ-vY-Zdu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4ee-Ir-0R4"/>
+                    <constraint firstItem="DDQ-vY-Zdu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="7z3-ef-tnt"/>
+                    <constraint firstAttribute="bottom" secondItem="DDQ-vY-Zdu" secondAttribute="bottom" constant="8" id="Eln-tM-2fh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" name="white"/>
+            <constraints>
+                <constraint firstItem="DDQ-vY-Zdu" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.9" id="DBq-3j-Clv"/>
+            </constraints>
             <connections>
-                <outlet property="labelTitle" destination="GPv-jf-lNq" id="GeK-Dt-wKA"/>
+                <outlet property="labelTitle" destination="DDQ-vY-Zdu" id="bTp-EX-DSA"/>
             </connections>
-            <point key="canvasLocation" x="132" y="126"/>
+            <point key="canvasLocation" x="131" y="-12"/>
         </tableViewCell>
     </objects>
     <designables>
-        <designable name="GPv-jf-lNq">
-            <size key="intrinsicContentSize" width="88" height="24.5"/>
+        <designable name="DDQ-vY-Zdu">
+            <size key="intrinsicContentSize" width="88" height="24.333333333333332"/>
         </designable>
     </designables>
     <resources>
@@ -71,9 +72,6 @@
         </namedColor>
         <namedColor name="tertiaryColor">
             <color red="0.29411764705882354" green="0.011764705882352941" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

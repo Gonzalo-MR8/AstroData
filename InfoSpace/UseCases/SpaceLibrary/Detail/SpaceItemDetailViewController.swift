@@ -10,6 +10,8 @@ import UIKit
 enum SpaceItemDetailCellType {
     case title
     case image(UIImage)
+    case description
+    case openWeb(URL)
 }
 
 class SpaceItemDetailViewController: UIViewController {
@@ -40,7 +42,9 @@ class SpaceItemDetailViewController: UIViewController {
     }
 
     private func configureTable() {
-        tableView.register(SIDetailTitleCell.nib, forCellReuseIdentifier: SIDetailTitleCell.identifier)
+        tableView.register(OpenUrlCell.nib, forCellReuseIdentifier: OpenUrlCell.identifier)
+        tableView.register(TitleCell.nib, forCellReuseIdentifier: TitleCell.identifier)
+        tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
         tableView.register(SIDetailImageCell.nib, forCellReuseIdentifier: SIDetailImageCell.identifier)
     }
     
@@ -54,6 +58,14 @@ class SpaceItemDetailViewController: UIViewController {
         Utils.shared.downloadUIImage(with: spaceItem.links.first?.href) { [self] result in
             if let image = result {
                 cellTypes.append(.image(image))
+            }
+            
+            if spaceItem.spaceItemdata.description != nil {
+                cellTypes.append(.description)
+            }
+            
+            if let url = URL(string: "https://images.nasa.gov/details-\(spaceItem.spaceItemdata.nasaID)") {
+                cellTypes.append(.openWeb(url))
             }
             
             DispatchQueue.main.async { [self] in
@@ -76,7 +88,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         
         switch cellType {
         case .title:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailTitleCell.identifier) as! SIDetailTitleCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as! TitleCell
             
             cell.configure(title: spaceItem.spaceItemdata.title)
             
@@ -85,6 +97,18 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as! SIDetailImageCell
             
             cell.configure(image: image, spaceItem: spaceItem, frameWidth: self.view.frame.width)
+            
+            return cell
+        case .description:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as! DescriptionCell
+            
+            cell.configure(description: spaceItem.spaceItemdata.description!)
+            
+            return cell
+        case .openWeb(let url):
+            let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
+            
+            cell.configure(url: url, buttonText: "OPEN IN WEB")
             
             return cell
         }
