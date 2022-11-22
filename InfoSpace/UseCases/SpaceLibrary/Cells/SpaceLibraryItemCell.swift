@@ -18,7 +18,7 @@ class SpaceLibraryItemCell: UICollectionViewCell {
             imageView.setImage(with: itemLink.href)
         }
         
-        switch spaceItem.data.first?.mediaType {
+        switch spaceItem.spaceItemdata.first?.mediaType {
         case .image:
             audioView.isHidden = true
             videoView.isHidden = true

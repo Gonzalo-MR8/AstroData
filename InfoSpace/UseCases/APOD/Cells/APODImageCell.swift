@@ -15,25 +15,15 @@ class APODImageCell: UITableViewCell {
     @IBOutlet weak var labelCopyrightAutor: UILabel!
     @IBOutlet weak var stackViewCopyright: UIStackView!
     
-    private let kImageViewWidth: CGFloat = 0.9
-    
     private var apod: APOD!
-    
-    private func adjustImageView(frameWidth: CGFloat) {
-        let ratio = imageViewApod.image!.size.width / imageViewApod.image!.size.height
-        let scaledHeight = (frameWidth * kImageViewWidth) / ratio
-        
-        imageViewHeight.constant = scaledHeight
-        
-        self.layoutIfNeeded()
-    }
     
     func configure(image: UIImage, apod: APOD, frameWidth: CGFloat) {
         self.apod = apod
         
         imageViewApod.image = image
-    
-        adjustImageView(frameWidth: frameWidth)
+
+        imageViewHeight.constant = Utils.shared.adjustImageViewScaledHeight(frameWidth: frameWidth, imageView: imageViewApod)
+        self.layoutIfNeeded()
         
         if let copyright = apod.copyright {
             labelCopyright.text = "Copyright:"

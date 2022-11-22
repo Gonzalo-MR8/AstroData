@@ -90,6 +90,16 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
+extension SpaceLibraryViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let spaceItem = viewModel.getSpaceItem(position: indexPath.row)
+        let detailVC = SpaceItemDetailViewController.initAndLoad(spaceItem: spaceItem)
+        CustomNavigationController.instance.navigate(to: detailVC, animated: true)
+    }
+}
+
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension SpaceLibraryViewController: UICollectionViewDelegateFlowLayout {

@@ -11,6 +11,13 @@
 		9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */; };
 		9B0EF17D291B19D400A87F1E /* ReloadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EF17B291B19D400A87F1E /* ReloadCollectionViewCell.swift */; };
 		9B0EF17E291B19D400A87F1E /* ReloadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0EF17C291B19D400A87F1E /* ReloadCollectionViewCell.xib */; };
+		9B1219DD292920CD00D9FF9F /* SpaceItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1219DB292920CD00D9FF9F /* SpaceItemDetailViewController.swift */; };
+		9B1219DE292920CD00D9FF9F /* SpaceItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1219DC292920CD00D9FF9F /* SpaceItemDetailViewController.xib */; };
+		9B1219E0292920E300D9FF9F /* SpaceItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1219DF292920E300D9FF9F /* SpaceItemDetailViewModel.swift */; };
+		9B1219E42929BD2100D9FF9F /* SIDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1219E22929BD2100D9FF9F /* SIDetailTitleCell.swift */; };
+		9B1219E52929BD2100D9FF9F /* SIDetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1219E32929BD2100D9FF9F /* SIDetailTitleCell.xib */; };
+		9B1219E82929BD2F00D9FF9F /* SIDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1219E62929BD2F00D9FF9F /* SIDetailImageCell.swift */; };
+		9B1219E92929BD2F00D9FF9F /* SIDetailImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1219E72929BD2F00D9FF9F /* SIDetailImageCell.xib */; };
 		9B19495C286902CE00B8322B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19495B286902CE00B8322B /* Utils.swift */; };
 		9B1F8C7528466CC400BCCEBE /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7428466CC400BCCEBE /* Planet.swift */; };
 		9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */; };
@@ -168,6 +175,13 @@
 		9B053FA828429A8800A8AA40 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9B0EF17B291B19D400A87F1E /* ReloadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B0EF17C291B19D400A87F1E /* ReloadCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReloadCollectionViewCell.xib; sourceTree = "<group>"; };
+		9B1219DB292920CD00D9FF9F /* SpaceItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItemDetailViewController.swift; sourceTree = "<group>"; };
+		9B1219DC292920CD00D9FF9F /* SpaceItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceItemDetailViewController.xib; sourceTree = "<group>"; };
+		9B1219DF292920E300D9FF9F /* SpaceItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItemDetailViewModel.swift; sourceTree = "<group>"; };
+		9B1219E22929BD2100D9FF9F /* SIDetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIDetailTitleCell.swift; sourceTree = "<group>"; };
+		9B1219E32929BD2100D9FF9F /* SIDetailTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIDetailTitleCell.xib; sourceTree = "<group>"; };
+		9B1219E62929BD2F00D9FF9F /* SIDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIDetailImageCell.swift; sourceTree = "<group>"; };
+		9B1219E72929BD2F00D9FF9F /* SIDetailImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIDetailImageCell.xib; sourceTree = "<group>"; };
 		9B19495B286902CE00B8322B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9B1F8C7428466CC400BCCEBE /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataDataManager.swift; sourceTree = "<group>"; };
@@ -359,6 +373,28 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		9B1219DA292920AD00D9FF9F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9B1219E12929BCDD00D9FF9F /* Cells */,
+				9B1219DB292920CD00D9FF9F /* SpaceItemDetailViewController.swift */,
+				9B1219DC292920CD00D9FF9F /* SpaceItemDetailViewController.xib */,
+				9B1219DF292920E300D9FF9F /* SpaceItemDetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9B1219E12929BCDD00D9FF9F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B1219E22929BD2100D9FF9F /* SIDetailTitleCell.swift */,
+				9B1219E32929BD2100D9FF9F /* SIDetailTitleCell.xib */,
+				9B1219E62929BD2F00D9FF9F /* SIDetailImageCell.swift */,
+				9B1219E72929BD2F00D9FF9F /* SIDetailImageCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9B1F8C7628466D7400BCCEBE /* FirebaseProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +564,7 @@
 		9B38CD1D28722211006712EE /* SpaceLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				9B1219DA292920AD00D9FF9F /* Detail */,
 				9B2E4AF329117B35001A0FA5 /* Cells */,
 				9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */,
 				9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */,
@@ -929,6 +966,7 @@
 				9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */,
 				9B2B836428615D60002BABDC /* APODDescriptionCell.xib in Resources */,
 				9B28E355284D120B00F79F7B /* spacerangeracad.ttf in Resources */,
+				9B1219E92929BD2F00D9FF9F /* SIDetailImageCell.xib in Resources */,
 				9BB44427283D65C70043EF4E /* HudView.xib in Resources */,
 				9B22371028457E97005F47B7 /* NotoSansJP-Regular.otf in Resources */,
 				9B22371128457E97005F47B7 /* NotoSansJP-Thin.otf in Resources */,
@@ -936,6 +974,7 @@
 				9B22371228457E97005F47B7 /* NotoSansJP-Black.otf in Resources */,
 				9B22371328457E97005F47B7 /* NotoSansJP-Bold.otf in Resources */,
 				9B931165283E814B0052EF1B /* loading.json in Resources */,
+				9B1219E52929BD2100D9FF9F /* SIDetailTitleCell.xib in Resources */,
 				9B28E33C284D120B00F79F7B /* spacerangeracadital.ttf in Resources */,
 				9BB443F0283D55850043EF4E /* LaunchScreen.storyboard in Resources */,
 				9B28E356284D120B00F79F7B /* spacerangerchrome.ttf in Resources */,
@@ -950,6 +989,7 @@
 				9BB443ED283D55850043EF4E /* Assets.xcassets in Resources */,
 				9B28E351284D120B00F79F7B /* spacerangercondital.ttf in Resources */,
 				9B28E349284D120B00F79F7B /* spacerangerital.ttf in Resources */,
+				9B1219DE292920CD00D9FF9F /* SpaceItemDetailViewController.xib in Resources */,
 				9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */,
 				9B28E353284D120B00F79F7B /* spacerangercond.ttf in Resources */,
 				9B2E4AF729117B4B001A0FA5 /* SpaceLibraryItemCell.xib in Resources */,
@@ -1061,7 +1101,9 @@
 				9B38098E290E0D98007851B2 /* ContentTypeItemCell.swift in Sources */,
 				9B82C9E528521A85003EAF59 /* ImagesGalleryViewModel.swift in Sources */,
 				9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */,
+				9B1219DD292920CD00D9FF9F /* SpaceItemDetailViewController.swift in Sources */,
 				9B38CD292872234F006712EE /* MarsRoverViewModel.swift in Sources */,
+				9B1219E42929BD2100D9FF9F /* SIDetailTitleCell.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
 				9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */,
@@ -1081,6 +1123,7 @@
 				9BB44425283D65BF0043EF4E /* HudView.swift in Sources */,
 				9B38CD202872230E006712EE /* AsteroidsNearEarthViewController.swift in Sources */,
 				9B2236FE28456ECA005F47B7 /* UIColor+Utils.swift in Sources */,
+				9B1219E82929BD2F00D9FF9F /* SIDetailImageCell.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
 				9B4F833B290DCE00006E8954 /* SearchFilterCell.swift in Sources */,
 				9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */,
@@ -1092,6 +1135,7 @@
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
 				9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */,
+				9B1219E0292920E300D9FF9F /* SpaceItemDetailViewModel.swift in Sources */,
 				9B2E4AF629117B4B001A0FA5 /* SpaceLibraryItemCell.swift in Sources */,
 				9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */,
 				9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */,

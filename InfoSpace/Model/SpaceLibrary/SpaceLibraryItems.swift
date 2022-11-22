@@ -29,8 +29,14 @@ struct Collection: Codable {
 // MARK: - Item
 struct SpaceItem: Codable {
     let href: String
-    let data: [SpaceItemData]
+    let spaceItemdata: [SpaceItemData]
     let links: [ItemLink]?
+    
+    enum CodingKeys: String, CodingKey {
+        case href
+        case spaceItemdata = "data"
+        case links
+    }
 }
 
 // MARK: - Datum

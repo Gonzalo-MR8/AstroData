@@ -8,7 +8,6 @@
 import UIKit
 
 class Utils {
-    
     static let shared = Utils()
     
     func downloadUIImage(with imageUrlString: String?, completion: ((UIImage?) -> Void)?) {
@@ -17,5 +16,11 @@ class Utils {
                 completion?(image)
             }
         }
+    }
+    
+    func adjustImageViewScaledHeight(frameWidth: CGFloat, imageView: UIImageView, imageViewPercentageWidth: CGFloat = 0.9) -> CGFloat {
+        let ratio = imageView.image!.size.width / imageView.image!.size.height
+        let scaledHeight = (frameWidth * imageViewPercentageWidth) / ratio
+        return scaledHeight
     }
 }
