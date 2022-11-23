@@ -111,6 +111,7 @@
 		9B4F833B290DCE00006E8954 /* SearchFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */; };
 		9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */; };
 		9B58014A29148CBC009288FD /* FontTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B58014929148CBC009288FD /* FontTypes.swift */; };
+		9B62D5DC292E551F00863317 /* URL+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B62D5DB292E551F00863317 /* URL+Utils.swift */; };
 		9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */; };
 		9B82C9DE285210F1003EAF59 /* ImagesGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */; };
 		9B82C9E228521211003EAF59 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */; };
@@ -275,6 +276,7 @@
 		9B4F8339290DCE00006E8954 /* SearchFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterCell.swift; sourceTree = "<group>"; };
 		9B4F833A290DCE00006E8954 /* SearchFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFilterCell.xib; sourceTree = "<group>"; };
 		9B58014929148CBC009288FD /* FontTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTypes.swift; sourceTree = "<group>"; };
+		9B62D5DB292E551F00863317 /* URL+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Utils.swift"; sourceTree = "<group>"; };
 		9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGalleryViewController.swift; sourceTree = "<group>"; };
 		9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesGalleryViewController.xib; sourceTree = "<group>"; };
 		9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
@@ -804,6 +806,7 @@
 				9B22370228457A01005F47B7 /* UICollectionViewCell+Utils.swift */,
 				9BB2C11A28580F810057DB4E /* DateFormatter+Utils.swift */,
 				9B28B3CC28678C40007D448B /* UITableViewCell+Utils.swift */,
+				9B62D5DB292E551F00863317 /* URL+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1107,6 +1110,7 @@
 				9B270E38284001B700F4FFED /* WebService.swift in Sources */,
 				9B38CD19286F5FEC006712EE /* Label.swift in Sources */,
 				9B2236FC28456E65005F47B7 /* View.swift in Sources */,
+				9B62D5DC292E551F00863317 /* URL+Utils.swift in Sources */,
 				9B38098E290E0D98007851B2 /* ContentTypeItemCell.swift in Sources */,
 				9B82C9E528521A85003EAF59 /* ImagesGalleryViewModel.swift in Sources */,
 				9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */,
