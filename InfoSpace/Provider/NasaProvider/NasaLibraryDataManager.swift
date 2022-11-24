@@ -38,9 +38,7 @@ class NasaLibraryDataManager {
                 }
                 
                 do {
-                    var libraryItems = try JSONDecoder().decode(SpaceLibraryItems.self, from: data)
-                    
-                    libraryItems.collection.spaceItems = libraryItems.collection.spaceItems.filter({ $0.links.count > 0 })
+                    let libraryItems = try JSONDecoder().decode(SpaceLibraryItems.self, from: data)
                     
                     completion(.success(libraryItems))
                 } catch let error {
@@ -83,6 +81,37 @@ class NasaLibraryDataManager {
         }
         
         NetworkManager.shared.call(ws: getLibraryFilters)
+    }
+    
+    func getMediaURLs(jsonUrl: String, completion: @escaping (Result<[String], WebServiceError>) -> ()) {
+        var webServiceMediaURLs = WebService(url: jsonUrl)
+
+        webServiceMediaURLs.completion = { result in
+            switch result {
+            case .failure (let error):
+                print("Error getting MediaURLs: \(error.localizedDescription)")
+                
+                completion(.failure(.generic(error: error)))
+            case .success (let data):
+                guard let data = data else {
+                    completion(.failure(.noData))
+                    
+                    return
+                }
+                
+                do {
+                    let strings = try JSONDecoder().decode([String].self, from: data)
+                    
+                    completion(.success(strings))
+                } catch let error {
+                    print("Error decoding: \(error)")
+                    
+                    completion(.failure(.decondingError))
+                }
+            }
+        }
+        
+        NetworkManager.shared.call(ws: webServiceMediaURLs)
     }
     
     //MARK: - WSNasaLibrary

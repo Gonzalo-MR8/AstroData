@@ -12,10 +12,10 @@ class SIDetailImageCell: UITableViewCell {
     @IBOutlet weak var itemImageView: ImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
-    private var links: [ItemLink]!
+    private var link: ItemLink!
     
-    func configure(image: UIImage, links: [ItemLink], frameWidth: CGFloat) {
-        self.links = links
+    func configure(image: UIImage, link: ItemLink?, frameWidth: CGFloat) {
+        self.link = link
 
         itemImageView.image = image
         
@@ -24,8 +24,8 @@ class SIDetailImageCell: UITableViewCell {
     }
     
     @IBAction func imageViewPressed(_ sender: Any) {
-        if let itemLink = links.first {
-            let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [itemLink.href], position: 0)
+        if let link = link {
+            let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [link.href], position: 0)
             CustomNavigationController.instance.present(to: galleryVC, animated: true)
         }
     }

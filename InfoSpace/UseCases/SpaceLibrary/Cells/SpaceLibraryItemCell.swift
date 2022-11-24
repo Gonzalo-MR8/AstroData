@@ -14,11 +14,9 @@ class SpaceLibraryItemCell: UICollectionViewCell {
     @IBOutlet weak var videoView: View!
     
     func configure(spaceItem: SpaceItem) {
-        if let itemLink = spaceItem.links.first {
-            imageView.setImage(with: itemLink.href)
-        }
+        imageView.setImage(with: spaceItem.links?.first?.href)
         
-        switch spaceItem.spaceItemdata.mediaType {
+        switch spaceItem.spaceItemsdatas.first!.mediaType {
         case .image:
             audioView.isHidden = true
             videoView.isHidden = true

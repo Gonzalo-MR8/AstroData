@@ -163,9 +163,9 @@ class NetworkManager {
     }
     
     private func composeUrl(url: String, params: [String: String]?) -> URL? {
-        guard let params = params else { return URL(string: url) }
+        guard let params = params else { return URL(completedString: url) }
         
-        guard let url = URL(string: url) else { return nil }
+        guard let url = URL(completedString: url) else { return nil }
         
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return nil }
         

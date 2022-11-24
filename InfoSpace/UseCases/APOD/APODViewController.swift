@@ -57,7 +57,7 @@ class APODViewController: UIViewController {
             if let image = result {
                 cellTypes.append(.image(image))
             } else {
-                guard let url = URL(string: apod.thumbUrl) else {
+                guard let url = URL(completedString: apod.thumbUrl) else {
                     return
                 }
                 

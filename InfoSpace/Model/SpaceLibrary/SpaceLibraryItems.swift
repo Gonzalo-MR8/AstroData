@@ -24,26 +24,38 @@ struct Collection: Codable {
         case spaceItems = "items"
         case links
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.version = try container.decode(String.self, forKey: .version)
+        self.href = try container.decode(String.self, forKey: .href)
+        
+        /// Remove unaccess items, the access of this items is denied by de NASA API
+        var auxSpaceItems: [SpaceItem] = try container.decode([SpaceItem].self, forKey: .spaceItems)
+        auxSpaceItems.removeAll(where: { $0.spaceItemsdatas.first?.mediaType == .video && URL(completedString: $0.links?.first?.href ?? "") == nil })
+        self.spaceItems = auxSpaceItems
+        
+        self.links = try container.decodeIfPresent([CollectionLink].self, forKey: .links)
+    }
 }
 
 // MARK: - SpaceItem
 struct SpaceItem: Codable {
     let href: String
-    let spaceItemdata: SpaceItemData
-    let links: [ItemLink]
+    let spaceItemsdatas: [SpaceItemData]
+    let links: [ItemLink]?
     
     enum CodingKeys: String, CodingKey {
         case href
-        case spaceItemdata = "data"
+        case spaceItemsdatas = "data"
         case links
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.href = try container.decode(String.self, forKey: .href)
-        let spaceItemsData = try container.decode([SpaceItemData].self, forKey: .spaceItemdata)
-        self.spaceItemdata = spaceItemsData.first!
-        self.links = try container.decodeIfPresent([ItemLink].self, forKey: .links) ?? []
+        self.spaceItemsdatas = try container.decode([SpaceItemData].self, forKey: .spaceItemsdatas)
+        self.links = try container.decodeIfPresent([ItemLink].self, forKey: .links)
     }
 }
 

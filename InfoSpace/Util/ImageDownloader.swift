@@ -34,7 +34,7 @@ final class ImageDownloader {
         if let image = getCachedImageFrom(urlString: imageUrlString) {
             completion(image)
         } else {
-            guard let url = URL(imageString: imageUrlString) else {
+            guard let url = URL(completedString: imageUrlString) else {
                 completion(placeholderImage)
                 return
             }

@@ -10,6 +10,7 @@ import UIKit
 enum SpaceItemDetailCellType {
     case title
     case image(UIImage)
+    case video(URL)
     case description
     case separator
     case date(String)
@@ -46,7 +47,32 @@ class SpaceItemDetailViewController: UIViewController {
         headerView.delegate = self
         
         configureTable()
-        configureCells()
+        
+        self.showHudView()
+        viewModel.getMediaURLs(completion: { result in
+            switch result {
+            case .failure(let failure):
+                print("GetMediaURLs error: \(failure)")
+                DispatchQueue.main.async {
+                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al cargar el detalle")
+                    self.hideHudView()
+                }
+            case .success(_):
+                DispatchQueue.main.async {
+                    print(self.viewModel.getMediaURLs())
+                    self.hideHudView()
+                }
+            }
+        })
+        
+        switch viewModel.getSpaceItemData().mediaType {
+        case .image:
+            configureImageCells()
+        case .video:
+            configureVideoCells()
+        case .audio:
+            configureImageCells()
+        }
     }
 
     private func configureTable() {
@@ -54,18 +80,19 @@ class SpaceItemDetailViewController: UIViewController {
         tableView.register(TitleCell.nib, forCellReuseIdentifier: TitleCell.identifier)
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
         tableView.register(SIDetailImageCell.nib, forCellReuseIdentifier: SIDetailImageCell.identifier)
+        tableView.register(SIDetailVideoCell.nib, forCellReuseIdentifier: SIDetailVideoCell.identifier)
         tableView.register(SIDetailMultipurposeTextCell.nib, forCellReuseIdentifier: SIDetailMultipurposeTextCell.identifier)
         tableView.register(SeparatorCell.nib, forCellReuseIdentifier: SeparatorCell.identifier)
     }
     
-    private func configureCells() {
+    private func configureImageCells() {
         cellTypes.removeAll()
         
         cellTypes.append(.title)
         
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
-        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks().first?.href) { [self] result in
+        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [self] result in
             if let image = result {
                 cellTypes.append(.image(image))
             }
@@ -97,13 +124,60 @@ class SpaceItemDetailViewController: UIViewController {
                 cellTypes.append(.description)
             }
             
-            if let url = URL(string: baseDetailUrl + spaceItemData.nasaID) {
+            if let url = URL(completedString: baseDetailUrl + spaceItemData.nasaID) {
                 cellTypes.append(.openWeb(url))
             }
             
             DispatchQueue.main.async { [self] in
                 tableView.reloadData()
             }
+        }
+    }
+    
+    private func configureVideoCells() {
+        cellTypes.removeAll()
+        
+        cellTypes.append(.title)
+        
+        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
+         
+        if let url = URL(completedString: "") {
+            cellTypes.append(.video(url))
+        }
+        
+        let formatter = DateFormatter.dateFormatterLocale
+        formatter.dateFormat = Constants.kShortDateFormat
+        
+        cellTypes.append(.date(formatter.string(from: spaceItemData.dateCreated)))
+        
+        if let center = spaceItemData.center {
+            cellTypes.append(.center(center))
+        }
+        
+        if let secondaryCreator = spaceItemData.secondaryCreator {
+            cellTypes.append(.secondaryCreator(secondaryCreator))
+        }
+        
+        if let photographer = spaceItemData.photographer {
+            cellTypes.append(.photographer(photographer))
+        }
+        
+        if let location = spaceItemData.location {
+            cellTypes.append(.location(location))
+        }
+        
+        cellTypes.append(.separator)
+        
+        if spaceItemData.description != nil {
+            cellTypes.append(.description)
+        }
+        
+        if let url = URL(completedString: baseDetailUrl + spaceItemData.nasaID) {
+            cellTypes.append(.openWeb(url))
+        }
+        
+        DispatchQueue.main.async { [self] in
+            tableView.reloadData()
         }
     }
 }
@@ -129,7 +203,13 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .image(let image):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as! SIDetailImageCell
             
-            cell.configure(image: image, links: viewModel.getSpaceItemLinks(), frameWidth: self.view.frame.width)
+            cell.configure(image: image, link: viewModel.getSpaceItemLinks(), frameWidth: self.view.frame.width)
+            
+            return cell
+        case .video(let url):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailVideoCell.identifier) as! SIDetailVideoCell
+            
+            cell.configure(url: url)
             
             return cell
         case .description:
@@ -191,3 +271,7 @@ extension SpaceItemDetailViewController: HeaderViewProtocol {
     
     func didPressOptions() { }
 }
+
+// MARK: - HudViewProtocol
+
+extension SpaceItemDetailViewController: HudViewProtocol {}
