@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum SpaceItemDetailCellType {
+enum SpaceItemDetailCellType: Equatable {
     case title
     case image(UIImage)
     case video(URL)
@@ -49,33 +49,42 @@ class SpaceItemDetailViewController: UIViewController {
         configureTable()
         
         self.showHudView()
-        viewModel.getMediaURLs(completion: { result in
-            switch result {
-            case .failure(let failure):
-                print("GetMediaURLs error: \(failure)")
-                DispatchQueue.main.async {
-                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al cargar el detalle")
-                    self.hideHudView()
-                }
-            case .success(_):
-                DispatchQueue.main.async {
-                    print(self.viewModel.getMediaURLs())
-                    self.hideHudView()
-                }
+        viewModel.getMediaURLs(completion: { [self] _ in
+            switch viewModel.getSpaceItemData().mediaType {
+            case .image:
+                configureImageCells()
+            case .video:
+                configureVideoCells()
+            case .audio:
+                configureImageCells()
+            }
+            
+            DispatchQueue.main.async { [self] in
+                self.hideHudView()
             }
         })
-        
-        switch viewModel.getSpaceItemData().mediaType {
-        case .image:
-            configureImageCells()
-        case .video:
-            configureVideoCells()
-        case .audio:
-            configureImageCells()
-        }
     }
-
-    private func configureTable() {
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        cellTypes.enumerated().forEach({ position, item in
+            guard let url = URL(completedString: viewModel.getVideoUrl()) else {
+                return
+            }
+            
+            if item == .video(url) {
+                guard let videoCell = tableView.cellForRow(at: IndexPath(row: position, section: 0)) as? SIDetailVideoCell else {
+                    return
+                }
+                videoCell.player.pause()
+                videoCell.player = nil
+                return
+            }
+        })
+    }
+    
+    private func configureTable() {   
         tableView.register(OpenUrlCell.nib, forCellReuseIdentifier: OpenUrlCell.identifier)
         tableView.register(TitleCell.nib, forCellReuseIdentifier: TitleCell.identifier)
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
@@ -141,7 +150,7 @@ class SpaceItemDetailViewController: UIViewController {
         
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
          
-        if let url = URL(completedString: "") {
+        if let url = URL(completedString: viewModel.getVideoUrl()) {
             cellTypes.append(.video(url))
         }
         
@@ -209,7 +218,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .video(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailVideoCell.identifier) as! SIDetailVideoCell
             
-            cell.configure(url: url)
+            cell.configure(url: url, frameWidth: self.view.frame.width, viewController: self)
             
             return cell
         case .description:

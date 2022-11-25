@@ -22,7 +22,7 @@ class OpenUrlCell: UITableViewCell {
     }
     
     @IBAction func buttonOpenUrlPressed(_ sender: Any) {
-        CustomNavigationController.instance.openUrl(url)
+        CustomNavigationController.instance.openUrl(url, animated: true)
     }
     
 }

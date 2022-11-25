@@ -34,6 +34,7 @@
                     <color key="backgroundColor" name="white"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="TWt-To-TGh"/>
+                        <outlet property="delegate" destination="-1" id="54m-e2-Wkf"/>
                     </connections>
                 </tableView>
             </subviews>

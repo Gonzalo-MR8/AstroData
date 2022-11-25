@@ -13,17 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SIDetailVideoCell" customModule="InfoSpace" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-TR-HeG" customClass="View" customModule="InfoSpace" customModuleProvider="target">
-                        <rect key="frame" x="16" y="10" width="288" height="200"/>
+                        <rect key="frame" x="16" y="10" width="288" height="230"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="200" id="t0J-wU-2QQ"/>
+                            <constraint firstAttribute="height" priority="999" constant="230" id="HEg-U6-Y8Z"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -31,10 +31,23 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-ay-t3X">
+                        <rect key="frame" x="16" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="eDu-wg-9pO"/>
+                            <constraint firstAttribute="width" secondItem="ac5-ay-t3X" secondAttribute="height" multiplier="1:1" id="qPh-TA-Hn4"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="buttonFullScreenPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="m3U-Ol-LgF"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Yob-TR-HeG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3w7-bX-k8F"/>
+                    <constraint firstItem="ac5-ay-t3X" firstAttribute="leading" secondItem="Yob-TR-HeG" secondAttribute="leading" id="NHo-mB-Kun"/>
                     <constraint firstAttribute="bottom" secondItem="Yob-TR-HeG" secondAttribute="bottom" constant="10" id="RT6-wx-eEz"/>
+                    <constraint firstItem="ac5-ay-t3X" firstAttribute="top" secondItem="Yob-TR-HeG" secondAttribute="top" id="rhs-T5-YBu"/>
                     <constraint firstItem="Yob-TR-HeG" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="zyq-WB-vGI"/>
                 </constraints>
             </tableViewCellContentView>
@@ -44,6 +57,8 @@
                 <constraint firstItem="Yob-TR-HeG" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.9" id="VJ5-dz-66k"/>
             </constraints>
             <connections>
+                <outlet property="buttonFullScreen" destination="ac5-ay-t3X" id="FyQ-dk-q58"/>
+                <outlet property="viewHeight" destination="HEg-U6-Y8Z" id="aaF-HT-ZF4"/>
                 <outlet property="viewPlayer" destination="Yob-TR-HeG" id="dLm-Wv-IuD"/>
             </connections>
             <point key="canvasLocation" x="55" y="21"/>

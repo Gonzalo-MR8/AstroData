@@ -37,7 +37,8 @@ final class SpaceItemDetailViewModel {
         return spaceItem.links?.first
     }
     
-    public func getMediaURLs() -> [String] {
-        return mediaURLs
+    public func getVideoUrl() -> String {
+        let url = mediaURLs.first(where: { NSString(string: $0).pathExtension == "mp4" }) ?? ""        
+        return url
     }
 }

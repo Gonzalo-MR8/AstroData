@@ -90,11 +90,9 @@ class CustomNavigationController: UINavigationController {
         return self.viewControllers.first(where: { type(of:$0) == classVC })
     }
     
-    func openUrl(_ url: URL) {
+    func openUrl(_ url: URL, animated: Bool) {
         let safariController = SFSafariViewController(url: url)
-        
         safariController.modalPresentationStyle = .overFullScreen
-        
-        self.present(safariController, animated: true, completion: nil)
+        self.present(to: safariController, animated: animated, completion: nil)
     }
 }
