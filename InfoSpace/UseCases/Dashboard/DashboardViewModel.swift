@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias DashboardData = (Planets, APOD, SpaceLibraryItems)
+typealias DashboardData = (Planets, APOD, SpaceLibraryData)
 
 final class DashboardViewModel {
     
@@ -54,7 +54,7 @@ final class DashboardViewModel {
         return dashboardData.1
     }
     
-    func getSpaceLibraryItems() -> SpaceLibraryItems {
+    func getSpaceLibraryData() -> SpaceLibraryData {
         return dashboardData.2
     }
 }

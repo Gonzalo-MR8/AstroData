@@ -7,15 +7,39 @@
 
 import Foundation
 
+typealias SpaceLibraryData = (SpaceLibraryItems, SLastPageItem)
+
+enum Order: Equatable {
+    case highestToLowest
+    case lowestToHighest
+}
+
 final class SpaceLibraryViewModel {
     
     private var spaceLibraryItems: SpaceLibraryItems!
+    private var slItem: SLastPageItem!
+    private var order: Order = .highestToLowest
     
-    init(spaceLibraryItems: SpaceLibraryItems) {
-        self.spaceLibraryItems = spaceLibraryItems
+    init(spaceLibraryData: SpaceLibraryData) {
+        self.spaceLibraryItems = spaceLibraryData.0
+        self.slItem = spaceLibraryData.1
+        orderSpaceItems(order: order)
     }
     
-    func getSpaceLibraryItemsBegin(page: Int, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+    func getSpaceLibraryItemsBegin(completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        let page: String!
+        
+        switch order {
+        case .highestToLowest:
+            if let url = URL(string: slItem.collection.links.first?.href ?? "") {
+                page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage)
+            } else {
+                page = "1"
+            }
+        case .lowestToHighest:
+            page = "1"
+        }
+        
         NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
             switch result {
             case .failure(let error):
@@ -23,6 +47,7 @@ final class SpaceLibraryViewModel {
                 completion(.failure(error))
             case .success(let spaceLibraryItems):
                 self.spaceLibraryItems = spaceLibraryItems
+                self.orderSpaceItems(order: self.order)
                 completion(.success(()))
             }
         })
@@ -41,7 +66,7 @@ final class SpaceLibraryViewModel {
         })
     }
     
-    func getSpaceLibraryItemsBeginNewPage(page: Int, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+    func getSpaceLibraryItemsBeginNewPage(page: String, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
             switch result {
             case .failure(let error):
@@ -65,6 +90,30 @@ final class SpaceLibraryViewModel {
                 completion(.success(()))
             }
         })
+    }
+    
+    /*private func getLastPage(page: Int? = nil, filters: SpaceLibraryFilters? = nil, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
+            switch result {
+            case .failure(let error):
+                print("getLastPage WS error: \(error)")
+            case .success(let slItem):
+                if let url = URL(string: slItem.collection.href) {
+                    lastPage = Int(url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) ?? "1")
+                } else {
+                    lastPage = 1
+                }
+            }
+        })
+    }*/
+    
+    private func orderSpaceItems(order: Order) {
+        switch order {
+        case .highestToLowest:
+            spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated > $1.spaceItemsdatas.first!.dateCreated } )
+        case .lowestToHighest:
+            spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated < $1.spaceItemsdatas.first!.dateCreated } )
+        }
     }
     
     func getNumberOfSpaceItems() -> Int {

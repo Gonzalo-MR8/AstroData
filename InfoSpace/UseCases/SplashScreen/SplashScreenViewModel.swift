@@ -14,7 +14,7 @@ final class SplashScreenViewModel {
         var wsError: WebServiceError?
         var planets: Planets?
         var apod: APOD?
-        var spaceLibraryItems: SpaceLibraryItems?
+        var spaceLibraryData: SpaceLibraryData?
         
         group.enter()
         getAPOD(completion: { result in
@@ -41,24 +41,24 @@ final class SplashScreenViewModel {
         })
         
         group.enter()
-        getSpaceLibrary(completion: { result in
+        getSpaceLibraryItems(completion: { result in
             switch result {
             case .failure(let error):
                 wsError = error
                 group.leave()
             case .success(let spaceLibraryItemsData):
-                spaceLibraryItems = spaceLibraryItemsData
+                spaceLibraryData = spaceLibraryItemsData
                 group.leave()
             }
         })
         
         group.notify(queue: .main, execute: {
-            guard let planets = planets, let apod = apod, let spaceLibraryItems = spaceLibraryItems else {
+            guard let planets = planets, let apod = apod, let spaceLibraryData = spaceLibraryData else {
                 completion(.failure(wsError ?? WebServiceError.unknown))
                 return
             }
             
-            completion(.success((planets, apod, spaceLibraryItems)))
+            completion(.success((planets, apod, spaceLibraryData)))
         })
     }
     
@@ -86,14 +86,51 @@ final class SplashScreenViewModel {
         })
     }
     
-    private func getSpaceLibrary(completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
-        NasaLibraryDataManager.shared.getLibraryDefault(page: 1, completion: { result in
+    private func getSpaceLibraryItems(completion: @escaping (Result<SpaceLibraryData, WebServiceError>) -> ()) {
+        let group = DispatchGroup()
+        
+        var wsError: WebServiceError?
+        var slItem: SLastPageItem?
+        
+        group.enter()
+        NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
             switch result {
             case .failure(let error):
-                print("Space library WS error: \(error)")
+                print("getLastPage WS error: \(error)")
+                wsError = error
+                group.leave()
+            case .success(let slItemData):
+                slItem = slItemData
+                group.leave()
+            }
+        })
+        
+        group.notify(queue: .main, execute: {
+            guard let slItem = slItem, let url = URL(string: slItem.collection.links.first?.href ?? ""), let page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
+                completion(.failure(wsError ?? WebServiceError.unknown))
+                return
+            }
+            
+            NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
+                switch result {
+                case .failure(let error):
+                    print("Space library WS error: \(error)")
+                    completion(.failure(error))
+                case .success(let spaceLibraryItems):
+                    completion(.success((spaceLibraryItems, slItem)))
+                }
+            })
+        })
+    }
+    
+    private func getLastPage(completion: @escaping (Result<SLastPageItem, WebServiceError>) -> ()) {
+        NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
+            switch result {
+            case .failure(let error):
+                print("getLastPage WS error: \(error)")
                 completion(.failure(error))
-            case .success(let spaceLibraryItems):
-                completion(.success(spaceLibraryItems))
+            case .success(let slItem):
+                completion(.success(slItem))
             }
         })
     }

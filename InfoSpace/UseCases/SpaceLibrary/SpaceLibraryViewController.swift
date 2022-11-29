@@ -21,14 +21,14 @@ class SpaceLibraryViewController: UIViewController {
     
     private let kAnimationDuration: TimeInterval = 0.6
     
-    private var page: Int = 1
+    private var page: String = "1"
     private var filtered: Bool = false
     private var reload: Bool = false
     
-    static func initAndLoad(spaceLibraryItems: SpaceLibraryItems) -> SpaceLibraryViewController {
+    static func initAndLoad(spaceLibraryData: SpaceLibraryData) -> SpaceLibraryViewController {
         let spaceLibraryViewController = SpaceLibraryViewController.initAndLoad()
         
-        spaceLibraryViewController.viewModel = SpaceLibraryViewModel(spaceLibraryItems: spaceLibraryItems)
+        spaceLibraryViewController.viewModel = SpaceLibraryViewModel(spaceLibraryData: spaceLibraryData)
         
         return spaceLibraryViewController
     }
@@ -133,7 +133,7 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
         showHudView()
-        page = 1
+        page = "1"
         filtered = true
         viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
             switch result {
@@ -155,9 +155,8 @@ extension SpaceLibraryViewController: FilterViewProtocol {
     
     func resetFilters() {
         showHudView()
-        page = 1
         filtered = false
-        viewModel.getSpaceLibraryItemsBegin(page: page, completion: { result in
+        viewModel.getSpaceLibraryItemsBegin(completion: { result in
             switch result {
             case .failure(let failure):
                 print("Reset spaceLibrary filters error: \(failure)")
@@ -188,7 +187,7 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
                 self.spaceItemsCollectionView.reloadData()
             })
             
-            page = page + 1
+            page = String((Int(page) ?? 1) + 1)
             
             if filtered {
                 filterView.filters.page = page

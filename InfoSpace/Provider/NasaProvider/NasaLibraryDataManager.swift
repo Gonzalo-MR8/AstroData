@@ -15,13 +15,14 @@ class NasaLibraryDataManager {
     private let kParameterYearStart = "year_start"
     private let kParameterYearEnd = "year_end"
     private let kParameterMediaType = "media_type"
-    private let kParameterPage = "page"
+    public  let kParameterPage = "page"
         
+    private let kLastPageNumber: String = "100"
     private let kParameterValueYearStart = Calendar.current.component(.year, from: Date())
     
     static var shared = NasaLibraryDataManager()
     
-    func getLibraryDefault(page: Int, completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
+    func getLibraryDefault(page: String, completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
         var getLibraryDefault = createWSLibraryDefault(page: page)
 
         getLibraryDefault.completion = { result in
@@ -41,6 +42,37 @@ class NasaLibraryDataManager {
                     let libraryItems = try JSONDecoder().decode(SpaceLibraryItems.self, from: data)
                     
                     completion(.success(libraryItems))
+                } catch let error {
+                    print("Error decoding: \(error)")
+                    
+                    completion(.failure(.decondingError))
+                }
+            }
+        }
+        
+        NetworkManager.shared.call(ws: getLibraryDefault)
+    }
+    
+    func getSLastPageItemDefault(completion: @escaping (Result<SLastPageItem, WebServiceError>) -> ()) {
+        var getLibraryDefault = createWSLibraryDefault(page: kLastPageNumber)
+
+        getLibraryDefault.completion = { result in
+            switch result {
+            case .failure (let error):
+                print("Error getting SLastPageItemDefault: \(error.localizedDescription)")
+                
+                completion(.failure(.generic(error: error)))
+            case .success (let data):
+                guard let data = data else {
+                    completion(.failure(.noData))
+                    
+                    return
+                }
+                
+                do {
+                    let slItem = try JSONDecoder().decode(SLastPageItem.self, from: data)
+                    
+                    completion(.success(slItem))
                 } catch let error {
                     print("Error decoding: \(error)")
                     
@@ -83,6 +115,37 @@ class NasaLibraryDataManager {
         NetworkManager.shared.call(ws: getLibraryFilters)
     }
     
+    func getSLastPageItemFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<SLastPageItem, WebServiceError>) -> ()) {
+        var getLibraryDefault = createWSLibraryFilters(filters: filters)
+
+        getLibraryDefault.completion = { result in
+            switch result {
+            case .failure (let error):
+                print("Error getting SLastPageItemFilters: \(error.localizedDescription)")
+                
+                completion(.failure(.generic(error: error)))
+            case .success (let data):
+                guard let data = data else {
+                    completion(.failure(.noData))
+                    
+                    return
+                }
+                
+                do {
+                    let slItem = try JSONDecoder().decode(SLastPageItem.self, from: data)
+                    
+                    completion(.success(slItem))
+                } catch let error {
+                    print("Error decoding: \(error)")
+                    
+                    completion(.failure(.decondingError))
+                }
+            }
+        }
+        
+        NetworkManager.shared.call(ws: getLibraryDefault)
+    }
+    
     func getMediaURLs(jsonUrl: String, completion: @escaping (Result<[String], WebServiceError>) -> ()) {
         var webServiceMediaURLs = WebService(url: jsonUrl)
 
@@ -116,11 +179,11 @@ class NasaLibraryDataManager {
     
     //MARK: - WSNasaLibrary
     
-    func createWSLibraryDefault(page: Int) -> WebService {
+    func createWSLibraryDefault(page: String) -> WebService {
         var parameters = [String:String]()
         
         parameters[kParameterYearStart] = kParameterValueYearStart.description
-        parameters[kParameterPage] = String(page)
+        parameters[kParameterPage] = page
         
         let webService = WebService(url: baseUrl, urlParameters: parameters)
 

@@ -32,7 +32,7 @@ class FilterView: View {
     
     weak var delegate: FilterViewProtocol?
     
-    func configure(page: Int) {
+    func configure(page: String) {
         setupNib()
         configureTable()
         filters = SpaceLibraryFilters(page: page)
@@ -139,14 +139,14 @@ extension FilterView: YearsFilterCellProtocol {
 
 extension FilterView: ButtonsFilterCellProtocol {
     func applyButtonPressed() {
-        filters.page = 1
+        filters.page = "1"
         delegate?.changeFilters(filters: filters)
     }
     
     func resetButtonPressed() {
         reset = true
         filtersTableView.reloadData()
-        filters = SpaceLibraryFilters(page: 1)
+        filters = SpaceLibraryFilters(page: "1")
         delegate?.resetFilters()
     }
 }

@@ -141,7 +141,7 @@ extension DashboardViewController: UICollectionViewDelegate {
             CustomNavigationController.instance.navigate(to: apodVC, animated: true)
         case 1:
             // Space library
-            let spaceLibraryVC = SpaceLibraryViewController.initAndLoad(spaceLibraryItems: viewModel.getSpaceLibraryItems())
+            let spaceLibraryVC = SpaceLibraryViewController.initAndLoad(spaceLibraryData: viewModel.getSpaceLibraryData())
             CustomNavigationController.instance.navigate(to: spaceLibraryVC, animated: true)
         case 2:
             // Rover mars photos

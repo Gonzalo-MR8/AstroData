@@ -148,7 +148,7 @@
 		9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB736D1285659E800B8D867 /* Bundle+Utils.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
-		9BD9D9572911EFB100621C02 /* SpaceLibraryFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9D9562911EFB100621C02 /* SpaceLibraryFilters.swift */; };
+		9BD9D9572911EFB100621C02 /* SpaceLibraryUtilModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9D9562911EFB100621C02 /* SpaceLibraryUtilModels.swift */; };
 		9BE6E44E28F6536A003A63DF /* SpaceLibraryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */; };
 		D1B6F28422BB5FBE923926C4 /* Pods_InfoSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */; };
 /* End PBXBuildFile section */
@@ -319,7 +319,7 @@
 		9BB736D1285659E800B8D867 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
-		9BD9D9562911EFB100621C02 /* SpaceLibraryFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryFilters.swift; sourceTree = "<group>"; };
+		9BD9D9562911EFB100621C02 /* SpaceLibraryUtilModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryUtilModels.swift; sourceTree = "<group>"; };
 		9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -852,7 +852,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */,
-				9BD9D9562911EFB100621C02 /* SpaceLibraryFilters.swift */,
+				9BD9D9562911EFB100621C02 /* SpaceLibraryUtilModels.swift */,
 			);
 			path = SpaceLibrary;
 			sourceTree = "<group>";
@@ -1135,7 +1135,7 @@
 				9B380985290E0D40007851B2 /* ContentTypeFilterCell.swift in Sources */,
 				9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */,
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
-				9BD9D9572911EFB100621C02 /* SpaceLibraryFilters.swift in Sources */,
+				9BD9D9572911EFB100621C02 /* SpaceLibraryUtilModels.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9B58014A29148CBC009288FD /* FontTypes.swift in Sources */,
 				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
