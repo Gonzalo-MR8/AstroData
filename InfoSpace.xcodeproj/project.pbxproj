@@ -114,6 +114,8 @@
 		9B62D5DC292E551F00863317 /* URL+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B62D5DB292E551F00863317 /* URL+Utils.swift */; };
 		9B62D5DF292E842500863317 /* SIDetailVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B62D5DD292E842500863317 /* SIDetailVideoCell.swift */; };
 		9B62D5E0292E842500863317 /* SIDetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B62D5DE292E842500863317 /* SIDetailVideoCell.xib */; };
+		9B62D5E3293673E400863317 /* OrderFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B62D5E1293673E400863317 /* OrderFilterCell.swift */; };
+		9B62D5E4293673E400863317 /* OrderFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B62D5E2293673E400863317 /* OrderFilterCell.xib */; };
 		9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */; };
 		9B82C9DE285210F1003EAF59 /* ImagesGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */; };
 		9B82C9E228521211003EAF59 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */; };
@@ -281,6 +283,8 @@
 		9B62D5DB292E551F00863317 /* URL+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Utils.swift"; sourceTree = "<group>"; };
 		9B62D5DD292E842500863317 /* SIDetailVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIDetailVideoCell.swift; sourceTree = "<group>"; };
 		9B62D5DE292E842500863317 /* SIDetailVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIDetailVideoCell.xib; sourceTree = "<group>"; };
+		9B62D5E1293673E400863317 /* OrderFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFilterCell.swift; sourceTree = "<group>"; };
+		9B62D5E2293673E400863317 /* OrderFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderFilterCell.xib; sourceTree = "<group>"; };
 		9B82C9DB285210F1003EAF59 /* ImagesGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGalleryViewController.swift; sourceTree = "<group>"; };
 		9B82C9DC285210F1003EAF59 /* ImagesGalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesGalleryViewController.xib; sourceTree = "<group>"; };
 		9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
@@ -623,6 +627,8 @@
 				9B34CFAA290F10D500E642A1 /* YearsFilterCell.xib */,
 				9B980A0629134B3B00F6F2D9 /* ButtonsFilterCell.swift */,
 				9B980A0729134B3B00F6F2D9 /* ButtonsFilterCell.xib */,
+				9B62D5E1293673E400863317 /* OrderFilterCell.swift */,
+				9B62D5E2293673E400863317 /* OrderFilterCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -1009,6 +1015,7 @@
 				9B28E351284D120B00F79F7B /* spacerangercondital.ttf in Resources */,
 				9B28E349284D120B00F79F7B /* spacerangerital.ttf in Resources */,
 				9B1219DE292920CD00D9FF9F /* SpaceItemDetailViewController.xib in Resources */,
+				9B62D5E4293673E400863317 /* OrderFilterCell.xib in Resources */,
 				9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */,
 				9B28E353284D120B00F79F7B /* spacerangercond.ttf in Resources */,
 				9B62D5E0292E842500863317 /* SIDetailVideoCell.xib in Resources */,
@@ -1138,6 +1145,7 @@
 				9BD9D9572911EFB100621C02 /* SpaceLibraryUtilModels.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9B58014A29148CBC009288FD /* FontTypes.swift in Sources */,
+				9B62D5E3293673E400863317 /* OrderFilterCell.swift in Sources */,
 				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
 				9B342634292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,

@@ -106,7 +106,7 @@ final class SplashScreenViewModel {
         })
         
         group.notify(queue: .main, execute: {
-            guard let slItem = slItem, let url = URL(string: slItem.collection.links.first?.href ?? ""), let page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
+            guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), let page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
                 completion(.failure(wsError ?? WebServiceError.unknown))
                 return
             }
@@ -120,18 +120,6 @@ final class SplashScreenViewModel {
                     completion(.success((spaceLibraryItems, slItem)))
                 }
             })
-        })
-    }
-    
-    private func getLastPage(completion: @escaping (Result<SLastPageItem, WebServiceError>) -> ()) {
-        NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
-            switch result {
-            case .failure(let error):
-                print("getLastPage WS error: \(error)")
-                completion(.failure(error))
-            case .success(let slItem):
-                completion(.success(slItem))
-            }
         })
     }
 }

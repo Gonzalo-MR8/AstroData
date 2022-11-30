@@ -11,6 +11,12 @@ struct SpaceLibraryFilters {
     var page: String
     var yearStart, yearEnd, searchText: String?
     var mediaTypes: [MediaType]?
+    var order: Order
+    
+    init() {
+        self.page = "1"
+        self.order = .highestToLowest
+    }
 }
 
 // MARK: - SLastPageItem
@@ -23,6 +29,15 @@ struct SLCollection: Codable {
     let version: String
     let href: String
     let links: [SLLink]
+    
+    public func getPrevLink() -> String? {
+        let kPrevString = "prev"
+        if let link = links.first(where: { $0.rel.lowercased() == kPrevString.lowercased() }) {
+            return link.href
+        } else {
+            return nil
+        }
+    }
 }
 
 // MARK: - SLLink

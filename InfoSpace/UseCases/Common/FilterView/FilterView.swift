@@ -18,6 +18,7 @@ enum FilterCellType {
     case search
     case contentType
     case years
+    case order
     case buttons
 }
 
@@ -25,17 +26,17 @@ class FilterView: View {
 
     @IBOutlet weak var filtersTableView: UITableView!
     
-    private var cellTypes: [FilterCellType] = [.header, .separator, .search, .separator, .contentType, .separator, .years, .separator, .buttons]
+    private var cellTypes: [FilterCellType] = [.header, .separator, .search, .separator, .contentType, .separator, .years, .separator, .order, .separator, .buttons]
     private var reset: Bool = false
     
     public var filters: SpaceLibraryFilters!
     
     weak var delegate: FilterViewProtocol?
     
-    func configure(page: String) {
+    func configure() {
         setupNib()
         configureTable()
-        filters = SpaceLibraryFilters(page: page)
+        filters = SpaceLibraryFilters()
     }
     
     // MARK: - Private methods
@@ -46,6 +47,7 @@ class FilterView: View {
         filtersTableView.register(SearchFilterCell.nib, forCellReuseIdentifier: SearchFilterCell.identifier)
         filtersTableView.register(ContentTypeFilterCell.nib, forCellReuseIdentifier: ContentTypeFilterCell.identifier)
         filtersTableView.register(YearsFilterCell.nib, forCellReuseIdentifier: YearsFilterCell.identifier)
+        filtersTableView.register(OrderFilterCell.nib, forCellReuseIdentifier: OrderFilterCell.identifier)
         filtersTableView.register(ButtonsFilterCell.nib, forCellReuseIdentifier: ButtonsFilterCell.identifier)
     }
 }
@@ -100,6 +102,12 @@ extension FilterView: UITableViewDataSource {
             }
             
             return cell
+        case .order:
+            let cell = tableView.dequeueReusableCell(withIdentifier: OrderFilterCell.identifier) as! OrderFilterCell
+            
+            cell.delegate = self
+            
+            return cell
         case .buttons:
             let cell = tableView.dequeueReusableCell(withIdentifier: ButtonsFilterCell.identifier) as! ButtonsFilterCell
             
@@ -135,18 +143,25 @@ extension FilterView: YearsFilterCellProtocol {
     }
 }
 
+// MARK: - OrderFilterCellProtocol
+
+extension FilterView: OrderFilterCellProtocol {
+    func changeSelectedSegment(selectedOrder: Order) {
+        filters.order = selectedOrder
+    }
+}
+
 // MARK: - ButtonsFilterCellProtocol
 
 extension FilterView: ButtonsFilterCellProtocol {
     func applyButtonPressed() {
-        filters.page = "1"
         delegate?.changeFilters(filters: filters)
     }
     
     func resetButtonPressed() {
         reset = true
         filtersTableView.reloadData()
-        filters = SpaceLibraryFilters(page: "1")
+        filters = SpaceLibraryFilters()
         delegate?.resetFilters()
     }
 }

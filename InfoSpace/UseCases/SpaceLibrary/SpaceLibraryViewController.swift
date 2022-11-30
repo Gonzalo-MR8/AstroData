@@ -21,7 +21,6 @@ class SpaceLibraryViewController: UIViewController {
     
     private let kAnimationDuration: TimeInterval = 0.6
     
-    private var page: String = "1"
     private var filtered: Bool = false
     private var reload: Bool = false
     
@@ -46,7 +45,7 @@ class SpaceLibraryViewController: UIViewController {
         headerView.labelTitle.text = "Space Library"
         headerView.delegate = self
         
-        filterView.configure(page: page)
+        filterView.configure()
         filterView.isHidden = true
         filterView.delegate = self
     }
@@ -54,6 +53,14 @@ class SpaceLibraryViewController: UIViewController {
     private func configureCollectionView() {
         spaceItemsCollectionView.register(SpaceLibraryItemCell.nib, forCellWithReuseIdentifier: SpaceLibraryItemCell.identifier)
         spaceItemsCollectionView.register(ReloadCollectionViewCell.nib, forCellWithReuseIdentifier: ReloadCollectionViewCell.identifier)
+    }
+    
+    private func scrollToTop() {
+        guard self.viewModel.getNumberOfSpaceItems() != 0 else {
+            return
+        }
+        
+        self.spaceItemsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
     }
 }
 
@@ -65,8 +72,8 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
             return viewModel.getNumberOfSpaceItems() + 1
         } else {
             if viewModel.getNumberOfSpaceItems() == 0 {
-                reload = true
-                return 1
+                // TO DO create cell to empty items
+                return 0
             } else {
                 return viewModel.getNumberOfSpaceItems()
             }
@@ -76,6 +83,8 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == viewModel.getNumberOfSpaceItems() && reload {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReloadCollectionViewCell.identifier, for: indexPath) as! ReloadCollectionViewCell
+            
+            reload = false
             
             return cell
         } else {
@@ -133,21 +142,19 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
         showHudView()
-        page = "1"
         filtered = true
         viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
             switch result {
-            case .failure(let failure):
-                print("Change spaceLibrary filters error: \(failure)")
+            case .failure(_):
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
                     self.hideHudView()
                 }
             case .success(_):
-                DispatchQueue.main.async {
-                    self.spaceItemsCollectionView.reloadData()
-                    self.spaceItemsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
-                    self.hideHudView()
+                DispatchQueue.main.async { [self] in
+                    spaceItemsCollectionView.reloadData()
+                    hideHudView()
+                    scrollToTop()
                 }
             }
         })
@@ -158,16 +165,16 @@ extension SpaceLibraryViewController: FilterViewProtocol {
         filtered = false
         viewModel.getSpaceLibraryItemsBegin(completion: { result in
             switch result {
-            case .failure(let failure):
-                print("Reset spaceLibrary filters error: \(failure)")
+            case .failure(_):
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al pulsar el boton reset, intentelo de nuevo")
                     self.hideHudView()
                 }
             case .success(_):
-                DispatchQueue.main.async {
-                    self.spaceItemsCollectionView.reloadData()
-                    self.hideHudView()
+                DispatchQueue.main.async { [self] in
+                    spaceItemsCollectionView.reloadData()
+                    hideHudView()
+                    scrollToTop()
                 }
             }
         })
@@ -187,35 +194,28 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
                 self.spaceItemsCollectionView.reloadData()
             })
             
-            page = String((Int(page) ?? 1) + 1)
-            
             if filtered {
-                filterView.filters.page = page
                 viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters, completion: { result in
                     switch result {
-                    case .failure(let failure):
-                        print("Get newPage spaceLibrary filters error: \(failure)")
+                    case .failure(_):
                         DispatchQueue.main.async {
                             CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
                         }
                     case .success(_):
                         DispatchQueue.main.async {
-                            self.reload = false
                             self.spaceItemsCollectionView.reloadData()
                         }
                     }
                 })
             } else {
-                viewModel.getSpaceLibraryItemsBeginNewPage(page: page, completion: { result in
+                viewModel.getSpaceLibraryItemsBeginNewPage(completion: { result in
                     switch result {
-                    case .failure(let failure):
-                        print("Get newPage spaceLibrary error: \(failure)")
+                    case .failure(_):
                         DispatchQueue.main.async {
                             CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
                         }
                     case .success(_):
                         DispatchQueue.main.async {
-                            self.reload = false
                             self.spaceItemsCollectionView.reloadData()
                         }
                     }

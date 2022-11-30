@@ -116,7 +116,9 @@ class NasaLibraryDataManager {
     }
     
     func getSLastPageItemFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<SLastPageItem, WebServiceError>) -> ()) {
-        var getLibraryDefault = createWSLibraryFilters(filters: filters)
+        var pageUpdateFilters = filters
+        pageUpdateFilters.page = kLastPageNumber
+        var getLibraryDefault = createWSLibraryFilters(filters: pageUpdateFilters)
 
         getLibraryDefault.completion = { result in
             switch result {
