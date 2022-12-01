@@ -6,6 +6,7 @@
 //
 
 import UIKit
+// TO DO import CoreMotion
 
 enum SpaceItemDetailCellType: Equatable {
     case title
@@ -63,6 +64,21 @@ class SpaceItemDetailViewController: UIViewController {
                 self.hideHudView()
             }
         })
+        
+        /*// TO DO
+        // Create a CMMotionManager instance
+        let manager = CMMotionManager()
+
+        // How frequently to read accelerometer updates, in seconds
+        manager.accelerometerUpdateInterval = 0.1
+
+        // Start accelerometer updates on a specific thread
+        manager.startAccelerometerUpdates(to: .main) { (data, error) in
+            // Read the most recent accelerometer value
+            print(manager.accelerometerData?.acceleration.x)
+            print(manager.accelerometerData?.acceleration.y)
+            print(manager.accelerometerData?.acceleration.z)
+        }*/
     }
     
     override func viewWillDisappear(_ animated: Bool) {
