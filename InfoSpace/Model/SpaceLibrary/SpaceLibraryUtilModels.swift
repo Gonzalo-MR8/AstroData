@@ -28,11 +28,11 @@ struct SLastPageItem: Codable {
 struct SLCollection: Codable {
     let version: String
     let href: String
-    let links: [SLLink]
+    let links: [SLink]?
     
     public func getPrevLink() -> String? {
         let kPrevString = "prev"
-        if let link = links.first(where: { $0.rel.lowercased() == kPrevString.lowercased() }) {
+        if let link = links?.first(where: { $0.rel.lowercased() == kPrevString.lowercased() }) {
             return link.href
         } else {
             return nil
@@ -40,8 +40,8 @@ struct SLCollection: Codable {
     }
 }
 
-// MARK: - SLLink
-struct SLLink: Codable {
+// MARK: - SLink
+struct SLink: Codable {
     let rel, prompt: String
     let href: String
 }

@@ -17,11 +17,24 @@ class SearchFilterCell: UITableViewCell {
     
     weak var delegate: SearchFilterCellProtocol?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        searchTextField.delegate = self
+    }
+    
     func reset() {
         searchTextField.text = nil
     }
     
     @IBAction func editingChanged(_ sender: Any) {
         delegate?.searchTextChanged(text: searchTextField.text)
+    }
+}
+
+extension SearchFilterCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder();
+        return true;
     }
 }

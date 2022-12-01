@@ -61,7 +61,7 @@ class YearsFilterCell: UITableViewCell {
         // Tool bar
         toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: bounds.width, height: kToolbarHeight))
         
-        toolBar.barTintColor = Colors.elementColor.value
+        toolBar.barTintColor = Colors.secondaryColor.value
         
         let buttonCancel = UIButton.init()
         buttonCancel.setTitle("Cancelar", for: .normal)
@@ -129,7 +129,7 @@ class YearsFilterCell: UITableViewCell {
         let rowEnd = picker.selectedRow(inComponent: 1)
         let yearEnd = rowEnd == 0 ? nil : years[rowEnd - 1]
         
-        if rowStart > rowEnd {
+        if rowStart > rowEnd, rowEnd != 0 {
             CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "El año de inicio no puede ser mayor que el año de final")
         } else {
             yearStartTextField.text = rowStart == 0 ? nil : yearStart!
@@ -156,7 +156,7 @@ extension YearsFilterCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let yearName = row == 0 ? placeholderText : years[row - 1]
         
-        return NSAttributedString(string: yearName, attributes: [NSAttributedString.Key.foregroundColor: Colors.elementColor.value])
+        return NSAttributedString(string: yearName, attributes: [NSAttributedString.Key.foregroundColor: Colors.secondaryColor.value])
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

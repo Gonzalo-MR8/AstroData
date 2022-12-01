@@ -30,7 +30,13 @@ final class SpaceLibraryViewModel {
     
     // MARK: - Network Methods
     
-    public func getSpaceLibraryItemsBegin(completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+    public func getSpaceLibraryItemsBegin(reset: Bool = false, changeOrder: Order? = nil, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        if let changeOrder = changeOrder {
+            order = changeOrder
+        }
+        
+        order = reset ? .highestToLowest : .lowestToHighest
+
         let group = DispatchGroup()
         
         group.enter()
@@ -62,6 +68,8 @@ final class SpaceLibraryViewModel {
     }
     
     public func getSpaceLibraryItemsFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        order = filters.order
+        
         let group = DispatchGroup()
         
         group.enter()

@@ -29,14 +29,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Año de inicio" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6j-hg-ydf">
                                 <rect key="frame" x="0.0" y="0.0" width="144" height="30"/>
                                 <color key="backgroundColor" name="white"/>
-                                <color key="textColor" name="textColor"/>
+                                <color key="textColor" name="secondaryColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Año de fin" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-xq-lE1">
                                 <rect key="frame" x="144" y="0.0" width="144" height="30"/>
                                 <color key="backgroundColor" name="white"/>
-                                <color key="textColor" name="textColor"/>
+                                <color key="textColor" name="secondaryColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -59,8 +59,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="textColor">
-            <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="secondaryColor">
+            <color red="0.14901960784313725" green="0.0" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

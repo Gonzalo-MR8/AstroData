@@ -37,6 +37,10 @@ class FilterView: View {
         setupNib()
         configureTable()
         filters = SpaceLibraryFilters()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        self.addGestureRecognizer(tap)
     }
     
     // MARK: - Private methods
@@ -98,7 +102,6 @@ extension FilterView: UITableViewDataSource {
             
             if reset {
                 cell.reset()
-                reset = false
             }
             
             return cell
@@ -106,6 +109,11 @@ extension FilterView: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderFilterCell.identifier) as! OrderFilterCell
             
             cell.delegate = self
+            
+            if reset {
+                cell.reset()
+                reset = false
+            }
             
             return cell
         case .buttons:

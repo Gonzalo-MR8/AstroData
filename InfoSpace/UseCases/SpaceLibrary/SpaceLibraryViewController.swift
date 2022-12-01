@@ -55,12 +55,17 @@ class SpaceLibraryViewController: UIViewController {
         spaceItemsCollectionView.register(ReloadCollectionViewCell.nib, forCellWithReuseIdentifier: ReloadCollectionViewCell.identifier)
     }
     
-    private func scrollToTop() {
-        guard self.viewModel.getNumberOfSpaceItems() != 0 else {
-            return
+    private func resetOfChangeFiltersSuccess() {
+        DispatchQueue.main.async { [self] in
+            spaceItemsCollectionView.reloadData()
+            hideHudView()
+            // Scroll to top
+            guard self.viewModel.getNumberOfSpaceItems() != 0 else {
+                return
+            }
+            
+            self.spaceItemsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }
-        
-        self.spaceItemsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
     }
 }
 
@@ -142,28 +147,38 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
         showHudView()
-        filtered = true
-        viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
-            switch result {
-            case .failure(_):
-                DispatchQueue.main.async {
-                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
-                    self.hideHudView()
+        if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
+            viewModel.getSpaceLibraryItemsBegin(changeOrder: filters.order, completion: { result in
+                switch result {
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
+                        self.hideHudView()
+                    }
+                case .success(_):
+                    self.resetOfChangeFiltersSuccess()
                 }
-            case .success(_):
-                DispatchQueue.main.async { [self] in
-                    spaceItemsCollectionView.reloadData()
-                    hideHudView()
-                    scrollToTop()
+            })
+        } else {
+            filtered = true
+            viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
+                switch result {
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
+                        self.hideHudView()
+                    }
+                case .success(_):
+                    self.resetOfChangeFiltersSuccess()
                 }
-            }
-        })
+            })
+        }
     }
     
     func resetFilters() {
         showHudView()
         filtered = false
-        viewModel.getSpaceLibraryItemsBegin(completion: { result in
+        viewModel.getSpaceLibraryItemsBegin(reset: true, completion: { result in
             switch result {
             case .failure(_):
                 DispatchQueue.main.async {
@@ -171,11 +186,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
                     self.hideHudView()
                 }
             case .success(_):
-                DispatchQueue.main.async { [self] in
-                    spaceItemsCollectionView.reloadData()
-                    hideHudView()
-                    scrollToTop()
-                }
+                self.resetOfChangeFiltersSuccess()
             }
         })
     }
@@ -187,40 +198,44 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard scrollView is UICollectionView else { return }
         
-        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
-            UIView.animate(withDuration: kAnimationDuration,
-                           animations: {
-                self.reload = true
-                self.spaceItemsCollectionView.reloadData()
+        guard (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) else {
+            return
+        }
+        
+        UIView.animate(withDuration: kAnimationDuration,
+                       animations: {
+            self.reload = true
+            self.spaceItemsCollectionView.reloadData()
+        })
+        
+        if filtered {
+            viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters, completion: { result in
+                switch result {
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
+                        self.spaceItemsCollectionView.reloadData()
+                    }
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.spaceItemsCollectionView.reloadData()
+                    }
+                }
             })
-            
-            if filtered {
-                viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters, completion: { result in
-                    switch result {
-                    case .failure(_):
-                        DispatchQueue.main.async {
-                            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
-                        }
-                    case .success(_):
-                        DispatchQueue.main.async {
-                            self.spaceItemsCollectionView.reloadData()
-                        }
+        } else {
+            viewModel.getSpaceLibraryItemsBeginNewPage(completion: { result in
+                switch result {
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
+                        self.spaceItemsCollectionView.reloadData()
                     }
-                })
-            } else {
-                viewModel.getSpaceLibraryItemsBeginNewPage(completion: { result in
-                    switch result {
-                    case .failure(_):
-                        DispatchQueue.main.async {
-                            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
-                        }
-                    case .success(_):
-                        DispatchQueue.main.async {
-                            self.spaceItemsCollectionView.reloadData()
-                        }
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.spaceItemsCollectionView.reloadData()
                     }
-                })
-            }
+                }
+            })
         }
     }
 }

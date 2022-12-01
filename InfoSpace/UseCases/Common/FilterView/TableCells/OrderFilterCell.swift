@@ -26,6 +26,10 @@ class OrderFilterCell: UITableViewCell {
         segmentedControlOrder.setTitle("Lowest To Highest", forSegmentAt: 1)
     }
     
+    func reset() {
+        segmentedControlOrder.selectedSegmentIndex = 0
+    }
+    
     @IBAction func changeSelectedSegment(_ sender: Any) {
         if segmentedControlOrder.selectedSegmentIndex == 0 {
             delegate?.changeSelectedSegment(selectedOrder: .highestToLowest)
