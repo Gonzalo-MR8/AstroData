@@ -60,7 +60,7 @@ class SpaceLibraryViewController: UIViewController {
             spaceItemsCollectionView.reloadData()
             hideHudView()
             // Scroll to top
-            guard self.viewModel.getNumberOfSpaceItems() != 0 else {
+            guard self.viewModel.getNumberOfSpaceItems() != 0, spaceItemsCollectionView.contentOffset.y != 0 else {
                 return
             }
             

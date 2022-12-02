@@ -31,11 +31,11 @@ final class SpaceLibraryViewModel {
     // MARK: - Network Methods
     
     public func getSpaceLibraryItemsBegin(reset: Bool = false, changeOrder: Order? = nil, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+        order = reset ? .highestToLowest : .lowestToHighest
+        
         if let changeOrder = changeOrder {
             order = changeOrder
         }
-        
-        order = reset ? .highestToLowest : .lowestToHighest
 
         let group = DispatchGroup()
         
@@ -51,16 +51,29 @@ final class SpaceLibraryViewModel {
                 group.leave()
             }
         })
+        group.wait()
         
-        group.notify(queue: .main, execute: { [self] in
+        // We do this and take another page to prevent if the last page have only a few items
+        if Int(page) ?? 0 >= 2, order == .highestToLowest {
+            group.enter()
             NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
                 switch result {
                 case .failure(let error):
                     print("Space library WS error: \(error)")
-                    completion(.failure(error))
+                    group.leave()
                 case .success(let spaceLibraryItems):
                     self.spaceLibraryItems = spaceLibraryItems
-                    self.orderSpaceItems(order: self.order)
+                    group.leave()
+                }
+            })
+        }
+        
+        group.notify(queue: .main, execute: { [self] in
+            getSpaceLibraryItemsBeginNewPage(completion: { result in
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(_):
                     completion(.success(()))
                 }
             })
@@ -84,18 +97,32 @@ final class SpaceLibraryViewModel {
                 group.leave()
             }
         })
+        group.wait()
         
-        group.notify(queue: .main, execute: { [self] in
+        // We do this and take another page to prevent if the last page have only a few items
+        if Int(page) ?? 0 >= 2, order == .highestToLowest {
+            group.enter()
+            
             var pageUpdateFilters = filters
             pageUpdateFilters.page = page
             NasaLibraryDataManager.shared.getLibraryFilters(filters: pageUpdateFilters, completion: { result in
                 switch result {
                 case .failure(let error):
                     print("getSpaceLibraryItemsFilters WS error: \(error)")
-                    completion(.failure(error))
+                    group.leave()
                 case .success(let spaceLibraryItems):
                     self.spaceLibraryItems = spaceLibraryItems
-                    self.orderSpaceItems(order: self.order)
+                    group.leave()
+                }
+            })
+        }
+        
+        group.notify(queue: .main, execute: { [self] in
+            getSpaceLibraryItemsFiltersNewPage(filters: filters, completion: { result in
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(_):
                     completion(.success(()))
                 }
             })

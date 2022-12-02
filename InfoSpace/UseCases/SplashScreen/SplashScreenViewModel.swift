@@ -91,6 +91,7 @@ final class SplashScreenViewModel {
         
         var wsError: WebServiceError?
         var slItem: SLastPageItem?
+        var spaceLibraryItems: SpaceLibraryItems?
         
         group.enter()
         NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
@@ -104,20 +105,37 @@ final class SplashScreenViewModel {
                 group.leave()
             }
         })
+        group.wait()
         
-        group.notify(queue: .main, execute: {
-            guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), let page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
-                completion(.failure(wsError ?? WebServiceError.unknown))
-                return
-            }
-            
+        group.enter()
+        guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), let page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
+            completion(.failure(wsError ?? WebServiceError.unknown))
+            return
+        }
+        
+        // We do this and take another page to prevent if the last page have only a few items
+        if Int(page) ?? 0 >= 2 {
             NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
                 switch result {
                 case .failure(let error):
                     print("Space library WS error: \(error)")
+                    group.leave()
+                case .success(let spaceLibraryItemsData):
+                    spaceLibraryItems = spaceLibraryItemsData
+                    group.leave()
+                }
+            })
+        }
+        
+        group.notify(queue: .main, execute: {
+            NasaLibraryDataManager.shared.getLibraryDefault(page: String(Int(page)! - 1), completion: { result in
+                switch result {
+                case .failure(let error):
+                    print("Space library WS error: \(error)")
                     completion(.failure(error))
-                case .success(let spaceLibraryItems):
-                    completion(.success((spaceLibraryItems, slItem)))
+                case .success(let spaceLibraryItemsData):
+                    spaceLibraryItems?.collection.spaceItems.append(contentsOf: spaceLibraryItemsData.collection.spaceItems)
+                    completion(.success((spaceLibraryItems!, slItem)))
                 }
             })
         })
