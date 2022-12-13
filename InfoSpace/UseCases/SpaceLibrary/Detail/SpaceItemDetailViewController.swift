@@ -12,6 +12,7 @@ enum SpaceItemDetailCellType: Equatable {
     case title
     case image(UIImage)
     case video(URL)
+    case audio(URL)
     case description
     case separator
     case date(String)
@@ -57,7 +58,7 @@ class SpaceItemDetailViewController: UIViewController {
             case .video:
                 configureVideoCells()
             case .audio:
-                configureImageCells()
+                configureAudioCells()
             }
             
             DispatchQueue.main.async { [self] in
@@ -106,70 +107,12 @@ class SpaceItemDetailViewController: UIViewController {
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
         tableView.register(SIDetailImageCell.nib, forCellReuseIdentifier: SIDetailImageCell.identifier)
         tableView.register(SIDetailVideoCell.nib, forCellReuseIdentifier: SIDetailVideoCell.identifier)
+        tableView.register(SIDetailAudioCell.nib, forCellReuseIdentifier: SIDetailAudioCell.identifier)
         tableView.register(SIDetailMultipurposeTextCell.nib, forCellReuseIdentifier: SIDetailMultipurposeTextCell.identifier)
         tableView.register(SeparatorCell.nib, forCellReuseIdentifier: SeparatorCell.identifier)
     }
     
-    private func configureImageCells() {
-        cellTypes.removeAll()
-        
-        cellTypes.append(.title)
-        
-        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
-        
-        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [self] result in
-            if let image = result {
-                cellTypes.append(.image(image))
-            }
-            
-            let formatter = DateFormatter.dateFormatterLocale
-            formatter.dateFormat = Constants.kShortDateFormat
-            
-            cellTypes.append(.date(formatter.string(from: spaceItemData.dateCreated)))
-            
-            if let center = spaceItemData.center {
-                cellTypes.append(.center(center))
-            }
-            
-            if let secondaryCreator = spaceItemData.secondaryCreator {
-                cellTypes.append(.secondaryCreator(secondaryCreator))
-            }
-            
-            if let photographer = spaceItemData.photographer {
-                cellTypes.append(.photographer(photographer))
-            }
-            
-            if let location = spaceItemData.location {
-                cellTypes.append(.location(location))
-            }
-            
-            cellTypes.append(.separator)
-            
-            if spaceItemData.description != nil {
-                cellTypes.append(.description)
-            }
-            
-            if let url = URL(completedString: baseDetailUrl + spaceItemData.nasaID) {
-                cellTypes.append(.openWeb(url))
-            }
-            
-            DispatchQueue.main.async { [self] in
-                tableView.reloadData()
-            }
-        }
-    }
-    
-    private func configureVideoCells() {
-        cellTypes.removeAll()
-        
-        cellTypes.append(.title)
-        
-        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
-         
-        if let url = URL(completedString: viewModel.getVideoUrl()) {
-            cellTypes.append(.video(url))
-        }
-        
+    private func configureCommonCells(spaceItemData: SpaceItemData) {
         let formatter = DateFormatter.dateFormatterLocale
         formatter.dateFormat = Constants.kShortDateFormat
         
@@ -205,6 +148,51 @@ class SpaceItemDetailViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    private func configureImageCells() {
+        cellTypes.removeAll()
+        
+        cellTypes.append(.title)
+        
+        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
+        
+        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [self] result in
+            if let image = result {
+                cellTypes.append(.image(image))
+            }
+            
+            configureCommonCells(spaceItemData: spaceItemData)
+        }
+    }
+    
+    private func configureVideoCells() {
+        cellTypes.removeAll()
+        
+        cellTypes.append(.title)
+        
+        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
+         
+        if let url = URL(completedString: viewModel.getVideoUrl()) {
+            cellTypes.append(.video(url))
+        }
+        
+        configureCommonCells(spaceItemData: spaceItemData)
+    }
+    
+    private func configureAudioCells() {
+        cellTypes.removeAll()
+        
+        cellTypes.append(.title)
+        
+        let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
+         
+        if let url = URL(completedString: viewModel.getAudioUrl()) {
+            cellTypes.append(.audio(url))
+            cellTypes.append(.separator)
+        }
+        
+        configureCommonCells(spaceItemData: spaceItemData)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -235,6 +223,12 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailVideoCell.identifier) as! SIDetailVideoCell
             
             cell.configure(url: url, frameWidth: self.view.frame.width, viewController: self)
+            
+            return cell
+        case .audio(let url):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailAudioCell.identifier) as! SIDetailAudioCell
+            
+            cell.configure(url: url)
             
             return cell
         case .description:

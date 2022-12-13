@@ -41,4 +41,9 @@ final class SpaceItemDetailViewModel {
         let url = mediaURLs.first(where: { NSString(string: $0).pathExtension == "mp4" }) ?? ""        
         return url
     }
+    
+    public func getAudioUrl() -> String {
+        let url = mediaURLs.first(where: { NSString(string: $0).pathExtension == "mp3" }) ?? ""
+        return url
+    }
 }
