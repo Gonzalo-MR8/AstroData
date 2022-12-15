@@ -60,10 +60,6 @@ class SpaceItemDetailViewController: UIViewController {
             case .audio:
                 configureAudioCells()
             }
-            
-            DispatchQueue.main.async { [self] in
-                self.hideHudView()
-            }
         })
         
         /*// TO DO
@@ -146,6 +142,7 @@ class SpaceItemDetailViewController: UIViewController {
         
         DispatchQueue.main.async { [self] in
             tableView.reloadData()
+            hideHudView()
         }
     }
     

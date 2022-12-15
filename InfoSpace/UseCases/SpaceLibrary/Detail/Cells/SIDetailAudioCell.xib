@@ -23,40 +23,79 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf6-7R-PCG" customClass="View" customModule="InfoSpace" customModuleProvider="target">
-                        <rect key="frame" x="125" y="31" width="70" height="70"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-9y-te3">
+                        <rect key="frame" x="47" y="30" width="226" height="70"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-3F-Syd">
-                                <rect key="frame" x="23" y="21" width="24" height="28"/>
-                                <color key="tintColor" name="white"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yS-iwT">
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="goBackPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a4F-C2-vvP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf6-7R-PCG" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                                <rect key="frame" x="78" y="0.0" width="70" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-3F-Syd">
+                                        <rect key="frame" x="23" y="21" width="24" height="28"/>
+                                        <color key="tintColor" name="white"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="WJD-3F-Syd" secondAttribute="height" multiplier="3:4" id="ZbZ-Jq-WDW"/>
+                                            <constraint firstAttribute="width" constant="24" id="qlr-bT-KXO"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="black"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="WJD-3F-Syd" secondAttribute="height" multiplier="3:4" id="ZbZ-Jq-WDW"/>
-                                    <constraint firstAttribute="width" constant="24" id="qlr-bT-KXO"/>
+                                    <constraint firstItem="WJD-3F-Syd" firstAttribute="centerX" secondItem="Sf6-7R-PCG" secondAttribute="centerX" id="PZA-ob-6YX"/>
+                                    <constraint firstAttribute="width" constant="70" id="RDZ-pY-aPU"/>
+                                    <constraint firstItem="WJD-3F-Syd" firstAttribute="centerY" secondItem="Sf6-7R-PCG" secondAttribute="centerY" id="rd8-XZ-3pH"/>
                                 </constraints>
-                            </imageView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alphaBgColor">
+                                        <real key="value" value="0.75"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedBorders" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88E-Is-Ds9">
+                                <rect key="frame" x="156" y="0.0" width="70" height="70"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="advancePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oel-wP-ddW"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" name="black"/>
                         <constraints>
-                            <constraint firstItem="WJD-3F-Syd" firstAttribute="centerX" secondItem="Sf6-7R-PCG" secondAttribute="centerX" id="PZA-ob-6YX"/>
-                            <constraint firstAttribute="width" constant="70" id="RDZ-pY-aPU"/>
-                            <constraint firstItem="WJD-3F-Syd" firstAttribute="centerY" secondItem="Sf6-7R-PCG" secondAttribute="centerY" id="rd8-XZ-3pH"/>
+                            <constraint firstAttribute="height" constant="70" id="9rm-rK-rKJ"/>
+                            <constraint firstItem="Sf6-7R-PCG" firstAttribute="width" secondItem="Sf6-7R-PCG" secondAttribute="height" multiplier="1:1" id="Gb4-ET-ZdK"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="alphaBgColor">
-                                <real key="value" value="0.75"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedBorders" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
+                    </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cV8-6D-otF">
-                        <rect key="frame" x="125" y="31" width="70" height="70"/>
+                        <rect key="frame" x="125" y="30" width="70" height="70"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <connections>
                             <action selector="playPauseButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6rC-Xl-Slh"/>
                         </connections>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="XTo-Xm-4GL">
+                        <rect key="frame" x="67" y="50" width="30" height="30"/>
+                        <color key="tintColor" name="black"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="XSN-PF-0Qx"/>
+                            <constraint firstAttribute="width" secondItem="XTo-Xm-4GL" secondAttribute="height" multiplier="1:1" id="h55-Sd-b4u"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="advance" translatesAutoresizingMaskIntoConstraints="NO" id="XPF-sR-Xgn">
+                        <rect key="frame" x="223" y="50" width="30" height="30"/>
+                        <color key="tintColor" name="black"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XPF-sR-Xgn" secondAttribute="height" multiplier="1:1" id="K8r-mo-S9I"/>
+                            <constraint firstAttribute="width" constant="30" id="oju-Y1-vIG"/>
+                        </constraints>
+                    </imageView>
                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-wW-rdW" customClass="Slider" customModule="InfoSpace" customModuleProvider="target">
-                        <rect key="frame" x="14" y="121" width="292" height="31"/>
+                        <rect key="frame" x="14" y="120" width="292" height="32"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="trackHeight">
                                 <real key="value" value="6"/>
@@ -95,20 +134,23 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8y8-wW-rdW" firstAttribute="top" secondItem="Sf6-7R-PCG" secondAttribute="bottom" constant="20" id="04p-rd-7Xy"/>
-                    <constraint firstItem="cV8-6D-otF" firstAttribute="top" secondItem="Sf6-7R-PCG" secondAttribute="top" id="0nk-yV-1xC"/>
                     <constraint firstItem="GbZ-xW-2OE" firstAttribute="trailing" secondItem="8y8-wW-rdW" secondAttribute="trailing" id="1Ml-E1-w78"/>
-                    <constraint firstItem="cV8-6D-otF" firstAttribute="trailing" secondItem="Sf6-7R-PCG" secondAttribute="trailing" id="62X-Ni-Qki"/>
-                    <constraint firstItem="Sf6-7R-PCG" firstAttribute="width" secondItem="Sf6-7R-PCG" secondAttribute="height" multiplier="1:1" id="662-6d-c26"/>
+                    <constraint firstItem="XPF-sR-Xgn" firstAttribute="centerY" secondItem="88E-Is-Ds9" secondAttribute="centerY" id="3Sk-Q0-um6"/>
+                    <constraint firstItem="cV8-6D-otF" firstAttribute="trailing" secondItem="Sf6-7R-PCG" secondAttribute="trailing" id="8EG-Rz-4vh"/>
                     <constraint firstItem="8y8-wW-rdW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="HML-Z4-B70"/>
+                    <constraint firstItem="1Sh-9y-te3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="I5W-PX-HB6"/>
+                    <constraint firstItem="XTo-Xm-4GL" firstAttribute="centerY" secondItem="3qV-yS-iwT" secondAttribute="centerY" id="Jt5-E5-BNL"/>
+                    <constraint firstItem="cV8-6D-otF" firstAttribute="leading" secondItem="Sf6-7R-PCG" secondAttribute="leading" id="Tqt-1x-sPl"/>
                     <constraint firstItem="8y8-wW-rdW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="WEh-l2-f4s"/>
-                    <constraint firstItem="Sf6-7R-PCG" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="YbH-PT-F2h"/>
-                    <constraint firstItem="Sf6-7R-PCG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="ZcW-qT-91K"/>
+                    <constraint firstItem="8y8-wW-rdW" firstAttribute="top" secondItem="1Sh-9y-te3" secondAttribute="bottom" constant="20" id="bll-zC-X97"/>
                     <constraint firstItem="GbZ-xW-2OE" firstAttribute="leading" secondItem="8y8-wW-rdW" secondAttribute="leading" id="fQA-Tz-P81"/>
+                    <constraint firstItem="1Sh-9y-te3" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ihK-UD-FIt"/>
+                    <constraint firstItem="XTo-Xm-4GL" firstAttribute="centerX" secondItem="3qV-yS-iwT" secondAttribute="centerX" id="lPF-CH-yQ5"/>
+                    <constraint firstItem="cV8-6D-otF" firstAttribute="bottom" secondItem="Sf6-7R-PCG" secondAttribute="bottom" id="lqZ-TM-uyj"/>
                     <constraint firstItem="GbZ-xW-2OE" firstAttribute="top" secondItem="8y8-wW-rdW" secondAttribute="bottom" id="mLT-Q2-1nv"/>
-                    <constraint firstItem="cV8-6D-otF" firstAttribute="bottom" secondItem="Sf6-7R-PCG" secondAttribute="bottom" id="s9a-ip-A6L"/>
+                    <constraint firstItem="cV8-6D-otF" firstAttribute="top" secondItem="Sf6-7R-PCG" secondAttribute="top" id="ngd-Qf-lPl"/>
                     <constraint firstAttribute="bottom" secondItem="GbZ-xW-2OE" secondAttribute="bottom" constant="10" id="sQJ-Zt-vsY"/>
-                    <constraint firstItem="cV8-6D-otF" firstAttribute="leading" secondItem="Sf6-7R-PCG" secondAttribute="leading" id="xfz-wJ-0iy"/>
+                    <constraint firstItem="XPF-sR-Xgn" firstAttribute="centerX" secondItem="88E-Is-Ds9" secondAttribute="centerX" id="u5Z-TL-DMB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -127,6 +169,8 @@
         </designable>
     </designables>
     <resources>
+        <image name="advance" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="back" width="16.666666030883789" height="16.666666030883789"/>
         <image name="play" catalog="system" width="117" height="128"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
