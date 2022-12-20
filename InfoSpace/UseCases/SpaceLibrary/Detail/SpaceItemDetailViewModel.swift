@@ -10,7 +10,7 @@ import Foundation
 final class SpaceItemDetailViewModel {
     
     private var spaceItem: SpaceItem!
-    private var mediaURLs: [String]!
+    private var mediaURLs: [String]?
     
     init(spaceItem: SpaceItem) {
         self.spaceItem = spaceItem
@@ -38,12 +38,12 @@ final class SpaceItemDetailViewModel {
     }
     
     public func getVideoUrl() -> String {
-        let url = mediaURLs.first(where: { NSString(string: $0).pathExtension == "mp4" }) ?? ""        
+        let url = mediaURLs?.first(where: { NSString(string: $0).pathExtension == "mp4" }) ?? ""
         return url
     }
     
     public func getAudioUrl() -> String {
-        let url = mediaURLs.first(where: { NSString(string: $0).pathExtension == "mp3" }) ?? ""
+        let url = mediaURLs?.first(where: { NSString(string: $0).pathExtension == "mp3" }) ?? ""
         return url
     }
 }

@@ -36,6 +36,6 @@ class APODImageCell: UITableViewCell {
     
     @IBAction func imageViewPressed(_ sender: Any) {
         let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [apod.thumbUrl], position: 0)
-        CustomNavigationController.instance.present(to: galleryVC, animated: true)
+        CustomNavigationController.instance.navigate(to: galleryVC, animated: true)
     }
 }

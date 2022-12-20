@@ -26,7 +26,7 @@ class SIDetailImageCell: UITableViewCell {
     @IBAction func imageViewPressed(_ sender: Any) {
         if let link = link {
             let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [link.href], position: 0)
-            CustomNavigationController.instance.present(to: galleryVC, animated: true)
+            CustomNavigationController.instance.navigate(to: galleryVC, animated: true)
         }
     }
     

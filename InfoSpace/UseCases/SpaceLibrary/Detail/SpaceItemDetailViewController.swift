@@ -43,7 +43,7 @@ class SpaceItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headerView.labelTitle.text = viewModel.getSpaceItemData().nasaID
         headerView.options = false
         headerView.delegate = self
@@ -63,19 +63,19 @@ class SpaceItemDetailViewController: UIViewController {
         })
         
         /*// TO DO
-        // Create a CMMotionManager instance
-        let manager = CMMotionManager()
-
-        // How frequently to read accelerometer updates, in seconds
-        manager.accelerometerUpdateInterval = 0.1
-
-        // Start accelerometer updates on a specific thread
-        manager.startAccelerometerUpdates(to: .main) { (data, error) in
-            // Read the most recent accelerometer value
-            print(manager.accelerometerData?.acceleration.x)
-            print(manager.accelerometerData?.acceleration.y)
-            print(manager.accelerometerData?.acceleration.z)
-        }*/
+         // Create a CMMotionManager instance
+         let manager = CMMotionManager()
+         
+         // How frequently to read accelerometer updates, in seconds
+         manager.accelerometerUpdateInterval = 0.1
+         
+         // Start accelerometer updates on a specific thread
+         manager.startAccelerometerUpdates(to: .main) { (data, error) in
+         // Read the most recent accelerometer value
+         print(manager.accelerometerData?.acceleration.x)
+         print(manager.accelerometerData?.acceleration.y)
+         print(manager.accelerometerData?.acceleration.z)
+         }*/
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,7 +97,7 @@ class SpaceItemDetailViewController: UIViewController {
         })
     }
     
-    private func configureTable() {   
+    private func configureTable() {
         tableView.register(OpenUrlCell.nib, forCellReuseIdentifier: OpenUrlCell.identifier)
         tableView.register(TitleCell.nib, forCellReuseIdentifier: TitleCell.identifier)
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
@@ -168,9 +168,13 @@ class SpaceItemDetailViewController: UIViewController {
         cellTypes.append(.title)
         
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
-         
+        
         if let url = URL(completedString: viewModel.getVideoUrl()) {
             cellTypes.append(.video(url))
+        } else {
+            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") {
+                CustomNavigationController.instance.dismissVC(animated: true)
+            }
         }
         
         configureCommonCells(spaceItemData: spaceItemData)
@@ -182,10 +186,14 @@ class SpaceItemDetailViewController: UIViewController {
         cellTypes.append(.title)
         
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
-         
+        
         if let url = URL(completedString: viewModel.getAudioUrl()) {
             cellTypes.append(.audio(url))
             cellTypes.append(.separator)
+        } else {
+            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") {
+                CustomNavigationController.instance.dismissVC(animated: true)
+            }
         }
         
         configureCommonCells(spaceItemData: spaceItemData)

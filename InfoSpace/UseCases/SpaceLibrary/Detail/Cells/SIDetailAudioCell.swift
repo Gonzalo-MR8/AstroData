@@ -37,7 +37,7 @@ class SIDetailAudioCell: UITableViewCell {
     }
     
     func configure(url: URL) {
-        player = AVPlayer(url: url)
+        player = AVPlayer(url: url) 
         
         addPeriodicTimeObserver()
         
@@ -104,6 +104,24 @@ class SIDetailAudioCell: UITableViewCell {
         }
     }
     
+    private func moveClipTime(sum: Bool) {
+        sliderIsBeingModified = true
+        updateThumbColor()
+        
+        let timeInSeconds = Double(player.currentTime().value) / Double(player.currentTime().timescale)
+        let targetTime: CMTime!
+        
+        if sum {
+            targetTime = CMTimeMake(value: Int64(timeInSeconds) + kTimeToMove, timescale: 1)
+        } else {
+            targetTime = CMTimeMake(value: Int64(timeInSeconds) - kTimeToMove, timescale: 1)
+        }
+        
+        player.seek(to: targetTime) { [self] _ in
+            sliderIsBeingModified = false
+        }
+    }
+    
     @objc func sliderTapped(_ sender: UIGestureRecognizer) {
         sliderIsBeingModified = true
         
@@ -153,27 +171,11 @@ class SIDetailAudioCell: UITableViewCell {
     }
     
     @IBAction func goBackPressed(_ sender: Any) {
-        sliderIsBeingModified = true
-        updateThumbColor()
-        
-        let timeInSeconds = Double(player.currentTime().value) / Double(player.currentTime().timescale)
-        
-        let targetTime: CMTime = CMTimeMake(value: Int64(timeInSeconds) - kTimeToMove, timescale: 1)
-        player.seek(to: targetTime) { [self] _ in
-            sliderIsBeingModified = false
-        }
+        moveClipTime(sum: false)
     }
     
     @IBAction func advancePressed(_ sender: Any) {
-        sliderIsBeingModified = true
-        updateThumbColor()
-        
-        let timeInSeconds = Double(player.currentTime().value) / Double(player.currentTime().timescale)
-        
-        let targetTime: CMTime = CMTimeMake(value: Int64(timeInSeconds) + kTimeToMove, timescale: 1)
-        player.seek(to: targetTime) { [self] _ in
-            sliderIsBeingModified = false
-        }
+        moveClipTime(sum: true)
     }
     
     @IBAction func sliderDidEndDrag(_ sender: Any) {

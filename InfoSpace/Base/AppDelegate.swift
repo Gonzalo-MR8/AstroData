@@ -41,7 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         if (CustomNavigationController.instance.getViewControllerInStack(classVC: AVPlayerViewController.self) != nil) ||
-            (CustomNavigationController.instance.getViewControllerInStack(classVC: SpaceItemDetailViewController.self) != nil) {
+            (CustomNavigationController.instance.getViewControllerInStack(classVC: SpaceItemDetailViewController.self) != nil) ||
+            (CustomNavigationController.instance.getViewControllerInStack(classVC: ImagesGalleryViewController.self) != nil) {
             return .allButUpsideDown
         }
         
