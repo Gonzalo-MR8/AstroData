@@ -10,7 +10,7 @@ import UIKit
 
 enum SpaceItemDetailCellType: Equatable {
     case title
-    case image(UIImage)
+    case image(UIImage, String?)
     case video(URL)
     case audio(URL)
     case description
@@ -155,7 +155,7 @@ class SpaceItemDetailViewController: UIViewController {
         
         Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [self] result in
             if let image = result {
-                cellTypes.append(.image(image))
+                cellTypes.append(.image(image, viewModel.getHighDefinitionImage()))
             }
             
             configureCommonCells(spaceItemData: spaceItemData)
@@ -172,7 +172,7 @@ class SpaceItemDetailViewController: UIViewController {
         if let url = URL(completedString: viewModel.getVideoUrl()) {
             cellTypes.append(.video(url))
         } else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") {
+            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") { _ in
                 CustomNavigationController.instance.dismissVC(animated: true)
             }
         }
@@ -191,7 +191,7 @@ class SpaceItemDetailViewController: UIViewController {
             cellTypes.append(.audio(url))
             cellTypes.append(.separator)
         } else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") {
+            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") { _ in
                 CustomNavigationController.instance.dismissVC(animated: true)
             }
         }
@@ -218,10 +218,10 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             cell.configure(title: spaceItemData.title)
             
             return cell
-        case .image(let image):
+        case .image(let image, let highDefinitionUrlImage):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as! SIDetailImageCell
             
-            cell.configure(image: image, link: viewModel.getSpaceItemLinks(), frameWidth: self.view.frame.width)
+            cell.configure(image: image, link: viewModel.getSpaceItemLinks(), highDefinitionUrlImage: highDefinitionUrlImage, frameWidth: self.view.frame.width)
             
             return cell
         case .video(let url):

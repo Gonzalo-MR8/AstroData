@@ -142,7 +142,8 @@ extension PlanetDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let images = viewModel.getAllPlanetImages()
         
-        let imagesGalleryViewController = ImagesGalleryViewController.initAndLoad(imagesUrl: images.0, titles: images.1, position: indexPath.row)
+        // TO DO implement planet hd image
+        let imagesGalleryViewController = ImagesGalleryViewController.initAndLoad(imagesUrl: images.0, highDefinitionUrlImages: images.0, titles: images.1, position: indexPath.row)
         CustomNavigationController.instance.present(to: imagesGalleryViewController, animated: true)
     }
 }

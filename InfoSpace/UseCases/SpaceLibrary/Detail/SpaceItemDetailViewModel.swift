@@ -12,6 +12,9 @@ final class SpaceItemDetailViewModel {
     private var spaceItem: SpaceItem!
     private var mediaURLs: [String]?
     
+    private let paths: [String] = ["orig.jpg", "orig.jpeg", "orig.png"]
+    private let origPathExtensionLength: Int = 8
+    
     init(spaceItem: SpaceItem) {
         self.spaceItem = spaceItem
     }
@@ -38,12 +41,23 @@ final class SpaceItemDetailViewModel {
     }
     
     public func getVideoUrl() -> String {
-        let url = mediaURLs?.first(where: { NSString(string: $0).pathExtension == "mp4" }) ?? ""
-        return url
+        return mediaURLs?.first(where: { NSString(string: $0).pathExtension == "mp4" }) ?? ""
     }
     
     public func getAudioUrl() -> String {
-        let url = mediaURLs?.first(where: { NSString(string: $0).pathExtension == "mp3" }) ?? ""
-        return url
+        return mediaURLs?.first(where: { NSString(string: $0).pathExtension == "mp3" }) ?? ""
+    }
+    
+    public func getHighDefinitionImage() -> String? {
+        var highDefinitionImage: String?
+        
+        paths.forEach({ path in
+            if let imageUrl = mediaURLs?.first(where: { NSString(string: $0).substring(from: $0.count - origPathExtensionLength).lowercased() == path }) {
+                highDefinitionImage = imageUrl
+                return
+            }
+        })
+        
+       return highDefinitionImage
     }
 }

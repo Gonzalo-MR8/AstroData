@@ -154,6 +154,7 @@
 		9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB736D1285659E800B8D867 /* Bundle+Utils.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
+		9BD164F129529300007C762B /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD164F029529300007C762B /* ImageSaver.swift */; };
 		9BD9D9572911EFB100621C02 /* SpaceLibraryUtilModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9D9562911EFB100621C02 /* SpaceLibraryUtilModels.swift */; };
 		9BE6E44E28F6536A003A63DF /* SpaceLibraryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */; };
 		D1B6F28422BB5FBE923926C4 /* Pods_InfoSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263D15F4D41936A6E639698D /* Pods_InfoSpace.framework */; };
@@ -331,6 +332,7 @@
 		9BB736D1285659E800B8D867 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		9BD164F029529300007C762B /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		9BD9D9562911EFB100621C02 /* SpaceLibraryUtilModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryUtilModels.swift; sourceTree = "<group>"; };
 		9BE6E44D28F6536A003A63DF /* SpaceLibraryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -801,6 +803,7 @@
 				9B270E302840013000F4FFED /* Constants.swift */,
 				9B02743F284A817C00C2303A /* Colors.swift */,
 				9B98B61F2852DA7D00975043 /* ImageDownloader.swift */,
+				9BD164F029529300007C762B /* ImageSaver.swift */,
 				9B19495B286902CE00B8322B /* Utils.swift */,
 			);
 			path = Util;
@@ -1131,6 +1134,7 @@
 				9B1F8C7B28466DF700BCCEBE /* PlanetsDataManager.swift in Sources */,
 				9B21F6902846D57F00D64B79 /* StarViews.swift in Sources */,
 				9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */,
+				9BD164F129529300007C762B /* ImageSaver.swift in Sources */,
 				9B82C9E228521211003EAF59 /* ImageGalleryCell.swift in Sources */,
 				9B8769E02857A37200FEB405 /* APOD.swift in Sources */,
 				9B8769E62857A86500FEB405 /* APODViewController.swift in Sources */,

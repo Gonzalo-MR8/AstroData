@@ -19,10 +19,10 @@ class ImagesGalleryViewController: UIViewController {
     
     var isScrolled = false
     
-    static func initAndLoad(imagesUrl: [String], titles: [String]? = nil, position: Int) -> ImagesGalleryViewController {
+    static func initAndLoad(imagesUrl: [String], highDefinitionUrlImages: [String], titles: [String]? = nil, position: Int) -> ImagesGalleryViewController {
         let imagesViewController = ImagesGalleryViewController.initAndLoad()
         
-        imagesViewController.viewModel = ImagesGalleryViewModel(imagesUrl: imagesUrl, titles: titles)
+        imagesViewController.viewModel = ImagesGalleryViewModel(imagesUrl: imagesUrl, highDefinitionUrlImages: highDefinitionUrlImages, titles: titles)
         imagesViewController.position = position
         
         return imagesViewController
@@ -37,6 +37,13 @@ class ImagesGalleryViewController: UIViewController {
     
     @IBAction func buttonClosePressed(_ sender: Any) {
         CustomNavigationController.instance.dismissVC(animated: true)
+    }
+    
+    @IBAction func buttonDownloadPressed(_ sender: Any) {
+        CustomNavigationController.instance.presentAcceptOrCancelAlert(title: "Descargar Imagen", message: "¿Quieres descargar la imagen en alta resolucion?", acceptCompletion: { [self] _ in
+            let imageSaver = ImageSaver()
+            imageSaver.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
+        })
     }
     
     private func configureTitle() {
