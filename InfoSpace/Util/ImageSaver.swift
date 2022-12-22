@@ -22,7 +22,7 @@ class ImageSaver: NSObject {
         if error != nil {
             CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Compruebe que la app tiene los permisos para descargar imagenes en ajustes")
         } else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Enhorabuena", message: "Imagen guardada satisfactoriamente en la galeria")
+            CustomNavigationController.instance.presentDefaultInfoAlert(title: "Enhorabuena", message: "Imagen guardada satisfactoriamente en la galeria")
         }
     }
 }

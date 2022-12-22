@@ -21,6 +21,8 @@
 	<string>https://images-api.nasa.gov/search</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>UISceneConfigurations</key>
+		<dict/>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>

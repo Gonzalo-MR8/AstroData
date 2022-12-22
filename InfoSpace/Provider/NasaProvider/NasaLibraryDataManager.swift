@@ -201,12 +201,14 @@ class NasaLibraryDataManager {
             parameters[kParameterSearchText] = searchText
         }
         
-        if let yearStart = filters.yearStart {
-            parameters[kParameterYearStart] = yearStart
-        }
-        
         if let yearEnd = filters.yearEnd {
             parameters[kParameterYearEnd] = yearEnd
+        } else {
+            parameters[kParameterYearStart] = kParameterValueYearStart.description
+        }
+        
+        if let yearStart = filters.yearStart {
+            parameters[kParameterYearStart] = yearStart
         }
         
         if let mediaTypes = filters.mediaTypes {
