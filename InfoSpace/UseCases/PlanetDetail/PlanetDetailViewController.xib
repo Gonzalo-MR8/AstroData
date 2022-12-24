@@ -45,8 +45,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCX-iX-FNZ">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*El número grande son la cantidad de satélites naturales." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-GC-yUM">
+                                    <rect key="frame" x="100" y="50" width="274" height="38"/>
+                                    <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="13"/>
+                                    <color key="textColor" name="black"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQ3-xi-MCZ">
-                                    <rect key="frame" x="271" y="294" width="118" height="290"/>
+                                    <rect key="frame" x="271" y="324" width="118" height="290"/>
                                     <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="200"/>
                                     <color key="textColor" name="textSecondaryColor"/>
                                     <nil key="highlightedColor"/>
@@ -72,8 +78,8 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMy-N3-Qiw">
-                                    <rect key="frame" x="20.5" y="502.5" width="373" height="23.5"/>
-                                    <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="16"/>
+                                    <rect key="frame" x="20.5" y="502.5" width="373" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -151,15 +157,18 @@
                                 <constraint firstItem="Z4m-cR-2AM" firstAttribute="width" secondItem="wCX-iX-FNZ" secondAttribute="width" multiplier="0.92" id="QHP-ih-12G"/>
                                 <constraint firstItem="jIJ-11-1qT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hMy-N3-Qiw" secondAttribute="bottom" constant="5" id="QVZ-Ne-9kc"/>
                                 <constraint firstItem="33G-Ws-ORG" firstAttribute="leading" secondItem="wCX-iX-FNZ" secondAttribute="leading" id="Rau-xM-wrm"/>
+                                <constraint firstItem="UOK-GC-yUM" firstAttribute="top" secondItem="wCX-iX-FNZ" secondAttribute="top" constant="50" id="Rbh-CR-4tL"/>
                                 <constraint firstAttribute="trailing" secondItem="33G-Ws-ORG" secondAttribute="trailing" id="XvA-ir-EO0"/>
                                 <constraint firstItem="hMy-N3-Qiw" firstAttribute="trailing" secondItem="vcU-fz-9qQ" secondAttribute="trailing" id="ats-yT-cho"/>
+                                <constraint firstAttribute="trailing" secondItem="UOK-GC-yUM" secondAttribute="trailing" constant="40" id="g4J-TO-7rW"/>
                                 <constraint firstItem="hMy-N3-Qiw" firstAttribute="top" secondItem="vcU-fz-9qQ" secondAttribute="bottom" constant="15" id="lw5-7K-wqn"/>
                                 <constraint firstItem="hMy-N3-Qiw" firstAttribute="leading" secondItem="vcU-fz-9qQ" secondAttribute="leading" id="m7S-Ym-ifm"/>
                                 <constraint firstAttribute="trailing" secondItem="hQ3-xi-MCZ" secondAttribute="trailing" constant="25" id="mGz-bF-XC9"/>
                                 <constraint firstItem="33G-Ws-ORG" firstAttribute="top" secondItem="jIJ-11-1qT" secondAttribute="bottom" id="oW0-nO-vRw"/>
-                                <constraint firstItem="hQ3-xi-MCZ" firstAttribute="centerY" secondItem="vcU-fz-9qQ" secondAttribute="centerY" constant="-30" id="otk-BM-lot"/>
+                                <constraint firstItem="hQ3-xi-MCZ" firstAttribute="centerY" secondItem="vcU-fz-9qQ" secondAttribute="centerY" id="otk-BM-lot"/>
                                 <constraint firstItem="Z4m-cR-2AM" firstAttribute="top" secondItem="wCX-iX-FNZ" secondAttribute="top" constant="100" id="qXZ-82-CfW"/>
                                 <constraint firstItem="jIJ-11-1qT" firstAttribute="centerX" secondItem="wCX-iX-FNZ" secondAttribute="centerX" id="sBg-s8-dSp"/>
+                                <constraint firstItem="UOK-GC-yUM" firstAttribute="leading" secondItem="wCX-iX-FNZ" secondAttribute="leading" constant="100" id="utr-z6-ziM"/>
                                 <constraint firstItem="x5s-Dl-LcO" firstAttribute="leading" secondItem="hMy-N3-Qiw" secondAttribute="leading" id="z6O-q3-J2m"/>
                                 <constraint firstItem="Z4m-cR-2AM" firstAttribute="centerX" secondItem="wCX-iX-FNZ" secondAttribute="centerX" id="zxg-Fg-Vt6"/>
                             </constraints>
@@ -233,6 +242,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
+    <designables>
+        <designable name="vcU-fz-9qQ">
+            <size key="intrinsicContentSize" width="137" height="37.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <namedColor name="black">
