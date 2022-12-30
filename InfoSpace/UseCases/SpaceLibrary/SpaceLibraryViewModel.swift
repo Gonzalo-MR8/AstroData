@@ -37,6 +37,7 @@ final class SpaceLibraryViewModel {
             order = changeOrder
         }
 
+        var initItems = false
         let group = DispatchGroup()
         
         group.enter()
@@ -66,6 +67,8 @@ final class SpaceLibraryViewModel {
                     group.leave()
                 }
             })
+        } else {
+            initItems = true
         }
         
         group.notify(queue: .main, execute: { [self] in
@@ -73,7 +76,10 @@ final class SpaceLibraryViewModel {
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
-                case .success(_):
+                case .success(let spaceLibraryItems):
+                    if initItems {
+                        self.spaceLibraryItems = spaceLibraryItems
+                    }
                     completion(.success(()))
                 }
             })
@@ -83,6 +89,7 @@ final class SpaceLibraryViewModel {
     public func getSpaceLibraryItemsFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         order = filters.order
         
+        var initItems = false
         let group = DispatchGroup()
         
         group.enter()
@@ -115,6 +122,8 @@ final class SpaceLibraryViewModel {
                     group.leave()
                 }
             })
+        } else {
+            initItems = true
         }
         
         group.notify(queue: .main, execute: { [self] in
@@ -122,14 +131,17 @@ final class SpaceLibraryViewModel {
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
-                case .success(_):
+                case .success(let spaceLibraryItems):
+                    if initItems {
+                        self.spaceLibraryItems = spaceLibraryItems
+                    }
                     completion(.success(()))
                 }
             })
         })
     }
     
-    public func getSpaceLibraryItemsBeginNewPage(completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+    public func getSpaceLibraryItemsBeginNewPage(completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
         calculateNextPage()
         
         NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
@@ -140,12 +152,12 @@ final class SpaceLibraryViewModel {
             case .success(let spaceLibraryItems):
                 self.spaceLibraryItems.collection.spaceItems.append(contentsOf: spaceLibraryItems.collection.spaceItems)
                 self.orderSpaceItems(order: self.order)
-                completion(.success(()))
+                completion(.success(spaceLibraryItems))
             }
         })
     }
     
-    public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+    public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters, completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
         calculateNextPage()
         var pageUpdateFilters = filters
         pageUpdateFilters.page = page
@@ -157,7 +169,7 @@ final class SpaceLibraryViewModel {
             case .success(let spaceLibraryItems):
                 self.spaceLibraryItems.collection.spaceItems.append(contentsOf: spaceLibraryItems.collection.spaceItems)
                 self.orderSpaceItems(order: self.order)
-                completion(.success(()))
+                completion(.success(spaceLibraryItems))
             }
         })
     }
@@ -175,11 +187,13 @@ final class SpaceLibraryViewModel {
     }
     
     private func calculateNextPage() {
+        guard let pageInt = Int(page), pageInt > 1 else { return }
+        
         switch order {
         case .highestToLowest:
-            page = String((Int(page) ?? 1) - 1)
+            page = String(pageInt - 1)
         case .lowestToHighest:
-            page = String((Int(page) ?? 1) + 1)
+            page = String(pageInt + 1)
         }
     }
     

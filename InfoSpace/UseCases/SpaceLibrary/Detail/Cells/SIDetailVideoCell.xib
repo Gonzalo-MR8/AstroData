@@ -43,6 +43,7 @@
                         </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" name="white"/>
                 <constraints>
                     <constraint firstItem="Yob-TR-HeG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3w7-bX-k8F"/>
                     <constraint firstItem="ac5-ay-t3X" firstAttribute="leading" secondItem="Yob-TR-HeG" secondAttribute="leading" id="NHo-mB-Kun"/>

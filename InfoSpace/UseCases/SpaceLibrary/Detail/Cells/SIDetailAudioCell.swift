@@ -39,6 +39,8 @@ class SIDetailAudioCell: UITableViewCell {
     func configure(url: URL) {
         player = AVPlayer(url: url) 
         
+        try! AVAudioSession.sharedInstance().setCategory(.playback)
+        
         addPeriodicTimeObserver()
         
         guard let duration = player.currentItem?.asset.duration else {

@@ -39,6 +39,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
+                <color key="backgroundColor" name="white"/>
                 <constraints>
                     <constraint firstItem="DDQ-vY-Zdu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4ee-Ir-0R4"/>
                     <constraint firstItem="DDQ-vY-Zdu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="7z3-ef-tnt"/>
@@ -66,6 +67,9 @@
         </namedColor>
         <namedColor name="tertiaryColor">
             <color red="0.29411764705882354" green="0.011764705882352941" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

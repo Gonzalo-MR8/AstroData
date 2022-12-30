@@ -41,6 +41,7 @@ class SIDetailVideoCell: UITableViewCell {
         viewPlayer.addSubview(avVController.view)
         parentVController.addChild(avVController)
         avVController.didMove(toParent: parentVController)
+        try! AVAudioSession.sharedInstance().setCategory(.playback)
     }
     
     @IBAction func buttonFullScreenPressed(_ sender: Any) {

@@ -35,14 +35,14 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xH3-TA-ltj" customClass="FilterView" customModule="InfoSpace" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" name="white"/>
                             <constraints>
                                 <constraint firstAttribute="height" priority="500" constant="330" id="IBd-Kl-nfl"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-Bb-eWQ">
                             <rect key="frame" x="0.0" y="650" width="414" height="162"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="white"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LLy-h9-C2x">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -55,6 +55,7 @@
                             </connections>
                         </collectionView>
                     </subviews>
+                    <color key="backgroundColor" name="white"/>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

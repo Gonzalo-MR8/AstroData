@@ -51,17 +51,17 @@
                                     </constraints>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="LIc-t5-AJz">
-                                    <rect key="frame" x="10" y="346.5" width="66" height="44"/>
+                                    <rect key="frame" x="100" y="346.5" width="66" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="66" id="Ygy-J3-Gyg"/>
                                         <constraint firstAttribute="height" constant="44" id="cQe-uN-eVk"/>
                                     </constraints>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocketAstronaut" translatesAutoresizingMaskIntoConstraints="NO" id="0ai-aH-veE">
-                                    <rect key="frame" x="40" y="450.5" width="240" height="128"/>
+                                    <rect key="frame" x="0.0" y="450.5" width="155" height="135"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="128" id="SvZ-nY-syf"/>
-                                        <constraint firstAttribute="width" constant="240" id="q5A-HD-0sm"/>
+                                        <constraint firstAttribute="width" constant="155" id="Q9h-Bo-tZU"/>
+                                        <constraint firstAttribute="height" constant="135" id="TxD-Vm-7jf"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Space Travaler" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xY-9G-V0Y">
@@ -122,12 +122,12 @@
                                 <constraint firstItem="1tu-aG-Y9z" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" id="aBz-5T-W9g"/>
                                 <constraint firstItem="IPh-bq-Q99" firstAttribute="width" secondItem="v0e-s1-9lM" secondAttribute="width" multiplier="0.8" id="dMV-2b-qMl"/>
                                 <constraint firstItem="IPh-bq-Q99" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" id="fPc-fA-f02"/>
-                                <constraint firstItem="LIc-t5-AJz" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" constant="10" id="gXy-UX-vUH"/>
+                                <constraint firstItem="LIc-t5-AJz" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" constant="100" id="gXy-UX-vUH"/>
                                 <constraint firstItem="6Mr-jo-MXh" firstAttribute="centerX" secondItem="v0e-s1-9lM" secondAttribute="centerX" constant="200" id="j1J-7f-lbn"/>
                                 <constraint firstItem="1tu-aG-Y9z" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" id="k9T-jt-Vqj"/>
                                 <constraint firstItem="6Mr-jo-MXh" firstAttribute="top" secondItem="8xY-9G-V0Y" secondAttribute="bottom" constant="82" id="oPA-Cv-65m"/>
                                 <constraint firstAttribute="trailing" secondItem="1tu-aG-Y9z" secondAttribute="trailing" id="qPv-Dg-CG6"/>
-                                <constraint firstItem="0ai-aH-veE" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" constant="40" id="y1V-WS-YNs"/>
+                                <constraint firstItem="0ai-aH-veE" firstAttribute="leading" secondItem="v0e-s1-9lM" secondAttribute="leading" id="y1V-WS-YNs"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">

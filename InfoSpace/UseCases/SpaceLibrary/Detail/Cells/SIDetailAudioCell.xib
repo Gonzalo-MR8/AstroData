@@ -133,6 +133,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="white"/>
                 <constraints>
                     <constraint firstItem="GbZ-xW-2OE" firstAttribute="trailing" secondItem="8y8-wW-rdW" secondAttribute="trailing" id="1Ml-E1-w78"/>
                     <constraint firstItem="XPF-sR-Xgn" firstAttribute="centerY" secondItem="88E-Is-Ds9" secondAttribute="centerY" id="3Sk-Q0-um6"/>
