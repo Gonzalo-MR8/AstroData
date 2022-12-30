@@ -13,8 +13,17 @@ protocol YearsFilterCellProtocol: AnyObject {
 
 class YearsFilterCell: UITableViewCell {
 
-    @IBOutlet weak var yearStartTextField: UITextField!
-    @IBOutlet weak var yearEndTextField: UITextField!
+    @IBOutlet weak var yearStartTextField: UITextField! {
+        didSet {
+            yearStartTextField.attributedPlaceholder = NSAttributedString(string: "Año de Inicio", attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
+        }
+    }
+    
+    @IBOutlet weak var yearEndTextField: UITextField! {
+        didSet {
+            yearEndTextField.attributedPlaceholder = NSAttributedString(string: "Año de Fin",                                                                       attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
+        }
+    }
     
     private var toolBar: UIToolbar!
     private let picker = UIPickerView()

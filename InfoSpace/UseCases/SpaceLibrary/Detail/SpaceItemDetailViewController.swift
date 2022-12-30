@@ -82,16 +82,21 @@ class SpaceItemDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         cellTypes.enumerated().forEach({ position, item in
-            guard let url = URL(completedString: viewModel.getVideoUrl()) else {
-                return
-            }
-            
-            if item == .video(url) {
+            if let url = URL(completedString: viewModel.getVideoUrl()), item == .video(url) {
                 guard let videoCell = tableView.cellForRow(at: IndexPath(row: position, section: 0)) as? SIDetailVideoCell else {
                     return
                 }
                 videoCell.player.pause()
                 videoCell.player = nil
+                return
+            }
+            
+            if let url = URL(completedString: viewModel.getAudioUrl()), item == .audio(url) {
+                guard let audioCell = tableView.cellForRow(at: IndexPath(row: position, section: 0)) as? SIDetailAudioCell else {
+                    return
+                }
+                audioCell.player.pause()
+                audioCell.player = nil
                 return
             }
         })

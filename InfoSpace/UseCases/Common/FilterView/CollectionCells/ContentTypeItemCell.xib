@@ -37,7 +37,6 @@
                         <constraints>
                             <constraint firstItem="h51-a0-mNf" firstAttribute="centerY" secondItem="6tX-NA-emO" secondAttribute="centerY" id="8tD-Pr-05D"/>
                             <constraint firstAttribute="height" constant="34" id="J1o-fq-E5v"/>
-                            <constraint firstAttribute="width" constant="110" id="fol-88-Ulz"/>
                             <constraint firstItem="h51-a0-mNf" firstAttribute="centerX" secondItem="6tX-NA-emO" secondAttribute="centerX" id="xJO-Qr-uKO"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

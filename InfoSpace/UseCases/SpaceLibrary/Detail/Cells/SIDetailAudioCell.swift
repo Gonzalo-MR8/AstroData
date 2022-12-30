@@ -15,7 +15,7 @@ class SIDetailAudioCell: UITableViewCell {
     @IBOutlet weak var labelCurrentTime: UILabel!
     @IBOutlet weak var labelDuration: UILabel!
     
-    private var player: AVPlayer!
+    public var player: AVPlayer!
     private var timeObserverToken: Any?
     private var sliderIsBeingModified: Bool = false
     
