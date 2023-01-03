@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+import CoreMotion
 
 class SIDetailVideoCell: UITableViewCell {
     
@@ -14,8 +15,8 @@ class SIDetailVideoCell: UITableViewCell {
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var buttonFullScreen: UIButton!
     
-    var player: AVPlayer!
-    
+    public var player: AVPlayer!
+    private let manager = CMMotionManager()
     private var avVController: AVPlayerViewController!
     private var parentVController: UIViewController!
     
@@ -42,9 +43,22 @@ class SIDetailVideoCell: UITableViewCell {
         parentVController.addChild(avVController)
         avVController.didMove(toParent: parentVController)
         try! AVAudioSession.sharedInstance().setCategory(.playback)
+        startAccelerometerUpdates()
     }
     
-    @IBAction func buttonFullScreenPressed(_ sender: Any) {
+    private func startAccelerometerUpdates() {
+        manager.accelerometerUpdateInterval = 0.5
+        manager.startAccelerometerUpdates(to: .main) { [self] (data, error) in
+            guard let xAceleration = manager.accelerometerData?.acceleration.x else { return }
+            
+            if xAceleration > 0.82 || xAceleration < -0.82 {
+                loadFullScreen()
+            }
+        }
+    }
+    
+    private func loadFullScreen() {
+        manager.stopAccelerometerUpdates()
         avVController.player = nil
 
         let avController = AVPlayerViewController()
@@ -53,6 +67,10 @@ class SIDetailVideoCell: UITableViewCell {
         CustomNavigationController.instance.present(to: avController, animated: true, completion: {
             self.player.play()
         })
+    }
+    
+    @IBAction func buttonFullScreenPressed(_ sender: Any) {
+        loadFullScreen()
     }
 }
 
@@ -64,6 +82,7 @@ extension SIDetailVideoCell: UIViewControllerTransitioningDelegate {
         controller.player = nil
         avVController.player = player
         player.play()
+        startAccelerometerUpdates()
         return nil
     }
 }
