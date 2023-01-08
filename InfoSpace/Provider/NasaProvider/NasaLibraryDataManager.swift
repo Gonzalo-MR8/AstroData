@@ -18,7 +18,6 @@ class NasaLibraryDataManager {
     public  let kParameterPage = "page"
         
     private let kLastPageNumber: String = "100"
-    private let kParameterValueYearStart = Calendar.current.component(.year, from: Date())
     
     static var shared = NasaLibraryDataManager()
     
@@ -184,7 +183,7 @@ class NasaLibraryDataManager {
     func createWSLibraryDefault(page: String) -> WebService {
         var parameters = [String:String]()
         
-        parameters[kParameterYearStart] = kParameterValueYearStart.description
+        parameters[kParameterYearStart] = Utils.shared.getCurrentYear().description
         parameters[kParameterPage] = page
         
         let webService = WebService(url: baseUrl, urlParameters: parameters)
@@ -203,8 +202,6 @@ class NasaLibraryDataManager {
         
         if let yearEnd = filters.yearEnd {
             parameters[kParameterYearEnd] = yearEnd
-        } else {
-            parameters[kParameterYearStart] = kParameterValueYearStart.description
         }
         
         if let yearStart = filters.yearStart {

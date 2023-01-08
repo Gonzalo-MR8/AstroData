@@ -23,4 +23,8 @@ class Utils {
         let scaledHeight = (frameWidth * imageViewPercentageWidth) / ratio
         return scaledHeight
     }
+    
+    func getCurrentYear() -> Int {
+        return Calendar.current.component(.year, from: Date())
+    }
 }

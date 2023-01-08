@@ -93,6 +93,8 @@ final class SplashScreenViewModel {
         var slItem: SLastPageItem?
         var spaceLibraryItems: SpaceLibraryItems?
         
+        var initItems = false
+        
         group.enter()
         NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
             switch result {
@@ -125,16 +127,23 @@ final class SplashScreenViewModel {
                     group.leave()
                 }
             })
+        } else {
+            initItems = true
+            group.leave()
         }
         
         group.notify(queue: .main, execute: {
-            NasaLibraryDataManager.shared.getLibraryDefault(page: String(Int(page)! - 1), completion: { result in
+            NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
                 switch result {
                 case .failure(let error):
                     print("Space library WS error: \(error)")
                     completion(.failure(error))
                 case .success(let spaceLibraryItemsData):
-                    spaceLibraryItems?.collection.spaceItems.append(contentsOf: spaceLibraryItemsData.collection.spaceItems)
+                    if initItems {
+                        spaceLibraryItems = spaceLibraryItemsData
+                    } else {
+                        spaceLibraryItems?.collection.spaceItems.append(contentsOf: spaceLibraryItemsData.collection.spaceItems)
+                    }
                     completion(.success((spaceLibraryItems!, slItem)))
                 }
             })

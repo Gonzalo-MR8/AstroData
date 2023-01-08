@@ -174,6 +174,16 @@ final class SpaceLibraryViewModel {
         })
     }
     
+    public func canLoadMoreData() -> Bool {
+        guard let pageInt = Int(page), pageInt > 1 else { return false }
+        
+        if order == .highestToLowest, pageInt == 1 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     // MARK: - Private Methods
 
     private func getDesiredPage() {

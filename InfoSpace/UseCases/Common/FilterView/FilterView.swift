@@ -37,6 +37,7 @@ class FilterView: View {
         setupNib()
         configureTable()
         filters = SpaceLibraryFilters()
+        filters.yearStart = Utils.shared.getCurrentYear().description
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false

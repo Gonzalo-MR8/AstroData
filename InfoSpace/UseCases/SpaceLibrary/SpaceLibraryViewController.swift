@@ -42,7 +42,7 @@ class SpaceLibraryViewController: UIViewController {
     // MARK: - Private methods
     
     private func configureViews() {
-        headerView.labelTitle.text = "Space Library"
+        headerView.labelTitle.text = "SPACE_LIBRARY_TITLE".localized
         headerView.delegate = self
         
         filterView.configure()
@@ -146,13 +146,14 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
-        showHudView()
-        if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
+        if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == Utils.shared.getCurrentYear().description {
+            showHudView()
+            
             viewModel.getSpaceLibraryItemsBegin(changeOrder: filters.order, completion: { result in
                 switch result {
                 case .failure(_):
                     DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
+                        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
                         self.hideHudView()
                     }
                 case .success(_):
@@ -160,18 +161,24 @@ extension SpaceLibraryViewController: FilterViewProtocol {
                 }
             })
         } else {
-            filtered = true
-            viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
-                switch result {
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al aplicar los filtros, intentelo de nuevo")
-                        self.hideHudView()
+            if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
+                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "Se necesita al menos un filtro para poder buscar con algun criterio")
+            } else {
+                showHudView()
+                
+                filtered = true
+                viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
+                    switch result {
+                    case .failure(_):
+                        DispatchQueue.main.async {
+                            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
+                            self.hideHudView()
+                        }
+                    case .success(_):
+                        self.resetOfChangeFiltersSuccess()
                     }
-                case .success(_):
-                    self.resetOfChangeFiltersSuccess()
-                }
-            })
+                })
+            }
         }
     }
     
@@ -182,7 +189,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
             switch result {
             case .failure(_):
                 DispatchQueue.main.async {
-                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal al pulsar el boton reset, intentelo de nuevo")
+                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
                     self.hideHudView()
                 }
             case .success(_):
@@ -202,6 +209,8 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
             return
         }
         
+        guard viewModel.canLoadMoreData() else { return }
+        
         UIView.animate(withDuration: kAnimationDuration,
                        animations: {
             self.reload = true
@@ -213,7 +222,7 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
                 switch result {
                 case .failure(_):
                     DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
+                        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
                         self.spaceItemsCollectionView.reloadData()
                     }
                 case .success(_):
@@ -227,7 +236,7 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
                 switch result {
                 case .failure(_):
                     DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Algo a ido mal")
+                        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
                         self.spaceItemsCollectionView.reloadData()
                     }
                 case .success(_):

@@ -15,13 +15,13 @@ class YearsFilterCell: UITableViewCell {
 
     @IBOutlet weak var yearStartTextField: UITextField! {
         didSet {
-            yearStartTextField.attributedPlaceholder = NSAttributedString(string: "Año de Inicio", attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
+            yearStartTextField.attributedPlaceholder = NSAttributedString(string: "FILTER_VIEW_YEAR_BEGIN".localized, attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
         }
     }
     
     @IBOutlet weak var yearEndTextField: UITextField! {
         didSet {
-            yearEndTextField.attributedPlaceholder = NSAttributedString(string: "Año de Fin",                                                                       attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
+            yearEndTextField.attributedPlaceholder = NSAttributedString(string: "FILTER_VIEW_YEAR_END".localized,                                                                       attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
         }
     }
     
@@ -34,9 +34,7 @@ class YearsFilterCell: UITableViewCell {
     
     private let kCornerRadius: CGFloat = 16.0
     
-    private let placeholderText = "Ninguno"
-    private let placeholderYearStartText = "Año de inicio"
-    private let placeholderYearEndText = "Año de fin"
+    private let placeholderText = "FILTER_VIEW_ANYONE".localized
     
     var years: [String] = []
     
@@ -47,13 +45,15 @@ class YearsFilterCell: UITableViewCell {
         
         generateYears()
         createYearsPickers()
+        
+        yearStartTextField.text = Utils.shared.getCurrentYear().description
+        picker.selectRow(Utils.shared.getCurrentYear() - 1899, inComponent: 0, animated: false)
     }
 
     private func generateYears() {
-        let currentYear = Calendar.current.component(.year, from: Date())
         let lastYear = 1900
         
-        for i in lastYear...currentYear {
+        for i in lastYear...Utils.shared.getCurrentYear() {
             years.append(String(i))
         }
     }
@@ -73,7 +73,7 @@ class YearsFilterCell: UITableViewCell {
         toolBar.barTintColor = Colors.secondaryColor.value
         
         let buttonCancel = UIButton.init()
-        buttonCancel.setTitle("Cancelar", for: .normal)
+        buttonCancel.setTitle("CANCEL".localized, for: .normal)
         buttonCancel.setTitleColor(Colors.white.value, for: .normal)
         buttonCancel.addTarget(self, action: #selector(yearsPickerCancelPressed(_:)), for: .touchUpInside)
         buttonCancel.titleLabel?.font = fontButtons
@@ -81,7 +81,7 @@ class YearsFilterCell: UITableViewCell {
         let buttonToolBarCancel = UIBarButtonItem(customView: buttonCancel)
         
         let buttonAccept = UIButton.init()
-        buttonAccept.setTitle("Aceptar", for: .normal)
+        buttonAccept.setTitle("ACCEPT".localized, for: .normal)
         buttonAccept.setTitleColor(Colors.white.value, for: .normal)
         buttonAccept.addTarget(self, action: #selector(yearsPickerAcceptPressed(_:)), for: .touchUpInside)
         buttonAccept.titleLabel?.font = fontButtons
@@ -90,7 +90,7 @@ class YearsFilterCell: UITableViewCell {
         
         let labelText = UILabel()
         labelText.textAlignment = .center
-        labelText.text = "Filtro de años"
+        labelText.text = "FILTER_VIEW_YEARS_FILTER".localized
         labelText.textColor = Colors.white.value
         labelText.font = fontTitle
         
@@ -139,7 +139,7 @@ class YearsFilterCell: UITableViewCell {
         let yearEnd = rowEnd == 0 ? nil : years[rowEnd - 1]
         
         if rowStart > rowEnd, rowEnd != 0 {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "El año de inicio no puede ser mayor que el año de final")
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "FILTER_VIEW_SELECT_YEAR_ERROR".localized)
         } else {
             yearStartTextField.text = rowStart == 0 ? nil : yearStart!
             yearEndTextField.text = rowEnd == 0 ? nil : yearEnd!
@@ -152,7 +152,7 @@ class YearsFilterCell: UITableViewCell {
     }
     
     func reset() {
-        yearStartTextField.text = nil
+        yearStartTextField.text = Utils.shared.getCurrentYear().description
         yearEndTextField.text = nil
         picker.selectRow(0, inComponent: 0, animated: false)
         picker.selectRow(0, inComponent: 1, animated: false)
