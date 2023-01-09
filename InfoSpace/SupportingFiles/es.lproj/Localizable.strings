@@ -11,77 +11,79 @@
 /*************************************/
 
 // Actions
-"OKEY" = "Okey";
-"ACCEPT" = "Accept";
-"CANCEL" = "Cancel";
-"ERROR" = "Error";
+"OKEY"      = "Vale";
+"ACCEPT"    = "Aceptar";
+"CANCEL"    = "Cancelar";
+"ERROR"     = "Error";
 
 // Texts
-"OPEN_WEB_BUTTON_TITLE" = "OPEN IN WEB";
-"TRY_IT_LATER" = "Inténtelo de nuevo mas tarde";
+"OPEN_WEB_BUTTON_TITLE" = "Abrir en la Web";
+"TRY_IT_LATER"          = "Inténtelo de nuevo más tarde";
 
 /*************************************/
 // MARK: - UseCases
 /*************************************/
 
 // Use Cases Titles
-"APOD_LONG_TITLE" = "Astronomy picture of the day";
-"APOD_SHORT_TITLE" = "APOD";
-"SPACE_LIBRARY_TITLE" = "Space library";
+"APOD_LONG_TITLE"           = "Foto Espacial del día";
+"APOD_SHORT_TITLE"          = "Foto Espacial";
+"SPACE_LIBRARY_LONG_TITLE"  = "Librería del espacio";
+"SPACE_LIBRARY_SHORT_TITLE" = "Lib del espacio";
 
 // Planet Detail
 "PLANET_DETAIL_INFO_TEXT" = "*El número grande son la cantidad de satélites naturales.";
 
 // APOD
-"APOD_COPYRIGHT" = "Copyright:";
-"APOD_NO_COPYRIGHT" = "Sin Copyright";
-"APOD_DATE_SELECTED" = "Fecha seleccionada:";
+"APOD_COPYRIGHT"        = "Copyright:";
+"APOD_NO_COPYRIGHT"     = "Sin Copyright";
+"APOD_DATE_SELECTED"    = "Fecha seleccionada:";
 
-"APOD_NO_VALID_DATE" = "Fecha no valida";
+"APOD_NO_VALID_DATE"    = "Fecha no válida";
 
 // Filter View
-"FILTER_VIEW_TITLE" = "Filtros";
+"FILTER_VIEW_TITLE"  = "Filtros";
 
 "FILTER_VIEW_SEARCH" = "Buscar";
 
-"FILTER_VIEW_IMAGES" = "IMAGENES";
+"FILTER_VIEW_IMAGES" = "IMÁGENES";
 "FILTER_VIEW_VIDEOS" = "VIDEOS";
 "FILTER_VIEW_AUDIOS" = "AUDIOS";
 
 "FILTER_VIEW_MINIMUN_CONTENT" =  "Tienes que tener seleccionado un tipo de contenido al menos";
 
-"FILTER_VIEW_YEAR_BEGIN" = "Año de Inicio";
-"FILTER_VIEW_YEAR_END" = "Año de Fin";
-"FILTER_VIEW_ANYONE" = "Ninguno";
-"FILTER_VIEW_YEARS_FILTER" = "Filtro de años";
+"FILTER_VIEW_YEAR_BEGIN"        = "Año de Inicio";
+"FILTER_VIEW_YEAR_END"          = "Año de Fin";
+"FILTER_VIEW_ANYONE"            = "Ninguno";
+"FILTER_VIEW_YEARS_FILTER"      = "Filtro de años";
 "FILTER_VIEW_SELECT_YEAR_ERROR" = "El año de inicio no puede ser mayor que el año de final";
-"FILTER_VIEW_HIGHEST" = "Highest To Lowest";
-"FILTER_VIEW_LOWEST" = "Lowest To Highest";
+"FILTER_VIEW_HIGHEST"           = "De Mayor a Menor";
+"FILTER_VIEW_LOWEST"            = "De Menor a Mayor";
 
 "FILTER_VIEW_RESET_BUTTON" = "Resetear";
 "FILTER_VIEW_APPLY_BUTTON" = "Aplicar";
 
 // Images Gallery
-"IMAGES_GALLERY_DOWNLOAD" = "Descargar Imagen";
-"IMAGES_GALLERY_DOWNLOAD_QUESTION" = "¿Quieres descargar la imagen en alta resolución?";
+"IMAGES_GALLERY_DOWNLOAD"           = "Descargar Imagen";
+"IMAGES_GALLERY_DOWNLOAD_QUESTION"  = "¿Quieres descargar la imagen en alta resolución?";
 
 // Space Library
-"SPACE_LIBRARY_FILTERS_ERROR" = "Algo a ido mal al aplicar los filtros, inténtelo de nuevo";
-"SPACE_LIBRARY_RESET_ERROR" = "Algo a ido mal al pulsar el botón reset, inténtelo de nuevo";
-"SPACE_LIBRARY_LOAD_ERROR" = "Algo a ido mal al cargar mas datos, inténtelo de nuevo mas tarde";
+"SPACE_LIBRARY_NO_FILTERS_ERROR"    = "Se necesita al menos un filtro para poder buscar con algún criterio";
+"SPACE_LIBRARY_FILTERS_ERROR"       = "Algo a ido mal al aplicar los filtros, inténtelo de nuevo";
+"SPACE_LIBRARY_RESET_ERROR"         = "Algo a ido mal al pulsar el botón resetear, inténtelo de nuevo";
+"SPACE_LIBRARY_LOAD_ERROR"          = "Algo a ido mal al cargar más datos, inténtelo de nuevo más tarde";
 
 // Space Item Detail
-"SPACE_ITEM_DETAIL_DATE_TITLE" = "Date created: ";
-"SPACE_ITEM_DETAIL_CENTER_TITLE" = "Center: ";
-"SPACE_ITEM_DETAIL_SECONDARY_CREATOR_TITLE" = "Secondary Creator: ";
-"SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE" = "Photographer: ";
-"SPACE_ITEM_DETAIL_LOCATION_TITLE" = "Location: ";
+"SPACE_ITEM_DETAIL_DATE_TITLE"              = "Fecha de creación: ";
+"SPACE_ITEM_DETAIL_CENTER_TITLE"            = "Centro: ";
+"SPACE_ITEM_DETAIL_SECONDARY_CREATOR_TITLE" = "Creador Secundario: ";
+"SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE"      = "Fotógrafo: ";
+"SPACE_ITEM_DETAIL_LOCATION_TITLE"          = "Localización: ";
 
 // Splash Screen
 "SPLASH_SCREEN_LOAD_ERROR" = "Error al descargar los datos iniciales, ¿Quieres intentarlo de nuevo?";
 
 // Image Saver
-"IMAGE_SAVER_SAVE_ERROR" = "No se puede guardar la imagen";
-"IMAGE_SAVER_PERMISSIONS_ERROR" = "Compruebe que la app tiene los permisos para descargar imágenes en ajustes";
+"IMAGE_SAVER_SAVE_ERROR"            = "No se puede guardar la imagen";
+"IMAGE_SAVER_PERMISSIONS_ERROR"     = "Compruebe que la app tiene los permisos para descargar imágenes en ajustes";
 "IMAGE_SAVER_DOWNLOAD_FINISH_TITLE" = "Enhorabuena";
-"IMAGE_SAVER_DOWNLOAD_FINISH_TEXT" = "Imagen guardada satisfactoriamente en la galería";
+"IMAGE_SAVER_DOWNLOAD_FINISH_TEXT"  = "Imagen guardada satisfactoriamente en la galería";

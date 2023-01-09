@@ -26,8 +26,9 @@
 
 // Use Cases Titles
 "APOD_LONG_TITLE" = "Astronomy picture of the day";
-"APOD_SHORT_TITLE" = "APOD";
-"SPACE_LIBRARY_TITLE" = "Space library";
+"APOD_SHORT_TITLE" = "Astronomy picture";
+"SPACE_LIBRARY_LONG_TITLE"  = "Space library";
+"SPACE_LIBRARY_SHORT_TITLE" = "Space library";
 
 // Planet Detail
 "PLANET_DETAIL_INFO_TEXT" = "*El número grande son la cantidad de satélites naturales.";
@@ -66,6 +67,7 @@
 "IMAGES_GALLERY_DOWNLOAD_QUESTION" = "¿Quieres descargar la imagen en alta resolución?";
 
 // Space Library
+"SPACE_LIBRARY_NO_FILTERS_ERROR"    = "Se necesita al menos un filtro para poder buscar con algún criterio";
 "SPACE_LIBRARY_FILTERS_ERROR" = "Algo a ido mal al aplicar los filtros, inténtelo de nuevo";
 "SPACE_LIBRARY_RESET_ERROR" = "Algo a ido mal al pulsar el botón reset, inténtelo de nuevo";
 "SPACE_LIBRARY_LOAD_ERROR" = "Algo a ido mal al cargar mas datos, inténtelo de nuevo mas tarde";

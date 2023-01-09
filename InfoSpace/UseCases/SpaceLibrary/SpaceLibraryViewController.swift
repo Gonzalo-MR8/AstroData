@@ -42,7 +42,7 @@ class SpaceLibraryViewController: UIViewController {
     // MARK: - Private methods
     
     private func configureViews() {
-        headerView.labelTitle.text = "SPACE_LIBRARY_TITLE".localized
+        headerView.labelTitle.text = "SPACE_LIBRARY_SHORT_TITLE".localized
         headerView.delegate = self
         
         filterView.configure()
@@ -162,7 +162,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
             })
         } else {
             if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
-                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "Se necesita al menos un filtro para poder buscar con algun criterio")
+                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_NO_FILTERS_ERROR".localized)
             } else {
                 showHudView()
                 
