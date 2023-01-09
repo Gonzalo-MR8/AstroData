@@ -29,7 +29,7 @@ class SplashScreenViewController: UIViewController {
             case .failure(let error):
                 print("Error: \(error)")
                 DispatchQueue.main.async {
-                    CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Error al descargar los datos iniciales, ¿Quieres intentarlo de nuevo?", completion: { _ in
+                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPLASH_SCREEN_LOAD_ERROR".localized, completion: { _ in
                         self.getInitialData()
                     })
                 }

@@ -22,8 +22,8 @@ class OrderFilterCell: UITableViewCell {
         
         segmentedControlOrder.setTitleTextAttributes([.foregroundColor: Colors.white.value], for: .normal)
         segmentedControlOrder.setTitleTextAttributes([.foregroundColor: Colors.secondaryColor.value], for: .selected)
-        segmentedControlOrder.setTitle("Highest To Lowest", forSegmentAt: 0)
-        segmentedControlOrder.setTitle("Lowest To Highest", forSegmentAt: 1)
+        segmentedControlOrder.setTitle("FILTER_VIEW_HIGHEST".localized, forSegmentAt: 0)
+        segmentedControlOrder.setTitle("FILTER_VIEW_LOWEST".localized, forSegmentAt: 1)
     }
     
     func reset() {

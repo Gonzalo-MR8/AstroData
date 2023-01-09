@@ -13,16 +13,16 @@ class ImageSaver: NSObject {
             if let image = result {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
             } else {
-                CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "No se puede guardar la imagen")
+                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "IMAGE_SAVER_SAVE_ERROR".localized)
             }
         }
     }
 
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if error != nil {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Compruebe que la app tiene los permisos para descargar imagenes en ajustes")
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "IMAGE_SAVER_PERMISSIONS_ERROR".localized)
         } else {
-            CustomNavigationController.instance.presentDefaultInfoAlert(title: "Enhorabuena", message: "Imagen guardada satisfactoriamente en la galeria")
+            CustomNavigationController.instance.presentDefaultInfoAlert(title: "IMAGE_SAVER_DOWNLOAD_FINISH_TITLE".localized, message: "IMAGE_SAVER_DOWNLOAD_FINISH_TEXT".localized)
         }
     }
 }

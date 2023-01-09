@@ -17,7 +17,7 @@ class ContentTypeFilterCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let kTypes: [ContentTypeItem] = [(.image,"IMAGENES"), (.video, "VIDEOS"), (.audio, "AUDIOS")]
+    private let kTypes: [ContentTypeItem] = [(.image,"FILTER_VIEW_IMAGES".localized), (.video, "FILTER_VIEW_VIDEOS".localized), (.audio, "FILTER_VIEW_AUDIOS".localized)]
     private var selectedTypes: [MediaType] = [.image, .video, .audio]
     
     weak var delegate: ContentTypeFilterCellProtocol?
@@ -66,7 +66,7 @@ extension ContentTypeFilterCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectedTypes.contains(where: { $0 == kTypes[indexPath.row].0 }) {
             if selectedTypes.count == 1 {
-                CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Tienes que tener seleccionado un tipo de contenido al menos")
+                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "FILTER_VIEW_MINIMUN_CONTENT".localized)
             } else {
                 selectedTypes.removeAll { $0 == kTypes[indexPath.row].0 }
             }

@@ -13,12 +13,8 @@ class OpenUrlCell: UITableViewCell {
     
     private var url: URL!
     
-    func configure(url: URL, buttonText: String? = nil) {
+    func configure(url: URL) {
         self.url = url
-        
-        if let buttonText = buttonText {
-            buttonOpenUrl.setTitle(buttonText, for: .normal)
-        }
     }
     
     @IBAction func buttonOpenUrlPressed(_ sender: Any) {

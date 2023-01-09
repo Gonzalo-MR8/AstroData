@@ -50,6 +50,9 @@
                                     <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="13"/>
                                     <color key="textColor" name="black"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PLANET_DETAIL_INFO_TEXT"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQ3-xi-MCZ">
                                     <rect key="frame" x="271" y="324" width="118" height="290"/>

@@ -1,0 +1,87 @@
+/* 
+  Localizable.strings
+  InfoSpace
+
+  Created by GonzaloMR on 8/1/23.
+  
+*/
+
+/*************************************/
+// MARK: - Common
+/*************************************/
+
+// Actions
+"OKEY" = "Okey";
+"ACCEPT" = "Accept";
+"CANCEL" = "Cancel";
+"ERROR" = "Error";
+
+// Texts
+"OPEN_WEB_BUTTON_TITLE" = "OPEN IN WEB";
+"TRY_IT_LATER" = "Inténtelo de nuevo mas tarde";
+
+/*************************************/
+// MARK: - UseCases
+/*************************************/
+
+// Use Cases Titles
+"APOD_LONG_TITLE" = "Astronomy picture of the day";
+"APOD_SHORT_TITLE" = "APOD";
+"SPACE_LIBRARY_TITLE" = "Space library";
+
+// Planet Detail
+"PLANET_DETAIL_INFO_TEXT" = "*El número grande son la cantidad de satélites naturales.";
+
+// APOD
+"APOD_COPYRIGHT" = "Copyright:";
+"APOD_NO_COPYRIGHT" = "Sin Copyright";
+"APOD_DATE_SELECTED" = "Fecha seleccionada:";
+
+"APOD_NO_VALID_DATE" = "Fecha no valida";
+
+// Filter View
+"FILTER_VIEW_TITLE" = "Filtros";
+
+"FILTER_VIEW_SEARCH" = "Buscar";
+
+"FILTER_VIEW_IMAGES" = "IMAGENES";
+"FILTER_VIEW_VIDEOS" = "VIDEOS";
+"FILTER_VIEW_AUDIOS" = "AUDIOS";
+
+"FILTER_VIEW_MINIMUN_CONTENT" =  "Tienes que tener seleccionado un tipo de contenido al menos";
+
+"FILTER_VIEW_YEAR_BEGIN" = "Año de Inicio";
+"FILTER_VIEW_YEAR_END" = "Año de Fin";
+"FILTER_VIEW_ANYONE" = "Ninguno";
+"FILTER_VIEW_YEARS_FILTER" = "Filtro de años";
+"FILTER_VIEW_SELECT_YEAR_ERROR" = "El año de inicio no puede ser mayor que el año de final";
+"FILTER_VIEW_HIGHEST" = "Highest To Lowest";
+"FILTER_VIEW_LOWEST" = "Lowest To Highest";
+
+"FILTER_VIEW_RESET_BUTTON" = "Resetear";
+"FILTER_VIEW_APPLY_BUTTON" = "Aplicar";
+
+// Images Gallery
+"IMAGES_GALLERY_DOWNLOAD" = "Descargar Imagen";
+"IMAGES_GALLERY_DOWNLOAD_QUESTION" = "¿Quieres descargar la imagen en alta resolución?";
+
+// Space Library
+"SPACE_LIBRARY_FILTERS_ERROR" = "Algo a ido mal al aplicar los filtros, inténtelo de nuevo";
+"SPACE_LIBRARY_RESET_ERROR" = "Algo a ido mal al pulsar el botón reset, inténtelo de nuevo";
+"SPACE_LIBRARY_LOAD_ERROR" = "Algo a ido mal al cargar mas datos, inténtelo de nuevo mas tarde";
+
+// Space Item Detail
+"SPACE_ITEM_DETAIL_DATE_TITLE" = "Date created: ";
+"SPACE_ITEM_DETAIL_CENTER_TITLE" = "Center: ";
+"SPACE_ITEM_DETAIL_SECONDARY_CREATOR_TITLE" = "Secondary Creator: ";
+"SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE" = "Photographer: ";
+"SPACE_ITEM_DETAIL_LOCATION_TITLE" = "Location: ";
+
+// Splash Screen
+"SPLASH_SCREEN_LOAD_ERROR" = "Error al descargar los datos iniciales, ¿Quieres intentarlo de nuevo?";
+
+// Image Saver
+"IMAGE_SAVER_SAVE_ERROR" = "No se puede guardar la imagen";
+"IMAGE_SAVER_PERMISSIONS_ERROR" = "Compruebe que la app tiene los permisos para descargar imágenes en ajustes";
+"IMAGE_SAVER_DOWNLOAD_FINISH_TITLE" = "Enhorabuena";
+"IMAGE_SAVER_DOWNLOAD_FINISH_TEXT" = "Imagen guardada satisfactoriamente en la galería";

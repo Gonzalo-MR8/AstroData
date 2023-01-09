@@ -100,13 +100,13 @@ class CustomNavigationController: UINavigationController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func presentDefaultAlert(title: String, message: String, actionTitle: String = "Okey", completion: ((UIAlertAction) -> Void)? = nil) {
+    func presentDefaultAlert(title: String, message: String, actionTitle: String = "OKEY".localized, completion: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: completion))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func presentAcceptOrCancelAlert(title: String, message: String, acceptActionTitle: String = "Accept", cancelActionTitle: String = "Cancel", acceptCompletion: ((UIAlertAction) -> Void)? = nil, cancelCompletion: ((UIAlertAction) -> Void)? = nil) {
+    func presentAcceptOrCancelAlert(title: String, message: String, acceptActionTitle: String = "ACCEPT".localized, cancelActionTitle: String = "CANCEL".localized, acceptCompletion: ((UIAlertAction) -> Void)? = nil, cancelCompletion: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let acceptAction = UIAlertAction(title: acceptActionTitle, style: .default, handler: acceptCompletion)

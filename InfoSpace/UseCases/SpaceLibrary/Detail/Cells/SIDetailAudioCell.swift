@@ -44,7 +44,7 @@ class SIDetailAudioCell: UITableViewCell {
         addPeriodicTimeObserver()
         
         guard let duration = player.currentItem?.asset.duration else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") { _ in
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
                 CustomNavigationController.instance.dismissVC(animated: true)
             }
             return

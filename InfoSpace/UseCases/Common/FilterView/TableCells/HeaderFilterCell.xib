@@ -35,6 +35,7 @@
                             <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
                                 <color key="value" name="tertiaryColor"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="FILTER_VIEW_TITLE"/>
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
@@ -50,6 +51,11 @@
             <point key="canvasLocation" x="132" y="-11"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="2fz-GM-xHH">
+            <size key="intrinsicContentSize" width="224" height="21.333333333333332"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

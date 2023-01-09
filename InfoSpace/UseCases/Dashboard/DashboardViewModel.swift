@@ -13,8 +13,8 @@ final class DashboardViewModel {
     
     private var dashboardData: DashboardData!
     private let dashboardItems: DashboardItems = [
-        DashboardItem(title: "Astronomy picture of the day", assetImageName: "camera"),
-        DashboardItem(title: "Space library", assetImageName: "library"),
+        DashboardItem(title: "APOD_LONG_TITLE".localized, assetImageName: "camera"),
+        DashboardItem(title: "SPACE_LIBRARY_TITLE".localized, assetImageName: "library"),
         //DashboardItem(title: "Mars rover images", assetImageName: "marsRover"),
         //DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid")
     ]

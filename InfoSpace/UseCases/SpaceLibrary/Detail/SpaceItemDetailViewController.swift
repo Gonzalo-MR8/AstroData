@@ -161,7 +161,7 @@ class SpaceItemDetailViewController: UIViewController {
         if let url = URL(completedString: viewModel.getVideoUrl()) {
             cellTypes.append(.video(url))
         } else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") { _ in
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
                 CustomNavigationController.instance.dismissVC(animated: true)
             }
         }
@@ -180,7 +180,7 @@ class SpaceItemDetailViewController: UIViewController {
             cellTypes.append(.audio(url))
             cellTypes.append(.separator)
         } else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Intentelo de nuevo mas tarde") { _ in
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
                 CustomNavigationController.instance.dismissVC(animated: true)
             }
         }
@@ -234,37 +234,37 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .date(let date):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
             
-            cell.configure(title: "Date created: ", text: date)
+            cell.configure(title: "SPACE_ITEM_DETAIL_DATE_TITLE".localized, text: date)
             
             return cell
         case .center(let center):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
             
-            cell.configure(title: "Center: ", text: center)
+            cell.configure(title: "SPACE_ITEM_DETAIL_CENTER_TITLE".localized, text: center)
             
             return cell
         case .secondaryCreator(let secondaryCreator):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
             
-            cell.configure(title: "Secondary Creator: ", text: secondaryCreator)
+            cell.configure(title: "SPACE_ITEM_DETAIL_SECONDARY_CREATOR_TITLE".localized, text: secondaryCreator)
             
             return cell
         case .photographer(let photographer):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
             
-            cell.configure(title: "Photographer: ", text: photographer)
+            cell.configure(title: "SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE".localized, text: photographer)
             
             return cell
         case .location(let location):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
             
-            cell.configure(title: "Location: ", text: location)
+            cell.configure(title: "SPACE_ITEM_DETAIL_LOCATION_TITLE".localized, text: location)
             
             return cell
         case .openWeb(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
             
-            cell.configure(url: url, buttonText: "OPEN IN WEB")
+            cell.configure(url: url)
             
             return cell
         case .separator:

@@ -26,10 +26,10 @@ class APODImageCell: UITableViewCell {
         self.layoutIfNeeded()
         
         if let copyright = apod.copyright {
-            labelCopyright.text = "Copyright:"
+            labelCopyright.text = "APOD_COPYRIGHT".localized
             labelCopyrightAutor.text = copyright
         } else {
-            labelCopyright.text = "No Copyright"
+            labelCopyright.text = "APOD_NO_COPYRIGHT".localized
             labelCopyrightAutor.text = ""
         }
     }

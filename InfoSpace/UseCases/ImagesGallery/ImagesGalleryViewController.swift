@@ -40,7 +40,7 @@ class ImagesGalleryViewController: UIViewController {
     }
     
     @IBAction func buttonDownloadPressed(_ sender: Any) {
-        CustomNavigationController.instance.presentAcceptOrCancelAlert(title: "Descargar Imagen", message: "¿Quieres descargar la imagen en alta resolucion?", acceptCompletion: { [self] _ in
+        CustomNavigationController.instance.presentAcceptOrCancelAlert(title: "IMAGES_GALLERY_DOWNLOAD".localized, message: "IMAGES_GALLERY_DOWNLOAD_QUESTION".localized, acceptCompletion: { [self] _ in
             let imageSaver = ImageSaver()
             imageSaver.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
         })

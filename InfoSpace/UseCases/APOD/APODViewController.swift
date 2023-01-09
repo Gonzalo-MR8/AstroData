@@ -35,7 +35,7 @@ class APODViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headerView.labelTitle.text = "APOD"
+        headerView.labelTitle.text = "APOD_SHORT_TITLE".localized
         headerView.options = false
         headerView.delegate = self
         
@@ -110,7 +110,7 @@ extension APODViewController: UITableViewDataSource {
                         cell.updateSelectedDate(state: false)
                         DispatchQueue.main.async {
                             self.hideHudView()
-                            CustomNavigationController.instance.presentDefaultAlert(title: "Error", message: "Fecha no valida intentelo de nuevo mas tarde")
+                            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "APOD_NO_VALID_DATE".localized)
                         }
                     case .success(_):
                         cell.updateSelectedDate(state: true)

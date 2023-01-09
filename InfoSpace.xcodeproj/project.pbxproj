@@ -125,6 +125,10 @@
 		9B82C9E228521211003EAF59 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */; };
 		9B82C9E328521211003EAF59 /* ImageGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82C9E128521211003EAF59 /* ImageGalleryCell.xib */; };
 		9B82C9E528521A85003EAF59 /* ImagesGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82C9E428521A85003EAF59 /* ImagesGalleryViewModel.swift */; };
+		9B84C976296B3BCB00821734 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84C975296B3BCB00821734 /* Localizable.swift */; };
+		9B84C97A296B743C00821734 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B84C97C296B743C00821734 /* Localizable.strings */; };
+		9B84C97F296B97D500821734 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84C97E296B97D500821734 /* UILabel+Utils.swift */; };
+		9B84C981296B980E00821734 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84C980296B980E00821734 /* UIButton+Utils.swift */; };
 		9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769DB2857A17400FEB405 /* NasaDataManager.swift */; };
 		9B8769DE2857A2DD00FEB405 /* APODDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769DD2857A2DD00FEB405 /* APODDataManager.swift */; };
 		9B8769E02857A37200FEB405 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769DF2857A37200FEB405 /* APOD.swift */; };
@@ -299,6 +303,11 @@
 		9B82C9E028521211003EAF59 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
 		9B82C9E128521211003EAF59 /* ImageGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageGalleryCell.xib; sourceTree = "<group>"; };
 		9B82C9E428521A85003EAF59 /* ImagesGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGalleryViewModel.swift; sourceTree = "<group>"; };
+		9B84C975296B3BCB00821734 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		9B84C97B296B743C00821734 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B84C97D296B749500821734 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B84C97E296B97D500821734 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
+		9B84C980296B980E00821734 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
 		9B8769DB2857A17400FEB405 /* NasaDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaDataManager.swift; sourceTree = "<group>"; };
 		9B8769DD2857A2DD00FEB405 /* APODDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDataManager.swift; sourceTree = "<group>"; };
 		9B8769DF2857A37200FEB405 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
@@ -805,6 +814,7 @@
 				9B98B61F2852DA7D00975043 /* ImageDownloader.swift */,
 				9BD164F029529300007C762B /* ImageSaver.swift */,
 				9B19495B286902CE00B8322B /* Utils.swift */,
+				9B84C975296B3BCB00821734 /* Localizable.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -812,6 +822,7 @@
 		9BB44417283D5FC30043EF4E /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9B84C97C296B743C00821734 /* Localizable.strings */,
 				9B2236F728456A69005F47B7 /* Fonts */,
 				9B931161283E7F8C0052EF1B /* AnimationFiles */,
 				9BB443EC283D55850043EF4E /* Assets.xcassets */,
@@ -834,6 +845,8 @@
 				9B28B3CC28678C40007D448B /* UITableViewCell+Utils.swift */,
 				9B62D5DB292E551F00863317 /* URL+Utils.swift */,
 				9B6097972949D61200B95A3E /* UIImage+Utils.swift */,
+				9B84C97E296B97D500821734 /* UILabel+Utils.swift */,
+				9B84C980296B980E00821734 /* UIButton+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -974,6 +987,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 9BB443D7283D55840043EF4E;
 			productRefGroup = 9BB443E1283D55840043EF4E /* Products */;
@@ -1005,6 +1019,7 @@
 				9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */,
 				9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */,
 				9B28E355284D120B00F79F7B /* spacerangeracad.ttf in Resources */,
+				9B84C97A296B743C00821734 /* Localizable.strings in Resources */,
 				9B1219E92929BD2F00D9FF9F /* SIDetailImageCell.xib in Resources */,
 				9BB44427283D65C70043EF4E /* HudView.xib in Resources */,
 				9B22371028457E97005F47B7 /* NotoSansJP-Regular.otf in Resources */,
@@ -1176,6 +1191,7 @@
 				9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
+				9B84C976296B3BCB00821734 /* Localizable.swift in Sources */,
 				9B38CD2F28722373006712EE /* SpaceLibraryViewModel.swift in Sources */,
 				9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */,
 				9B22370028456F26005F47B7 /* UIImageView+Utils.swift in Sources */,
@@ -1190,6 +1206,8 @@
 				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
 				9B38CD2628722340006712EE /* MarsRoverViewController.swift in Sources */,
 				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
+				9B84C97F296B97D500821734 /* UILabel+Utils.swift in Sources */,
+				9B84C981296B980E00821734 /* UIButton+Utils.swift in Sources */,
 				9B2B835728615D0B002BABDC /* APODDateCell.swift in Sources */,
 				9B027440284A817C00C2303A /* Colors.swift in Sources */,
 				9B270E36284001AB00F4FFED /* Reachability.swift in Sources */,
@@ -1241,6 +1259,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9B84C97C296B743C00821734 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B84C97B296B743C00821734 /* en */,
+				9B84C97D296B749500821734 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9BB443EE283D55850043EF4E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1256,6 +1283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1316,6 +1344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
