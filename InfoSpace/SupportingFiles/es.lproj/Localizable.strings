@@ -46,7 +46,7 @@
 "FILTER_VIEW_SEARCH" = "Buscar";
 
 "FILTER_VIEW_IMAGES" = "IMÁGENES";
-"FILTER_VIEW_VIDEOS" = "VIDEOS";
+"FILTER_VIEW_VIDEOS" = "VÍDEOS";
 "FILTER_VIEW_AUDIOS" = "AUDIOS";
 
 "FILTER_VIEW_MINIMUN_CONTENT" =  "Tienes que tener seleccionado un tipo de contenido al menos";
@@ -69,7 +69,7 @@
 // Space Library
 "SPACE_LIBRARY_NO_FILTERS_ERROR"    = "Se necesita al menos un filtro para poder buscar con algún criterio";
 "SPACE_LIBRARY_FILTERS_ERROR"       = "Algo a ido mal al aplicar los filtros, inténtelo de nuevo";
-"SPACE_LIBRARY_RESET_ERROR"         = "Algo a ido mal al pulsar el botón resetear, inténtelo de nuevo";
+"SPACE_LIBRARY_RESET_ERROR"         = "Algo a ido mal al pulsar el botón resetear, inténtelo de nuevo mas tarde";
 "SPACE_LIBRARY_LOAD_ERROR"          = "Algo a ido mal al cargar más datos, inténtelo de nuevo más tarde";
 
 // Space Item Detail

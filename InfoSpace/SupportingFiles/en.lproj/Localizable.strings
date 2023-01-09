@@ -11,79 +11,79 @@
 /*************************************/
 
 // Actions
-"OKEY" = "Okey";
-"ACCEPT" = "Accept";
-"CANCEL" = "Cancel";
-"ERROR" = "Error";
+"OKEY"      = "Okey";
+"ACCEPT"    = "Accept";
+"CANCEL"    = "Cancel";
+"ERROR"     = "Error";
 
 // Texts
-"OPEN_WEB_BUTTON_TITLE" = "OPEN IN WEB";
-"TRY_IT_LATER" = "Inténtelo de nuevo mas tarde";
+"OPEN_WEB_BUTTON_TITLE" = "OPEN ON WEB";
+"TRY_IT_LATER"          = "Try it again Later";
 
 /*************************************/
 // MARK: - UseCases
 /*************************************/
 
 // Use Cases Titles
-"APOD_LONG_TITLE" = "Astronomy picture of the day";
-"APOD_SHORT_TITLE" = "Astronomy picture";
+"APOD_LONG_TITLE"           = "Astronomy picture of the day";
+"APOD_SHORT_TITLE"          = "Astronomy picture";
 "SPACE_LIBRARY_LONG_TITLE"  = "Space library";
 "SPACE_LIBRARY_SHORT_TITLE" = "Space library";
 
 // Planet Detail
-"PLANET_DETAIL_INFO_TEXT" = "*El número grande son la cantidad de satélites naturales.";
+"PLANET_DETAIL_INFO_TEXT" = "*The big number is the number of natural satellites.";
 
 // APOD
-"APOD_COPYRIGHT" = "Copyright:";
-"APOD_NO_COPYRIGHT" = "Sin Copyright";
-"APOD_DATE_SELECTED" = "Fecha seleccionada:";
+"APOD_COPYRIGHT"        = "Copyright:";
+"APOD_NO_COPYRIGHT"     = "Without Copyright";
+"APOD_DATE_SELECTED"    = "Selected Date:";
 
-"APOD_NO_VALID_DATE" = "Fecha no valida";
+"APOD_NO_VALID_DATE" = "Invalid Date";
 
 // Filter View
-"FILTER_VIEW_TITLE" = "Filtros";
+"FILTER_VIEW_TITLE" = "Filters";
 
-"FILTER_VIEW_SEARCH" = "Buscar";
+"FILTER_VIEW_SEARCH" = "Search";
 
-"FILTER_VIEW_IMAGES" = "IMAGENES";
+"FILTER_VIEW_IMAGES" = "IMAGES";
 "FILTER_VIEW_VIDEOS" = "VIDEOS";
 "FILTER_VIEW_AUDIOS" = "AUDIOS";
 
-"FILTER_VIEW_MINIMUN_CONTENT" =  "Tienes que tener seleccionado un tipo de contenido al menos";
+"FILTER_VIEW_MINIMUN_CONTENT" =  "You must have at least one selected content";
 
-"FILTER_VIEW_YEAR_BEGIN" = "Año de Inicio";
-"FILTER_VIEW_YEAR_END" = "Año de Fin";
-"FILTER_VIEW_ANYONE" = "Ninguno";
-"FILTER_VIEW_YEARS_FILTER" = "Filtro de años";
-"FILTER_VIEW_SELECT_YEAR_ERROR" = "El año de inicio no puede ser mayor que el año de final";
-"FILTER_VIEW_HIGHEST" = "Highest To Lowest";
-"FILTER_VIEW_LOWEST" = "Lowest To Highest";
+"FILTER_VIEW_YEAR_BEGIN"        = "Starting Year";
+"FILTER_VIEW_YEAR_END"          = "Ending Year";
+"FILTER_VIEW_ANYONE"            = "None";
+"FILTER_VIEW_YEARS_FILTER"      = "Years Filter";
+"FILTER_VIEW_SELECT_YEAR_ERROR" = "The start year cannot be greater than the end year";
+"FILTER_VIEW_HIGHEST"           = "Highest To Lowest";
+"FILTER_VIEW_LOWEST"            = "Lowest To Highest";
 
-"FILTER_VIEW_RESET_BUTTON" = "Resetear";
-"FILTER_VIEW_APPLY_BUTTON" = "Aplicar";
+"FILTER_VIEW_RESET_BUTTON" = "Reset";
+"FILTER_VIEW_APPLY_BUTTON" = "Apply";
 
 // Images Gallery
-"IMAGES_GALLERY_DOWNLOAD" = "Descargar Imagen";
-"IMAGES_GALLERY_DOWNLOAD_QUESTION" = "¿Quieres descargar la imagen en alta resolución?";
+"IMAGES_GALLERY_DOWNLOAD"           = "Download Image";
+"IMAGES_GALLERY_DOWNLOAD_QUESTION"  = "Do you want to download the image in high resolution?";
 
 // Space Library
-"SPACE_LIBRARY_NO_FILTERS_ERROR"    = "Se necesita al menos un filtro para poder buscar con algún criterio";
-"SPACE_LIBRARY_FILTERS_ERROR" = "Algo a ido mal al aplicar los filtros, inténtelo de nuevo";
-"SPACE_LIBRARY_RESET_ERROR" = "Algo a ido mal al pulsar el botón reset, inténtelo de nuevo";
-"SPACE_LIBRARY_LOAD_ERROR" = "Algo a ido mal al cargar mas datos, inténtelo de nuevo mas tarde";
+"SPACE_LIBRARY_NO_FILTERS_ERROR"    = "At least one filter is needed in order to be able to search with some criteria";
+"SPACE_LIBRARY_FILTERS_ERROR"       = "Something went wrong when applying the filters, try again";
+"SPACE_LIBRARY_RESET_ERROR"         = "Something went wrong when pressing the reset button, try again later";
+"SPACE_LIBRARY_LOAD_ERROR"          = "Something went wrong loading more data, try again later";
 
 // Space Item Detail
-"SPACE_ITEM_DETAIL_DATE_TITLE" = "Date created: ";
-"SPACE_ITEM_DETAIL_CENTER_TITLE" = "Center: ";
+"SPACE_ITEM_DETAIL_DATE_TITLE"              = "Date created: ";
+"SPACE_ITEM_DETAIL_CENTER_TITLE"            = "Center: ";
 "SPACE_ITEM_DETAIL_SECONDARY_CREATOR_TITLE" = "Secondary Creator: ";
-"SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE" = "Photographer: ";
-"SPACE_ITEM_DETAIL_LOCATION_TITLE" = "Location: ";
+"SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE"      = "Photographer: ";
+"SPACE_ITEM_DETAIL_LOCATION_TITLE"          = "Location: ";
 
 // Splash Screen
-"SPLASH_SCREEN_LOAD_ERROR" = "Error al descargar los datos iniciales, ¿Quieres intentarlo de nuevo?";
+"SPLASH_SCREEN_LOAD_ERROR" = "Error downloading initial data, do you want to try again?";
 
 // Image Saver
-"IMAGE_SAVER_SAVE_ERROR" = "No se puede guardar la imagen";
-"IMAGE_SAVER_PERMISSIONS_ERROR" = "Compruebe que la app tiene los permisos para descargar imágenes en ajustes";
-"IMAGE_SAVER_DOWNLOAD_FINISH_TITLE" = "Enhorabuena";
-"IMAGE_SAVER_DOWNLOAD_FINISH_TEXT" = "Imagen guardada satisfactoriamente en la galería";
+"IMAGE_SAVER_SAVE_ERROR"            = "Unable to save image";
+"IMAGE_SAVER_PERMISSIONS_ERROR"     = "Check that the app has the permissions to download images in settings";
+"IMAGE_SAVER_DOWNLOAD_FINISH_TITLE" = "Congratulations";
+"IMAGE_SAVER_DOWNLOAD_FINISH_TEXT"  = "Image successfully saved in the gallery";
