@@ -65,16 +65,21 @@ class Label: UILabel {
         return gradient
     }
     
-    private func gradientColor(gradientLayer: CAGradientLayer) -> UIColor? {
+    private func gradientColor(bounds: CGRect, gradientLayer: CAGradientLayer) -> UIColor? {
+        // Create UIImage by rendering gradient layer
         UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
         
-        // Create UIImage by rendering gradient layer.
-        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        gradientLayer.render(in: context)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+            return nil
+        }
         
         // Get gradient UIcolor from gradient UIImage
-        return UIColor(patternImage: image!)
+        UIGraphicsEndImageContext()
+        return UIColor(patternImage: image)
     }
     
     override func layoutSubviews() {
@@ -82,7 +87,7 @@ class Label: UILabel {
         
         // Gradient
         let gradient = getGradientLayer()
-        self.textColor = gradientColor(gradientLayer: gradient)
+        self.textColor = gradientColor(bounds: self.bounds, gradientLayer: gradient)
     }
 }
 

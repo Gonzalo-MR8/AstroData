@@ -67,6 +67,7 @@
 "IMAGES_GALLERY_DOWNLOAD_QUESTION"  = "Do you want to download the image in high resolution?";
 
 // Space Library
+"SPACE_LIBRARY_NO_ITEMS_TEXT"       = "This search has no results, try with other filters";
 "SPACE_LIBRARY_NO_FILTERS_ERROR"    = "At least one filter is needed in order to be able to search with some criteria";
 "SPACE_LIBRARY_FILTERS_ERROR"       = "Something went wrong when applying the filters, try again";
 "SPACE_LIBRARY_RESET_ERROR"         = "Something went wrong when pressing the reset button, try again later";

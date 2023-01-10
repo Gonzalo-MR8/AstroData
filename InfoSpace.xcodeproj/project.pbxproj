@@ -129,6 +129,8 @@
 		9B84C97A296B743C00821734 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B84C97C296B743C00821734 /* Localizable.strings */; };
 		9B84C97F296B97D500821734 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84C97E296B97D500821734 /* UILabel+Utils.swift */; };
 		9B84C981296B980E00821734 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84C980296B980E00821734 /* UIButton+Utils.swift */; };
+		9B84C985296D5DC900821734 /* SpaceLibraryNoItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84C983296D5DC900821734 /* SpaceLibraryNoItemsCell.swift */; };
+		9B84C986296D5DC900821734 /* SpaceLibraryNoItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B84C984296D5DC900821734 /* SpaceLibraryNoItemsCell.xib */; };
 		9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769DB2857A17400FEB405 /* NasaDataManager.swift */; };
 		9B8769DE2857A2DD00FEB405 /* APODDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769DD2857A2DD00FEB405 /* APODDataManager.swift */; };
 		9B8769E02857A37200FEB405 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769DF2857A37200FEB405 /* APOD.swift */; };
@@ -308,6 +310,8 @@
 		9B84C97D296B749500821734 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B84C97E296B97D500821734 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
 		9B84C980296B980E00821734 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
+		9B84C983296D5DC900821734 /* SpaceLibraryNoItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryNoItemsCell.swift; sourceTree = "<group>"; };
+		9B84C984296D5DC900821734 /* SpaceLibraryNoItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceLibraryNoItemsCell.xib; sourceTree = "<group>"; };
 		9B8769DB2857A17400FEB405 /* NasaDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaDataManager.swift; sourceTree = "<group>"; };
 		9B8769DD2857A2DD00FEB405 /* APODDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDataManager.swift; sourceTree = "<group>"; };
 		9B8769DF2857A37200FEB405 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
@@ -556,6 +560,8 @@
 				9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */,
 				9B0EF17B291B19D400A87F1E /* ReloadCollectionViewCell.swift */,
 				9B0EF17C291B19D400A87F1E /* ReloadCollectionViewCell.xib */,
+				9B84C983296D5DC900821734 /* SpaceLibraryNoItemsCell.swift */,
+				9B84C984296D5DC900821734 /* SpaceLibraryNoItemsCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1025,6 +1031,7 @@
 				9B22371028457E97005F47B7 /* NotoSansJP-Regular.otf in Resources */,
 				9B22371128457E97005F47B7 /* NotoSansJP-Thin.otf in Resources */,
 				9B2B835828615D0B002BABDC /* APODDateCell.xib in Resources */,
+				9B84C986296D5DC900821734 /* SpaceLibraryNoItemsCell.xib in Resources */,
 				9B22371228457E97005F47B7 /* NotoSansJP-Black.otf in Resources */,
 				9B22371328457E97005F47B7 /* NotoSansJP-Bold.otf in Resources */,
 				9B931165283E814B0052EF1B /* loading.json in Resources */,
@@ -1176,6 +1183,7 @@
 				9B8769DC2857A17400FEB405 /* NasaDataManager.swift in Sources */,
 				9B2AC06E2843B1F1005D022E /* SplashScreenViewModel.swift in Sources */,
 				9BD9D9572911EFB100621C02 /* SpaceLibraryUtilModels.swift in Sources */,
+				9B84C985296D5DC900821734 /* SpaceLibraryNoItemsCell.swift in Sources */,
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9B58014A29148CBC009288FD /* FontTypes.swift in Sources */,
 				9B62D5E3293673E400863317 /* OrderFilterCell.swift in Sources */,

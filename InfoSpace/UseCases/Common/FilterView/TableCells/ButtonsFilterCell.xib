@@ -42,6 +42,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
                                         <color key="value" name="tertiaryColor"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="FILTER_VIEW_RESET_BUTTON"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1KB-aW-jse"/>
@@ -60,6 +61,7 @@
                                         <color key="value" name="brownStar"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="FILTER_VIEW_APPLY_BUTTON"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="applyButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KBO-Qi-0l7"/>
@@ -89,10 +91,10 @@
     </objects>
     <designables>
         <designable name="45f-dU-xMt">
-            <size key="intrinsicContentSize" width="85" height="30"/>
+            <size key="intrinsicContentSize" width="235" height="30"/>
         </designable>
         <designable name="x81-EI-5dS">
-            <size key="intrinsicContentSize" width="68" height="30"/>
+            <size key="intrinsicContentSize" width="234" height="30"/>
         </designable>
     </designables>
     <resources>

@@ -18,6 +18,7 @@ class SpaceLibraryViewController: UIViewController {
     private let kCollectionViewCellInset:CGFloat = 10
     private let kCollectionViewNumberOfItemsPerRow:CGFloat = 2
     private let kReloadCellHeight: CGFloat = 130
+    private let kNoItemsCellHeight: CGFloat = 400
     
     private let kAnimationDuration: TimeInterval = 0.6
     
@@ -53,6 +54,7 @@ class SpaceLibraryViewController: UIViewController {
     private func configureCollectionView() {
         spaceItemsCollectionView.register(SpaceLibraryItemCell.nib, forCellWithReuseIdentifier: SpaceLibraryItemCell.identifier)
         spaceItemsCollectionView.register(ReloadCollectionViewCell.nib, forCellWithReuseIdentifier: ReloadCollectionViewCell.identifier)
+        spaceItemsCollectionView.register(SpaceLibraryNoItemsCell.nib, forCellWithReuseIdentifier: SpaceLibraryNoItemsCell.identifier)
     }
     
     private func resetOfChangeFiltersSuccess() {
@@ -77,8 +79,7 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
             return viewModel.getNumberOfSpaceItems() + 1
         } else {
             if viewModel.getNumberOfSpaceItems() == 0 {
-                // TO DO create cell to empty items
-                return 0
+                return 1
             } else {
                 return viewModel.getNumberOfSpaceItems()
             }
@@ -86,6 +87,12 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard viewModel.getNumberOfSpaceItems() != 0 else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceLibraryNoItemsCell.identifier, for: indexPath) as! SpaceLibraryNoItemsCell
+            
+            return cell
+        }
+        
         if indexPath.row == viewModel.getNumberOfSpaceItems() && reload {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReloadCollectionViewCell.identifier, for: indexPath) as! ReloadCollectionViewCell
             
@@ -118,6 +125,10 @@ extension SpaceLibraryViewController: UICollectionViewDelegate {
 
 extension SpaceLibraryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard viewModel.getNumberOfSpaceItems() != 0 else {
+            return CGSize(width: collectionView.frame.width, height: kNoItemsCellHeight)
+        }
+        
         if indexPath.row == viewModel.getNumberOfSpaceItems() && reload {
             return CGSize(width: (collectionView.frame.width - kCollectionViewCellInset), height: kReloadCellHeight)
         } else {
