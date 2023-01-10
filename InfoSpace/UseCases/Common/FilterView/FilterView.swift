@@ -24,7 +24,7 @@ enum FilterCellType {
 
 class FilterView: View {
 
-    @IBOutlet weak var filtersTableView: UITableView!
+    @IBOutlet private weak var filtersTableView: UITableView!
     
     private var cellTypes: [FilterCellType] = [.header, .separator, .search, .separator, .contentType, .separator, .years, .separator, .order, .separator, .buttons]
     private var reset: Bool = false

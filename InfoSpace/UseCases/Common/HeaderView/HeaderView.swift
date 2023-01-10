@@ -14,10 +14,10 @@ protocol HeaderViewProtocol: AnyObject {
 
 class HeaderView: View {
     
-    @IBOutlet weak var viewBackground: View!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var imageViewOptions: UIImageView!
-    @IBOutlet weak var buttonOptions: UIButton!
+    @IBOutlet private weak var viewBackground: View!
+    @IBOutlet private weak var labelTitle: UILabel!
+    @IBOutlet private weak var imageViewOptions: UIImageView!
+    @IBOutlet private weak var buttonOptions: UIButton!
     
     weak var delegate: HeaderViewProtocol?
     
@@ -97,4 +97,10 @@ class HeaderView: View {
         percentShown = 100.0
     }
     
+    // MARK: - Public methods
+    
+    public func configure(title: String, options: Bool) {
+        labelTitle.text = title
+        self.options = options
+    }
 }

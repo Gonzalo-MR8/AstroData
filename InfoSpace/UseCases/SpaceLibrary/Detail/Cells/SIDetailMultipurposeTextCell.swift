@@ -9,8 +9,8 @@ import UIKit
 
 class SIDetailMultipurposeTextCell: UITableViewCell {
     
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelText: UILabel!
+    @IBOutlet private weak var labelTitle: UILabel!
+    @IBOutlet private weak var labelText: UILabel!
     
     func configure(title: String, text: String) {
         labelTitle.text = title

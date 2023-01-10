@@ -11,9 +11,9 @@ import CoreMotion
 
 class SIDetailVideoCell: UITableViewCell {
     
-    @IBOutlet weak var viewPlayer: View!
-    @IBOutlet weak var viewHeight: NSLayoutConstraint!
-    @IBOutlet weak var buttonFullScreen: UIButton!
+    @IBOutlet private weak var viewPlayer: View!
+    @IBOutlet private weak var viewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var buttonFullScreen: UIButton!
     
     public var player: AVPlayer!
     private let manager = CMMotionManager()

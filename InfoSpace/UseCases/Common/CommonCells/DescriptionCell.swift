@@ -9,7 +9,7 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
 
-    @IBOutlet weak var labelDescription: UILabel!
+    @IBOutlet private weak var labelDescription: UILabel!
     
     func configure(description: String) {
         labelDescription.text = description

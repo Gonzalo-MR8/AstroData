@@ -12,7 +12,7 @@ class SplashScreenViewController: UIViewController {
 
     private let viewModel = SplashScreenViewModel()
     
-    @IBOutlet weak var viewAnimation: AnimationView!
+    @IBOutlet private weak var viewAnimation: AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

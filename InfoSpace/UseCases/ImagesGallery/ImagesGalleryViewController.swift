@@ -11,9 +11,9 @@ class ImagesGalleryViewController: UIViewController {
     
     private var viewModel: ImagesGalleryViewModel!
     
-    @IBOutlet weak var collectionViewGallery: UICollectionView!
-    @IBOutlet weak var viewTitle: View!
-    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet private weak var collectionViewGallery: UICollectionView!
+    @IBOutlet private weak var viewTitle: View!
+    @IBOutlet private weak var labelTitle: UILabel!
     
     private var position: Int!
     

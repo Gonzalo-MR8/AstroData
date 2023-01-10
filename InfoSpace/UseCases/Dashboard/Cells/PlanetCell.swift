@@ -12,10 +12,10 @@ class PlanetCell: UICollectionViewCell {
     private let kScaleMultiplier: CGFloat = 1.1
     private let kAnimationDuration: TimeInterval = 0.2
     
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelDescription: UILabel!
-    @IBOutlet weak var labelSatelites: UILabel!
-    @IBOutlet weak var imageViewPlanet: UIImageView!
+    @IBOutlet private weak var labelTitle: UILabel!
+    @IBOutlet private weak var labelDescription: UILabel!
+    @IBOutlet private weak var labelSatelites: UILabel!
+    @IBOutlet private weak var imageViewPlanet: UIImageView!
 
     func configure(planet: Planet) {
         labelTitle.text = planet.title

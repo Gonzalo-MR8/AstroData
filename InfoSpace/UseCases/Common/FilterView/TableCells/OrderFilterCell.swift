@@ -13,7 +13,7 @@ protocol OrderFilterCellProtocol: AnyObject {
 
 class OrderFilterCell: UITableViewCell {
     
-    @IBOutlet weak var segmentedControlOrder: UISegmentedControl!
+    @IBOutlet private weak var segmentedControlOrder: UISegmentedControl!
     
     weak var delegate: OrderFilterCellProtocol?
     

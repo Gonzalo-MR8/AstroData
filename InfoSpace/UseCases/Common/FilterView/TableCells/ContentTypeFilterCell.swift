@@ -15,7 +15,7 @@ typealias ContentTypeItem = (MediaType, String)
 
 class ContentTypeFilterCell: UITableViewCell {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let kTypes: [ContentTypeItem] = [(.image,"FILTER_VIEW_IMAGES".localized), (.video, "FILTER_VIEW_VIDEOS".localized), (.audio, "FILTER_VIEW_AUDIOS".localized)]
     private var selectedTypes: [MediaType] = [.image, .video, .audio]

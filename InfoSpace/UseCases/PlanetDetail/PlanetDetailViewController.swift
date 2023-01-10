@@ -11,15 +11,15 @@ class PlanetDetailViewController: UIViewController {
 
     private var viewModel: PlanetDetailViewModel!
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageViewHeader: UIImageView!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelDescription: UILabel!
-    @IBOutlet weak var labelSatelites: UILabel!
-    @IBOutlet weak var viewDecorativeTag: UIView!
-    @IBOutlet weak var viewDrag: View!
-    @IBOutlet weak var viewDragHeight: NSLayoutConstraint!
-    @IBOutlet weak var collectionViewImages: UICollectionView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var imageViewHeader: UIImageView!
+    @IBOutlet private weak var labelTitle: UILabel!
+    @IBOutlet private weak var labelDescription: UILabel!
+    @IBOutlet private weak var labelSatelites: UILabel!
+    @IBOutlet private weak var viewDecorativeTag: UIView!
+    @IBOutlet private weak var viewDrag: View!
+    @IBOutlet private weak var viewDragHeight: NSLayoutConstraint!
+    @IBOutlet private weak var collectionViewImages: UICollectionView!
     
     private let kCollectionViewTopBottomInsets = 40
     private let kAnimationDuration: TimeInterval = 0.3

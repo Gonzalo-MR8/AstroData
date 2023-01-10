@@ -19,8 +19,8 @@ class APODViewController: UIViewController {
 
     private var viewModel: APODViewModel!
     
-    @IBOutlet weak var headerView: HeaderView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var headerView: HeaderView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var cellTypes: [APODCellType] = []
     
@@ -35,8 +35,7 @@ class APODViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headerView.labelTitle.text = "APOD_SHORT_TITLE".localized
-        headerView.options = false
+        headerView.configure(title: "APOD_SHORT_TITLE".localized, options: false)
         headerView.delegate = self
         
         configureTable()

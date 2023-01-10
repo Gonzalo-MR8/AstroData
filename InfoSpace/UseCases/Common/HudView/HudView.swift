@@ -12,8 +12,8 @@ protocol HudViewProtocol { }
 
 class HudView: UIView {
 
-    @IBOutlet weak var viewBlur: UIVisualEffectView!
-    @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet private weak var viewBlur: UIVisualEffectView!
+    @IBOutlet private weak var animationView: AnimationView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

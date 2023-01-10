@@ -10,10 +10,10 @@ import AVFoundation
 
 class SIDetailAudioCell: UITableViewCell {
     
-    @IBOutlet weak var imageViewPlayPause: UIImageView!
-    @IBOutlet weak var sliderProgress: Slider!
-    @IBOutlet weak var labelCurrentTime: UILabel!
-    @IBOutlet weak var labelDuration: UILabel!
+    @IBOutlet private weak var imageViewPlayPause: UIImageView!
+    @IBOutlet private weak var sliderProgress: Slider!
+    @IBOutlet private weak var labelCurrentTime: UILabel!
+    @IBOutlet private weak var labelDuration: UILabel!
     
     public var player: AVPlayer!
     private var timeObserverToken: Any?

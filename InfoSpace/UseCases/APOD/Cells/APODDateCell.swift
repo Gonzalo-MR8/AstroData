@@ -9,7 +9,7 @@ import UIKit
 
 class APODDateCell: UITableViewCell {
 
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var datePicker: UIDatePicker!
     
     var changeDatePicker: ((Date) -> ())?
     

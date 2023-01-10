@@ -9,11 +9,11 @@ import UIKit
 
 class APODImageCell: UITableViewCell {
 
-    @IBOutlet weak var imageViewApod: ImageView!
-    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var labelCopyright: UILabel!
-    @IBOutlet weak var labelCopyrightAutor: UILabel!
-    @IBOutlet weak var stackViewCopyright: UIStackView!
+    @IBOutlet private weak var imageViewApod: ImageView!
+    @IBOutlet private weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var labelCopyright: UILabel!
+    @IBOutlet private weak var labelCopyrightAutor: UILabel!
+    @IBOutlet private weak var stackViewCopyright: UIStackView!
     
     private var apod: APOD!
     

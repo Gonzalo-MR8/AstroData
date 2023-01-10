@@ -13,13 +13,13 @@ protocol YearsFilterCellProtocol: AnyObject {
 
 class YearsFilterCell: UITableViewCell {
 
-    @IBOutlet weak var yearStartTextField: UITextField! {
+    @IBOutlet private weak var yearStartTextField: UITextField! {
         didSet {
             yearStartTextField.attributedPlaceholder = NSAttributedString(string: "FILTER_VIEW_YEAR_BEGIN".localized, attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
         }
     }
     
-    @IBOutlet weak var yearEndTextField: UITextField! {
+    @IBOutlet private weak var yearEndTextField: UITextField! {
         didSet {
             yearEndTextField.attributedPlaceholder = NSAttributedString(string: "FILTER_VIEW_YEAR_END".localized,                                                                       attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
         }

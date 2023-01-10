@@ -24,8 +24,8 @@ enum SpaceItemDetailCellType: Equatable {
 
 class SpaceItemDetailViewController: UIViewController {
 
-    @IBOutlet weak var headerView: HeaderView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var headerView: HeaderView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var viewModel: SpaceItemDetailViewModel!
     private var cellTypes: [SpaceItemDetailCellType] = []
@@ -43,8 +43,7 @@ class SpaceItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.labelTitle.text = viewModel.getSpaceItemData().nasaID
-        headerView.options = false
+        headerView.configure(title: viewModel.getSpaceItemData().nasaID, options: false)
         headerView.delegate = self
         
         configureTable()

@@ -10,7 +10,7 @@ import Lottie
 
 class ReloadCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet private weak var animationView: AnimationView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

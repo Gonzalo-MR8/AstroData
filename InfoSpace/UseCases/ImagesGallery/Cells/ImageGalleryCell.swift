@@ -9,8 +9,8 @@ import UIKit
 
 class ImageGalleryCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     private var kNumberOfTaps = 2
     

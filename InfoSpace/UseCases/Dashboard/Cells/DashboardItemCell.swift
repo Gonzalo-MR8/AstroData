@@ -9,9 +9,9 @@ import UIKit
 
 class DashboardItemCell: UICollectionViewCell {
 
-    @IBOutlet weak var blur: UIVisualEffectView!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var blur: UIVisualEffectView!
+    @IBOutlet private weak var labelTitle: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
 
     func configure(dashboardItem: DashboardItem) {
         labelTitle.text = dashboardItem.title

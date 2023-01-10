@@ -9,7 +9,7 @@ import UIKit
 
 class PlanetImageCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: ImageView!
+    @IBOutlet private weak var imageView: ImageView!
 
     public func configure(stringUrl: String) {
         imageView.setImage(with: stringUrl)

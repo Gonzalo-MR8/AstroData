@@ -9,9 +9,9 @@ import UIKit
 
 class SpaceLibraryViewController: UIViewController {
 
-    @IBOutlet weak var headerView: HeaderView!
-    @IBOutlet weak var filterView: FilterView!
-    @IBOutlet weak var spaceItemsCollectionView: UICollectionView!
+    @IBOutlet private weak var headerView: HeaderView!
+    @IBOutlet private weak var filterView: FilterView!
+    @IBOutlet private weak var spaceItemsCollectionView: UICollectionView!
     
     private var viewModel: SpaceLibraryViewModel!
     
@@ -43,7 +43,7 @@ class SpaceLibraryViewController: UIViewController {
     // MARK: - Private methods
     
     private func configureViews() {
-        headerView.labelTitle.text = "SPACE_LIBRARY_SHORT_TITLE".localized
+        headerView.configure(title: "SPACE_LIBRARY_SHORT_TITLE".localized, options: true)
         headerView.delegate = self
         
         filterView.configure()
