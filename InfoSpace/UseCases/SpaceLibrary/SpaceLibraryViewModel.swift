@@ -222,12 +222,13 @@ final class SpaceLibraryViewModel {
         let count = spaceLibraryItems.collection.spaceItems.count
         
         // Check if only exists one page
-        guard let stringUrl = spaceLibraryItems.collection.links?.first?.href, let url = URL(string: stringUrl),
+        guard let stringUrl = spaceLibraryItems.collection.links?.first?.href, let url = URL(completedString: stringUrl),
               let strPage = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage),
               let intPage = Int(strPage) else {
             return count
         }
         
+        // Calculate the items to always return a par number or all the items if is the last page
         if count % 2 == 0, intPage >= Int(page) ?? 1 {
             return count
         } else {

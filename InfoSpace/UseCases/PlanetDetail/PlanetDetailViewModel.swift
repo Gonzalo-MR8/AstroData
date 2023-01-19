@@ -38,7 +38,7 @@ final class PlanetDetailViewModel {
         return planet.galleryImagesUrl[position]
     }
     
-    func getAllPlanetImages() -> ([String], [String]) {
-        return (planet.galleryImagesUrl.compactMap({ $0.imageUrl }), planet.galleryImagesUrl.compactMap({ $0.title }))
+    func getAllPlanetImages() -> ([String], [String], [String]) {
+        return (planet.galleryImagesUrl.compactMap({ $0.imageUrl }), planet.galleryImagesUrl.compactMap({ $0.title }), planet.galleryImagesUrl.compactMap({ $0.imageHDUrl }))
     }
 }

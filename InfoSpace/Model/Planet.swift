@@ -19,6 +19,7 @@ struct Planet: Codable {
 struct PlanetImage: Codable {
     let title: String
     let imageUrl: String
+    let imageHDUrl: String
 }
 
 typealias Planets = [Planet]
