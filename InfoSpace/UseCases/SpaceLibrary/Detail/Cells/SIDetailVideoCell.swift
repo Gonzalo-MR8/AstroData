@@ -24,9 +24,9 @@ class SIDetailVideoCell: UITableViewCell {
     private let kAspectRatioMultiplier: CGFloat = 1.78
     private let kViewMultiplierWidth: CGFloat = 0.9
     
-    func configure(url: URL, frameWidth: CGFloat, viewController: UIViewController) {
+    func configure(player: AVPlayer, frameWidth: CGFloat, viewController: UIViewController) {
         parentVController = viewController
-        player = AVPlayer(url: url)
+        self.player = player
         
         viewHeight.constant = (frameWidth * kViewMultiplierWidth) / kAspectRatioMultiplier
         self.layoutIfNeeded()

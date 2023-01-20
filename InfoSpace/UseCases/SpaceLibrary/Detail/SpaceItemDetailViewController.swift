@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum SpaceItemDetailCellType: Equatable {
     case title
@@ -31,6 +32,8 @@ class SpaceItemDetailViewController: UIViewController {
     private var cellTypes: [SpaceItemDetailCellType] = []
     
     private let baseDetailUrl: String = Bundle.string(for: InfoConstants.kNasaDetailBaseUrl)!
+    
+    private var player: AVPlayer?
     
     static func initAndLoad(spaceItem: SpaceItem) -> SpaceItemDetailViewController {
         let spaceItemDetailViewController = SpaceItemDetailViewController.initAndLoad()
@@ -215,13 +218,23 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .video(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailVideoCell.identifier) as! SIDetailVideoCell
             
-            cell.configure(url: url, frameWidth: self.view.frame.width, viewController: self)
+            if let player = player {
+                cell.configure(player: player, frameWidth: self.view.frame.width, viewController: self)
+            } else {
+                let newPlayer = AVPlayer(url: url)
+                cell.configure(player: newPlayer, frameWidth: self.view.frame.width, viewController: self)
+            }
             
             return cell
         case .audio(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailAudioCell.identifier) as! SIDetailAudioCell
             
-            cell.configure(url: url)
+            if let player = player {
+                cell.configure(player: player)
+            } else {
+                let newPlayer = AVPlayer(url: url)
+                cell.configure(player: newPlayer)
+            }
             
             return cell
         case .description:
@@ -270,6 +283,19 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as! SeparatorCell
             
             return cell
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension SpaceItemDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // This code save the player to save the progrees of the audio or the video when you scroll down the cell
+        if let audioCell = cell as? SIDetailAudioCell {
+            player = audioCell.player
+        } else if let videoCell = cell as? SIDetailVideoCell {
+            player = videoCell.player
         }
     }
 }

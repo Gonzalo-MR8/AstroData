@@ -36,8 +36,8 @@ class SIDetailAudioCell: UITableViewCell {
         sliderProgress.addGestureRecognizer(gestureRecognizer)
     }
     
-    func configure(url: URL) {
-        player = AVPlayer(url: url) 
+    func configure(player: AVPlayer) {
+        self.player = player
         
         try! AVAudioSession.sharedInstance().setCategory(.playback)
         
