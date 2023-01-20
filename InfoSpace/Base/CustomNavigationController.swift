@@ -74,7 +74,7 @@ class CustomNavigationController: UINavigationController {
     func presentDefaultInfoAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         
-        self.present(alert, animated: true, completion: {
+        self.present(to: alert, animated: true, completion: {
             if let superview = alert.view.superview {
                 let view = UIView()
                 view.backgroundColor = .clear
@@ -103,7 +103,7 @@ class CustomNavigationController: UINavigationController {
     func presentDefaultAlert(title: String, message: String, actionTitle: String = "OKEY".localized, completion: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: completion))
-        self.present(alert, animated: true, completion: nil)
+        self.present(to: alert, animated: true, completion: nil)
     }
     
     func presentAcceptOrCancelAlert(title: String, message: String, acceptActionTitle: String = "ACCEPT".localized, cancelActionTitle: String = "CANCEL".localized, acceptCompletion: ((UIAlertAction) -> Void)? = nil, cancelCompletion: ((UIAlertAction) -> Void)? = nil) {
@@ -115,7 +115,7 @@ class CustomNavigationController: UINavigationController {
         alert.addAction(acceptAction)
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(to: alert, animated: true)
     }
     
     func popToViewController(classVC: AnyClass, animated: Bool) {
