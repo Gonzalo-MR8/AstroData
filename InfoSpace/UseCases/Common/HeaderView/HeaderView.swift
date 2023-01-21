@@ -14,7 +14,6 @@ protocol HeaderViewProtocol: AnyObject {
 
 class HeaderView: View {
     
-    @IBOutlet private weak var viewBackground: View!
     @IBOutlet private weak var labelTitle: UILabel!
     @IBOutlet private weak var imageViewOptions: UIImageView!
     @IBOutlet private weak var buttonOptions: UIButton!
@@ -23,8 +22,6 @@ class HeaderView: View {
     
     var percentShown: CGFloat = 0.0 {
         didSet {
-            viewBackground.alpha = percentShown
-            
             labelTitle.alpha = percentShown
         }
     }

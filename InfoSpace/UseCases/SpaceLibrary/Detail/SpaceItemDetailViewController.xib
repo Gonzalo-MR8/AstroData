@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpaceItemDetailViewController" customModule="InfoSpace" customModuleProvider="target">
             <connections>
-                <outlet property="headerView" destination="KoL-5z-LSF" id="YOh-lV-DvG"/>
+                <outlet property="headerView" destination="7pQ-Xw-PD1" id="qkN-mZ-bUq"/>
                 <outlet property="tableView" destination="DDa-f7-80G" id="ffl-cb-NmW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,15 +22,31 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoL-5z-LSF" customClass="HeaderView" customModule="InfoSpace" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="84"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfO-Rd-2Rc" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="99"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
+                            <color key="value" name="primaryColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="gradientMidColor">
+                            <color key="value" name="secondaryColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
+                            <color key="value" name="tertiaryColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pQ-Xw-PD1" customClass="HeaderView" customModule="InfoSpace" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59" width="393" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="84" id="sqb-PB-lLR"/>
+                        <constraint firstAttribute="height" constant="40" id="Jwh-mt-xIg"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-f7-80G">
-                    <rect key="frame" x="0.0" y="84" width="393" height="768"/>
+                    <rect key="frame" x="0.0" y="99" width="393" height="753"/>
                     <color key="backgroundColor" name="white"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="TWt-To-TGh"/>
@@ -41,18 +57,31 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white"/>
             <constraints>
-                <constraint firstItem="DDa-f7-80G" firstAttribute="top" secondItem="KoL-5z-LSF" secondAttribute="bottom" id="0yM-Qg-Eee"/>
+                <constraint firstItem="zfO-Rd-2Rc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Xv-h6-JcO"/>
                 <constraint firstAttribute="bottom" secondItem="DDa-f7-80G" secondAttribute="bottom" id="D9a-uq-cvV"/>
+                <constraint firstItem="7pQ-Xw-PD1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NO3-8p-0KX"/>
                 <constraint firstAttribute="trailing" secondItem="DDa-f7-80G" secondAttribute="trailing" id="Rhs-2E-J79"/>
+                <constraint firstItem="zfO-Rd-2Rc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VAS-Iu-wfl"/>
+                <constraint firstAttribute="trailing" secondItem="7pQ-Xw-PD1" secondAttribute="trailing" id="YSU-cz-Qxk"/>
                 <constraint firstItem="DDa-f7-80G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dfr-9v-QLG"/>
-                <constraint firstItem="KoL-5z-LSF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eqU-iX-jkv"/>
-                <constraint firstItem="KoL-5z-LSF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mpT-Cb-6M9"/>
-                <constraint firstAttribute="trailing" secondItem="KoL-5z-LSF" secondAttribute="trailing" id="qRy-fY-5lL"/>
+                <constraint firstItem="DDa-f7-80G" firstAttribute="top" secondItem="zfO-Rd-2Rc" secondAttribute="bottom" id="fJj-Tk-5Wn"/>
+                <constraint firstItem="zfO-Rd-2Rc" firstAttribute="bottom" secondItem="7pQ-Xw-PD1" secondAttribute="bottom" id="hXB-78-Zst"/>
+                <constraint firstAttribute="trailing" secondItem="zfO-Rd-2Rc" secondAttribute="trailing" id="oyV-Uy-kWW"/>
+                <constraint firstItem="7pQ-Xw-PD1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vjR-tW-0iV"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="primaryColor">
+            <color red="0.050980392156862744" green="0.43529411764705883" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryColor">
+            <color red="0.14901960784313725" green="0.0" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tertiaryColor">
+            <color red="0.29411764705882354" green="0.011764705882352941" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
