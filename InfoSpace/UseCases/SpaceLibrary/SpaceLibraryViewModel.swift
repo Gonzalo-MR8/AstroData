@@ -30,21 +30,26 @@ final class SpaceLibraryViewModel {
     
     // MARK: - Network Methods
     
+    /// This method manages the reset button pressed and when you want to change only the order of the space items
     public func getSpaceLibraryItemsBegin(reset: Bool = false, changeOrder: Order? = nil, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         order = reset ? .highestToLowest : .lowestToHighest
         
+        /// Change the order to a new order
         if let changeOrder = changeOrder {
             order = changeOrder
         }
-
-        var initItems = false
+        
+        /// The onePage variable is used when the call has only 1 page to initialize the spaceLibraryItems variable and not add new items in the second call as if it came from more than one page.
+        var onePage = false
+        
         let group = DispatchGroup()
         
+        /// This call gets the last page of the spaceItems, call to handle when you need to take the last or the first items depending on the order, it also works to know if the call has only 1 page or more
         group.enter()
         NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
             switch result {
             case .failure(let error):
-                print("getLastPage WS error: \(error)")
+                completion(.failure(error))
                 group.leave()
             case .success(let slItemData):
                 self.slItem = slItemData
@@ -54,13 +59,13 @@ final class SpaceLibraryViewModel {
         })
         group.wait()
         
-        // We do this and take another page to prevent if the last page have only a few items
+        /// If the order is from the highest to the lowest, the last page may have only a few items, so we take the last two pages to avoid this situation and also other similar ones, otherwise the user would not be able to scroll to get more items.
         if Int(page) ?? 0 >= 2, order == .highestToLowest {
             group.enter()
             NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
                 switch result {
                 case .failure(let error):
-                    print("Space library WS error: \(error)")
+                    completion(.failure(error))
                     group.leave()
                 case .success(let spaceLibraryItems):
                     self.spaceLibraryItems = spaceLibraryItems
@@ -68,18 +73,32 @@ final class SpaceLibraryViewModel {
                 }
             })
         } else {
-            initItems = true
+            onePage = true
         }
         
         group.notify(queue: .main, execute: { [self] in
+            guard !onePage else {
+                /// Get the one page
+                NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
+                    switch result {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let spaceLibraryItems):
+                        self.spaceLibraryItems = spaceLibraryItems
+                        self.orderSpaceItems(order: self.order)
+                        completion(.success(()))
+                    }
+                })
+                
+                return
+            }
+            
+            /// Get more items when comes more than 1 page
             getSpaceLibraryItemsBeginNewPage(completion: { result in
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
-                case .success(let spaceLibraryItems):
-                    if initItems {
-                        self.spaceLibraryItems = spaceLibraryItems
-                    }
+                case .success():
                     completion(.success(()))
                 }
             })
@@ -89,14 +108,20 @@ final class SpaceLibraryViewModel {
     public func getSpaceLibraryItemsFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         order = filters.order
         
-        var initItems = false
+        /// The onePage variable is used when the call has only 1 page to initialize the spaceLibraryItems variable and not add new items in the second call as if it came from more than one page.
+        var onePage = false
+        
+        var pageUpdateFilters = filters
+        pageUpdateFilters.page = page
+        
         let group = DispatchGroup()
         
+        /// This call gets the last page of the spaceItems, call to handle when you need to take the last or the first items depending on the order, it also works to know if the call has only 1 page or more
         group.enter()
         NasaLibraryDataManager.shared.getSLastPageItemFilters(filters: filters, completion: { result in
             switch result {
             case .failure(let error):
-                print("getLastPage WS error: \(error)")
+                completion(.failure(error))
                 group.leave()
             case .success(let slItemData):
                 self.slItem = slItemData
@@ -106,16 +131,14 @@ final class SpaceLibraryViewModel {
         })
         group.wait()
         
-        // We do this and take another page to prevent if the last page have only a few items
+        /// If the order is from the highest to the lowest, the last page may have only a few items, so we take the last two pages to avoid this situation and also other similar ones, otherwise the user would not be able to scroll to get more items.
         if Int(page) ?? 0 >= 2, order == .highestToLowest {
             group.enter()
             
-            var pageUpdateFilters = filters
-            pageUpdateFilters.page = page
             NasaLibraryDataManager.shared.getLibraryFilters(filters: pageUpdateFilters, completion: { result in
                 switch result {
                 case .failure(let error):
-                    print("getSpaceLibraryItemsFilters WS error: \(error)")
+                    completion(.failure(error))
                     group.leave()
                 case .success(let spaceLibraryItems):
                     self.spaceLibraryItems = spaceLibraryItems
@@ -123,65 +146,65 @@ final class SpaceLibraryViewModel {
                 }
             })
         } else {
-            initItems = true
+            onePage = true
         }
         
         group.notify(queue: .main, execute: { [self] in
+            guard !onePage else {
+                NasaLibraryDataManager.shared.getLibraryFilters(filters: pageUpdateFilters, completion: { result in
+                    switch result {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let spaceLibraryItems):
+                        self.spaceLibraryItems = spaceLibraryItems
+                        self.orderSpaceItems(order: self.order)
+                        completion(.success(()))
+                    }
+                })
+                
+                return
+            }
+            
             getSpaceLibraryItemsFiltersNewPage(filters: filters, completion: { result in
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
-                case .success(let spaceLibraryItems):
-                    if initItems {
-                        self.spaceLibraryItems = spaceLibraryItems
-                    }
+                case .success():
                     completion(.success(()))
                 }
             })
         })
     }
     
-    public func getSpaceLibraryItemsBeginNewPage(completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
+    public func getSpaceLibraryItemsBeginNewPage(completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         calculateNextPage()
         
         NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
             switch result {
             case .failure(let error):
-                print("getSpaceLibraryItemsBeginNewPage WS error: \(error)")
                 completion(.failure(error))
             case .success(let spaceLibraryItems):
                 self.spaceLibraryItems.collection.spaceItems.append(contentsOf: spaceLibraryItems.collection.spaceItems)
                 self.orderSpaceItems(order: self.order)
-                completion(.success(spaceLibraryItems))
+                completion(.success(()))
             }
         })
     }
     
-    public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters, completion: @escaping (Result<SpaceLibraryItems, WebServiceError>) -> ()) {
+    public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         calculateNextPage()
         var pageUpdateFilters = filters
         pageUpdateFilters.page = page
         NasaLibraryDataManager.shared.getLibraryFilters(filters: pageUpdateFilters, completion: { result in
             switch result {
             case .failure(let error):
-                print("getSpaceLibraryItemsFiltersNewPage WS error: \(error)")
                 completion(.failure(error))
             case .success(let spaceLibraryItems):
                 self.spaceLibraryItems.collection.spaceItems.append(contentsOf: spaceLibraryItems.collection.spaceItems)
                 self.orderSpaceItems(order: self.order)
-                completion(.success(spaceLibraryItems))
+                completion(.success(()))
             }
         })
-    }
-    
-    public func canLoadMoreData() -> Bool {
-        guard let pageInt = Int(page), pageInt > 1 else { return false }
-        
-        if order == .highestToLowest, pageInt == 1 {
-            return false
-        } else {
-            return true
-        }
     }
     
     // MARK: - Private Methods
@@ -221,18 +244,28 @@ final class SpaceLibraryViewModel {
     public func getNumberOfSpaceItems() -> Int {
         let count = spaceLibraryItems.collection.spaceItems.count
         
-        // Check if only exists one page
+        /// Check if only exists one page
         guard let stringUrl = spaceLibraryItems.collection.links?.first?.href, let url = URL(completedString: stringUrl),
               let strPage = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage),
               let intPage = Int(strPage) else {
             return count
         }
         
-        // Calculate the items to always return a par number or all the items if is the last page
+        /// Calculate the items to always return a par number or all the items if is the last page
         if count % 2 == 0, intPage >= Int(page) ?? 1 {
             return count
         } else {
             return count - 1
+        }
+    }
+    
+    public func canLoadMoreData() -> Bool {
+        guard let pageInt = Int(page), pageInt > 1 else { return false }
+        
+        if order == .highestToLowest, pageInt == 1 {
+            return false
+        } else {
+            return true
         }
     }
     

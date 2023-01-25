@@ -93,7 +93,8 @@ final class SplashScreenViewModel {
         var slItem: SLastPageItem?
         var spaceLibraryItems: SpaceLibraryItems?
         
-        var initItems = false
+        /// The onePage variable is used when the call has only 1 page to initialize the spaceLibraryItems variable and not add new items in the second call as if it came from more than one page.
+        var onePage = false
         
         group.enter()
         NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
@@ -115,7 +116,7 @@ final class SplashScreenViewModel {
             return
         }
         
-        // We do this and take another page to prevent if the last page have only a few items
+        /// If the order is from the highest to the lowest, the last page may have only a few items, so we take the last two pages to avoid this situation and also other similar ones, otherwise the user would not be able to scroll to get more items.
         if Int(page) ?? 0 >= 2 {
             NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
                 switch result {
@@ -128,7 +129,7 @@ final class SplashScreenViewModel {
                 }
             })
         } else {
-            initItems = true
+            onePage = true
             group.leave()
         }
         
@@ -139,7 +140,7 @@ final class SplashScreenViewModel {
                     print("Space library WS error: \(error)")
                     completion(.failure(error))
                 case .success(let spaceLibraryItemsData):
-                    if initItems {
+                    if onePage {
                         spaceLibraryItems = spaceLibraryItemsData
                     } else {
                         spaceLibraryItems?.collection.spaceItems.append(contentsOf: spaceLibraryItemsData.collection.spaceItems)
