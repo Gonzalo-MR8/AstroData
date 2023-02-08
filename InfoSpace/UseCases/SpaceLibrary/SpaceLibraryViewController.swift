@@ -22,7 +22,6 @@ class SpaceLibraryViewController: UIViewController {
     
     private let kAnimationDuration: TimeInterval = 0.6
     
-    private var filtered: Bool = false
     private var reload: Bool = false
     
     static func initAndLoad(spaceLibraryData: SpaceLibraryData) -> SpaceLibraryViewController {
@@ -157,10 +156,12 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
-        if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == Utils.shared.getCurrentYear().description {
+        if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_NO_FILTERS_ERROR".localized)
+        } else {
             showHudView()
             
-            viewModel.getSpaceLibraryItemsBegin(changeOrder: filters.order, completion: { result in
+            viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
                 switch result {
                 case .failure(_):
                     DispatchQueue.main.async {
@@ -171,32 +172,17 @@ extension SpaceLibraryViewController: FilterViewProtocol {
                     self.resetOfChangeFiltersSuccess()
                 }
             })
-        } else {
-            if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
-                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_NO_FILTERS_ERROR".localized)
-            } else {
-                showHudView()
-                
-                filtered = true
-                viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
-                    switch result {
-                    case .failure(_):
-                        DispatchQueue.main.async {
-                            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
-                            self.hideHudView()
-                        }
-                    case .success(_):
-                        self.resetOfChangeFiltersSuccess()
-                    }
-                })
-            }
         }
+    }
+    
+    func changeOrder(order: Order) {
+        viewModel.orderSpaceItems(order: order)
+        spaceItemsCollectionView.reloadData()
     }
     
     func resetFilters() {
         showHudView()
-        filtered = false
-        viewModel.getSpaceLibraryItemsBegin(reset: true, completion: { result in
+        viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters, completion: { result in
             switch result {
             case .failure(_):
                 DispatchQueue.main.async {
@@ -228,35 +214,19 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
             self.spaceItemsCollectionView.reloadData()
         })
         
-        if filtered {
-            viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters, completion: { result in
-                switch result {
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
-                        self.spaceItemsCollectionView.reloadData()
-                    }
-                case .success(_):
-                    DispatchQueue.main.async {
-                        self.spaceItemsCollectionView.reloadData()
-                    }
+        viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters, completion: { result in
+            switch result {
+            case .failure(_):
+                DispatchQueue.main.async {
+                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
+                    self.spaceItemsCollectionView.reloadData()
                 }
-            })
-        } else {
-            viewModel.getSpaceLibraryItemsBeginNewPage(completion: { result in
-                switch result {
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
-                        self.spaceItemsCollectionView.reloadData()
-                    }
-                case .success(_):
-                    DispatchQueue.main.async {
-                        self.spaceItemsCollectionView.reloadData()
-                    }
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.spaceItemsCollectionView.reloadData()
                 }
-            })
-        }
+            }
+        })
     }
 }
 

@@ -105,8 +105,12 @@ final class SpaceLibraryViewModel {
         })
     }
     
-    public func getSpaceLibraryItemsFilters(filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
+    public func getSpaceLibraryItemsFilters(reset: Bool? = nil, filters: SpaceLibraryFilters, completion: @escaping (Result<Void, WebServiceError>) -> ()) {
         order = filters.order
+        
+        if let reset = reset, reset {
+            order = .highestToLowest
+        }
         
         /// The onePage variable is used when the call has only 1 page to initialize the spaceLibraryItems variable and not add new items in the second call as if it came from more than one page.
         var onePage = false
@@ -230,7 +234,9 @@ final class SpaceLibraryViewModel {
         }
     }
     
-    private func orderSpaceItems(order: Order) {
+    // MARK: - Public Methods
+    
+    public func orderSpaceItems(order: Order) {
         switch order {
         case .highestToLowest:
             spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated > $1.spaceItemsdatas.first!.dateCreated } )
@@ -238,8 +244,6 @@ final class SpaceLibraryViewModel {
             spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated < $1.spaceItemsdatas.first!.dateCreated } )
         }
     }
-    
-    // MARK: - Public Methods
     
     public func getNumberOfSpaceItems() -> Int {
         let count = spaceLibraryItems.collection.spaceItems.count

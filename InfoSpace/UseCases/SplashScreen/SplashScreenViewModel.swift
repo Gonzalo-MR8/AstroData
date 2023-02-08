@@ -111,7 +111,7 @@ final class SplashScreenViewModel {
         group.wait()
         
         group.enter()
-        guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), let page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
+        guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), var page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
             completion(.failure(wsError ?? WebServiceError.unknown))
             return
         }
@@ -134,6 +134,9 @@ final class SplashScreenViewModel {
         }
         
         group.notify(queue: .main, execute: {
+            if let numberPage = Int(page) {
+                page = String(numberPage - 1)
+            }
             NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
                 switch result {
                 case .failure(let error):

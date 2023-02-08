@@ -9,6 +9,7 @@ import UIKit
 
 protocol FilterViewProtocol: AnyObject {
     func changeFilters(filters: SpaceLibraryFilters)
+    func changeOrder(order: Order)
     func resetFilters()
 }
 
@@ -30,6 +31,7 @@ class FilterView: View {
     private var reset: Bool = false
     
     public var filters: SpaceLibraryFilters!
+    public var onlyChangeOrder: Bool?
     
     weak var delegate: FilterViewProtocol?
     
@@ -132,6 +134,7 @@ extension FilterView: UITableViewDataSource {
 extension FilterView: SearchFilterCellProtocol {
     func searchTextChanged(text: String?) {
         filters.searchText = text
+        onlyChangeOrder = false
     }
 }
 
@@ -140,6 +143,7 @@ extension FilterView: SearchFilterCellProtocol {
 extension FilterView: ContentTypeFilterCellProtocol {
     func changeSelectedTypes(mediaTypes: [MediaType]?) {
         filters.mediaTypes = mediaTypes
+        onlyChangeOrder = false
     }
 }
 
@@ -149,6 +153,7 @@ extension FilterView: YearsFilterCellProtocol {
     func changeYearsSelected(yearStart: String?, yearEnd: String?) {
         filters.yearStart = yearStart
         filters.yearEnd = yearEnd
+        onlyChangeOrder = false
     }
 }
 
@@ -157,6 +162,9 @@ extension FilterView: YearsFilterCellProtocol {
 extension FilterView: OrderFilterCellProtocol {
     func changeSelectedSegment(selectedOrder: Order) {
         filters.order = selectedOrder
+        if onlyChangeOrder == nil {
+            onlyChangeOrder = true
+        }
     }
 }
 
@@ -164,13 +172,20 @@ extension FilterView: OrderFilterCellProtocol {
 
 extension FilterView: ButtonsFilterCellProtocol {
     func applyButtonPressed() {
-        delegate?.changeFilters(filters: filters)
+        if let order = onlyChangeOrder, order {
+            delegate?.changeOrder(order: filters.order)
+        } else {
+            delegate?.changeFilters(filters: filters)
+        }
+        onlyChangeOrder = nil
     }
     
     func resetButtonPressed() {
+        onlyChangeOrder = nil
         reset = true
         filtersTableView.reloadData()
         filters = SpaceLibraryFilters()
+        filters.yearStart = Utils.shared.getCurrentYear().description
         delegate?.resetFilters()
     }
 }
