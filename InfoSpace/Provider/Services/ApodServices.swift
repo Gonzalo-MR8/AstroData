@@ -1,5 +1,5 @@
 //
-//  ApodService.swift
+//  ApodServices.swift
 //  InfoSpace
 //
 //  Created by GonzaloMR on 12/2/23.
@@ -12,7 +12,7 @@ protocol ApodServiceable {
     func getApod(date: Date?) async -> Result<APOD, RequestError>
 }
 
-struct ApodService: NetworkClient, ApodServiceable {
+struct ApodServices: NetworkClient, ApodServiceable {
     func getApod(date: Date?) async -> Result<APOD, RequestError> {
         return await sendRequest(endPoint: ApodEndPoint.getApod(date: date), responseModel: APOD.self)
     }

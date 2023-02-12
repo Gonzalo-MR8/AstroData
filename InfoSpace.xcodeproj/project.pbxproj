@@ -40,7 +40,6 @@
 		9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22A76228453E65002762AF /* DashboardViewController.swift */; };
 		9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B22A76328453E65002762AF /* DashboardViewController.xib */; };
 		9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B22A76628453E8E002762AF /* DashboardViewModel.swift */; };
-		9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25530728F1B9A500A8110E /* NasaLibraryDataManager.swift */; };
 		9B270E312840013000F4FFED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E302840013000F4FFED /* Constants.swift */; };
 		9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E33284001A000F4FFED /* NetworkManager.swift */; };
 		9B270E36284001AB00F4FFED /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B270E35284001AB00F4FFED /* Reachability.swift */; };
@@ -158,7 +157,9 @@
 		9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB736D1285659E800B8D867 /* Bundle+Utils.swift */; };
 		9BC3668529983CD400371E03 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668429983CD400371E03 /* NetworkClient.swift */; };
 		9BC3668A29995EFE00371E03 /* ApodEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668929995EFE00371E03 /* ApodEndPoint.swift */; };
-		9BC3668C2999605200371E03 /* ApodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668B2999605200371E03 /* ApodService.swift */; };
+		9BC3668C2999605200371E03 /* ApodServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668B2999605200371E03 /* ApodServices.swift */; };
+		9BC3668E2999A71600371E03 /* NasaLibraryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668D2999A71600371E03 /* NasaLibraryEndPoint.swift */; };
+		9BC366902999AB5B00371E03 /* NasaLibraryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668F2999AB5B00371E03 /* NasaLibraryServices.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
 		9BD164F129529300007C762B /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD164F029529300007C762B /* ImageSaver.swift */; };
@@ -221,7 +222,6 @@
 		9B22A76228453E65002762AF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		9B22A76328453E65002762AF /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		9B22A76628453E8E002762AF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		9B25530728F1B9A500A8110E /* NasaLibraryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryDataManager.swift; sourceTree = "<group>"; };
 		9B270E302840013000F4FFED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B270E33284001A000F4FFED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9B270E35284001AB00F4FFED /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -344,7 +344,9 @@
 		9BB736D1285659E800B8D867 /* Bundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Utils.swift"; sourceTree = "<group>"; };
 		9BC3668429983CD400371E03 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		9BC3668929995EFE00371E03 /* ApodEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApodEndPoint.swift; sourceTree = "<group>"; };
-		9BC3668B2999605200371E03 /* ApodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApodService.swift; sourceTree = "<group>"; };
+		9BC3668B2999605200371E03 /* ApodServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApodServices.swift; sourceTree = "<group>"; };
+		9BC3668D2999A71600371E03 /* NasaLibraryEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryEndPoint.swift; sourceTree = "<group>"; };
+		9BC3668F2999AB5B00371E03 /* NasaLibraryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryServices.swift; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		9BD164F029529300007C762B /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -684,14 +686,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		9B8769DA2857A14D00FEB405 /* NasaProvider */ = {
-			isa = PBXGroup;
-			children = (
-				9B25530728F1B9A500A8110E /* NasaLibraryDataManager.swift */,
-			);
-			path = NasaProvider;
-			sourceTree = "<group>";
-		};
 		9B8769E12857A83900FEB405 /* APOD */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,7 +800,6 @@
 			children = (
 				9BC3668729995EA200371E03 /* EndPoints */,
 				9BC3668629995E9A00371E03 /* Services */,
-				9B8769DA2857A14D00FEB405 /* NasaProvider */,
 				9B1F8C7628466D7400BCCEBE /* FirebaseProvider */,
 				9B270E322840018900F4FFED /* Network */,
 			);
@@ -884,7 +877,8 @@
 		9BC3668629995E9A00371E03 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9BC3668B2999605200371E03 /* ApodService.swift */,
+				9BC3668B2999605200371E03 /* ApodServices.swift */,
+				9BC3668F2999AB5B00371E03 /* NasaLibraryServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -893,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				9BC3668929995EFE00371E03 /* ApodEndPoint.swift */,
+				9BC3668D2999A71600371E03 /* NasaLibraryEndPoint.swift */,
 			);
 			path = EndPoints;
 			sourceTree = "<group>";
@@ -1189,7 +1184,7 @@
 				9B34CFAB290F10D500E642A1 /* YearsFilterCell.swift in Sources */,
 				9B1219DD292920CD00D9FF9F /* SpaceItemDetailViewController.swift in Sources */,
 				9B38CD292872234F006712EE /* MarsRoverViewModel.swift in Sources */,
-				9BC3668C2999605200371E03 /* ApodService.swift in Sources */,
+				9BC3668C2999605200371E03 /* ApodServices.swift in Sources */,
 				9B342628292D633B004BB8BC /* OpenUrlCell.swift in Sources */,
 				9BC3668529983CD400371E03 /* NetworkClient.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
@@ -1216,12 +1211,12 @@
 				9B1219E82929BD2F00D9FF9F /* SIDetailImageCell.swift in Sources */,
 				9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */,
 				9B4F833B290DCE00006E8954 /* SearchFilterCell.swift in Sources */,
-				9B25530828F1B9A500A8110E /* NasaLibraryDataManager.swift in Sources */,
 				9B22A76428453E65002762AF /* DashboardViewController.swift in Sources */,
 				9BB4441E283D62410043EF4E /* UIApplication+Utils.swift in Sources */,
 				9B84C976296B3BCB00821734 /* Localizable.swift in Sources */,
 				9BC3668A29995EFE00371E03 /* ApodEndPoint.swift in Sources */,
 				9B38CD2F28722373006712EE /* SpaceLibraryViewModel.swift in Sources */,
+				9BC366902999AB5B00371E03 /* NasaLibraryServices.swift in Sources */,
 				9BB736D2285659E800B8D867 /* Bundle+Utils.swift in Sources */,
 				9B22370028456F26005F47B7 /* UIImageView+Utils.swift in Sources */,
 				9BB443E4283D55840043EF4E /* AppDelegate.swift in Sources */,
@@ -1233,6 +1228,7 @@
 				9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */,
 				9B8769E92857A87100FEB405 /* APODViewModel.swift in Sources */,
 				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
+				9BC3668E2999A71600371E03 /* NasaLibraryEndPoint.swift in Sources */,
 				9B38CD2628722340006712EE /* MarsRoverViewController.swift in Sources */,
 				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
 				9B84C97F296B97D500821734 /* UILabel+Utils.swift in Sources */,
