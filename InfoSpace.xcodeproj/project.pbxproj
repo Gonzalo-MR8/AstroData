@@ -18,8 +18,6 @@
 		9B1219E92929BD2F00D9FF9F /* SIDetailImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1219E72929BD2F00D9FF9F /* SIDetailImageCell.xib */; };
 		9B19495C286902CE00B8322B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19495B286902CE00B8322B /* Utils.swift */; };
 		9B1F8C7528466CC400BCCEBE /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7428466CC400BCCEBE /* Planet.swift */; };
-		9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */; };
-		9B1F8C7B28466DF700BCCEBE /* PlanetsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */; };
 		9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */; };
 		9B21F6902846D57F00D64B79 /* StarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B21F68F2846D57F00D64B79 /* StarViews.swift */; };
 		9B2236F62845639B005F47B7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2236F52845639B005F47B7 /* Colors.xcassets */; };
@@ -160,6 +158,8 @@
 		9BC3668C2999605200371E03 /* ApodServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668B2999605200371E03 /* ApodServices.swift */; };
 		9BC3668E2999A71600371E03 /* NasaLibraryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668D2999A71600371E03 /* NasaLibraryEndPoint.swift */; };
 		9BC366902999AB5B00371E03 /* NasaLibraryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3668F2999AB5B00371E03 /* NasaLibraryServices.swift */; };
+		9BC366922999AD6400371E03 /* PlanetsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC366912999AD6400371E03 /* PlanetsEndPoint.swift */; };
+		9BC366942999AD8700371E03 /* PlanetsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC366932999AD8700371E03 /* PlanetsServices.swift */; };
 		9BCC498D283E82FA00EF9869 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */; };
 		9BCC498E283E82FA00EF9869 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */; };
 		9BD164F129529300007C762B /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD164F029529300007C762B /* ImageSaver.swift */; };
@@ -200,8 +200,6 @@
 		9B1219E72929BD2F00D9FF9F /* SIDetailImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIDetailImageCell.xib; sourceTree = "<group>"; };
 		9B19495B286902CE00B8322B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9B1F8C7428466CC400BCCEBE /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
-		9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataDataManager.swift; sourceTree = "<group>"; };
-		9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsDataManager.swift; sourceTree = "<group>"; };
 		9B1F8C7C284679BD00BCCEBE /* DashboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItem.swift; sourceTree = "<group>"; };
 		9B21F68F2846D57F00D64B79 /* StarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViews.swift; sourceTree = "<group>"; };
 		9B2236F52845639B005F47B7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -347,6 +345,8 @@
 		9BC3668B2999605200371E03 /* ApodServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApodServices.swift; sourceTree = "<group>"; };
 		9BC3668D2999A71600371E03 /* NasaLibraryEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryEndPoint.swift; sourceTree = "<group>"; };
 		9BC3668F2999AB5B00371E03 /* NasaLibraryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryServices.swift; sourceTree = "<group>"; };
+		9BC366912999AD6400371E03 /* PlanetsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsEndPoint.swift; sourceTree = "<group>"; };
+		9BC366932999AD8700371E03 /* PlanetsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsServices.swift; sourceTree = "<group>"; };
 		9BCC498B283E82FA00EF9869 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		9BCC498C283E82FA00EF9869 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		9BD164F029529300007C762B /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -434,15 +434,6 @@
 				9B67B52F2946886D0024E821 /* SIDetailAudioCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		9B1F8C7628466D7400BCCEBE /* FirebaseProvider */ = {
-			isa = PBXGroup;
-			children = (
-				9B1F8C7728466D9500BCCEBE /* FirebaseDataDataManager.swift */,
-				9B1F8C7A28466DF700BCCEBE /* PlanetsDataManager.swift */,
-			);
-			path = FirebaseProvider;
 			sourceTree = "<group>";
 		};
 		9B21F68E2846D55700D64B79 /* StarViews */ = {
@@ -800,7 +791,6 @@
 			children = (
 				9BC3668729995EA200371E03 /* EndPoints */,
 				9BC3668629995E9A00371E03 /* Services */,
-				9B1F8C7628466D7400BCCEBE /* FirebaseProvider */,
 				9B270E322840018900F4FFED /* Network */,
 			);
 			path = Provider;
@@ -879,6 +869,7 @@
 			children = (
 				9BC3668B2999605200371E03 /* ApodServices.swift */,
 				9BC3668F2999AB5B00371E03 /* NasaLibraryServices.swift */,
+				9BC366932999AD8700371E03 /* PlanetsServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -888,6 +879,7 @@
 			children = (
 				9BC3668929995EFE00371E03 /* ApodEndPoint.swift */,
 				9BC3668D2999A71600371E03 /* NasaLibraryEndPoint.swift */,
+				9BC366912999AD6400371E03 /* PlanetsEndPoint.swift */,
 			);
 			path = EndPoints;
 			sourceTree = "<group>";
@@ -1167,7 +1159,6 @@
 				9B8CABE02850096D00C4667B /* ImageView.swift in Sources */,
 				9B19495C286902CE00B8322B /* Utils.swift in Sources */,
 				9B62D5DF292E842500863317 /* SIDetailVideoCell.swift in Sources */,
-				9B1F8C7B28466DF700BCCEBE /* PlanetsDataManager.swift in Sources */,
 				9B21F6902846D57F00D64B79 /* StarViews.swift in Sources */,
 				9B053FA928429A8800A8AA40 /* CustomNavigationController.swift in Sources */,
 				9BD164F129529300007C762B /* ImageSaver.swift in Sources */,
@@ -1202,6 +1193,7 @@
 				9B223716284588D9005F47B7 /* DashboardItemCell.swift in Sources */,
 				9B58014A29148CBC009288FD /* FontTypes.swift in Sources */,
 				9B62D5E3293673E400863317 /* OrderFilterCell.swift in Sources */,
+				9BC366942999AD8700371E03 /* PlanetsServices.swift in Sources */,
 				9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */,
 				9B342634292D6BD4004BB8BC /* SIDetailMultipurposeTextCell.swift in Sources */,
 				9BB44420283D64AA0043EF4E /* UIViewController+Utils.swift in Sources */,
@@ -1225,7 +1217,6 @@
 				9B1219E0292920E300D9FF9F /* SpaceItemDetailViewModel.swift in Sources */,
 				9B2E4AF629117B4B001A0FA5 /* SpaceLibraryItemCell.swift in Sources */,
 				9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */,
-				9B1F8C7828466D9500BCCEBE /* FirebaseDataDataManager.swift in Sources */,
 				9B8769E92857A87100FEB405 /* APODViewModel.swift in Sources */,
 				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
 				9BC3668E2999A71600371E03 /* NasaLibraryEndPoint.swift in Sources */,
@@ -1245,6 +1236,7 @@
 				9B4356442947DD2F00195C11 /* Slider.swift in Sources */,
 				9B38CD2328722327006712EE /* AsteroidsNearEarthViewModel.swift in Sources */,
 				9B8CABDD2850091100C4667B /* PlanetImageCell.swift in Sources */,
+				9BC366922999AD6400371E03 /* PlanetsEndPoint.swift in Sources */,
 				9B38CD2C28722362006712EE /* SpaceLibraryViewController.swift in Sources */,
 				9B1F8C7528466CC400BCCEBE /* Planet.swift in Sources */,
 			);
