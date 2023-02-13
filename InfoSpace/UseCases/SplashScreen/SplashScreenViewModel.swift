@@ -38,6 +38,7 @@ final class SplashScreenViewModel {
         await getSpaceLibraryItems()
         
         guard let planets = planets, let apod = apod, let spaceLibraryData = spaceLibraryData else {
+            print(requestError ?? .noData)
             return .failure(requestError ?? .noData)
         }
         
