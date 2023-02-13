@@ -35,6 +35,5 @@ struct NasaLibraryServices: NetworkClient, NasaLibraryServiceable {
     
     func getMediaURLs(jsonUrl: String) async -> Result<[String], RequestError> {
         return await sendRequest(endPoint: NasaLibraryEndPoint.getMediaURLs(jsonUrl: jsonUrl), responseModel: [String].self)
-    }
-    
+    }    
 }

@@ -8,149 +8,83 @@
 import Foundation
 
 final class SplashScreenViewModel {
-    func getInitialData(completion: @escaping (Result<DashboardData, WebServiceError>) -> ()) {
-        let group = DispatchGroup()
+    var requestError: RequestError?
+    var planets: Planets?
+    var apod: APOD?
+    var spaceLibraryData: SpaceLibraryData?
+    
+    func getInitialData() async -> Result<DashboardData, RequestError> {
         
-        var wsError: WebServiceError?
-        var planets: Planets?
-        var apod: APOD?
-        var spaceLibraryData: SpaceLibraryData?
+        let apodServices: ApodServiceable = ApodServices()
+        let planetsServices: PlanetsServiceable = PlanetsServices()
         
-        group.enter()
-        getAPOD(completion: { result in
-            switch result {
-            case .failure(let error):
-                wsError = error
-                group.leave()
-            case .success(let apodData):
-                apod = apodData
-                group.leave()
-            }
-        })
+        let apodResult = await apodServices.getApod(date: nil)
+        let planetsResult = await planetsServices.getPlanets()
         
-        group.enter()
-        getPlanets(completion: { result in
-            switch result {
-            case .failure(let error):
-                wsError = error
-                group.leave()
-            case .success(let planetsData):
-                planets = planetsData
-                group.leave()
-            }
-        })
+        switch apodResult {
+        case .success(let apodData):
+            apod = apodData
+        case .failure(let failure):
+            requestError = failure
+        }
         
-        group.enter()
-        getSpaceLibraryItems(completion: { result in
-            switch result {
-            case .failure(let error):
-                wsError = error
-                group.leave()
-            case .success(let spaceLibraryItemsData):
-                spaceLibraryData = spaceLibraryItemsData
-                group.leave()
-            }
-        })
+        switch planetsResult {
+        case .success(let planetsData):
+            planets = planetsData
+        case .failure(let failure):
+            requestError = failure
+        }
         
-        group.notify(queue: .main, execute: {
-            guard let planets = planets, let apod = apod, let spaceLibraryData = spaceLibraryData else {
-                completion(.failure(wsError ?? WebServiceError.unknown))
-                return
-            }
-            
-            completion(.success((planets, apod, spaceLibraryData)))
-        })
+        await getSpaceLibraryItems()
+        
+        guard let planets = planets, let apod = apod, let spaceLibraryData = spaceLibraryData else {
+            return .failure(requestError ?? .noData)
+        }
+        
+        return .success((planets, apod, spaceLibraryData))
     }
     
-    private func getAPOD(completion: @escaping (Result<APOD, WebServiceError>) -> ()) {
-        APODDataManager.shared.getAPOD(date: nil, completion: { result in
-            switch result {
-            case .failure(let error):
-                print("Apod WS error: \(error)")
-                completion(.failure(error))
-            case .success(let apod):
-                completion(.success(apod))
-            }
-        })
-    }
-
-    private func getPlanets(completion: @escaping (Result<Planets, WebServiceError>) -> ()) {
-        PlanetsDataManager.shared.getPlanets(completion: { result in
-            switch result {
-            case .failure(let error):
-                print("Planets WS error: \(error)")
-                completion(.failure(error))
-            case .success(let planets):
-                completion(.success(planets))
-            }
-        })
-    }
     
-    private func getSpaceLibraryItems(completion: @escaping (Result<SpaceLibraryData, WebServiceError>) -> ()) {
-        let group = DispatchGroup()
-        
-        var wsError: WebServiceError?
+    private func getSpaceLibraryItems() async {
         var slItem: SLastPageItem?
-        var spaceLibraryItems: SpaceLibraryItems?
         
-        /// The onePage variable is used when the call has only 1 page to initialize the spaceLibraryItems variable and not add new items in the second call as if it came from more than one page.
-        var onePage = false
+        let nasaLibraryServices: NasaLibraryServiceable = NasaLibraryServices()
         
-        group.enter()
-        NasaLibraryDataManager.shared.getSLastPageItemDefault(completion: { result in
-            switch result {
-            case .failure(let error):
-                print("getLastPage WS error: \(error)")
-                wsError = error
-                group.leave()
-            case .success(let slItemData):
-                slItem = slItemData
-                group.leave()
-            }
-        })
-        group.wait()
+        let slItemResult = await nasaLibraryServices.getSLastPageItemDefault()
         
-        group.enter()
-        guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), var page = url.getQueryStringParameter(param: NasaLibraryDataManager.shared.kParameterPage) else {
-            completion(.failure(wsError ?? WebServiceError.unknown))
+        switch slItemResult {
+        case .success(let slItemData):
+            slItem = slItemData
+        case .failure(let failure):
+            requestError = failure
+        }
+        
+        guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), var page = url.getQueryStringParameter(param: ParametersConstants.kParameterPage) else {
+            requestError = .noData
             return
         }
         
-        /// If the order is from the highest to the lowest, the last page may have only a few items, so we take the last two pages to avoid this situation and also other similar ones, otherwise the user would not be able to scroll to get more items.
-        if Int(page) ?? 0 >= 2 {
-            NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
-                switch result {
-                case .failure(let error):
-                    print("Space library WS error: \(error)")
-                    group.leave()
-                case .success(let spaceLibraryItemsData):
-                    spaceLibraryItems = spaceLibraryItemsData
-                    group.leave()
-                }
-            })
-        } else {
-            onePage = true
-            group.leave()
+        let libraryResult = await nasaLibraryServices.getLibraryDefault(page: page)
+        
+        switch libraryResult {
+        case .success(let libraryData):
+            spaceLibraryData = (libraryData, slItem)
+        case .failure(let failure):
+            requestError = failure
         }
         
-        group.notify(queue: .main, execute: {
-            if let numberPage = Int(page) {
-                page = String(numberPage - 1)
-            }
-            NasaLibraryDataManager.shared.getLibraryDefault(page: page, completion: { result in
-                switch result {
-                case .failure(let error):
-                    print("Space library WS error: \(error)")
-                    completion(.failure(error))
-                case .success(let spaceLibraryItemsData):
-                    if onePage {
-                        spaceLibraryItems = spaceLibraryItemsData
-                    } else {
-                        spaceLibraryItems?.collection.spaceItems.append(contentsOf: spaceLibraryItemsData.collection.spaceItems)
-                    }
-                    completion(.success((spaceLibraryItems!, slItem)))
-                }
-            })
-        })
+        /// We subtract a page to get the next page in the service
+        if let numberPage = Int(page) {
+            page = String(numberPage - 1)
+        }
+        
+        let libraryResultSecondPage = await nasaLibraryServices.getLibraryDefault(page: page)
+        
+        switch libraryResultSecondPage {
+        case .success(let libraryData):
+            spaceLibraryData?.0.collection.appendNewItemsToSpaceItems(spaceItems: libraryData.collection.spaceItems)
+        case .failure(_):
+            break
+        }
     }
 }

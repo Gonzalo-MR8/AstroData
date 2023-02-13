@@ -48,7 +48,6 @@ extension NasaLibraryEndPoint: EndPoint {
         let kParameterYearStart = "year_start"
         let kParameterYearEnd = "year_end"
         let kParameterMediaType = "media_type"
-        let kParameterPage = "page"
             
         let kLastPageNumber: String = "100"
         
@@ -57,9 +56,9 @@ extension NasaLibraryEndPoint: EndPoint {
         switch self {
         case .getLibraryDefault(let page):
             parameters[kParameterYearStart] = Utils.shared.getCurrentYear().description
-            parameters[kParameterPage] = page
+            parameters[ParametersConstants.kParameterPage] = page
         case .getLibraryFilters(let filters), .getSLastPageItemFilters(filters: let filters):
-            parameters[kParameterPage] = String(filters.page)
+            parameters[ParametersConstants.kParameterPage] = String(filters.page)
             
             if let searchText = filters.searchText {
                 parameters[kParameterSearchText] = searchText
@@ -92,7 +91,7 @@ extension NasaLibraryEndPoint: EndPoint {
             }
         case .getSLastPageItemDefault:
             parameters[kParameterYearStart] = Utils.shared.getCurrentYear().description
-            parameters[kParameterPage] = kLastPageNumber
+            parameters[ParametersConstants.kParameterPage] = kLastPageNumber
         default:
             return nil
         }

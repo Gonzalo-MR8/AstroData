@@ -25,6 +25,7 @@ enum HttpMethod: String {
 
 enum RequestError: Error {
     case invalidURL
+    case noData
     case noHttpResponse
     case noInternetConnection
     case parseError
