@@ -102,10 +102,11 @@ extension APODViewController: UITableViewDataSource {
             
             cell.changeDatePicker = { [self] date in
                 showHudView()
-                viewModel.getNewAPOD(date: date, completion: { result in
+                Task {
+                    let result = await viewModel.getNewAPOD(date: date)
+                    
                     switch result {
-                    case .failure(let error):
-                        print("Apod date picker \(error)")
+                    case .failure(_):
                         cell.updateSelectedDate(state: false)
                         DispatchQueue.main.async {
                             self.hideHudView()
@@ -115,7 +116,7 @@ extension APODViewController: UITableViewDataSource {
                         cell.updateSelectedDate(state: true)
                         self.configureImageOrUrl()
                     }
-                })
+                }
             }
             
             return cell

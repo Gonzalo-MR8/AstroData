@@ -161,17 +161,19 @@ extension SpaceLibraryViewController: FilterViewProtocol {
         } else {
             showHudView()
             
-            viewModel.getSpaceLibraryItemsFilters(filters: filters, completion: { result in
+            Task {
+                let result = await viewModel.getSpaceLibraryItemsFilters(filters: filters)
+                
                 switch result {
+                case .success(_):
+                    self.resetOfChangeFiltersSuccess()
                 case .failure(_):
                     DispatchQueue.main.async {
                         CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
                         self.hideHudView()
                     }
-                case .success(_):
-                    self.resetOfChangeFiltersSuccess()
                 }
-            })
+            }
         }
     }
     
@@ -182,17 +184,20 @@ extension SpaceLibraryViewController: FilterViewProtocol {
     
     func resetFilters() {
         showHudView()
-        viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters, completion: { result in
+        
+        Task {
+            let result = await viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters)
+            
             switch result {
+            case .success(_):
+                self.resetOfChangeFiltersSuccess()
             case .failure(_):
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
                     self.hideHudView()
                 }
-            case .success(_):
-                self.resetOfChangeFiltersSuccess()
             }
-        })
+        }
     }
 }
 
@@ -214,19 +219,21 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
             self.spaceItemsCollectionView.reloadData()
         })
         
-        viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters, completion: { result in
+        Task {
+            let result = await viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters)
+            
             switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.spaceItemsCollectionView.reloadData()
+                }
             case .failure(_):
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
                     self.spaceItemsCollectionView.reloadData()
                 }
-            case .success(_):
-                DispatchQueue.main.async {
-                    self.spaceItemsCollectionView.reloadData()
-                }
             }
-        })
+        }
     }
 }
 
