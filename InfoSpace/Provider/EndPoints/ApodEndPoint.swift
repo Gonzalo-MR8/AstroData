@@ -13,13 +13,7 @@ enum ApodEndPoint {
 
 extension ApodEndPoint: EndPoint {
     var basePath: String {
-        var url = Bundle.string(for: InfoConstants.kNasaBaseUrl)!
-        
-        if !url.hasSuffix("/") {
-            url = url + "/"
-        }
-        
-        return url
+        return Bundle.string(for: InfoConstants.kNasaBaseUrl)!
     }
     
     var path: String {

@@ -19,7 +19,7 @@ extension NetworkClient {
             return .failure(.noInternetConnection)
         }
 
-        guard var request = createRequest(from: endPoint) else {
+        guard let request = createRequest(from: endPoint) else {
             return .failure(.invalidURL)
         }
         

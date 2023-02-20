@@ -20,6 +20,7 @@ final class SplashScreenViewModel {
         
         let apodResult = await apodServices.getApod(date: nil)
         let planetsResult = await planetsServices.getPlanets()
+        let nasaLibraryResult = await getSpaceLibraryItems()
         
         switch apodResult {
         case .success(let apodData):
@@ -35,7 +36,13 @@ final class SplashScreenViewModel {
             requestError = failure
         }
         
-        await getSpaceLibraryItems()
+        switch nasaLibraryResult {
+        case .success(let spaceLibraryData):
+            self.spaceLibraryData = spaceLibraryData
+        case .failure(let failure):
+            requestError = failure
+            return .failure(requestError ?? .noData)
+        }
         
         guard let planets = planets, let apod = apod, let spaceLibraryData = spaceLibraryData else {
             print(requestError ?? .noData)
@@ -45,11 +52,11 @@ final class SplashScreenViewModel {
         return .success((planets, apod, spaceLibraryData))
     }
     
-    
-    private func getSpaceLibraryItems() async {
-        var slItem: SLastPageItem?
-        
+    private func getSpaceLibraryItems() async -> Result<SpaceLibraryData, RequestError> {
         let nasaLibraryServices: NasaLibraryServiceable = NasaLibraryServices()
+        
+        var slItem: SLastPageItem!
+        var spaceLibraryData: SpaceLibraryData!
         
         let slItemResult = await nasaLibraryServices.getSLastPageItemDefault()
         
@@ -60,9 +67,9 @@ final class SplashScreenViewModel {
             requestError = failure
         }
         
-        guard let slItem = slItem, let strUrl = slItem.collection.getPrevLink(), let url = URL(string: strUrl), var page = url.getQueryStringParameter(param: ParametersConstants.kParameterPage) else {
+        guard var page = slItem?.getPage() else {
             requestError = .noData
-            return
+            return .failure(.noData)
         }
         
         let libraryResult = await nasaLibraryServices.getLibraryDefault(page: page)
@@ -71,7 +78,7 @@ final class SplashScreenViewModel {
         case .success(let libraryData):
             spaceLibraryData = (libraryData, slItem)
         case .failure(let failure):
-            requestError = failure
+            return .failure(failure)
         }
         
         /// We subtract a page to get the next page in the service
@@ -84,8 +91,9 @@ final class SplashScreenViewModel {
         switch libraryResultSecondPage {
         case .success(let libraryData):
             spaceLibraryData?.0.collection.appendNewItemsToSpaceItems(spaceItems: libraryData.collection.spaceItems)
-        case .failure(_):
-            break
+            return .success(spaceLibraryData)
+        case .failure(let failure):
+            return .failure(failure)
         }
     }
 }
