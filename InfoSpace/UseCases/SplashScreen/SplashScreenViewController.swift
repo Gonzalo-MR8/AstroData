@@ -24,21 +24,22 @@ class SplashScreenViewController: UIViewController {
     }
     
     private func getInitialData() {
-        viewModel.getInitialData(completion: { result in
-            switch result {
-            case .failure(let error):
-                print("Error: \(error)")
-                DispatchQueue.main.async {
-                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPLASH_SCREEN_LOAD_ERROR".localized, completion: { _ in
-                        self.getInitialData()
-                    })
-                }
+        Task {
+            let initialData = await viewModel.getInitialData()
+            
+            switch initialData {
             case .success(let dashboardData):
                 DispatchQueue.main.async {
                     let dashboardVC = DashboardViewController.initAndLoad(dashboardData: dashboardData)
                     CustomNavigationController.instance.navigate(to: dashboardVC, animated: true)
                 }
+            case .failure:
+                DispatchQueue.main.async {
+                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPLASH_SCREEN_LOAD_ERROR".localized, completion: { _ in
+                        self.getInitialData()
+                    })
+                }
             }
-        })
+        }
     }
 }

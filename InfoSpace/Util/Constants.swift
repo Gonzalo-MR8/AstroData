@@ -24,6 +24,11 @@ struct Constants {
     static let kLongDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 }
 
+struct ParametersConstants {
+    static let kParameterPage = "page"
+    static let kLastPageNumber: String = "100"
+}
+
 struct InfoConstants {
     static let kNasaApiKey          = "kNasaApiKey"
     static let kFirebaseDataUrl     = "kFirebaseDataUrl"

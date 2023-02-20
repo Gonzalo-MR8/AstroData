@@ -37,6 +37,15 @@ struct Collection: Codable {
         
         self.links = try container.decodeIfPresent([CollectionLink].self, forKey: .links)
     }
+    
+    /// This method avoid duplicated items
+    public mutating func appendNewItemsToSpaceItems(spaceItems: [SpaceItem]) {
+        spaceItems.forEach({ item in
+            self.spaceItems.removeAll(where: { $0.equalItem(spaceItem: item) })
+        })
+        
+        self.spaceItems.append(contentsOf: spaceItems)
+    }
 }
 
 // MARK: - SpaceItem
@@ -56,6 +65,10 @@ struct SpaceItem: Codable {
         self.href = try container.decode(String.self, forKey: .href)
         self.spaceItemsdatas = try container.decode([SpaceItemData].self, forKey: .spaceItemsdatas)
         self.links = try container.decodeIfPresent([ItemLink].self, forKey: .links)
+    }
+    
+    public func equalItem(spaceItem: SpaceItem) -> Bool {
+        return spaceItemsdatas.contains(where: { $0.nasaID == spaceItem.spaceItemsdatas.first?.nasaID })
     }
 }
 

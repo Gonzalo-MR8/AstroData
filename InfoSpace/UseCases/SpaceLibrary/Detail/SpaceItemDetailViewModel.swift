@@ -9,6 +9,8 @@ import Foundation
 
 final class SpaceItemDetailViewModel {
     
+    private let services: NasaLibraryServiceable
+    
     private var spaceItem: SpaceItem!
     private var mediaURLs: [String]?
     
@@ -17,19 +19,20 @@ final class SpaceItemDetailViewModel {
     
     init(spaceItem: SpaceItem) {
         self.spaceItem = spaceItem
+        self.services = NasaLibraryServices()
     }
     
-    func getMediaURLs(completion: @escaping (Result<Void, WebServiceError>) -> ()) {
-        NasaLibraryDataManager.shared.getMediaURLs(jsonUrl: spaceItem.href, completion: { result in
-            switch result {
-            case .failure(let error):
-                print("getMediaURLs WS error: \(error)")
-                completion(.failure(error))
-            case .success(let strings):
-                self.mediaURLs = strings
-                completion(.success(()))
-            }
-        })
+    func getMediaURLs() async -> Result<Void, RequestError> {
+        let result = await services.getMediaURLs(jsonUrl: spaceItem.href)
+        
+        switch result {
+        case .success(let strings):
+            self.mediaURLs = strings
+            return .success(())
+        case .failure(let failure):
+            print("getMediaURLs WS error: \(failure)")
+            return .failure(failure)
+        }
     }
     
     public func getSpaceItemData() -> SpaceItemData {
