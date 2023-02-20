@@ -52,7 +52,10 @@ class SpaceItemDetailViewController: UIViewController {
         configureTable()
         
         self.showHudView()
-        viewModel.getMediaURLs(completion: { [self] _ in
+        
+        Task {
+            let _ = await viewModel.getMediaURLs()
+            
             switch viewModel.getSpaceItemData().mediaType {
             case .image:
                 configureImageCells()
@@ -61,7 +64,7 @@ class SpaceItemDetailViewController: UIViewController {
             case .audio:
                 configureAudioCells()
             }
-        })
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

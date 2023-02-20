@@ -30,10 +30,12 @@ struct NasaLibraryServices: NetworkClient, NasaLibraryServiceable {
     }
     
     func getSLastPageItemFilters(filters: SpaceLibraryFilters) async -> Result<SLastPageItem, RequestError> {
-        return await sendRequest(endPoint: NasaLibraryEndPoint.getSLastPageItemFilters(filters: filters), responseModel: SLastPageItem.self)
+        var updatePageFilters = filters
+        updatePageFilters.page = ParametersConstants.kLastPageNumber
+        return await sendRequest(endPoint: NasaLibraryEndPoint.getSLastPageItemFilters(filters: updatePageFilters), responseModel: SLastPageItem.self)
     }
     
     func getMediaURLs(jsonUrl: String) async -> Result<[String], RequestError> {
         return await sendRequest(endPoint: NasaLibraryEndPoint.getMediaURLs(jsonUrl: jsonUrl), responseModel: [String].self)
-    }    
+    }
 }

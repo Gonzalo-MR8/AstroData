@@ -16,12 +16,12 @@ enum Order {
 
 final class SpaceLibraryViewModel {
     
+    private let services: NasaLibraryServiceable
+    
     private var spaceLibraryItems: SpaceLibraryItems!
     private var slItem: SLastPageItem!
     private var order: Order = .highestToLowest
     private var page: String = "1"
-
-    private let services: NasaLibraryServiceable
     
     init(spaceLibraryData: SpaceLibraryData) {
         self.services = NasaLibraryServices()
@@ -34,48 +34,11 @@ final class SpaceLibraryViewModel {
     // MARK: - Network Methods
     
     /// This method manages the reset button pressed and when you want to change only the order of the space items
-    public func getSpaceLibraryItemsBegin(reset: Bool = false, changeOrder: Order? = nil) async -> Result<Void, RequestError> {
-        order = reset ? .highestToLowest : .lowestToHighest
-        
-        /// Change the order to a new order
-        if let changeOrder = changeOrder {
-            order = changeOrder
-        }
-        
-        let slItemResult = await services.getSLastPageItemDefault()
-        
-        switch slItemResult {
-        case .success(let slItemData):
-            self.slItem = slItemData
-            self.getDesiredPage()
-        case .failure(let failure):
-            return .failure(failure)
-        }
-        
-        let libraryResult = await services.getLibraryDefault(page: page)
-        
-        switch libraryResult {
-        case .success(let spaceLibraryItems):
-            self.spaceLibraryItems = spaceLibraryItems
-        case .failure(let failure):
-            return .failure(failure)
-        }
-        
-        let spaceItemsNewPage = await getSpaceLibraryItemsBeginNewPage()
-        
-        switch spaceItemsNewPage {
-        case .success(_):
-            return .success(())
-        case .failure(let failure):
-            self.orderSpaceItems(order: self.order)
-            return .failure(failure)
-        }
-    }
-    
     public func getSpaceLibraryItemsFilters(reset: Bool? = nil, filters: SpaceLibraryFilters) async -> Result<Void, RequestError> {
         order = filters.order
         
         if let reset = reset, reset {
+            spaceLibraryItems = nil
             order = .highestToLowest
         }
         
@@ -113,21 +76,6 @@ final class SpaceLibraryViewModel {
         }
     }
     
-    public func getSpaceLibraryItemsBeginNewPage() async -> Result<Void, RequestError> {
-        calculateNextPage()
-        
-        let libraryResultSecondPage = await services.getLibraryDefault(page: page)
-        
-        switch libraryResultSecondPage {
-        case .success(let spaceLibraryItems):
-            self.spaceLibraryItems.collection.appendNewItemsToSpaceItems(spaceItems: spaceLibraryItems.collection.spaceItems)
-            self.orderSpaceItems(order: self.order)
-            return .success(())
-        case .failure(let failure):
-            return .failure(failure)
-        }
-    }
-    
     public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters) async -> Result<Void, RequestError> {
         calculateNextPage()
         var pageUpdateFilters = filters
@@ -148,10 +96,9 @@ final class SpaceLibraryViewModel {
     // MARK: - Private Methods
 
     private func getDesiredPage() {
-        page = "1"
+        page = ParametersConstants.kLastPageNumber
         
-        if let stringUrl = slItem.collection.getPrevLink(), let url = URL(string: stringUrl),
-           let page = url.getQueryStringParameter(param: ParametersConstants.kParameterPage),
+        if let page = slItem.getPage(),
            order == .highestToLowest {
             self.page = page
         }

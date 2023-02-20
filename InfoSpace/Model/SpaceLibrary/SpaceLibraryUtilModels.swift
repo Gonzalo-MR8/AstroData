@@ -22,6 +22,16 @@ struct SpaceLibraryFilters {
 // MARK: - SLastPageItem
 struct SLastPageItem: Codable {
     let collection: SLCollection
+    
+    public func getPage() -> String? {
+        guard let strUrl = collection.getPrevLink(),
+              let url = URL(string: strUrl),
+              let page = url.getQueryStringParameter(param: ParametersConstants.kParameterPage) else {
+            return nil
+        }
+        
+        return page
+    }
 }
 
 // MARK: - SLCollection
@@ -32,11 +42,12 @@ struct SLCollection: Codable {
     
     public func getPrevLink() -> String? {
         let kPrevString = "prev"
-        if let link = links?.first(where: { $0.rel.lowercased() == kPrevString.lowercased() }) {
-            return link.href
-        } else {
+        
+        guard let link = links?.first(where: { $0.rel.lowercased() == kPrevString.lowercased() }) else {
             return nil
         }
+        
+        return link.href
     }
 }
 
