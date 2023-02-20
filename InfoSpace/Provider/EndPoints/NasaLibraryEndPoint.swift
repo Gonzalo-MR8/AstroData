@@ -17,13 +17,12 @@ enum NasaLibraryEndPoint {
 
 extension NasaLibraryEndPoint: EndPoint {
     var basePath: String {
-        var url = Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl)!
-        
-        if !url.hasSuffix("/") {
-            url = url + "/"
+        switch self {
+        case .getMediaURLs(jsonUrl: _):
+            return ""
+        default:
+            return Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl)!
         }
-        
-        return url
     }
     
     var path: String {
@@ -48,8 +47,6 @@ extension NasaLibraryEndPoint: EndPoint {
         let kParameterYearStart = "year_start"
         let kParameterYearEnd = "year_end"
         let kParameterMediaType = "media_type"
-            
-        let kLastPageNumber: String = "100"
         
         var parameters = [String:String]()
         
@@ -91,7 +88,7 @@ extension NasaLibraryEndPoint: EndPoint {
             }
         case .getSLastPageItemDefault:
             parameters[kParameterYearStart] = Utils.shared.getCurrentYear().description
-            parameters[ParametersConstants.kParameterPage] = kLastPageNumber
+            parameters[ParametersConstants.kParameterPage] = ParametersConstants.kLastPageNumber
         default:
             return nil
         }

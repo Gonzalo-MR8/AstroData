@@ -26,6 +26,7 @@ struct Constants {
 
 struct ParametersConstants {
     static let kParameterPage = "page"
+    static let kLastPageNumber: String = "100"
 }
 
 struct InfoConstants {

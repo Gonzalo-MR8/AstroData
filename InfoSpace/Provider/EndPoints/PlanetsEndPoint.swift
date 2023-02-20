@@ -13,13 +13,7 @@ enum PlanetsEndPoint {
 
 extension PlanetsEndPoint: EndPoint {
     var basePath: String {
-        var url = Bundle.string(for: InfoConstants.kFirebaseDataUrl)!
-        
-        if !url.hasSuffix("/") {
-            url = url + "/"
-        }
-        
-        return url
+        return Bundle.string(for: InfoConstants.kFirebaseDataUrl)!
     }
     
     var path: String {
