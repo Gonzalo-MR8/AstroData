@@ -15,8 +15,6 @@ final class DashboardViewModel {
     private let dashboardItems: DashboardItems = [
         DashboardItem(title: "APOD_LONG_TITLE".localized, assetImageName: "camera"),
         DashboardItem(title: "SPACE_LIBRARY_LONG_TITLE".localized, assetImageName: "library"),
-        //DashboardItem(title: "Mars rover images", assetImageName: "marsRover"),
-        //DashboardItem(title: "Asteroids near the Earth", assetImageName: "asteroid")
     ]
     
     // MARK: - Planets methods
