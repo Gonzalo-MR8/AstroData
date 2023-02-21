@@ -37,6 +37,7 @@ class YearsFilterCell: UITableViewCell {
     private let placeholderText = "FILTER_VIEW_ANYONE".localized
     
     var years: [String] = []
+    private var lastRow = 0
     
     weak var delegate: YearsFilterCellProtocol?
     
@@ -47,7 +48,7 @@ class YearsFilterCell: UITableViewCell {
         createYearsPickers()
         
         yearStartTextField.text = Utils.shared.getCurrentYear().description
-        picker.selectRow(Utils.shared.getCurrentYear() - 1899, inComponent: 0, animated: false)
+        picker.selectRow(lastRow, inComponent: 0, animated: false)
     }
 
     private func generateYears() {
@@ -55,6 +56,7 @@ class YearsFilterCell: UITableViewCell {
         
         for i in lastYear...Utils.shared.getCurrentYear() {
             years.append(String(i))
+            lastRow += 1
         }
     }
     
@@ -154,7 +156,7 @@ class YearsFilterCell: UITableViewCell {
     func reset() {
         yearStartTextField.text = Utils.shared.getCurrentYear().description
         yearEndTextField.text = nil
-        picker.selectRow(0, inComponent: 0, animated: false)
+        picker.selectRow(lastRow, inComponent: 0, animated: false)
         picker.selectRow(0, inComponent: 1, animated: false)
     }
 }

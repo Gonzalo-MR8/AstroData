@@ -92,8 +92,9 @@ final class SplashScreenViewModel {
         case .success(let libraryData):
             spaceLibraryData?.0.collection.appendNewItemsToSpaceItems(spaceItems: libraryData.collection.spaceItems)
             return .success(spaceLibraryData)
-        case .failure(let failure):
-            return .failure(failure)
+        case .failure(_):
+            /// No failure is returned here because this point is only reached when the second page does not exist.
+            return .success((spaceLibraryData))
         }
     }
 }

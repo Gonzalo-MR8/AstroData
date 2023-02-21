@@ -33,7 +33,6 @@ final class SpaceLibraryViewModel {
     
     // MARK: - Network Methods
     
-    /// This method manages the reset button pressed and when you want to change only the order of the space items
     public func getSpaceLibraryItemsFilters(reset: Bool? = nil, filters: SpaceLibraryFilters) async -> Result<Void, RequestError> {
         order = filters.order
         
@@ -60,6 +59,7 @@ final class SpaceLibraryViewModel {
         
         switch libraryResult {
         case .success(let spaceLibraryItems):
+            self.spaceLibraryItems = nil
             self.spaceLibraryItems = spaceLibraryItems
         case .failure(let failure):
             return .failure(failure)
@@ -70,9 +70,10 @@ final class SpaceLibraryViewModel {
         switch spaceItemsNewPage {
         case .success(_):
             return .success(())
-        case .failure(let failure):
+        case .failure(_):
             self.orderSpaceItems(order: self.order)
-            return .failure(failure)
+            /// No failure is returned here because this point is only reached when the second page does not exist.
+            return .success(())
         }
     }
     
