@@ -45,6 +45,7 @@
                             <segment title="First"/>
                             <segment title="Second"/>
                         </segments>
+                        <color key="selectedSegmentTintColor" name="white"/>
                         <connections>
                             <action selector="changeSelectedSegment:" destination="KGk-i7-Jjw" eventType="valueChanged" id="XXj-et-WnW"/>
                         </connections>

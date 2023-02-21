@@ -139,18 +139,10 @@ extension DashboardViewController: UICollectionViewDelegate {
             // Astronomy picture of the day
             let apodVC = APODViewController.initAndLoad(apod: viewModel.getApod())
             CustomNavigationController.instance.navigate(to: apodVC, animated: true)
-        case 1:
+        default:
             // Space library
             let spaceLibraryVC = SpaceLibraryViewController.initAndLoad(spaceLibraryData: viewModel.getSpaceLibraryData())
             CustomNavigationController.instance.navigate(to: spaceLibraryVC, animated: true)
-        case 2:
-            // Rover mars photos
-            let marsRoverVC = MarsRoverViewController.initAndLoad(initInformation: "")
-            CustomNavigationController.instance.navigate(to: marsRoverVC, animated: true)
-        default:
-            // Asteroids near the earth
-            let asteroidsNearEarthVC = AsteroidsNearEarthViewController.initAndLoad(initInformation: "")
-            CustomNavigationController.instance.navigate(to: asteroidsNearEarthVC, animated: true)
         }
     }
 }
