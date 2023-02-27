@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class CustomNavigationController: UINavigationController {
 
@@ -128,9 +127,14 @@ class CustomNavigationController: UINavigationController {
         return self.viewControllers.first(where: { type(of:$0) == classVC })
     }
     
+    func getPresentedViewController(classVC: AnyClass) -> UIViewController? {
+        guard let presentedViewController = self.presentedViewController,
+              type(of: presentedViewController) == classVC else { return nil }
+        
+        return presentedViewController
+    }
+    
     func openUrl(_ url: URL, animated: Bool) {
-        let safariController = SFSafariViewController(url: url)
-        safariController.modalPresentationStyle = .overFullScreen
-        self.present(to: safariController, animated: animated)
+        UIApplication.shared.open(url)
     }
 }
