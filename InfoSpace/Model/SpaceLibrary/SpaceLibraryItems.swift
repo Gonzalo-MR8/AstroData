@@ -121,9 +121,9 @@ struct SpaceItemData: Codable {
 
 // MARK: - MediaType
 enum MediaType: String, Codable {
-    case image = "image"
-    case video = "video"
-    case audio = "audio"
+    case image
+    case video
+    case audio
 }
 
 // MARK: - ItemLink

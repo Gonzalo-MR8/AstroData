@@ -8,8 +8,8 @@
 import Foundation
 
 enum APODMediaType: String, Decodable {
-    case image = "image"
-    case video = "video"
+    case image
+    case video
 }
 
 struct APOD: Decodable {

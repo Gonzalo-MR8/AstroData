@@ -21,7 +21,7 @@ class YearsFilterCell: UITableViewCell {
     
     @IBOutlet private weak var yearEndTextField: UITextField! {
         didSet {
-            yearEndTextField.attributedPlaceholder = NSAttributedString(string: "FILTER_VIEW_YEAR_END".localized,                                                                       attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
+            yearEndTextField.attributedPlaceholder = NSAttributedString(string: "FILTER_VIEW_YEAR_END".localized, attributes: [NSAttributedString.Key.foregroundColor: Colors.textSecondaryColor.value])
         }
     }
     
@@ -54,8 +54,8 @@ class YearsFilterCell: UITableViewCell {
     private func generateYears() {
         let lastYear = 1900
         
-        for i in lastYear...Utils.shared.getCurrentYear() {
-            years.append(String(i))
+        for index in lastYear...Utils.shared.getCurrentYear() {
+            years.append(String(index))
             lastRow += 1
         }
     }

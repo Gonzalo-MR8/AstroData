@@ -116,7 +116,7 @@ class View: UIView {
             layer.cornerRadius = bounds.size.height / 2.0
         } else {
             layer.cornerRadius = cornerRadius
-            
+
             if topRoundedBorders {
                 layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
@@ -138,7 +138,6 @@ class View: UIView {
         }
 
         // Gradient
-        
         let gradientLayer = layer as! CAGradientLayer
         
         // If transparent colors, replaced with white transparent to avoid undesirable effects
@@ -159,34 +158,39 @@ class View: UIView {
         
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint
-        
+
         // BorderGradient
-        
-        if borderGradient {
-            let coverView = View()
-            
-            coverView.tag = kBorderGradientViewTag
-            
-            coverView.backgroundColor = backgroundColor
-            coverView.alphaBgColor = alphaBgColor
-            coverView.roundedBorders = roundedBorders
-            coverView.cornerRadius = cornerRadius
-            coverView.topRoundedBorders = topRoundedBorders
-            
-            coverView.widthAnchor.constraint(equalToConstant: self.frame.width - borderWidth).isActive = true
-            coverView.heightAnchor.constraint(equalToConstant: self.frame.height - borderWidth).isActive = true
-            
-            self.insertSubview(coverView, at: 0)
-            
-            coverView.translatesAutoresizingMaskIntoConstraints = false
-            coverView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-            coverView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        } else {
+        createBorderGradient()
+    }
+
+    private func createBorderGradient() {
+        guard borderGradient else {
             self.subviews.forEach { subview in
                 if subview.tag == kBorderGradientViewTag {
                     subview.removeFromSuperview()
                 }
             }
+
+            return
         }
+
+        let coverView = View()
+
+        coverView.tag = kBorderGradientViewTag
+
+        coverView.backgroundColor = backgroundColor
+        coverView.alphaBgColor = alphaBgColor
+        coverView.roundedBorders = roundedBorders
+        coverView.cornerRadius = cornerRadius
+        coverView.topRoundedBorders = topRoundedBorders
+
+        coverView.widthAnchor.constraint(equalToConstant: self.frame.width - borderWidth).isActive = true
+        coverView.heightAnchor.constraint(equalToConstant: self.frame.height - borderWidth).isActive = true
+
+        self.insertSubview(coverView, at: 0)
+
+        coverView.translatesAutoresizingMaskIntoConstraints = false
+        coverView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        coverView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 }

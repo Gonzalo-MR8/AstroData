@@ -18,7 +18,7 @@ enum NasaLibraryEndPoint {
 extension NasaLibraryEndPoint: EndPoint {
     var basePath: String {
         switch self {
-        case .getMediaURLs(jsonUrl: _):
+        case .getMediaURLs:
             return ""
         default:
             return Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl)!
@@ -38,17 +38,17 @@ extension NasaLibraryEndPoint: EndPoint {
         return .get
     }
     
-    var postBody: [String : String]? {
+    var postBody: [String: String]? {
         return nil
     }
     
-    var urlParameters: [String : String]? {
+    var urlParameters: [String: String]? {
         let kParameterSearchText = "q"
         let kParameterYearStart = "year_start"
         let kParameterYearEnd = "year_end"
         let kParameterMediaType = "media_type"
         
-        var parameters = [String:String]()
+        var parameters = [String: String]()
         
         switch self {
         case .getLibraryDefault(let page):
@@ -96,7 +96,7 @@ extension NasaLibraryEndPoint: EndPoint {
         return parameters
     }
     
-    var customHeaders: [String : String]? {
+    var customHeaders: [String: String]? {
         return nil
     }
 }

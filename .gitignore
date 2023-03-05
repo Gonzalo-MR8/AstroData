@@ -1,1 +1,11 @@
 *.xcuserstate
+InfoSpace/Base/.DS_Store
+InfoSpace/Provider/.DS_Store
+InfoSpace/UseCases/Common/.DS_Store
+Pods/lottie-ios/Sources/Private/Utility/.DS_Store
+Pods/lottie-ios/Sources/Private/.DS_Store
+Pods/lottie-ios/Sources/Public/.DS_Store
+Pods/lottie-ios/Sources/.DS_Store
+Pods/.DS_Store
+.DS_Store
+.swiftlint.yml

@@ -39,18 +39,18 @@ final class ImageDownloader {
                 return
             }
 
-            if let _ = getDataTaskFrom(urlString: imageUrlString) {
+            if getDataTaskFrom(urlString: imageUrlString) != nil {
                 return
             }
 
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
 
                 guard let data = data else {
                     completion(placeholderImage)
                     return
                 }
 
-                if let _ = error {
+                if error != nil {
                     DispatchQueue.main.async {
                         completion(placeholderImage)
                     }

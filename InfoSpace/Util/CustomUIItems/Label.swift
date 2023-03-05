@@ -90,4 +90,3 @@ class Label: UILabel {
         self.textColor = gradientColor(bounds: self.bounds, gradientLayer: gradient)
     }
 }
-

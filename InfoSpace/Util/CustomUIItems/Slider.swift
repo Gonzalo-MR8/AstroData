@@ -76,7 +76,7 @@ class Slider: UISlider {
         layer.startPoint = startPoint
         layer.endPoint = endPoint
         
-        UIGraphicsBeginImageContextWithOptions(size, layer.isOpaque, 0.0);
+        UIGraphicsBeginImageContextWithOptions(size, layer.isOpaque, 0.0)
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         layer.render(in: context)
         let image = UIGraphicsGetImageFromCurrentImageContext()

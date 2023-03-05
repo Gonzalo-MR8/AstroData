@@ -11,7 +11,7 @@ class APODDateCell: UITableViewCell {
 
     @IBOutlet private weak var datePicker: UIDatePicker!
     
-    var changeDatePicker: ((Date) -> ())?
+    var changeDatePicker: ((Date) -> Void)?
     
     var lastSelectedDate: Date = Date()
     

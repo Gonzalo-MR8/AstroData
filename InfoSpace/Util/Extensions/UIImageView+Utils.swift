@@ -45,4 +45,3 @@ extension UIImageView {
         imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20).isActive = true
     }
 }
-

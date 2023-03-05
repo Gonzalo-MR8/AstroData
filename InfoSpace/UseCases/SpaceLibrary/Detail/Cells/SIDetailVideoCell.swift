@@ -41,7 +41,13 @@ class SIDetailVideoCell: UITableViewCell {
         viewPlayer.addSubview(avVController.view)
         parentVController.addChild(avVController)
         avVController.didMove(toParent: parentVController)
-        try! AVAudioSession.sharedInstance().setCategory(.playback)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch {
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
+                CustomNavigationController.instance.dismissVC(animated: true)
+            }
+        }
     }
     
     private func loadFullScreen() {

@@ -30,10 +30,8 @@ enum Colors: String {
 
 extension Colors {
     var value: UIColor {
-        get {
-            guard let color = UIColor.init(named: self.rawValue) else { return .clear }
-            
-            return color
-        }
+        guard let color = UIColor.init(named: self.rawValue) else { return .clear }
+
+        return color
     }
 }

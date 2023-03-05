@@ -18,7 +18,7 @@ extension ApodEndPoint: EndPoint {
     
     var path: String {
         switch self {
-        case .getApod(_):
+        case .getApod:
             return "planetary/apod"
         }
     }
@@ -27,15 +27,15 @@ extension ApodEndPoint: EndPoint {
         return .get
     }
     
-    var postBody: [String : String]? {
+    var postBody: [String: String]? {
         return nil
     }
     
-    var urlParameters: [String : String]? {
+    var urlParameters: [String: String]? {
         let kParameterApiKey = "api_key"
         let kParameterDate = "date"
         
-        var commonParameters = [String:String]()
+        var commonParameters = [String: String]()
         commonParameters[kParameterApiKey] = Bundle.string(for: InfoConstants.kNasaApiKey)!
         
         switch self {
@@ -55,7 +55,7 @@ extension ApodEndPoint: EndPoint {
         }
     }
     
-    var customHeaders: [String : String]? {
+    var customHeaders: [String: String]? {
         return nil
     }
 }

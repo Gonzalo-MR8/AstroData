@@ -95,7 +95,7 @@ class CustomNavigationController: UINavigationController {
         })
     }
     
-    @objc private func dismissOnTapOutside(){
+    @objc private func dismissOnTapOutside() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -124,7 +124,7 @@ class CustomNavigationController: UINavigationController {
     }
     
     func getViewControllerInStack(classVC: AnyClass) -> UIViewController? {
-        return self.viewControllers.first(where: { type(of:$0) == classVC })
+        return self.viewControllers.first(where: { type(of: $0) == classVC })
     }
     
     func getPresentedViewController(classVC: AnyClass) -> UIViewController? {

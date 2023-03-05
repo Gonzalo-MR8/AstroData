@@ -12,11 +12,11 @@ extension UIViewController {
     /// - Returns: The view controller
     static func initAndLoad() -> Self {
         func instantiateFromNib<T: UIViewController>(_ viewType: T.Type) -> T {
-            let vc = T.init(nibName: String(describing: T.self), bundle: nil)
+            let vController = T.init(nibName: String(describing: T.self), bundle: nil)
             
-            vc.modalPresentationStyle = .fullScreen
+            vController.modalPresentationStyle = .fullScreen
             
-            return vc
+            return vController
         }
         
         return instantiateFromNib(self)
@@ -25,8 +25,8 @@ extension UIViewController {
     /// Determines if a view controller is modal
     /// - Returns: <code>True</code> if it is modal or <code>false</code> in other case
     func isModal() -> Bool {
-        if let navigationController = self.navigationController{
-            if navigationController.viewControllers.first != self{
+        if let navigationController = self.navigationController {
+            if navigationController.viewControllers.first != self {
                 return false
             }
         }
@@ -35,7 +35,7 @@ extension UIViewController {
             return true
         }
         
-        if self.navigationController?.presentingViewController?.presentedViewController == self.navigationController  {
+        if self.navigationController?.presentingViewController?.presentedViewController == self.navigationController {
             return true
         }
         

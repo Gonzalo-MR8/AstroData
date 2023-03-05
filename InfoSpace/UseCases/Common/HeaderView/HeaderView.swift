@@ -86,11 +86,6 @@ class HeaderView: View {
         
         backgroundColor = .clear
         
-        //let window = UIApplication.shared.keyWindow
-        //let topPadding = window?.safeAreaInsets.top ?? Values.kDefaultSafeAreaInsetsTop
-        
-        //constraintTop.constant = topPadding
-        
         percentShown = 100.0
     }
     

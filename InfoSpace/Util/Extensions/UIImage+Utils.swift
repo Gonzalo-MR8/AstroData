@@ -10,7 +10,7 @@ import UIKit
 extension UIImage {
     /// Extension funcs to use in Slider Thumb
     class func createThumbImage(size: CGFloat, color: UIColor) -> UIImage {
-        let layerFrame = CGRectMake(0, 0, size, size)
+        let layerFrame = CGRect(x: 0, y: 0, width: size, height: size)
 
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = CGPath(ellipseIn: layerFrame.insetBy(dx: 1, dy: 1), transform: nil)

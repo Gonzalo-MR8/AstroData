@@ -15,8 +15,8 @@ class SpaceLibraryViewController: UIViewController {
     
     private var viewModel: SpaceLibraryViewModel!
     
-    private let kCollectionViewCellInset:CGFloat = 10
-    private let kCollectionViewNumberOfItemsPerRow:CGFloat = 2
+    private let kCollectionViewCellInset: CGFloat = 10
+    private let kCollectionViewNumberOfItemsPerRow: CGFloat = 2
     private let kReloadCellHeight: CGFloat = 130
     private let kNoItemsCellHeight: CGFloat = 400
     
@@ -165,9 +165,9 @@ extension SpaceLibraryViewController: FilterViewProtocol {
                 let result = await viewModel.getSpaceLibraryItemsFilters(filters: filters)
                 
                 switch result {
-                case .success(_):
+                case .success:
                     self.resetOfChangeFiltersSuccess()
-                case .failure(_):
+                case .failure:
                     DispatchQueue.main.async {
                         CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
                         self.hideHudView()
@@ -189,9 +189,9 @@ extension SpaceLibraryViewController: FilterViewProtocol {
             let result = await viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters)
             
             switch result {
-            case .success(_):
+            case .success:
                 self.resetOfChangeFiltersSuccess()
-            case .failure(_):
+            case .failure:
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
                     self.hideHudView()
@@ -207,7 +207,7 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard scrollView is UICollectionView else { return }
         
-        guard (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) else {
+        guard scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) else {
             return
         }
         
@@ -223,11 +223,11 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
             let result = await viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters)
             
             switch result {
-            case .success(_):
+            case .success:
                 DispatchQueue.main.async {
                     self.spaceItemsCollectionView.reloadData()
                 }
-            case .failure(_):
+            case .failure:
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
                     self.spaceItemsCollectionView.reloadData()

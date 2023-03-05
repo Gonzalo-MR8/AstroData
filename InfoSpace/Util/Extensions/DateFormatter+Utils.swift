@@ -8,13 +8,13 @@
 import Foundation
 
 extension DateFormatter {
-    private static let kEn_US_POSIX = "en_US_POSIX"
+    private static let kEnUSPOSIX = "en_US_POSIX"
     private static let kUTCTimeZone = "UTC"
     
     static var dateFormatterUTC: DateFormatter {
         let dateFormatter = DateFormatter()
         
-        dateFormatter.locale = Locale(identifier: kEn_US_POSIX)
+        dateFormatter.locale = Locale(identifier: kEnUSPOSIX)
         
         let timeZoneGMT = TimeZone(abbreviation: kUTCTimeZone)
         dateFormatter.timeZone = timeZoneGMT

@@ -27,15 +27,15 @@ extension PlanetsEndPoint: EndPoint {
         return .get
     }
     
-    var postBody: [String : String]? {
+    var postBody: [String: String]? {
         return nil
     }
     
-    var urlParameters: [String : String]? {
+    var urlParameters: [String: String]? {
         return nil
     }
     
-    var customHeaders: [String : String]? {
+    var customHeaders: [String: String]? {
         return nil
     }
 }

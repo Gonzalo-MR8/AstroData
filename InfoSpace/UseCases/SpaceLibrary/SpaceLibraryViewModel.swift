@@ -68,9 +68,9 @@ final class SpaceLibraryViewModel {
         let spaceItemsNewPage = await getSpaceLibraryItemsFiltersNewPage(filters: filters)
         
         switch spaceItemsNewPage {
-        case .success(_):
+        case .success:
             return .success(())
-        case .failure(_):
+        case .failure:
             self.orderSpaceItems(order: self.order)
             /// No failure is returned here because this point is only reached when the second page does not exist.
             return .success(())
@@ -121,9 +121,9 @@ final class SpaceLibraryViewModel {
     public func orderSpaceItems(order: Order) {
         switch order {
         case .highestToLowest:
-            spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated > $1.spaceItemsdatas.first!.dateCreated } )
+            spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated > $1.spaceItemsdatas.first!.dateCreated })
         case .lowestToHighest:
-            spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated < $1.spaceItemsdatas.first!.dateCreated } )
+            spaceLibraryItems.collection.spaceItems = spaceLibraryItems.collection.spaceItems.sorted(by: { $0.spaceItemsdatas.first!.dateCreated < $1.spaceItemsdatas.first!.dateCreated })
         }
     }
     

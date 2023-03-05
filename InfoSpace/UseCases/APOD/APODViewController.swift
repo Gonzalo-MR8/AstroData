@@ -106,13 +106,13 @@ extension APODViewController: UITableViewDataSource {
                     let result = await viewModel.getNewAPOD(date: date)
                     
                     switch result {
-                    case .failure(_):
+                    case .failure:
                         cell.updateSelectedDate(state: false)
                         DispatchQueue.main.async {
                             self.hideHudView()
                             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "APOD_NO_VALID_DATE".localized)
                         }
-                    case .success(_):
+                    case .success:
                         cell.updateSelectedDate(state: true)
                         self.configureImageOrUrl()
                     }

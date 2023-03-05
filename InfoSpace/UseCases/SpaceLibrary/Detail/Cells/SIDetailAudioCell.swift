@@ -39,8 +39,14 @@ class SIDetailAudioCell: UITableViewCell {
     func configure(player: AVPlayer) {
         self.player = player
         
-        try! AVAudioSession.sharedInstance().setCategory(.playback)
-        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch {
+            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
+                CustomNavigationController.instance.dismissVC(animated: true)
+            }
+        }
+
         addPeriodicTimeObserver()
         
         guard let duration = player.currentItem?.asset.duration else {

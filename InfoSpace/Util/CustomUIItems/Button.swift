@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class Button: UIButton {
     
-    private var gradientLayer: CAGradientLayer? = nil
+    private var gradientLayer: CAGradientLayer?
     
     @IBInspectable
     var enabledBgColor: UIColor?
@@ -164,4 +164,3 @@ class Button: UIButton {
     }
 
 }
-

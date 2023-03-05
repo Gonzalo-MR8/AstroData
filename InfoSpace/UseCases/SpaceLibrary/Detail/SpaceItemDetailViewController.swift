@@ -54,7 +54,7 @@ class SpaceItemDetailViewController: UIViewController {
         self.showHudView()
         
         Task {
-            let _ = await viewModel.getMediaURLs()
+            _ = await viewModel.getMediaURLs()
             
             switch viewModel.getSpaceItemData().mediaType {
             case .image:

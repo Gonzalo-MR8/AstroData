@@ -12,7 +12,7 @@ protocol NetworkClient {
 }
 
 extension NetworkClient {
-    func sendRequest<T>(endPoint: EndPoint, responseModel: T.Type) async -> Result<T, RequestError> where T : Decodable {
+    func sendRequest<T>(endPoint: EndPoint, responseModel: T.Type) async -> Result<T, RequestError> where T: Decodable {
         let kRequestTimeout: TimeInterval = 20
 
         guard NetworkManager.shared.isConnected else {

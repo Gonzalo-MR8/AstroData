@@ -41,7 +41,7 @@ class SearchFilterCell: UITableViewCell {
 
 extension SearchFilterCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.resignFirstResponder();
-        return true;
+        searchTextField.resignFirstResponder()
+        return true
     }
 }
