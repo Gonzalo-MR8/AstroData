@@ -51,6 +51,9 @@ final class ImageDownloader {
                 }
 
                 if error != nil {
+                    _ = self.serialQueueForDataTasks.sync(flags: .barrier) {
+                        self.imagesDownloadTasks.removeValue(forKey: imageUrlString)
+                    }
                     DispatchQueue.main.async {
                         completion(placeholderImage)
                     }
