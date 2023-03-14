@@ -96,6 +96,8 @@ class PlanetDetailViewController: UIViewController {
            if velocity.y > 0 {
                UIView.animate(withDuration: kAnimationDuration, animations: { [self] in
                    if isDragged {
+                       AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsPlanetDetailDeexpandImages)
+
                        viewDragHeight.constant = CGFloat(kCollectionViewTopBottomInsets + Int(collectionViewImages.frame.width / kCollectionViewItemsPerRow) * 1)
                        changeCollectionViewScrollDirection(scrollDirection: .horizontal)
                    }
@@ -106,6 +108,8 @@ class PlanetDetailViewController: UIViewController {
            } else {
                UIView.animate(withDuration: kAnimationDuration, animations: { [self] in
                    if !isDragged {
+                       AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsPlanetDetailExpandImages)
+
                        viewDragHeight.constant = CGFloat(kCollectionViewTopBottomInsets + Int(collectionViewImages.frame.width / kCollectionViewItemsPerRow) * viewModel.getNumberOfSectionsOfGalleryImages())
                        changeCollectionViewScrollDirection(scrollDirection: .vertical)
                    }

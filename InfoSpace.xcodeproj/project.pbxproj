@@ -70,6 +70,9 @@
 		9B2B835828615D0B002BABDC /* APODDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B835628615D0B002BABDC /* APODDateCell.xib */; };
 		9B2B835B28615D41002BABDC /* APODImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B835928615D41002BABDC /* APODImageCell.swift */; };
 		9B2B835C28615D41002BABDC /* APODImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B835A28615D41002BABDC /* APODImageCell.xib */; };
+		9B2E4AD929C0F62000F17EB1 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E4AD829C0F62000F17EB1 /* AnalyticsManager.swift */; };
+		9B2E4ADB29C0F63B00F17EB1 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E4ADA29C0F63B00F17EB1 /* Analytics.swift */; };
+		9B2E4ADD29C0F68800F17EB1 /* AnalyticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E4ADC29C0F68800F17EB1 /* AnalyticsConstants.swift */; };
 		9B2E4AF629117B4B001A0FA5 /* SpaceLibraryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E4AF429117B4B001A0FA5 /* SpaceLibraryItemCell.swift */; };
 		9B2E4AF729117B4B001A0FA5 /* SpaceLibraryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */; };
 		9B342628292D633B004BB8BC /* OpenUrlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B342626292D633B004BB8BC /* OpenUrlCell.swift */; };
@@ -246,6 +249,9 @@
 		9B2B835628615D0B002BABDC /* APODDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODDateCell.xib; sourceTree = "<group>"; };
 		9B2B835928615D41002BABDC /* APODImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODImageCell.swift; sourceTree = "<group>"; };
 		9B2B835A28615D41002BABDC /* APODImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APODImageCell.xib; sourceTree = "<group>"; };
+		9B2E4AD829C0F62000F17EB1 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		9B2E4ADA29C0F63B00F17EB1 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		9B2E4ADC29C0F68800F17EB1 /* AnalyticsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsConstants.swift; sourceTree = "<group>"; };
 		9B2E4AF429117B4B001A0FA5 /* SpaceLibraryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryItemCell.swift; sourceTree = "<group>"; };
 		9B2E4AF529117B4B001A0FA5 /* SpaceLibraryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceLibraryItemCell.xib; sourceTree = "<group>"; };
 		9B342626292D633B004BB8BC /* OpenUrlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenUrlCell.swift; sourceTree = "<group>"; };
@@ -537,6 +543,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9B2E4AD729C0F60E00F17EB1 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				9B2E4ADA29C0F63B00F17EB1 /* Analytics.swift */,
+				9B2E4ADC29C0F68800F17EB1 /* AnalyticsConstants.swift */,
+				9B2E4AD829C0F62000F17EB1 /* AnalyticsManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		9B2E4AF329117B35001A0FA5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +715,7 @@
 		9BB443E2283D55840043EF4E /* InfoSpace */ = {
 			isa = PBXGroup;
 			children = (
+				9B2E4AD729C0F60E00F17EB1 /* Analytics */,
 				9B053FA728429A5E00A8AA40 /* Base */,
 				9BB44414283D5FAA0043EF4E /* Model */,
 				9BB44415283D5FB10043EF4E /* Provider */,
@@ -1151,6 +1168,7 @@
 				9B8769E62857A86500FEB405 /* APODViewController.swift in Sources */,
 				9B342630292D6355004BB8BC /* DescriptionCell.swift in Sources */,
 				9B270E38284001B700F4FFED /* EndPoint.swift in Sources */,
+				9B2E4ADB29C0F63B00F17EB1 /* Analytics.swift in Sources */,
 				9B38CD19286F5FEC006712EE /* Label.swift in Sources */,
 				9B2236FC28456E65005F47B7 /* View.swift in Sources */,
 				9B62D5DC292E551F00863317 /* URL+Utils.swift in Sources */,
@@ -1197,6 +1215,7 @@
 				9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */,
 				9B22370628457A33005F47B7 /* PlanetCell.swift in Sources */,
 				9B1219E0292920E300D9FF9F /* SpaceItemDetailViewModel.swift in Sources */,
+				9B2E4AD929C0F62000F17EB1 /* AnalyticsManager.swift in Sources */,
 				9B2E4AF629117B4B001A0FA5 /* SpaceLibraryItemCell.swift in Sources */,
 				9B28E319284CE06700F79F7B /* PlanetDetailViewController.swift in Sources */,
 				9B8769E92857A87100FEB405 /* APODViewModel.swift in Sources */,
@@ -1212,6 +1231,7 @@
 				9B4F8337290DCD7F006E8954 /* SeparatorCell.swift in Sources */,
 				9B270E312840013000F4FFED /* Constants.swift in Sources */,
 				9B980A0829134B3B00F6F2D9 /* ButtonsFilterCell.swift in Sources */,
+				9B2E4ADD29C0F68800F17EB1 /* AnalyticsConstants.swift in Sources */,
 				9B22A76728453E8E002762AF /* DashboardViewModel.swift in Sources */,
 				9B6097982949D61200B95A3E /* UIImage+Utils.swift in Sources */,
 				9B4356442947DD2F00195C11 /* Slider.swift in Sources */,

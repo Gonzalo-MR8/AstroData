@@ -28,7 +28,9 @@ class DashboardViewController: UIViewController {
     @IBOutlet private weak var collectionViewPlanets: UICollectionView!
     
     private var centerPlanetCell: PlanetCell?
-    
+
+    private let analyticsScreen: AnalyticsScreen = .dashboard
+
     static func initAndLoad(dashboardData: DashboardData) -> DashboardViewController {
         let dashboardViewController = DashboardViewController.initAndLoad()
         
@@ -125,9 +127,12 @@ extension DashboardViewController: UICollectionViewDataSource {
 
 extension DashboardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // CollectionViewPlanets
         guard collectionView == collectionViewDashboard else {
-            // CollectionViewPlanets
+            AnalyticsManager.shared.send(event: analyticsScreen.planetDetailEnterAnalyticsEvent)
+
             collectionViewPlanets.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+
             let detailVC = PlanetDetailViewController.initAndLoad(planet: viewModel.getPlanet(position: indexPath.row))
             CustomNavigationController.instance.navigate(to: detailVC, animated: true)
             return
