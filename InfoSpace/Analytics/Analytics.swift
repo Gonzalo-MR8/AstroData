@@ -40,6 +40,9 @@ extension AnalyticsEvent: CustomStringConvertible {
 
 enum AnalyticsScreen {
     case dashboard
+    case planetDetail
+    case apod
+    case spaceLibraryDetail
 
     var planetDetailEnterAnalyticsEvent: AnalyticsEvent {
         let parameters = [
@@ -51,10 +54,56 @@ enum AnalyticsScreen {
         return analyticsEvent
     }
 
+    var apodEnterAnalyticsEvent: AnalyticsEvent {
+        let parameters = [
+            AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: origin
+        ]
+
+        let analyticsEvent = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsAPODEnter, parameters: parameters)
+
+        return analyticsEvent
+    }
+
+    var spaceLibraryEnterAnalyticsEvent: AnalyticsEvent {
+        let parameters = [
+            AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: origin
+        ]
+
+        let analyticsEvent = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryEnter, parameters: parameters)
+
+        return analyticsEvent
+    }
+
+    var spaceLibraryDetailEnterAnalyticsEvent: AnalyticsEvent {
+        let parameters = [
+            AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: origin
+        ]
+
+        let analyticsEvent = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryDetailEnter, parameters: parameters)
+
+        return analyticsEvent
+    }
+
+    var imagesGalleryEnterAnalyticsEvent: AnalyticsEvent {
+        let parameters = [
+            AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: origin
+        ]
+
+        let analyticsEvent = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryEnter, parameters: parameters)
+
+        return analyticsEvent
+    }
+
     private var origin: String {
         switch self {
         case .dashboard:
             return AnalyticsConstantsScreenNames.kAnalyticsScreenNameDashboard
+        case .planetDetail:
+            return AnalyticsConstantsScreenNames.kAnalyticsScreenNamePlanetDetail
+        case .apod:
+            return AnalyticsConstantsScreenNames.kAnalyticsScreenNameAPOD
+        case .spaceLibraryDetail:
+            return AnalyticsConstantsScreenNames.kAnalyticsScreenNameSpaceLibraryDetail
         }
     }
 }
