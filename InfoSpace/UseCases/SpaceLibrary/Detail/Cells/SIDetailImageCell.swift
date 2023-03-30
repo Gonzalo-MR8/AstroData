@@ -14,7 +14,9 @@ class SIDetailImageCell: UITableViewCell {
     
     private var link: ItemLink!
     private var highDefinitionUrlImage: String?
-    
+
+    private let analyticsScreen: AnalyticsScreen = .spaceLibraryDetail
+
     func configure(image: UIImage, link: ItemLink?, highDefinitionUrlImage: String?, frameWidth: CGFloat) {
         self.link = link
         self.highDefinitionUrlImage = highDefinitionUrlImage
@@ -27,6 +29,8 @@ class SIDetailImageCell: UITableViewCell {
     
     @IBAction func imageViewPressed(_ sender: Any) {
         if let link = link {
+            AnalyticsManager.shared.send(event: analyticsScreen.imagesGalleryEnterAnalyticsEvent)
+
             let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [link.href], highDefinitionUrlImages: [highDefinitionUrlImage ?? link.href], position: 0)
             CustomNavigationController.instance.navigate(to: galleryVC, animated: true)
         }

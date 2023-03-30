@@ -142,10 +142,14 @@ extension DashboardViewController: UICollectionViewDelegate {
         switch indexPath.row {
         case 0:
             // Astronomy picture of the day
+            AnalyticsManager.shared.send(event: analyticsScreen.apodEnterAnalyticsEvent)
+
             let apodVC = APODViewController.initAndLoad(apod: viewModel.getApod())
             CustomNavigationController.instance.navigate(to: apodVC, animated: true)
         default:
             // Space library
+            AnalyticsManager.shared.send(event: analyticsScreen.spaceLibraryEnterAnalyticsEvent)
+
             let spaceLibraryVC = SpaceLibraryViewController.initAndLoad(spaceLibraryData: viewModel.getSpaceLibraryData())
             CustomNavigationController.instance.navigate(to: spaceLibraryVC, animated: true)
         }

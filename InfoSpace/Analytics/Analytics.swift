@@ -42,6 +42,7 @@ enum AnalyticsScreen {
     case dashboard
     case planetDetail
     case apod
+    case spaceLibrary
     case spaceLibraryDetail
 
     var planetDetailEnterAnalyticsEvent: AnalyticsEvent {
@@ -102,6 +103,8 @@ enum AnalyticsScreen {
             return AnalyticsConstantsScreenNames.kAnalyticsScreenNamePlanetDetail
         case .apod:
             return AnalyticsConstantsScreenNames.kAnalyticsScreenNameAPOD
+        case .spaceLibrary:
+            return AnalyticsConstantsScreenNames.kAnalyticsScreenNameSpaceLibrary
         case .spaceLibraryDetail:
             return AnalyticsConstantsScreenNames.kAnalyticsScreenNameSpaceLibraryDetail
         }

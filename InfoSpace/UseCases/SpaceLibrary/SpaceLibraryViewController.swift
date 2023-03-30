@@ -23,7 +23,9 @@ class SpaceLibraryViewController: UIViewController {
     private let kAnimationDuration: TimeInterval = 0.6
     
     private var reload: Bool = false
-    
+
+    private let analyticsScreen: AnalyticsScreen = .spaceLibrary
+
     static func initAndLoad(spaceLibraryData: SpaceLibraryData) -> SpaceLibraryViewController {
         let spaceLibraryViewController = SpaceLibraryViewController.initAndLoad()
         
@@ -114,6 +116,8 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
 
 extension SpaceLibraryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        AnalyticsManager.shared.send(event: analyticsScreen.spaceLibraryDetailEnterAnalyticsEvent)
+        
         let spaceItem = viewModel.getSpaceItem(position: indexPath.row)
         let detailVC = SpaceItemDetailViewController.initAndLoad(spaceItem: spaceItem)
         CustomNavigationController.instance.navigate(to: detailVC, animated: true)

@@ -16,7 +16,9 @@ class APODImageCell: UITableViewCell {
     @IBOutlet private weak var stackViewCopyright: UIStackView!
     
     private var apod: APOD!
-    
+
+    private let analyticsScreen: AnalyticsScreen = .apod
+
     func configure(image: UIImage, apod: APOD, frameWidth: CGFloat) {
         self.apod = apod
         
@@ -35,6 +37,7 @@ class APODImageCell: UITableViewCell {
     }
     
     @IBAction func imageViewPressed(_ sender: Any) {
+        AnalyticsManager.shared.send(event: analyticsScreen.imagesGalleryEnterAnalyticsEvent)
         let galleryVC = ImagesGalleryViewController.initAndLoad(imagesUrl: [apod.thumbUrl], highDefinitionUrlImages: [apod.hdUrl ?? apod.thumbUrl], position: 0)
         CustomNavigationController.instance.navigate(to: galleryVC, animated: true)
     }

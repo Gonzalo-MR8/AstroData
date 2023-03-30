@@ -10,7 +10,7 @@
 	<key>kNasaDetailBaseUrl</key>
 	<string>https://images.nasa.gov/details-</string>
 	<key>kNasaApiKey</key>
-	<string>LbsN7fNjbFndMv29UtfdfaFisfJHAsXfP3ThCn2f</string>
+	<string>DEMO_KEY</string>
 	<key>kNasaBaseUrl</key>
 	<string>https://api.nasa.gov/</string>
 	<key>kFirebaseDataUrl</key>

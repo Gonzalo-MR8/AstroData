@@ -57,5 +57,6 @@ struct AnalyticsConstantsScreenNames {
     static let kAnalyticsScreenNameDashboard            = "dashboard"
     static let kAnalyticsScreenNamePlanetDetail         = "planet_detail"
     static let kAnalyticsScreenNameAPOD                 = "apod"
+    static let kAnalyticsScreenNameSpaceLibrary         = "space_library"
     static let kAnalyticsScreenNameSpaceLibraryDetail   = "space_library_detail"
 }

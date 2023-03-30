@@ -27,7 +27,9 @@ class PlanetDetailViewController: UIViewController {
     private let kCollectionViewCellInsets: CGFloat = 3
     
     private var isDragged: Bool = false
-    
+
+    private let analyticsScreen: AnalyticsScreen = .planetDetail
+
     static func initAndLoad(planet: Planet) -> PlanetDetailViewController {
         let planetDetailViewController = PlanetDetailViewController.initAndLoad()
         
@@ -145,7 +147,9 @@ extension PlanetDetailViewController: UICollectionViewDataSource {
 extension PlanetDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let images = viewModel.getAllPlanetImages()
-        
+
+        AnalyticsManager.shared.send(event: analyticsScreen.imagesGalleryEnterAnalyticsEvent)
+
         let imagesGalleryViewController = ImagesGalleryViewController.initAndLoad(imagesUrl: images.0, highDefinitionUrlImages: images.2, titles: images.1, position: indexPath.row)
         CustomNavigationController.instance.present(to: imagesGalleryViewController, animated: true)
     }
