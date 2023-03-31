@@ -95,7 +95,7 @@ enum AnalyticsScreen {
         return analyticsEvent
     }
 
-    private var origin: String {
+    var origin: String {
         switch self {
         case .dashboard:
             return AnalyticsConstantsScreenNames.kAnalyticsScreenNameDashboard

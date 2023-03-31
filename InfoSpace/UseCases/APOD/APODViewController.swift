@@ -129,7 +129,7 @@ extension APODViewController: UITableViewDataSource {
         case .buttonUrl(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
             
-            cell.configure(url: url)
+            cell.configure(url: url, analyticsScreen: .apod)
             
             return cell
         case .description:

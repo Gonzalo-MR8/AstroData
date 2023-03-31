@@ -9,6 +9,9 @@ import Foundation
 
 // MARK: - Events
 struct AnalyticsConstantsEvents {
+    // Common
+    static let kAnalyticsOpenUrl    = "open_url"
+
     // Planet Detail
     static let kAnalyticsPlanetDetailEnter          = "planet_detail_enter"
     static let kAnalyticsPlanetDetailExpandImages   = "planet_detail_expand"
@@ -17,7 +20,6 @@ struct AnalyticsConstantsEvents {
     // APOD
     static let kAnalyticsAPODEnter      = "apod_enter"
     static let kAnalyticsAPODChangeDate = "apod_change_date"
-    static let kAnalyticsAPODOpenUrl    = "apod_open_url"
 
     // Space Library
     static let kAnalyticsSpaceLibraryEnter          = "space_library_enter"
@@ -30,7 +32,6 @@ struct AnalyticsConstantsEvents {
 
     // Images Gallery
     static let kAnalyticsImagesGalleryEnter             = "images_gallery_enter"
-    static let kAnalyticsImagesGalleryZoom              = "images_gallery_zoom"
     static let kAnalyticsImagesGalleryCloseByDrag       = "images_gallery_close_by_drag"
     static let kAnalyticsImagesGalleryDownloadPressed   = "images_gallery_download_image_pressed"
     static let kAnalyticsImagesGalleryDownloadAccept    = "images_gallery_download_image_accept"

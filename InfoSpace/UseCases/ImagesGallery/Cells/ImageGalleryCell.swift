@@ -48,7 +48,8 @@ class ImageGalleryCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         guard let swipeGesture = gesture as? UISwipeGestureRecognizer,
               case .down = swipeGesture.direction else { return }
-        
+
+        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryCloseByDrag)
         CustomNavigationController.instance.dismissVC(animated: true)
     }
     

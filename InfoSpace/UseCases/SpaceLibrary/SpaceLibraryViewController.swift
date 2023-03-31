@@ -148,6 +148,10 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
     }
     
     func didPressOptions() {
+        if filterView.isHidden {
+            AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryOpenFilters)
+        }
+
         UIView.animate(withDuration: kAnimationDuration,
                        animations: {
             self.filterView.isHidden.toggle()
@@ -160,6 +164,8 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 
 extension SpaceLibraryViewController: FilterViewProtocol {
     func changeFilters(filters: SpaceLibraryFilters) {
+        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryChangeFilters)
+
         if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_NO_FILTERS_ERROR".localized)
         } else {
@@ -182,11 +188,15 @@ extension SpaceLibraryViewController: FilterViewProtocol {
     }
     
     func changeOrder(order: Order) {
+        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryChangeFilters)
+
         viewModel.orderSpaceItems(order: order)
         spaceItemsCollectionView.reloadData()
     }
     
     func resetFilters() {
+        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryResetFilters)
+
         showHudView()
         
         Task {

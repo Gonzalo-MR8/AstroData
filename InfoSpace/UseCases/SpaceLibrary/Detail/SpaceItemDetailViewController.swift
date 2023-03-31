@@ -279,7 +279,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .openWeb(let url):
             let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
             
-            cell.configure(url: url)
+            cell.configure(url: url, analyticsScreen: .spaceLibraryDetail)
             
             return cell
         case .separator:

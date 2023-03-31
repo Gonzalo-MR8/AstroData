@@ -40,9 +40,15 @@ class ImagesGalleryViewController: UIViewController {
     }
     
     @IBAction func buttonDownloadPressed(_ sender: Any) {
+        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadPressed)
+
         CustomNavigationController.instance.presentAcceptOrCancelAlert(title: "IMAGES_GALLERY_DOWNLOAD".localized, message: "IMAGES_GALLERY_DOWNLOAD_QUESTION".localized, acceptCompletion: { [self] _ in
+            AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadAccept)
+
             let imageSaver = ImageSaver()
             imageSaver.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
+        }, cancelCompletion: { _ in
+            AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadCancel)
         })
     }
     
@@ -71,9 +77,7 @@ extension ImagesGalleryViewController: UICollectionViewDataSource {
         let imageUrl = viewModel.getImage(position: indexPath.row)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageGalleryCell.identifier, for: indexPath) as! ImageGalleryCell
-        
         cell.configure(imageUrl: imageUrl)
-        
         return cell
     }
 }

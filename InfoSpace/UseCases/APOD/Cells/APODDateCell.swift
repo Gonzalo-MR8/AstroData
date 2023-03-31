@@ -32,6 +32,13 @@ class APODDateCell: UITableViewCell {
     }
     
     @IBAction func datePickerEditingEnd(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.kShortDateFormat
+        
+        let parameters = [AnalyticsConstantsParameters.kAnalyticsParamNameDate: dateFormatter.string(from: datePicker.date)]
+        let event = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsAPODChangeDate, parameters: parameters)
+        AnalyticsManager.shared.send(event: event)
+
         changeDatePicker?(datePicker.date)
     }
 }
