@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Events
 struct AnalyticsConstantsEvents {
     // Common
-    static let kAnalyticsOpenUrl    = "open_url"
+    static let kAnalyticsOpenUrl = "open_url"
 
     // Planet Detail
     static let kAnalyticsPlanetDetailEnter          = "planet_detail_enter"
@@ -42,7 +42,6 @@ struct AnalyticsConstantsEvents {
 struct AnalyticsConstantsParameters {
     // Commons
     static let kAnalyticsParamNameOrigin = "origin"
-    static let kAnalyticsParamNameError  = "error"
     static let kAnalyticsParamNameUrl    = "url"
     static let kAnalyticsParamNameDate   = "date"
 

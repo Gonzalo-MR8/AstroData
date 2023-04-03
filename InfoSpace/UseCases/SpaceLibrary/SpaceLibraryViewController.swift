@@ -116,9 +116,17 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
 
 extension SpaceLibraryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        AnalyticsManager.shared.send(event: analyticsScreen.spaceLibraryDetailEnterAnalyticsEvent)
-        
         let spaceItem = viewModel.getSpaceItem(position: indexPath.row)
+
+        let parameters = [
+            AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: analyticsScreen.origin,
+            AnalyticsConstantsParameters.kAnalyticsParamNameId: spaceItem.spaceItemsdatas.first?.nasaID ?? "",
+            AnalyticsConstantsParameters.kAnalyticsParamNameTitle: spaceItem.spaceItemsdatas.first?.title ?? "",
+            AnalyticsConstantsParameters.kAnalyticsParamNameType: spaceItem.spaceItemsdatas.first?.mediaType.rawValue ?? ""
+        ]
+        let analyticsEvent = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryDetailEnter, parameters: parameters)
+        AnalyticsManager.shared.send(event: analyticsEvent)
+        
         let detailVC = SpaceItemDetailViewController.initAndLoad(spaceItem: spaceItem)
         CustomNavigationController.instance.navigate(to: detailVC, animated: true)
     }

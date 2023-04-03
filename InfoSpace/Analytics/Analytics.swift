@@ -74,17 +74,7 @@ enum AnalyticsScreen {
 
         return analyticsEvent
     }
-
-    var spaceLibraryDetailEnterAnalyticsEvent: AnalyticsEvent {
-        let parameters = [
-            AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: origin
-        ]
-
-        let analyticsEvent = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryDetailEnter, parameters: parameters)
-
-        return analyticsEvent
-    }
-
+    
     var imagesGalleryEnterAnalyticsEvent: AnalyticsEvent {
         let parameters = [
             AnalyticsConstantsParameters.kAnalyticsParamNameOrigin: origin
