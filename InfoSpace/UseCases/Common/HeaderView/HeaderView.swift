@@ -73,8 +73,10 @@ class HeaderView: View {
     }
     
     @IBAction func buttonOptionsPressed(_ sender: Any) {
-        UIView.animate(withDuration: 0.5, animations: { [self] in
-            imageViewOptions.transform = imageViewOptions.transform.rotated(by: .pi)
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+
+            strongSelf.imageViewOptions.transform = strongSelf.imageViewOptions.transform.rotated(by: .pi)
         })
         delegate?.didPressOptions()
     }

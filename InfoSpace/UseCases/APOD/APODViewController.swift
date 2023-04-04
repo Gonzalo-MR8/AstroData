@@ -52,22 +52,24 @@ class APODViewController: UIViewController {
         
         let apod: APOD = viewModel.getApod()
         
-        Utils.shared.downloadUIImage(with: apod.thumbUrl) { [self] result in
+        Utils.shared.downloadUIImage(with: apod.thumbUrl) { [weak self] result in
+            guard let strongSelf = self else { return }
+
             if let image = result {
-                cellTypes.append(.image(image))
+                strongSelf.cellTypes.append(.image(image))
             } else {
-                guard let url = URL(completedString: apod.thumbUrl) else {
-                    return
-                }
+                guard let url = URL(completedString: apod.thumbUrl) else { return }
                 
-                cellTypes.append(.buttonUrl(url))
+                strongSelf.cellTypes.append(.buttonUrl(url))
             }
             
-            cellTypes.append(.description)
+            strongSelf.cellTypes.append(.description)
             
-            DispatchQueue.main.async { [self] in
-                tableView.reloadData()
-                hideHudView()
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+
+                strongSelf.tableView.reloadData()
+                strongSelf.hideHudView()
             }
         }
     }
@@ -100,21 +102,23 @@ extension APODViewController: UITableViewDataSource {
         case .date:
             let cell = tableView.dequeueReusableCell(withIdentifier: APODDateCell.identifier) as! APODDateCell
             
-            cell.changeDatePicker = { [self] date in
-                showHudView()
+            cell.changeDatePicker = { [weak self] date in
+                guard let strongSelf = self else { return }
+
+                strongSelf.showHudView()
                 Task {
-                    let result = await viewModel.getNewAPOD(date: date)
+                    let result = await strongSelf.viewModel.getNewAPOD(date: date)
                     
                     switch result {
                     case .failure:
                         cell.updateSelectedDate(state: false)
                         DispatchQueue.main.async {
-                            self.hideHudView()
+                            strongSelf.hideHudView()
                             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "APOD_NO_VALID_DATE".localized)
                         }
                     case .success:
                         cell.updateSelectedDate(state: true)
-                        self.configureImageOrUrl()
+                        strongSelf.configureImageOrUrl()
                     }
                 }
             }

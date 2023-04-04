@@ -37,10 +37,16 @@ class PlanetDetailViewController: UIViewController {
         
         return planetDetailViewController
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        print("willapoeerr")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("didload")
         configureCollectionImages()
         configure()
         createGestureRecognizers()
@@ -66,9 +72,11 @@ class PlanetDetailViewController: UIViewController {
     }
     
     private func scrollToBottom() {
-        DispatchQueue.main.async { [self] in
-            let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height + scrollView.contentInset.bottom)
-            scrollView.setContentOffset(bottomOffset, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+
+            let bottomOffset = CGPoint(x: 0, y: strongSelf.scrollView.contentSize.height - strongSelf.scrollView.bounds.height + strongSelf.scrollView.contentInset.bottom)
+            strongSelf.scrollView.setContentOffset(bottomOffset, animated: true)
         }
     }
     
@@ -96,28 +104,32 @@ class PlanetDetailViewController: UIViewController {
         
        if sender.state == .ended {
            if velocity.y > 0 {
-               UIView.animate(withDuration: kAnimationDuration, animations: { [self] in
-                   if isDragged {
+               UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+                   guard let strongSelf = self else { return }
+
+                   if strongSelf.isDragged {
                        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsPlanetDetailDeexpandImages)
 
-                       viewDragHeight.constant = CGFloat(kCollectionViewTopBottomInsets + Int(collectionViewImages.frame.width / kCollectionViewItemsPerRow) * 1)
-                       changeCollectionViewScrollDirection(scrollDirection: .horizontal)
+                       strongSelf.viewDragHeight.constant = CGFloat(strongSelf.kCollectionViewTopBottomInsets + Int(strongSelf.collectionViewImages.frame.width / strongSelf.kCollectionViewItemsPerRow) * 1)
+                       strongSelf.changeCollectionViewScrollDirection(scrollDirection: .horizontal)
                    }
                    
-                   isDragged = false
-                   view.layoutIfNeeded()
+                   strongSelf.isDragged = false
+                   strongSelf.view.layoutIfNeeded()
                })
            } else {
-               UIView.animate(withDuration: kAnimationDuration, animations: { [self] in
-                   if !isDragged {
+               UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+                   guard let strongSelf = self else { return }
+
+                   if !strongSelf.isDragged {
                        AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsPlanetDetailExpandImages)
 
-                       viewDragHeight.constant = CGFloat(kCollectionViewTopBottomInsets + Int(collectionViewImages.frame.width / kCollectionViewItemsPerRow) * viewModel.getNumberOfSectionsOfGalleryImages())
-                       changeCollectionViewScrollDirection(scrollDirection: .vertical)
+                       strongSelf.viewDragHeight.constant = CGFloat(strongSelf.kCollectionViewTopBottomInsets + Int(strongSelf.collectionViewImages.frame.width / strongSelf.kCollectionViewItemsPerRow) * strongSelf.viewModel.getNumberOfSectionsOfGalleryImages())
+                       strongSelf.changeCollectionViewScrollDirection(scrollDirection: .vertical)
                    }
                    
-                   isDragged = true
-                   view.layoutIfNeeded()
+                   strongSelf.isDragged = true
+                   strongSelf.view.layoutIfNeeded()
                })
            }
            

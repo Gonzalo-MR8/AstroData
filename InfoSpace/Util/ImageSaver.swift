@@ -9,9 +9,11 @@ import UIKit
 
 class ImageSaver: NSObject {
     func writeToPhotoAlbum(urlString: String?) {
-        Utils.shared.downloadUIImage(with: urlString) { [self] result in
+        Utils.shared.downloadUIImage(with: urlString) { [weak self] result in
+            guard let strongSelf = self else { return }
+
             if let image = result {
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+                UIImageWriteToSavedPhotosAlbum(image, self, #selector(strongSelf.saveCompleted), nil)
             } else {
                 CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "IMAGE_SAVER_SAVE_ERROR".localized)
             }

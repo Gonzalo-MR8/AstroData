@@ -19,13 +19,15 @@ class SpaceLibraryItemCell: UICollectionViewCell {
     public func configure(spaceItem: SpaceItem) {
         let mediaType = spaceItem.spaceItemsdatas.first!.mediaType
         
-        imageView.setImage(with: spaceItem.links?.first?.href) { [self] _ in
-            if mediaType == .audio, imageView.image == UIImage(named: "placeholderIcon") {
-                imageView.borderWidth = kBorderWidth
-                imageView.borderColor = Colors.secondaryColor.value
+        imageView.setImage(with: spaceItem.links?.first?.href) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            
+            if mediaType == .audio, strongSelf.imageView.image == UIImage(named: "placeholderIcon") {
+                strongSelf.imageView.borderWidth = strongSelf.kBorderWidth
+                strongSelf.imageView.borderColor = Colors.secondaryColor.value
             } else {
-                imageView.borderWidth = 0
-                imageView.borderColor = UIColor.clear
+                strongSelf.imageView.borderWidth = 0
+                strongSelf.imageView.borderColor = UIColor.clear
             }
         }
         

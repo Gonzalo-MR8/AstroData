@@ -134,9 +134,11 @@ class SpaceItemDetailViewController: UIViewController {
             cellTypes.append(.openWeb(url))
         }
         
-        DispatchQueue.main.async { [self] in
-            tableView.reloadData()
-            hideHudView()
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+
+            strongSelf.tableView.reloadData()
+            strongSelf.hideHudView()
         }
     }
     
@@ -147,12 +149,13 @@ class SpaceItemDetailViewController: UIViewController {
         
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
-        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [self] result in
+        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [weak self] result in
+            guard let strongSelf = self else { return }
             if let image = result {
-                cellTypes.append(.image(image, viewModel.getHighDefinitionImage()))
+                strongSelf.cellTypes.append(.image(image, strongSelf.viewModel.getHighDefinitionImage()))
             }
             
-            configureCommonCells(spaceItemData: spaceItemData)
+            strongSelf.configureCommonCells(spaceItemData: spaceItemData)
         }
     }
     

@@ -66,14 +66,15 @@ class SIDetailAudioCell: UITableViewCell {
         let timeScale = CMTimeScale(NSEC_PER_SEC)
         let time = CMTime(seconds: 1, preferredTimescale: timeScale)
 
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time, queue: .main) { [self] time in
-            setLabelCurrentTime(time: time)
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
+            guard let strongSelf = self else { return }
+            strongSelf.setLabelCurrentTime(time: time)
             
             let timeInSeconds = Int(time.value) / Int(time.timescale)
             
-            if Int(durationInSeconds) == timeInSeconds {
-                player.pause()
-                imageViewPlayPause.image = UIImage(systemName: "play")
+            if Int(strongSelf.durationInSeconds) == timeInSeconds {
+                strongSelf.player.pause()
+                strongSelf.imageViewPlayPause.image = UIImage(systemName: "play")
             }
         }
     }
@@ -125,8 +126,9 @@ class SIDetailAudioCell: UITableViewCell {
             targetTime = CMTimeMake(value: Int64(timeInSeconds) - kTimeToMove, timescale: 1)
         }
         
-        player.seek(to: targetTime) { [self] _ in
-            sliderIsBeingModified = false
+        player.seek(to: targetTime) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.sliderIsBeingModified = false
         }
     }
     
@@ -144,8 +146,9 @@ class SIDetailAudioCell: UITableViewCell {
         updateThumbColor()
         
         let targetTime: CMTime = CMTimeMake(value: Int64(Float(playerDuration.value) * value), timescale: playerDuration.timescale)
-        player.seek(to: targetTime) { [self] _ in
-            sliderIsBeingModified = false
+        player.seek(to: targetTime) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.sliderIsBeingModified = false
         }
     }
     
@@ -154,9 +157,10 @@ class SIDetailAudioCell: UITableViewCell {
         
         guard Int(durationInSeconds) != timeInSeconds else {
             let targetTime: CMTime = CMTimeMake(value: 0, timescale: 1)
-            player.seek(to: targetTime) { [self] _ in
-                imageViewPlayPause.image = UIImage(systemName: "pause")
-                player.play()
+            player.seek(to: targetTime) { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.imageViewPlayPause.image = UIImage(systemName: "pause")
+                strongSelf.player.play()
             }
             return
         }

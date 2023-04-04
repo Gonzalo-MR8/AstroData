@@ -22,11 +22,13 @@ class APODDateCell: UITableViewCell {
     }
     
     func updateSelectedDate(state: Bool) {
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+
             if state {
-                lastSelectedDate = datePicker.date
+                strongSelf.lastSelectedDate = strongSelf.datePicker.date
             } else {
-                datePicker.date = lastSelectedDate
+                strongSelf.datePicker.date = strongSelf.lastSelectedDate
             }
         }
     }
