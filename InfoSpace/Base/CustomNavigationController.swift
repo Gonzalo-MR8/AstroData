@@ -116,7 +116,7 @@ class CustomNavigationController: UINavigationController {
         
         self.present(to: alert, animated: true)
     }
-    
+
     func popToViewController(classVC: AnyClass, animated: Bool) {
         if let viewController = self.getViewControllerInStack(classVC: classVC) {
             self.popToViewController(viewController, animated: animated)
@@ -136,5 +136,19 @@ class CustomNavigationController: UINavigationController {
     
     func openUrl(_ url: URL, animated: Bool) {
         UIApplication.shared.open(url)
+    }
+
+    func showNoInternetView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            
+            let noInternetView = NoInternetView(frame: strongSelf.view.frame)
+            noInternetView.configure()
+            strongSelf.view.addSubview(noInternetView)
+        }
+    }
+
+    func closeNoInternetView() {
+        self.view.subviews.first(where: { type(of: $0) == NoInternetView.self })?.removeFromSuperview()
     }
 }

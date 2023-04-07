@@ -19,6 +19,7 @@
 // Texts
 "OPEN_WEB_BUTTON_TITLE" = "Abrir en la Web";
 "TRY_IT_LATER"          = "Inténtelo de nuevo más tarde";
+"NO_INTERNET"           = "Parece que no tienes conexión a internet";
 
 /*************************************/
 // MARK: - UseCases
