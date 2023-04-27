@@ -7,19 +7,27 @@
 
 import UIKit
 
-class CustomNavigationController: UINavigationController {
+final class CustomNavigationController: UINavigationController {
 
     // Here we have to create and instantiate the rootViewController
     static let instance = CustomNavigationController(rootViewController: SplashScreenViewController.initAndLoad())
 
-    func configure() -> UIWindow {
+    private override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+
         // Configure Navigation Controller appearance
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.setNavigationBarHidden(true, animated: false)
-        
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configureWindow() -> UIWindow {
         // Create a window that is the same size as the screen
         let window = UIWindow(frame: UIScreen.main.bounds)
-        
+
         window.rootViewController = self
         // Show the window
         window.makeKeyAndVisible()

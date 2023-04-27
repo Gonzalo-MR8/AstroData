@@ -38,15 +38,9 @@ class PlanetDetailViewController: UIViewController {
         return planetDetailViewController
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        print("willapoeerr")
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("didload")
         configureCollectionImages()
         configure()
         createGestureRecognizers()

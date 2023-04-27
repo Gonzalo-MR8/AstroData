@@ -7,12 +7,14 @@
 
 import Foundation
 
-class NetworkManager {
+final class NetworkManager {
 
     private let reachability = Reachability()
     private var reachabilityStarted = false
     
-    static var shared = NetworkManager()
+    static let shared = NetworkManager()
+
+    private init() {}
     
     // MARK: - Reachability
 

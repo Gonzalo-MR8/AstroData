@@ -7,9 +7,12 @@
 
 import UIKit
 
-class Utils {
+final class Utils {
+
     static let shared = Utils()
-    
+
+    private init() {}
+
     func downloadUIImage(with imageUrlString: String?, completion: ((UIImage?) -> Void)?) {
         ImageDownloader.shared.downloadImage(with: imageUrlString) { image in
             DispatchQueue.main.async {

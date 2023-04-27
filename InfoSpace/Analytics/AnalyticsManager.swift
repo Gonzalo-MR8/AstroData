@@ -7,8 +7,11 @@
 
 import Foundation
 
-class AnalyticsManager {
-    static var shared = AnalyticsManager()
+final class AnalyticsManager {
+    
+    static let shared = AnalyticsManager()
+
+    private init() {}
 
     func send(event: AnalyticsEvent?) {
         guard let event = event else { return }

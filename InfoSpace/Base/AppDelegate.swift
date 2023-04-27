@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Reachability
         NetworkManager.shared.startReachability()
         
-        window = CustomNavigationController.instance.configure()
+        window = CustomNavigationController.instance.configureWindow()
         
         return true
     }
