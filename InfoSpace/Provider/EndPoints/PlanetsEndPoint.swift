@@ -13,7 +13,7 @@ enum PlanetsEndPoint {
 
 extension PlanetsEndPoint: EndPoint {
     var basePath: String {
-        return Bundle.string(for: InfoConstants.kFirebaseDataUrl)!
+        return Bundle.string(for: InfoConstants.kFirebaseDataUrl) ?? ""
     }
     
     var path: String {

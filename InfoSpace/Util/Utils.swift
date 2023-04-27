@@ -22,7 +22,9 @@ final class Utils {
     }
     
     func adjustImageViewScaledHeight(frameWidth: CGFloat, imageView: UIImageView, imageViewPercentageWidth: CGFloat = 0.9) -> CGFloat {
-        let ratio = imageView.image!.size.width / imageView.image!.size.height
+        guard let image = imageView.image else { return 200 }
+
+        let ratio = image.size.width / image.size.height
         let scaledHeight = (frameWidth * imageViewPercentageWidth) / ratio
         return scaledHeight
     }

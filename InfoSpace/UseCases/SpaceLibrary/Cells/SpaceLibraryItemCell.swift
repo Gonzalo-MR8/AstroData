@@ -17,7 +17,7 @@ class SpaceLibraryItemCell: UICollectionViewCell {
     private let kBorderWidth: CGFloat = 1
     
     public func configure(spaceItem: SpaceItem) {
-        let mediaType = spaceItem.spaceItemsdatas.first!.mediaType
+        guard let mediaType = spaceItem.spaceItemsdatas.first?.mediaType else { return }
         
         imageView.setImage(with: spaceItem.links?.first?.href) { [weak self] _ in
             guard let strongSelf = self else { return }

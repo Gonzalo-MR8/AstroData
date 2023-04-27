@@ -9,7 +9,7 @@ import Foundation
 
 final class APODViewModel {
     
-    private var apod: APOD!
+    private var apod: APOD
     private let services: ApodServiceable
     
     init(apod: APOD) {

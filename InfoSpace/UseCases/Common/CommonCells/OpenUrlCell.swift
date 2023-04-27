@@ -12,7 +12,6 @@ class OpenUrlCell: UITableViewCell {
     @IBOutlet private weak var buttonOpenUrl: Button!
     
     private var url: URL!
-
     private var analyticsScreen: AnalyticsScreen!
 
     func configure(url: URL, analyticsScreen: AnalyticsScreen) {

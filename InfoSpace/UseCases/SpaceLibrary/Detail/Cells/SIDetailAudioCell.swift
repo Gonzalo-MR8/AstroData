@@ -88,7 +88,7 @@ class SIDetailAudioCell: UITableViewCell {
         formatter.allowedUnits = [.hour, .minute, .second]
         formatter.unitsStyle = .positional
         
-        return formatter.string(from: TimeInterval(timeInSeconds))!
+        return formatter.string(from: TimeInterval(timeInSeconds)) ?? ""
     }
     
     private func setLabelCurrentTime(time: CMTime) {
@@ -118,7 +118,7 @@ class SIDetailAudioCell: UITableViewCell {
         updateThumbColor()
         
         let timeInSeconds = Double(player.currentTime().value) / Double(player.currentTime().timescale)
-        let targetTime: CMTime!
+        let targetTime: CMTime
         
         if sum {
             targetTime = CMTimeMake(value: Int64(timeInSeconds) + kTimeToMove, timescale: 1)

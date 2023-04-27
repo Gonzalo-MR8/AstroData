@@ -25,7 +25,8 @@ extension UIImage {
     
     class func imageFromLayer(layer: CALayer) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, UIScreen.main.scale)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
+        guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
+        layer.render(in: context)
         guard let outputImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
         UIGraphicsEndImageContext()
         return outputImage

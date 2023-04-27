@@ -9,8 +9,8 @@ import Foundation
 
 final class ImagesGalleryViewModel {
 
-    private let imagesUrl: [String]!
-    private let highDefinitionUrlImages: [String]!
+    private let imagesUrl: [String]
+    private let highDefinitionUrlImages: [String]
     private let titles: [String]?
     
     init(imagesUrl: [String], highDefinitionUrlImages: [String], titles: [String]?) {

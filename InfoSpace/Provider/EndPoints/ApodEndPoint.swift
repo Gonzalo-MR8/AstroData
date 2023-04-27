@@ -13,7 +13,7 @@ enum ApodEndPoint {
 
 extension ApodEndPoint: EndPoint {
     var basePath: String {
-        return Bundle.string(for: InfoConstants.kNasaBaseUrl)!
+        return Bundle.string(for: InfoConstants.kNasaBaseUrl) ?? ""
     }
     
     var path: String {
@@ -36,7 +36,7 @@ extension ApodEndPoint: EndPoint {
         let kParameterDate = "date"
         
         var commonParameters = [String: String]()
-        commonParameters[kParameterApiKey] = Bundle.string(for: InfoConstants.kNasaApiKey)!
+        commonParameters[kParameterApiKey] = Bundle.string(for: InfoConstants.kNasaApiKey) ?? ""
         
         switch self {
         case .getApod(let date):

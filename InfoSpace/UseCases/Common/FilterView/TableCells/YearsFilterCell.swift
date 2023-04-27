@@ -64,10 +64,10 @@ class YearsFilterCell: UITableViewCell {
     
     private func createYearsPickers() {
         let fontDataButtons = FontData(name: FontNames.kNotoSansJPRegular)
-        let fontButtons = UIFont(name: fontDataButtons.name, size: kToolBarButtonsFontSize)!
+        guard let fontButtons = UIFont(name: fontDataButtons.name, size: kToolBarButtonsFontSize) else { return }
         
         let fontDataTitle = FontData(name: FontNames.kSpaceRangerCond)
-        let fontTitle = UIFont(name: fontDataTitle.name, size: kToolBarTitleFontSize)!
+        guard let fontTitle = UIFont(name: fontDataTitle.name, size: kToolBarTitleFontSize) else { return }
         
         // Tool bar
         toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: bounds.width, height: kToolbarHeight))
@@ -143,8 +143,8 @@ class YearsFilterCell: UITableViewCell {
         if rowStart > rowEnd, rowEnd != 0 {
             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "FILTER_VIEW_SELECT_YEAR_ERROR".localized)
         } else {
-            yearStartTextField.text = rowStart == 0 ? nil : yearStart!
-            yearEndTextField.text = rowEnd == 0 ? nil : yearEnd!
+            yearStartTextField.text = rowStart == 0 ? nil : yearStart ?? ""
+            yearEndTextField.text = rowEnd == 0 ? nil : yearEnd ?? ""
             
             delegate?.changeYearsSelected(yearStart: yearStart, yearEnd: yearEnd)
         }

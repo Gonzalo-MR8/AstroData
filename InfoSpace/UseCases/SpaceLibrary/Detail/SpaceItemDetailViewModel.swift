@@ -11,7 +11,7 @@ final class SpaceItemDetailViewModel {
     
     private let services: NasaLibraryServiceable
     
-    private var spaceItem: SpaceItem!
+    private var spaceItem: SpaceItem
     private var mediaURLs: [String]?
     
     private let paths: [String] = ["orig.jpg", "orig.jpeg", "orig.png"]

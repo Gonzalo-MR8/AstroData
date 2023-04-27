@@ -147,20 +147,21 @@ class Button: UIButton {
     }
     
     private func applyGradient() {
-        if gradientLayer == nil {
+        guard let gradient = gradientLayer else {
             gradientLayer = CAGradientLayer()
             layer.insertSublayer(gradientLayer!, at: 0)
+            return
         }
         
-        gradientLayer!.cornerRadius = layer.cornerRadius
-        gradientLayer!.frame = bounds
-        gradientLayer!.colors = [gradientStartColor.cgColor, gradientEndColor.cgColor]
+        gradient.cornerRadius = layer.cornerRadius
+        gradient.frame = bounds
+        gradient.colors = [gradientStartColor.cgColor, gradientEndColor.cgColor]
         
         let startPoint = CGPoint(x: 0.0, y: 0.5)
         let endPoint = CGPoint(x: 1.0, y: 0.5)
         
-        gradientLayer!.startPoint = startPoint
-        gradientLayer!.endPoint = endPoint
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -246,7 +246,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
         case .description:
             let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as! DescriptionCell
             
-            cell.configure(description: spaceItemData.description!)
+            cell.configure(description: spaceItemData.description ?? "")
             
             return cell
         case .date(let date):

@@ -138,7 +138,7 @@ class View: UIView {
         }
 
         // Gradient
-        let gradientLayer = layer as! CAGradientLayer
+        guard let gradientLayer = layer as? CAGradientLayer else { return }
         
         // If transparent colors, replaced with white transparent to avoid undesirable effects
         let startColor = gradientStartColor.isTransparent ? UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.0) : gradientStartColor

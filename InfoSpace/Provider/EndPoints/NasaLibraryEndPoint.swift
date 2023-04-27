@@ -21,7 +21,7 @@ extension NasaLibraryEndPoint: EndPoint {
         case .getMediaURLs:
             return ""
         default:
-            return Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl)!
+            return Bundle.string(for: InfoConstants.kNasaLibraryBaseUrl) ?? ""
         }
     }
     
@@ -79,7 +79,7 @@ extension NasaLibraryEndPoint: EndPoint {
                 if mediaTypesString == nil {
                     mediaTypesString = type.rawValue
                 } else {
-                    mediaTypesString = mediaTypesString! + ",\(type.rawValue)"
+                    mediaTypesString = mediaTypesString ?? "" + ",\(type.rawValue)"
                 }
             }
             
