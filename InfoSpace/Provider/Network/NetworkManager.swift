@@ -51,5 +51,12 @@ class NetworkManager {
         let isReachable = reachability.connection != .none
         
         NotificationCenter.default.post(name: .reachabilityChanged, object: isReachable)
+
+        /// Manage NoInternetView
+        if isReachable == false {
+            CustomNavigationController.instance.showNoInternetView()
+        } else {
+            CustomNavigationController.instance.closeNoInternetView()
+        }
     }
 }

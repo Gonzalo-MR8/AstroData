@@ -14,6 +14,8 @@ class NoInternetView: View {
     }
 
     @IBAction func tryAgainPressed(_ sender: Any) {
-        CustomNavigationController.instance.closeNoInternetView()
+        if NetworkManager.shared.isConnected == true {
+            CustomNavigationController.instance.closeNoInternetView()
+        }
     }
 }
