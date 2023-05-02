@@ -104,18 +104,16 @@ extension DashboardViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewPlanets {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetCell.identifier, for: indexPath) as? PlanetCell else { return UICollectionViewCell() }
+
             let planet = viewModel.getPlanet(position: indexPath.row)
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetCell.identifier, for: indexPath) as! PlanetCell
-            
             cell.configure(planet: planet)
             
             return cell
         } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DashboardItemCell.identifier, for: indexPath) as? DashboardItemCell else { return UICollectionViewCell() }
+
             let dashboardItem = viewModel.getDashboardItem(position: indexPath.row)
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DashboardItemCell.identifier, for: indexPath) as! DashboardItemCell
-            
             cell.configure(dashboardItem: dashboardItem)
             
             return cell

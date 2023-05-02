@@ -78,8 +78,10 @@ extension ImagesGalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let imageUrl = viewModel.getImage(position: indexPath.row)
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageGalleryCell.identifier, for: indexPath) as! ImageGalleryCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageGalleryCell.identifier, for: indexPath) as? ImageGalleryCell else { return UICollectionViewCell() }
+
         cell.configure(imageUrl: imageUrl)
+        
         return cell
     }
 }

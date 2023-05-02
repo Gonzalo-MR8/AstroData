@@ -48,7 +48,7 @@ extension ContentTypeFilterCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentTypeItemCell.identifier, for: indexPath) as! ContentTypeItemCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentTypeItemCell.identifier, for: indexPath) as? ContentTypeItemCell else { return UICollectionViewCell() }
         
         if selectedTypes.contains(where: { $0 == kTypes[indexPath.row].0 }) {
             cell.configure(text: kTypes[indexPath.row].1, isSelected: true)

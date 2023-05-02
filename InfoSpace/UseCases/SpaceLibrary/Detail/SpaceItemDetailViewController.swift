@@ -203,26 +203,26 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellTypes.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = cellTypes[indexPath.row]
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
         switch cellType {
         case .title:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as! TitleCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as? TitleCell else { return UITableViewCell() }
             
             cell.configure(title: spaceItemData.title)
             
             return cell
         case .image(let image, let highDefinitionUrlImage):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as! SIDetailImageCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailImageCell.identifier) as? SIDetailImageCell else { return UITableViewCell() }
             
             cell.configure(image: image, link: viewModel.getSpaceItemLinks(), highDefinitionUrlImage: highDefinitionUrlImage, frameWidth: self.view.frame.width)
             
             return cell
         case .video(let url):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailVideoCell.identifier) as! SIDetailVideoCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailVideoCell.identifier) as? SIDetailVideoCell else { return UITableViewCell() }
             
             if let player = player {
                 cell.configure(player: player, frameWidth: self.view.frame.width, viewController: self)
@@ -233,7 +233,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             
             return cell
         case .audio(let url):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailAudioCell.identifier) as! SIDetailAudioCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailAudioCell.identifier) as? SIDetailAudioCell else { return UITableViewCell() }
             
             if let player = player {
                 cell.configure(player: player)
@@ -244,49 +244,49 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             
             return cell
         case .description:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as! DescriptionCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as? DescriptionCell else { return UITableViewCell() }
             
             cell.configure(description: spaceItemData.description ?? "")
             
             return cell
         case .date(let date):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as? SIDetailMultipurposeTextCell else { return UITableViewCell() }
             
             cell.configure(title: "SPACE_ITEM_DETAIL_DATE_TITLE".localized, text: date)
             
             return cell
         case .center(let center):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as? SIDetailMultipurposeTextCell else { return UITableViewCell() }
             
             cell.configure(title: "SPACE_ITEM_DETAIL_CENTER_TITLE".localized, text: center)
             
             return cell
         case .secondaryCreator(let secondaryCreator):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as? SIDetailMultipurposeTextCell else { return UITableViewCell() }
             
             cell.configure(title: "SPACE_ITEM_DETAIL_SECONDARY_CREATOR_TITLE".localized, text: secondaryCreator)
             
             return cell
         case .photographer(let photographer):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as? SIDetailMultipurposeTextCell else { return UITableViewCell() }
             
             cell.configure(title: "SPACE_ITEM_DETAIL_PHOTOGRAPHER_TITLE".localized, text: photographer)
             
             return cell
         case .location(let location):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as! SIDetailMultipurposeTextCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailMultipurposeTextCell.identifier) as? SIDetailMultipurposeTextCell else { return UITableViewCell() }
             
             cell.configure(title: "SPACE_ITEM_DETAIL_LOCATION_TITLE".localized, text: location)
             
             return cell
         case .openWeb(let url):
-            let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as? OpenUrlCell else { return UITableViewCell() }
             
             cell.configure(url: url, analyticsScreen: .spaceLibraryDetail)
             
             return cell
         case .separator:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as! SeparatorCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as? SeparatorCell else { return UITableViewCell() }
             
             return cell
         }

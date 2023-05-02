@@ -89,22 +89,21 @@ extension SpaceLibraryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard viewModel.getNumberOfSpaceItems() != 0 else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceLibraryNoItemsCell.identifier, for: indexPath) as! SpaceLibraryNoItemsCell
-            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceLibraryNoItemsCell.identifier, for: indexPath) as? SpaceLibraryNoItemsCell else { return UICollectionViewCell() }
+
             return cell
         }
         
         if indexPath.row == viewModel.getNumberOfSpaceItems() && reload {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReloadCollectionViewCell.identifier, for: indexPath) as! ReloadCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReloadCollectionViewCell.identifier, for: indexPath) as? ReloadCollectionViewCell else { return UICollectionViewCell() }
             
             reload = false
             
             return cell
         } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceLibraryItemCell.identifier, for: indexPath) as? SpaceLibraryItemCell else { return UICollectionViewCell() }
+
             let spaceItem = viewModel.getSpaceItem(position: indexPath.row)
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceLibraryItemCell.identifier, for: indexPath) as! SpaceLibraryItemCell
-            
             cell.configure(spaceItem: spaceItem)
             
             return cell

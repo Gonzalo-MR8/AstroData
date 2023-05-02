@@ -140,10 +140,9 @@ extension PlanetDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetImageCell.identifier, for: indexPath) as? PlanetImageCell else { return UICollectionViewCell() }
+
         let image = viewModel.getGalleryImage(position: indexPath.row)
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetImageCell.identifier, for: indexPath) as! PlanetImageCell
-        
         cell.configure(stringUrl: image.imageUrl)
         
         return cell

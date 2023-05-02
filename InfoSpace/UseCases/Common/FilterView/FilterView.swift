@@ -71,15 +71,15 @@ extension FilterView: UITableViewDataSource {
 
         switch cellType {
         case .header:
-            let cell = tableView.dequeueReusableCell(withIdentifier: HeaderFilterCell.identifier) as! HeaderFilterCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HeaderFilterCell.identifier) as? HeaderFilterCell else { return UITableViewCell() }
             
             return cell
         case .separator:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as! SeparatorCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as? SeparatorCell else { return UITableViewCell() }
             
             return cell
         case .search:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SearchFilterCell.identifier) as! SearchFilterCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchFilterCell.identifier) as? SearchFilterCell else { return UITableViewCell() }
             
             cell.delegate = self
             
@@ -89,7 +89,7 @@ extension FilterView: UITableViewDataSource {
 
             return cell
         case .contentType:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ContentTypeFilterCell.identifier) as! ContentTypeFilterCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ContentTypeFilterCell.identifier) as? ContentTypeFilterCell else { return UITableViewCell() }
             
             cell.delegate = self
             
@@ -99,7 +99,7 @@ extension FilterView: UITableViewDataSource {
             
             return cell
         case .years:
-            let cell = tableView.dequeueReusableCell(withIdentifier: YearsFilterCell.identifier) as! YearsFilterCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: YearsFilterCell.identifier) as? YearsFilterCell else { return UITableViewCell() }
             
             cell.delegate = self
             
@@ -109,7 +109,7 @@ extension FilterView: UITableViewDataSource {
             
             return cell
         case .order:
-            let cell = tableView.dequeueReusableCell(withIdentifier: OrderFilterCell.identifier) as! OrderFilterCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderFilterCell.identifier) as? OrderFilterCell else { return UITableViewCell() }
             
             cell.delegate = self
             
@@ -120,7 +120,7 @@ extension FilterView: UITableViewDataSource {
             
             return cell
         case .buttons:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ButtonsFilterCell.identifier) as! ButtonsFilterCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonsFilterCell.identifier) as? ButtonsFilterCell else { return UITableViewCell() }
             
             cell.delegate = self
             

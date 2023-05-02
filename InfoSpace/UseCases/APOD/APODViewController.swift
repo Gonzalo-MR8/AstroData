@@ -94,13 +94,13 @@ extension APODViewController: UITableViewDataSource {
         
         switch cellType {
         case .title:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as! TitleCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.identifier) as? TitleCell else { return UITableViewCell() }
             
             cell.configure(title: apod.title)
             
             return cell
         case .date:
-            let cell = tableView.dequeueReusableCell(withIdentifier: APODDateCell.identifier) as! APODDateCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: APODDateCell.identifier) as? APODDateCell else { return UITableViewCell() }
             
             cell.changeDatePicker = { [weak self] date in
                 guard let self else { return }
@@ -125,19 +125,19 @@ extension APODViewController: UITableViewDataSource {
             
             return cell
         case .image(let image):
-            let cell = tableView.dequeueReusableCell(withIdentifier: APODImageCell.identifier) as! APODImageCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: APODImageCell.identifier) as? APODImageCell else { return UITableViewCell() }
             
             cell.configure(image: image, apod: apod, frameWidth: self.view.frame.width)
             
             return cell
         case .buttonUrl(let url):
-            let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as! OpenUrlCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OpenUrlCell.identifier) as? OpenUrlCell else { return UITableViewCell() }
             
             cell.configure(url: url, analyticsScreen: .apod)
             
             return cell
         case .description:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as! DescriptionCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as? DescriptionCell else { return UITableViewCell() }
             
             cell.configure(description: apod.explanation)
             
