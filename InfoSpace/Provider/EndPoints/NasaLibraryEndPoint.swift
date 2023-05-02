@@ -34,13 +34,9 @@ extension NasaLibraryEndPoint: EndPoint {
         }
     }
     
-    var method: HttpMethod {
-        return .get
-    }
+    var method: HttpMethod { .get }
     
-    var postBody: [String: String]? {
-        return nil
-    }
+    var postBody: [String: String]? { nil }
     
     var urlParameters: [String: String]? {
         let kParameterSearchText = "q"
@@ -96,7 +92,5 @@ extension NasaLibraryEndPoint: EndPoint {
         return parameters
     }
     
-    var customHeaders: [String: String]? {
-        return nil
-    }
+    var customHeaders: [String: String]? { nil }
 }

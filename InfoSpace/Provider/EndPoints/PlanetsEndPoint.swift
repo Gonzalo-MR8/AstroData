@@ -23,19 +23,11 @@ extension PlanetsEndPoint: EndPoint {
         }
     }
     
-    var method: HttpMethod {
-        return .get
-    }
+    var method: HttpMethod { .get }
     
-    var postBody: [String: String]? {
-        return nil
-    }
+    var postBody: [String: String]? { nil }
     
-    var urlParameters: [String: String]? {
-        return nil
-    }
+    var urlParameters: [String: String]? { nil }
     
-    var customHeaders: [String: String]? {
-        return nil
-    }
+    var customHeaders: [String: String]? { nil }
 }

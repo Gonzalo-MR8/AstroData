@@ -60,14 +60,14 @@ class SpaceLibraryViewController: UIViewController {
     
     private func resetOfChangeFiltersSuccess() {
         DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
-            strongSelf.spaceItemsCollectionView.reloadData()
-            strongSelf.hideHudView()
+            spaceItemsCollectionView.reloadData()
+            hideHudView()
             // Scroll to top
-            guard strongSelf.viewModel.getNumberOfSpaceItems() != 0, strongSelf.spaceItemsCollectionView.contentOffset.y != 0 else { return }
+            guard viewModel.getNumberOfSpaceItems() != 0, spaceItemsCollectionView.contentOffset.y != 0 else { return }
             
-            strongSelf.spaceItemsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+            spaceItemsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }
     }
 }
@@ -162,10 +162,10 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
 
         UIView.animate(withDuration: kAnimationDuration,
                        animations: { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
-            strongSelf.filterView.isHidden.toggle()
-            strongSelf.filterView.layoutIfNeeded()
+            filterView.isHidden.toggle()
+            filterView.layoutIfNeeded()
         })
     }
 }
@@ -182,17 +182,17 @@ extension SpaceLibraryViewController: FilterViewProtocol {
             showHudView()
             
             Task { [weak self] in
-                guard let strongSelf = self else { return }
+                guard let self else { return }
 
-                let result = await strongSelf.viewModel.getSpaceLibraryItemsFilters(filters: filters)
+                let result = await viewModel.getSpaceLibraryItemsFilters(filters: filters)
                 
                 switch result {
                 case .success:
-                    strongSelf.resetOfChangeFiltersSuccess()
+                    resetOfChangeFiltersSuccess()
                 case .failure:
                     DispatchQueue.main.async {
                         CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
-                        strongSelf.hideHudView()
+                        self.hideHudView()
                     }
                 }
             }
@@ -212,19 +212,19 @@ extension SpaceLibraryViewController: FilterViewProtocol {
         showHudView()
         
         Task { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
-            let result = await strongSelf.viewModel.getSpaceLibraryItemsFilters(reset: true, filters: strongSelf.filterView.filters)
+            let result = await viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters)
             
             switch result {
             case .success:
-                strongSelf.resetOfChangeFiltersSuccess()
+                resetOfChangeFiltersSuccess()
             case .failure:
                 DispatchQueue.main.async { [weak self] in
-                    guard let strongSelf = self else { return }
+                    guard let self else { return }
 
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
-                    strongSelf.hideHudView()
+                    hideHudView()
                 }
             }
         }
@@ -245,10 +245,10 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
         
         UIView.animate(withDuration: kAnimationDuration,
                        animations: { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
-            strongSelf.reload = true
-            strongSelf.spaceItemsCollectionView.reloadData()
+            reload = true
+            spaceItemsCollectionView.reloadData()
         })
         
         Task {
@@ -257,15 +257,15 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
             switch result {
             case .success:
                 DispatchQueue.main.async { [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.spaceItemsCollectionView.reloadData()
+                    guard let self else { return }
+                    spaceItemsCollectionView.reloadData()
                 }
             case .failure:
                 DispatchQueue.main.async { [weak self] in
-                    guard let strongSelf = self else { return }
+                    guard let self else { return }
 
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
-                    strongSelf.spaceItemsCollectionView.reloadData()
+                    spaceItemsCollectionView.reloadData()
                 }
             }
         }

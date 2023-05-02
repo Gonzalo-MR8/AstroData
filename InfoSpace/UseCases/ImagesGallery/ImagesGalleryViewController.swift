@@ -43,12 +43,12 @@ class ImagesGalleryViewController: UIViewController {
         AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadPressed)
 
         CustomNavigationController.instance.presentAcceptOrCancelAlert(title: "IMAGES_GALLERY_DOWNLOAD".localized, message: "IMAGES_GALLERY_DOWNLOAD_QUESTION".localized, acceptCompletion: { [weak self] _ in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadAccept)
 
             let imageSaver = ImageSaver()
-            imageSaver.writeToPhotoAlbum(urlString: strongSelf.viewModel.getHighDefinitionUrlImage(position: strongSelf.position))
+            imageSaver.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
         }, cancelCompletion: { _ in
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadCancel)
         })

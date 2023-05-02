@@ -67,14 +67,14 @@ class SIDetailAudioCell: UITableViewCell {
         let time = CMTime(seconds: 1, preferredTimescale: timeScale)
 
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
-            guard let strongSelf = self else { return }
-            strongSelf.setLabelCurrentTime(time: time)
+            guard let self else { return }
+            setLabelCurrentTime(time: time)
             
             let timeInSeconds = Int(time.value) / Int(time.timescale)
             
-            if Int(strongSelf.durationInSeconds) == timeInSeconds {
-                strongSelf.player.pause()
-                strongSelf.imageViewPlayPause.image = UIImage(systemName: "play")
+            if Int(durationInSeconds) == timeInSeconds {
+                player.pause()
+                imageViewPlayPause.image = UIImage(systemName: "play")
             }
         }
     }
@@ -127,8 +127,8 @@ class SIDetailAudioCell: UITableViewCell {
         }
         
         player.seek(to: targetTime) { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.sliderIsBeingModified = false
+            guard let self else { return }
+            sliderIsBeingModified = false
         }
     }
     
@@ -147,8 +147,8 @@ class SIDetailAudioCell: UITableViewCell {
         
         let targetTime: CMTime = CMTimeMake(value: Int64(Float(playerDuration.value) * value), timescale: playerDuration.timescale)
         player.seek(to: targetTime) { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.sliderIsBeingModified = false
+            guard let self else { return }
+            sliderIsBeingModified = false
         }
     }
     
@@ -158,9 +158,9 @@ class SIDetailAudioCell: UITableViewCell {
         guard Int(durationInSeconds) != timeInSeconds else {
             let targetTime: CMTime = CMTimeMake(value: 0, timescale: 1)
             player.seek(to: targetTime) { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.imageViewPlayPause.image = UIImage(systemName: "pause")
-                strongSelf.player.play()
+                guard let self else { return }
+                imageViewPlayPause.image = UIImage(systemName: "pause")
+                player.play()
             }
             return
         }

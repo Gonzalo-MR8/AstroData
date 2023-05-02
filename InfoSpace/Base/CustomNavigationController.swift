@@ -148,11 +148,11 @@ final class CustomNavigationController: UINavigationController {
 
     func showNoInternetView() {
         DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
             
-            let noInternetView = NoInternetView(frame: strongSelf.view.frame)
+            let noInternetView = NoInternetView(frame: view.frame)
             noInternetView.configure()
-            strongSelf.view.addSubview(noInternetView)
+            view.addSubview(noInternetView)
         }
     }
 

@@ -135,10 +135,10 @@ class SpaceItemDetailViewController: UIViewController {
         }
         
         DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
-            strongSelf.tableView.reloadData()
-            strongSelf.hideHudView()
+            tableView.reloadData()
+            hideHudView()
         }
     }
     
@@ -150,12 +150,12 @@ class SpaceItemDetailViewController: UIViewController {
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
         Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [weak self] result in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
             if let image = result {
-                strongSelf.cellTypes.append(.image(image, strongSelf.viewModel.getHighDefinitionImage()))
+                cellTypes.append(.image(image, viewModel.getHighDefinitionImage()))
             }
             
-            strongSelf.configureCommonCells(spaceItemData: spaceItemData)
+            configureCommonCells(spaceItemData: spaceItemData)
         }
     }
     

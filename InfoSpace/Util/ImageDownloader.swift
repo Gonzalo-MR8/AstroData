@@ -44,7 +44,7 @@ final class ImageDownloader {
             }
 
             let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
-                guard let strongSelf = self else { return }
+                guard let self else { return }
 
                 guard let data = data else {
                     completion(placeholderImage)
@@ -52,8 +52,8 @@ final class ImageDownloader {
                 }
 
                 if error != nil {
-                    _ = strongSelf.serialQueueForDataTasks.sync(flags: .barrier) {
-                        strongSelf.imagesDownloadTasks.removeValue(forKey: imageUrlString)
+                    _ = serialQueueForDataTasks.sync(flags: .barrier) {
+                        self.imagesDownloadTasks.removeValue(forKey: imageUrlString)
                     }
                     DispatchQueue.main.async {
                         completion(placeholderImage)
@@ -62,12 +62,12 @@ final class ImageDownloader {
                 }
 
                 let image = UIImage(data: data)
-                strongSelf.serialQueueForImages.sync(flags: .barrier) {
-                    strongSelf.cachedImages[imageUrlString] = image
+                serialQueueForImages.sync(flags: .barrier) {
+                    self.cachedImages[imageUrlString] = image
                 }
 
-                _ = strongSelf.serialQueueForDataTasks.sync(flags: .barrier) {
-                    strongSelf.imagesDownloadTasks.removeValue(forKey: imageUrlString)
+                _ = serialQueueForDataTasks.sync(flags: .barrier) {
+                    self.imagesDownloadTasks.removeValue(forKey: imageUrlString)
                 }
 
                 DispatchQueue.main.async {

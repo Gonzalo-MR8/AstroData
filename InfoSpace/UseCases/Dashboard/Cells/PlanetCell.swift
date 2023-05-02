@@ -26,9 +26,9 @@ class PlanetCell: UICollectionViewCell {
     
     func transformToLarge() {
         UIView.animate(withDuration: kAnimationDuration) { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
 
-            strongSelf.transform = CGAffineTransform(scaleX: strongSelf.kScaleMultiplier, y: strongSelf.kScaleMultiplier)
+            transform = CGAffineTransform(scaleX: kScaleMultiplier, y: kScaleMultiplier)
         }
     }
     

@@ -13,7 +13,7 @@ enum ApodEndPoint {
 
 extension ApodEndPoint: EndPoint {
     var basePath: String {
-        return Bundle.string(for: InfoConstants.kNasaBaseUrl) ?? ""
+        Bundle.string(for: InfoConstants.kNasaBaseUrl) ?? ""
     }
     
     var path: String {
@@ -23,13 +23,9 @@ extension ApodEndPoint: EndPoint {
         }
     }
     
-    var method: HttpMethod {
-        return .get
-    }
+    var method: HttpMethod { .get }
     
-    var postBody: [String: String]? {
-        return nil
-    }
+    var postBody: [String: String]? { nil }
     
     var urlParameters: [String: String]? {
         let kParameterApiKey = "api_key"
@@ -55,7 +51,5 @@ extension ApodEndPoint: EndPoint {
         }
     }
     
-    var customHeaders: [String: String]? {
-        return nil
-    }
+    var customHeaders: [String: String]? { nil }
 }

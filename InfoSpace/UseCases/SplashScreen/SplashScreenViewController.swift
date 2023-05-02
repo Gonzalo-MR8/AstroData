@@ -36,8 +36,8 @@ class SplashScreenViewController: UIViewController {
             case .failure:
                 DispatchQueue.main.async {
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPLASH_SCREEN_LOAD_ERROR".localized, completion: { [weak self] _ in
-                        guard let strongSelf = self else { return }
-                        strongSelf.getInitialData()
+                        guard let self else { return }
+                        getInitialData()
                     })
                 }
             }

@@ -20,14 +20,14 @@ class SpaceLibraryItemCell: UICollectionViewCell {
         guard let mediaType = spaceItem.spaceItemsdatas.first?.mediaType else { return }
         
         imageView.setImage(with: spaceItem.links?.first?.href) { [weak self] _ in
-            guard let strongSelf = self else { return }
+            guard let self else { return }
             
-            if mediaType == .audio, strongSelf.imageView.image == UIImage(named: "placeholderIcon") {
-                strongSelf.imageView.borderWidth = strongSelf.kBorderWidth
-                strongSelf.imageView.borderColor = Colors.secondaryColor.value
+            if mediaType == .audio, imageView.image == UIImage(named: "placeholderIcon") {
+                imageView.borderWidth = kBorderWidth
+                imageView.borderColor = Colors.secondaryColor.value
             } else {
-                strongSelf.imageView.borderWidth = 0
-                strongSelf.imageView.borderColor = UIColor.clear
+                imageView.borderWidth = 0
+                imageView.borderColor = UIColor.clear
             }
         }
         
