@@ -24,7 +24,7 @@ class APODImageCell: UITableViewCell {
         
         imageViewApod.image = image
 
-        imageViewHeight.constant = Utils.shared.adjustImageViewScaledHeight(frameWidth: frameWidth, imageView: imageViewApod)
+        imageViewHeight.constant = Utils.adjustImageViewScaledHeight(frameWidth: frameWidth, imageView: imageViewApod)
         self.layoutIfNeeded()
         
         if let copyright = apod.copyright {

@@ -23,7 +23,7 @@ class SIDetailImageCell: UITableViewCell {
         
         itemImageView.image = image
         
-        self.imageViewHeight.constant = Utils.shared.adjustImageViewScaledHeight(frameWidth: frameWidth, imageView: self.itemImageView)
+        self.imageViewHeight.constant = Utils.adjustImageViewScaledHeight(frameWidth: frameWidth, imageView: self.itemImageView)
         self.layoutIfNeeded()
     }
     

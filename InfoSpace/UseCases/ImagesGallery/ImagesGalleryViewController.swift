@@ -47,8 +47,8 @@ class ImagesGalleryViewController: UIViewController {
 
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadAccept)
 
-            let imageSaver = ImageSaver()
-            imageSaver.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
+            //let imageSaver = ImageSaver()
+            Utils.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
         }, cancelCompletion: { _ in
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadCancel)
         })

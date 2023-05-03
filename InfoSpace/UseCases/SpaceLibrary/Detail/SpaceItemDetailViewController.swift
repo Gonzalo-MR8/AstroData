@@ -149,7 +149,7 @@ class SpaceItemDetailViewController: UIViewController {
         
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
-        Utils.shared.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [weak self] result in
+        Utils.downloadUIImage(with: viewModel.getSpaceItemLinks()?.href) { [weak self] result in
             guard let self else { return }
             if let image = result {
                 cellTypes.append(.image(image, viewModel.getHighDefinitionImage()))

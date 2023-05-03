@@ -47,14 +47,14 @@ class YearsFilterCell: UITableViewCell {
         generateYears()
         createYearsPickers()
         
-        yearStartTextField.text = Utils.shared.getCurrentYear().description
+        yearStartTextField.text = Utils.getCurrentYear().description
         picker.selectRow(lastRow, inComponent: 0, animated: false)
     }
 
     private func generateYears() {
         let lastYear = 1900
         
-        for index in lastYear...Utils.shared.getCurrentYear() {
+        for index in lastYear...Utils.getCurrentYear() {
             years.append(String(index))
             lastRow += 1
         }
@@ -154,7 +154,7 @@ class YearsFilterCell: UITableViewCell {
     }
     
     func reset() {
-        yearStartTextField.text = Utils.shared.getCurrentYear().description
+        yearStartTextField.text = Utils.getCurrentYear().description
         yearEndTextField.text = nil
         picker.selectRow(lastRow, inComponent: 0, animated: false)
         picker.selectRow(0, inComponent: 1, animated: false)

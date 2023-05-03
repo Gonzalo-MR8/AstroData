@@ -48,7 +48,7 @@ extension NasaLibraryEndPoint: EndPoint {
         
         switch self {
         case .getLibraryDefault(let page):
-            parameters[kParameterYearStart] = Utils.shared.getCurrentYear().description
+            parameters[kParameterYearStart] = Utils.getCurrentYear().description
             parameters[ParametersConstants.kParameterPage] = page
         case .getLibraryFilters(let filters), .getSLastPageItemFilters(filters: let filters):
             parameters[ParametersConstants.kParameterPage] = String(filters.page)
@@ -83,7 +83,7 @@ extension NasaLibraryEndPoint: EndPoint {
                 parameters[kParameterMediaType] = mediaTypesString
             }
         case .getSLastPageItemDefault:
-            parameters[kParameterYearStart] = Utils.shared.getCurrentYear().description
+            parameters[kParameterYearStart] = Utils.getCurrentYear().description
             parameters[ParametersConstants.kParameterPage] = ParametersConstants.kLastPageNumber
         default:
             return nil

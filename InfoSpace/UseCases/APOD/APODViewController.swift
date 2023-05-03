@@ -52,7 +52,7 @@ class APODViewController: UIViewController {
         
         let apod: APOD = viewModel.getApod()
         
-        Utils.shared.downloadUIImage(with: apod.thumbUrl) { [weak self] result in
+        Utils.downloadUIImage(with: apod.thumbUrl) { [weak self] result in
             guard let self else { return }
 
             if let image = result {

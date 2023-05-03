@@ -39,7 +39,7 @@ class FilterView: View {
         setupNib()
         configureTable()
         filters = SpaceLibraryFilters()
-        filters.yearStart = Utils.shared.getCurrentYear().description
+        filters.yearStart = Utils.getCurrentYear().description
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
@@ -185,7 +185,7 @@ extension FilterView: ButtonsFilterCellProtocol {
         reset = true
         filtersTableView.reloadData()
         filters = SpaceLibraryFilters()
-        filters.yearStart = Utils.shared.getCurrentYear().description
+        filters.yearStart = Utils.getCurrentYear().description
         delegate?.resetFilters()
     }
 }
