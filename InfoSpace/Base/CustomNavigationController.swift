@@ -146,17 +146,17 @@ final class CustomNavigationController: UINavigationController {
         UIApplication.shared.open(url)
     }
 
-    func showNoInternetView() {
+    func showAlertBlockView(blockType: AletBlockType) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             
-            let noInternetView = NoInternetView(frame: view.frame)
-            noInternetView.configure()
-            view.addSubview(noInternetView)
+            let blockView = AlertBlockView(frame: view.frame)
+            blockView.configure(blockType: blockType)
+            view.addSubview(blockView)
         }
     }
 
-    func closeNoInternetView() {
-        self.view.subviews.first(where: { type(of: $0) == NoInternetView.self })?.removeFromSuperview()
+    func closeAlertBlockView() {
+        self.view.subviews.first(where: { type(of: $0) == AlertBlockView.self })?.removeFromSuperview()
     }
 }

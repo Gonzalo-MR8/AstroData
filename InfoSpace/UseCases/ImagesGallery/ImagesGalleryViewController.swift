@@ -16,9 +16,8 @@ class ImagesGalleryViewController: UIViewController {
     @IBOutlet private weak var labelTitle: UILabel!
     
     private var position: Int!
-    
-    var isScrolled = false
-    
+    private var isScrolled = false
+
     static func initAndLoad(imagesUrl: [String], highDefinitionUrlImages: [String], titles: [String]? = nil, position: Int) -> ImagesGalleryViewController {
         let imagesViewController = ImagesGalleryViewController.initAndLoad()
         
@@ -47,7 +46,6 @@ class ImagesGalleryViewController: UIViewController {
 
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadAccept)
 
-            //let imageSaver = ImageSaver()
             Utils.writeToPhotoAlbum(urlString: viewModel.getHighDefinitionUrlImage(position: position))
         }, cancelCompletion: { _ in
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsImagesGalleryDownloadCancel)
