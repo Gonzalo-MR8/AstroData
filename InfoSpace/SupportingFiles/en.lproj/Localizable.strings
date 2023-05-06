@@ -20,6 +20,9 @@
 "OPEN_WEB_BUTTON_TITLE" = "OPEN ON WEB";
 "TRY_IT_LATER"          = "Try it again Later";
 "NO_INTERNET"           = "It seems that you have no internet connection";
+"NEW_UPDATE"            = "It seems that a new version is available!";
+"TRY_AGAIN"             = "Try Again";
+"UPDATE"                = "Update";
 
 /*************************************/
 // MARK: - UseCases

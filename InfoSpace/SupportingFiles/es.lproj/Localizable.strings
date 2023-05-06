@@ -20,6 +20,12 @@
 "OPEN_WEB_BUTTON_TITLE" = "Abrir en la Web";
 "TRY_IT_LATER"          = "Inténtelo de nuevo más tarde";
 "NO_INTERNET"           = "Parece que no tienes conexión a internet";
+"NEW_UPDATE"            = "Parece que una nueva versión está disponible!";
+"TRY_AGAIN"             = "Inténtalo de nuevo";
+"UPDATE"                = "Actualizar";
+
+"SIMPLE_ALERT_TEXT_APOD_SL" = "Debido a que todos los datos se sacan de la web oficial de la NASA, el único idioma disponible es el Inglés";
+"SIMPLE_ALERT_TEXT_SEARCH"  = "Para que el filtro de búsqueda funcione correctamente, el texto de búsqueda deberá estar escrito en Inglés";
 
 /*************************************/
 // MARK: - UseCases

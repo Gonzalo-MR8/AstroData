@@ -145,18 +145,35 @@ final class CustomNavigationController: UINavigationController {
     func openUrl(_ url: URL, animated: Bool) {
         UIApplication.shared.open(url)
     }
+}
 
-    func showAlertBlockView(blockType: AletBlockType) {
+// MARK: - Show Custom Alerts
+extension CustomNavigationController {
+    func showAlertBlockView(alertType: AlertBlockType) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            
+
             let blockView = AlertBlockView(frame: view.frame)
-            blockView.configure(blockType: blockType)
+            blockView.configure(alertType: alertType)
             view.addSubview(blockView)
         }
     }
 
     func closeAlertBlockView() {
         self.view.subviews.first(where: { type(of: $0) == AlertBlockView.self })?.removeFromSuperview()
+    }
+
+    func showAlertSimpleView(alertType: AlertSimpleType) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+
+            let alertView = AlertSimpleView(frame: view.frame)
+            alertView.configure(alertType: alertType)
+            view.addSubview(alertView)
+        }
+    }
+
+    func closeAlertSimpleView() {
+        self.view.subviews.first(where: { type(of: $0) == AlertSimpleView.self })?.removeFromSuperview()
     }
 }

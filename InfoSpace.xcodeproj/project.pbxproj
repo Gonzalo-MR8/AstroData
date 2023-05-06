@@ -99,6 +99,10 @@
 		9B3D44E82862883C007AB312 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D44E72862883C007AB312 /* Button.swift */; };
 		9B4238CC2A045D5200871225 /* AlertBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4238CB2A045D5200871225 /* AlertBlockView.swift */; };
 		9B4238CE2A045D6C00871225 /* AlertBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4238CD2A045D6C00871225 /* AlertBlockView.xib */; };
+		9B4238D02A04621100871225 /* noInternet.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4238CF2A04621100871225 /* noInternet.json */; };
+		9B4238D22A04621A00871225 /* update.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4238D12A04621A00871225 /* update.json */; };
+		9B4238D42A046A2D00871225 /* AlertSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4238D32A046A2D00871225 /* AlertSimpleView.swift */; };
+		9B4238D62A046A3500871225 /* AlertSimpleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4238D52A046A3500871225 /* AlertSimpleView.xib */; };
 		9B4356442947DD2F00195C11 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4356432947DD2F00195C11 /* Slider.swift */; };
 		9B4DEAC62906E74E008A5141 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DEAC52906E74E008A5141 /* FilterView.swift */; };
 		9B4DEACA2906E75F008A5141 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4DEAC92906E75F008A5141 /* FilterView.xib */; };
@@ -257,6 +261,10 @@
 		9B3D44E72862883C007AB312 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		9B4238CB2A045D5200871225 /* AlertBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBlockView.swift; sourceTree = "<group>"; };
 		9B4238CD2A045D6C00871225 /* AlertBlockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertBlockView.xib; sourceTree = "<group>"; };
+		9B4238CF2A04621100871225 /* noInternet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noInternet.json; sourceTree = "<group>"; };
+		9B4238D12A04621A00871225 /* update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update.json; sourceTree = "<group>"; };
+		9B4238D32A046A2D00871225 /* AlertSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSimpleView.swift; sourceTree = "<group>"; };
+		9B4238D52A046A3500871225 /* AlertSimpleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertSimpleView.xib; sourceTree = "<group>"; };
 		9B4356432947DD2F00195C11 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		9B4DEAC52906E74E008A5141 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		9B4DEAC92906E75F008A5141 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
@@ -612,13 +620,15 @@
 			path = TableCells;
 			sourceTree = "<group>";
 		};
-		9B52196029DE16D900EE6141 /* AlertView */ = {
+		9B52196029DE16D900EE6141 /* AlertViews */ = {
 			isa = PBXGroup;
 			children = (
 				9B4238CB2A045D5200871225 /* AlertBlockView.swift */,
 				9B4238CD2A045D6C00871225 /* AlertBlockView.xib */,
+				9B4238D32A046A2D00871225 /* AlertSimpleView.swift */,
+				9B4238D52A046A3500871225 /* AlertSimpleView.xib */,
 			);
-			path = AlertView;
+			path = AlertViews;
 			sourceTree = "<group>";
 		};
 		9B82C9DA285210BC003EAF59 /* ImagesGallery */ = {
@@ -664,6 +674,8 @@
 		9B931161283E7F8C0052EF1B /* AnimationFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9B4238D12A04621A00871225 /* update.json */,
+				9B4238CF2A04621100871225 /* noInternet.json */,
 				9B931163283E814B0052EF1B /* loading.json */,
 				9B931162283E814B0052EF1B /* splashScreen.json */,
 			);
@@ -787,7 +799,7 @@
 		9BB44422283D65660043EF4E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9B52196029DE16D900EE6141 /* AlertView */,
+				9B52196029DE16D900EE6141 /* AlertViews */,
 				9B342625292D630F004BB8BC /* CommonCells */,
 				9B4DEAC42906E6B5008A5141 /* FilterView */,
 				9B3C360B285C094100E19B8C /* HeaderView */,
@@ -918,6 +930,7 @@
 				9B22370728457A33005F47B7 /* PlanetCell.xib in Resources */,
 				9B34CFAC290F10D500E642A1 /* YearsFilterCell.xib in Resources */,
 				9B22A76528453E65002762AF /* DashboardViewController.xib in Resources */,
+				9B4238D62A046A3500871225 /* AlertSimpleView.xib in Resources */,
 				9B4F833C290DCE00006E8954 /* SearchFilterCell.xib in Resources */,
 				9B28E355284D120B00F79F7B /* spacerangeracad.ttf in Resources */,
 				9B84C97A296B743C00821734 /* Localizable.strings in Resources */,
@@ -953,6 +966,7 @@
 				9B22370E28457E97005F47B7 /* NotoSansJP-Light.otf in Resources */,
 				9B28E353284D120B00F79F7B /* spacerangercond.ttf in Resources */,
 				9B62D5E0292E842500863317 /* SIDetailVideoCell.xib in Resources */,
+				9B4238D22A04621A00871225 /* update.json in Resources */,
 				9B2E4AF729117B4B001A0FA5 /* SpaceLibraryItemCell.xib in Resources */,
 				9B28E33D284D120B00F79F7B /* spacerangerbold.ttf in Resources */,
 				9B28E34E284D120B00F79F7B /* spaceranger3dital.ttf in Resources */,
@@ -962,6 +976,7 @@
 				9B28E34F284D120B00F79F7B /* spacerangerchromeital.ttf in Resources */,
 				9B82C9E328521211003EAF59 /* ImageGalleryCell.xib in Resources */,
 				9B2B835C28615D41002BABDC /* APODImageCell.xib in Resources */,
+				9B4238D02A04621100871225 /* noInternet.json in Resources */,
 				9B8CABDE2850091100C4667B /* PlanetImageCell.xib in Resources */,
 				9B28E31A284CE06700F79F7B /* PlanetDetailViewController.xib in Resources */,
 				9B4DEACA2906E75F008A5141 /* FilterView.xib in Resources */,
@@ -1113,6 +1128,7 @@
 				9B28E31C284CE0A800F79F7B /* PlanetDetailViewModel.swift in Sources */,
 				9BC3668E2999A71600371E03 /* NasaLibraryEndPoint.swift in Sources */,
 				9B22370328457A01005F47B7 /* UICollectionViewCell+Utils.swift in Sources */,
+				9B4238D42A046A2D00871225 /* AlertSimpleView.swift in Sources */,
 				9B84C97F296B97D500821734 /* UILabel+Utils.swift in Sources */,
 				9B84C981296B980E00821734 /* UIButton+Utils.swift in Sources */,
 				9B2B835728615D0B002BABDC /* APODDateCell.swift in Sources */,

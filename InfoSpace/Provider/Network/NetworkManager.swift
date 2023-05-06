@@ -56,7 +56,7 @@ final class NetworkManager {
 
         /// Manage NoInternetView
         if isReachable == false {
-            CustomNavigationController.instance.showAlertBlockView(blockType: .internet)
+            CustomNavigationController.instance.showAlertBlockView(alertType: .internet)
         } else {
             CustomNavigationController.instance.closeAlertBlockView()
         }
