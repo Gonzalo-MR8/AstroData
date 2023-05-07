@@ -23,7 +23,9 @@ class SearchFilterCell: UITableViewCell {
     }
     
     weak var delegate: SearchFilterCellProtocol?
-    
+
+    private var alertShowed: Bool = false
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -35,6 +37,12 @@ class SearchFilterCell: UITableViewCell {
     }
     
     @IBAction func editingChanged(_ sender: Any) {
+        if Locale.currentLanguage == .spanish, !UserDefaults.standard.searchAlertNoShowAgain, !alertShowed {
+            endEditing(true)
+            alertShowed = true
+            CustomNavigationController.instance.showAlertSimpleView(alertType: .search)
+        }
+
         delegate?.searchTextChanged(text: searchTextField.text)
     }
 }

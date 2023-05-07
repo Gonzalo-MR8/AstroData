@@ -80,10 +80,6 @@ extension HudViewProtocol where Self: UIViewController {
     }
     
     func hideHudView() {
-        view.subviews.forEach { subview in
-            if subview.tag == Constants.kHudViewTag {
-                subview.removeFromSuperview()
-            }
-        }
+        view.subviews.first(where: { $0.tag == Constants.kHudViewTag })?.removeFromSuperview()
     }
 }

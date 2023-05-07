@@ -23,6 +23,7 @@ class AlertSimpleView: View {
     func configure(alertType: AlertSimpleType) {
         setupNib()
 
+        self.alertType = alertType
         noShowAgainView.isHidden = true
 
         switch alertType {
@@ -40,6 +41,21 @@ class AlertSimpleView: View {
     }
 
     @IBAction func acceptPressed(_ sender: Any) {
+        switch alertType {
+        case .spaceLibrary:
+            if noShowAgainView.isHidden == false {
+                UserDefaults.standard.spaceLAlertNoShowAgain = true
+            }
+        case .apod:
+            if noShowAgainView.isHidden == false {
+                UserDefaults.standard.apodAlertNoShowAgain = true
+            }
+        case .search:
+            if noShowAgainView.isHidden == false {
+                UserDefaults.standard.searchAlertNoShowAgain = true
+            }
+        }
+
         CustomNavigationController.instance.closeAlertSimpleView()
     }
 }

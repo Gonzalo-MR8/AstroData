@@ -42,6 +42,10 @@ class APODViewController: UIViewController {
         
         showHudView()
         configureImageOrUrl()
+        
+        if Locale.currentLanguage == .spanish, !UserDefaults.standard.apodAlertNoShowAgain {
+            CustomNavigationController.instance.showAlertSimpleView(alertType: .apod)
+        }
     }
     
     private func configureImageOrUrl() {

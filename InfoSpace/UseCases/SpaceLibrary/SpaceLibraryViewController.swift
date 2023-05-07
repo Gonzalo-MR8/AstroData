@@ -39,6 +39,10 @@ class SpaceLibraryViewController: UIViewController {
 
         configureViews()
         configureCollectionView()
+
+        if Locale.currentLanguage == .spanish, !UserDefaults.standard.spaceLAlertNoShowAgain {
+            CustomNavigationController.instance.showAlertSimpleView(alertType: .spaceLibrary)
+        }
     }
     
     // MARK: - Private methods
@@ -157,6 +161,8 @@ extension SpaceLibraryViewController: HeaderViewProtocol {
     func didPressOptions() {
         if filterView.isHidden {
             AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryOpenFilters)
+        } else {
+            view.endEditing(true)
         }
 
         UIView.animate(withDuration: kAnimationDuration,

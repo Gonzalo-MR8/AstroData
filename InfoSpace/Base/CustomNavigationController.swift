@@ -78,35 +78,6 @@ final class CustomNavigationController: UINavigationController {
         }
     }
     
-    func presentDefaultInfoAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        
-        self.present(to: alert, animated: true, completion: {
-            if let superview = alert.view.superview {
-                let view = UIView()
-                view.backgroundColor = .clear
-                
-                superview.addSubview(view)
-                
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-                view.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-                view.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
-                view.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
-                
-                view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
-            }
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            alert.dismiss(animated: true)
-        })
-    }
-    
-    @objc private func dismissOnTapOutside() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     func presentDefaultAlert(title: String, message: String, actionTitle: String = "OKEY".localized, completion: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: completion))
@@ -149,6 +120,35 @@ final class CustomNavigationController: UINavigationController {
 
 // MARK: - Show Custom Alerts
 extension CustomNavigationController {
+    func presentDefaultInfoAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+
+        self.present(to: alert, animated: true, completion: {
+            if let superview = alert.view.superview {
+                let view = UIView()
+                view.backgroundColor = .clear
+
+                superview.addSubview(view)
+
+                view.translatesAutoresizingMaskIntoConstraints = false
+                view.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+                view.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+                view.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
+                view.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+
+                view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
+            }
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            alert.dismiss(animated: true)
+        })
+    }
+
+    @objc private func dismissOnTapOutside() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     func showAlertBlockView(alertType: AlertBlockType) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -164,6 +164,8 @@ extension CustomNavigationController {
     }
 
     func showAlertSimpleView(alertType: AlertSimpleType) {
+        closeAlertSimpleView()
+        
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
 
