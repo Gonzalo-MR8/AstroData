@@ -19,6 +19,8 @@ extension PlanetsEndPoint: EndPoint {
     var path: String {
         switch self {
         case .getPlanets:
+            guard Locale.currentLanguage == .spanish else { return "planets.json" }
+
             return "planetas.json"
         }
     }
