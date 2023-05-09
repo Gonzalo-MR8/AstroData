@@ -30,7 +30,6 @@ final class SpaceItemDetailViewModel {
             self.mediaURLs = strings
             return .success(())
         case .failure(let failure):
-            print("getMediaURLs WS error: \(failure)")
             return .failure(failure)
         }
     }

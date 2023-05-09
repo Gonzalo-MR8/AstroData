@@ -20,9 +20,20 @@ class SplashScreenViewController: UIViewController {
         viewAnimation.loopMode = .loop
         viewAnimation.contentMode = .scaleAspectFill
         viewAnimation.play()
+
+        DispatchQueue.global().async {
+            do {
+                if try Bundle.isUpdateAvailable() {
+                    DispatchQueue.main.async {
+                        CustomNavigationController.instance.showAlertBlockView(alertType: .update)
+                    }
+                }
+            } catch {}
+        }
+        
         getInitialData()
     }
-    
+
     private func getInitialData() {
         Task {
             let initialData = await viewModel.getInitialData()
