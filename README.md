@@ -4,7 +4,7 @@
 
 The goal of this project was to learn how to make a complete app by myself using the best programming techniques and improve my level during the project, also to have something big and interesting in my portfolio, so you can see the way I make apps!
 
-Astro Data is an app for iOS with which you can explore all the official information that NASA has by calling its official API!, the name of the project was InfoSpace in the past, so you can see some references to this name in the code, I have updated it to Astro Data which is better, I think!
+The name of the project was InfoSpace in the past, so you can see some references to this name in the code, I have updated it to Astro Data which is better, I think!
 
 If you have something interesting, like tips on how to improve something specific, bugs, interesting proposals or anything else don't hesitate to contact me, you will find my official networks in my github profile info!
 
