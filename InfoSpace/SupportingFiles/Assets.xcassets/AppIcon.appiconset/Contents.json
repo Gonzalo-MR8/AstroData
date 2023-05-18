@@ -1,49 +1,49 @@
 {
   "images" : [
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (2).png",
+      "filename" : "ASTRODATA_ICON_BACKGROUND (1).png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (1).png",
+      "filename" : "Mi proyecto.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (2)-1.png",
+      "filename" : "Mi proyecto (7).png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (3)-1.png",
+      "filename" : "Mi proyecto (6).png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (4)-1.png",
+      "filename" : "Mi proyecto (3).png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (5).png",
+      "filename" : "Mi proyecto (1).png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (3).png",
+      "filename" : "Mi proyecto (1) 1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND (4).png",
+      "filename" : "Mi proyecto (8).png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -94,7 +94,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND.png",
+      "filename" : "ASTRODATA_ICON_BACKGROUND.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

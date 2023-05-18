@@ -28,6 +28,9 @@
 // MARK: - UseCases
 /*************************************/
 
+// Dashboard
+"DASHBOARD_TITLE" = "Welcome Space Traveler";
+
 // Use Cases Titles
 "APOD_LONG_TITLE"           = "Astronomy picture of the day";
 "APOD_SHORT_TITLE"          = "Astronomy picture";

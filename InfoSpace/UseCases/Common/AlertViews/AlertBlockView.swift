@@ -50,8 +50,8 @@ class AlertBlockView: View {
                 CustomNavigationController.instance.closeAlertBlockView()
             }
         case .update:
-            let appId = "1454358806" // Replace with appId
-            guard let appURL = URL.init(string: "itms-apps://itunes.apple.com/es/app/id" + appId + "?mt=8") else { return } // Replace es for current country
+            let appId = "6449099410"
+            guard let countryCode = NSLocale.current.regionCode, let appURL = URL.init(string: "https://apps.apple.com/\(countryCode.lowercased())/app/astrodata/id" + appId) else { return }
 
             CustomNavigationController.instance.openUrl(appURL, animated: true)
         }

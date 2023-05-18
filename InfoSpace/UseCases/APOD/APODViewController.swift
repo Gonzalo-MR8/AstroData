@@ -40,7 +40,7 @@ class APODViewController: UIViewController {
         
         configureTable()
         
-        showHudView()
+        CustomNavigationController.instance.showHudView()
         configureImageOrUrl()
         
         if Locale.currentLanguage == .spanish, !UserDefaults.standard.apodAlertNoShowAgain {
@@ -73,7 +73,7 @@ class APODViewController: UIViewController {
                 guard let self else { return }
 
                 tableView.reloadData()
-                hideHudView()
+                CustomNavigationController.instance.closeHudView()
             }
         }
     }
@@ -109,7 +109,7 @@ extension APODViewController: UITableViewDataSource {
             cell.changeDatePicker = { [weak self] date in
                 guard let self else { return }
 
-                showHudView()
+                CustomNavigationController.instance.showHudView()
                 Task {
                     let result = await self.viewModel.getNewAPOD(date: date)
                     
@@ -117,7 +117,7 @@ extension APODViewController: UITableViewDataSource {
                     case .failure:
                         cell.updateSelectedDate(state: false)
                         DispatchQueue.main.async {
-                            self.hideHudView()
+                            CustomNavigationController.instance.closeHudView()
                             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "APOD_NO_VALID_DATE".localized)
                         }
                     case .success:

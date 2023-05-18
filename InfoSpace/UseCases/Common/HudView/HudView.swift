@@ -63,23 +63,3 @@ class HudView: UIView {
     }
     
 }
-
-extension HudViewProtocol where Self: UIViewController {
-    func showHudView() {
-        let hudView = HudView()
-        view.addSubview(hudView)
-        
-        hudView.translatesAutoresizingMaskIntoConstraints = false
-        hudView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        hudView.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
-        hudView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        hudView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        hudView.startAnimating()
-        
-        hudView.tag = Constants.kHudViewTag
-    }
-    
-    func hideHudView() {
-        view.subviews.first(where: { $0.tag == Constants.kHudViewTag })?.removeFromSuperview()
-    }
-}

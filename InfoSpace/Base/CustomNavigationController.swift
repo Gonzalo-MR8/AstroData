@@ -118,6 +118,25 @@ final class CustomNavigationController: UINavigationController {
     }
 }
 
+// MARK: - Hud View
+extension CustomNavigationController {
+    func showHudView() {
+        closeHudView()
+
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+
+            let hudView = HudView(frame: view.frame)
+            hudView.startAnimating()
+            view.addSubview(hudView)
+        }
+    }
+
+    func closeHudView() {
+        self.view.subviews.first(where: { type(of: $0) == HudView.self })?.removeFromSuperview()
+    }
+}
+
 // MARK: - Show Custom Alerts
 extension CustomNavigationController {
     func presentDefaultInfoAlert(title: String, message: String) {

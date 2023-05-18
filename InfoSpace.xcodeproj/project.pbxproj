@@ -1308,6 +1308,7 @@
 				DEVELOPMENT_TEAM = B8FFK38LX5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InfoSpace/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AstroData;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1342,6 +1343,7 @@
 				DEVELOPMENT_TEAM = B8FFK38LX5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InfoSpace/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AstroData;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

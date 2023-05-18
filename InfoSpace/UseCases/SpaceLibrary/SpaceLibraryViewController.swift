@@ -67,7 +67,7 @@ class SpaceLibraryViewController: UIViewController {
             guard let self else { return }
 
             spaceItemsCollectionView.reloadData()
-            hideHudView()
+            CustomNavigationController.instance.closeHudView()
             // Scroll to top
             guard viewModel.getNumberOfSpaceItems() != 0, spaceItemsCollectionView.contentOffset.y != 0 else { return }
             
@@ -184,7 +184,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
         if filters.mediaTypes == nil, filters.searchText == nil, filters.yearEnd == nil, filters.yearStart == nil {
             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_NO_FILTERS_ERROR".localized)
         } else {
-            showHudView()
+            CustomNavigationController.instance.showHudView()
             
             Task { [weak self] in
                 guard let self else { return }
@@ -197,7 +197,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
                 case .failure:
                     DispatchQueue.main.async {
                         CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
-                        self.hideHudView()
+                        CustomNavigationController.instance.closeHudView()
                     }
                 }
             }
@@ -214,7 +214,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
     func resetFilters() {
         AnalyticsManager.shared.send(name: AnalyticsConstantsEvents.kAnalyticsSpaceLibraryResetFilters)
 
-        showHudView()
+        CustomNavigationController.instance.showHudView()
         
         Task { [weak self] in
             guard let self else { return }
@@ -229,7 +229,7 @@ extension SpaceLibraryViewController: FilterViewProtocol {
                     guard let self else { return }
 
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
-                    hideHudView()
+                    CustomNavigationController.instance.closeHudView()
                 }
             }
         }

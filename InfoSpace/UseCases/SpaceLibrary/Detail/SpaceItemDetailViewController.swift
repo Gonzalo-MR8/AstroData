@@ -51,7 +51,7 @@ class SpaceItemDetailViewController: UIViewController {
         
         configureTable()
         
-        self.showHudView()
+        CustomNavigationController.instance.showHudView()
         
         Task {
             _ = await viewModel.getMediaURLs()
@@ -138,7 +138,7 @@ class SpaceItemDetailViewController: UIViewController {
             guard let self else { return }
 
             tableView.reloadData()
-            hideHudView()
+            CustomNavigationController.instance.closeHudView()
         }
     }
     
