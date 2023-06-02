@@ -23,7 +23,7 @@ enum FilterCellType {
     case buttons
 }
 
-class FilterView: View {
+class FilterView: CIView {
 
     @IBOutlet private weak var filtersTableView: UITableView!
     

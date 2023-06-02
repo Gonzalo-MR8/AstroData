@@ -66,7 +66,7 @@
                                         <constraint firstAttribute="height" constant="320" id="9fO-vs-0tH"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcU-fz-9qQ" customClass="Label" customModule="InfoSpace" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcU-fz-9qQ" customClass="CILabel" customModule="CustomUIKitItems">
                                     <rect key="frame" x="20.5" y="462" width="373" height="37.5"/>
                                     <fontDescription key="fontDescription" name="SpaceRanger" family="Space Ranger" pointSize="42"/>
                                     <color key="textColor" name="black"/>
@@ -89,7 +89,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIJ-11-1qT">
                                     <rect key="frame" x="0.0" y="671" width="414" height="45"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXP-lv-Agx" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXP-lv-Agx" customClass="CIView" customModule="CustomUIKitItems">
                                             <rect key="frame" x="177" y="17.5" width="60" height="10"/>
                                             <color key="backgroundColor" name="primaryColor"/>
                                             <constraints>
@@ -108,7 +108,7 @@
                                         <constraint firstItem="NXP-lv-Agx" firstAttribute="centerX" secondItem="jIJ-11-1qT" secondAttribute="centerX" id="wK2-WT-H62"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33G-Ws-ORG" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33G-Ws-ORG" customClass="CIView" customModule="CustomUIKitItems">
                                     <rect key="frame" x="0.0" y="716" width="414" height="180"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="x5s-Dl-LcO">
@@ -186,7 +186,7 @@
                         <constraint firstItem="wCX-iX-FNZ" firstAttribute="leading" secondItem="oDg-BK-c1V" secondAttribute="leading" id="ksc-ne-GT0"/>
                     </constraints>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVy-h2-w2N" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVy-h2-w2N" customClass="CIView" customModule="CustomUIKitItems">
                     <rect key="frame" x="20.5" y="48" width="60" height="60"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rEs-39-qIC">
@@ -245,11 +245,6 @@
             <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
-    <designables>
-        <designable name="vcU-fz-9qQ">
-            <size key="intrinsicContentSize" width="137" height="37.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <namedColor name="black">

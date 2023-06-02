@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SmallStarView: View {
+class SmallStarView: CIView {
     private let kSize: CGFloat = 3
     
     func setup() {
@@ -19,7 +19,7 @@ class SmallStarView: View {
     }
 }
 
-class NormalWhiteStarView: View {
+class NormalWhiteStarView: CIView {
     private let kSize: CGFloat = 5
     
     func setup() {
@@ -31,7 +31,7 @@ class NormalWhiteStarView: View {
     }
 }
 
-class NormalStarView: View {
+class NormalStarView: CIView {
     private let kSize: CGFloat = 6
     
     func setup() {
@@ -43,7 +43,7 @@ class NormalStarView: View {
     }
 }
 
-class BigStarView: View {
+class BigStarView: CIView {
     private let kSize: CGFloat = 8
     
     func setup() {

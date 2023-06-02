@@ -9,7 +9,7 @@ import UIKit
 
 class TitleCell: UITableViewCell {
 
-    @IBOutlet private weak var labelTitle: Label!
+    @IBOutlet private weak var labelTitle: CILabel!
     
     func configure(title: String) {
         labelTitle.text = title

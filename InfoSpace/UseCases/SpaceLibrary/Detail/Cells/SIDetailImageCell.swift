@@ -9,7 +9,7 @@ import UIKit
 
 class SIDetailImageCell: UITableViewCell {
 
-    @IBOutlet private weak var itemImageView: ImageView!
+    @IBOutlet private weak var itemImageView: CIImageView!
     @IBOutlet private weak var imageViewHeight: NSLayoutConstraint!
     
     private var link: ItemLink!

@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+@_exported import CustomUIKitItems
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -9,7 +9,7 @@ import UIKit
 
 class OpenUrlCell: UITableViewCell {
 
-    @IBOutlet private weak var buttonOpenUrl: Button!
+    @IBOutlet private weak var buttonOpenUrl: CIButton!
     
     private var url: URL!
     private var analyticsScreen: AnalyticsScreen!

@@ -13,10 +13,10 @@ enum AlertSimpleType {
     case search
 }
 
-class AlertSimpleView: View {
+class AlertSimpleView: CIView {
 
     @IBOutlet private weak var textLabel: UILabel!
-    @IBOutlet private weak var noShowAgainView: View!
+    @IBOutlet private weak var noShowAgainView: CIView!
 
     private var alertType: AlertSimpleType = .spaceLibrary
 

@@ -9,7 +9,7 @@ import UIKit
 
 class ContentTypeItemCell: UICollectionViewCell {
 
-    @IBOutlet private weak var itemView: View!
+    @IBOutlet private weak var itemView: CIView!
     @IBOutlet private weak var textLabel: UILabel!
     
     let kSelectedBorderWidth: CGFloat = 0

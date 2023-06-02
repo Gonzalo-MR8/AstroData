@@ -12,7 +12,7 @@ protocol HeaderViewProtocol: AnyObject {
     func didPressOptions()
 }
 
-class HeaderView: View {
+class HeaderView: CIView {
     
     @IBOutlet private weak var labelTitle: UILabel!
     @IBOutlet private weak var imageViewOptions: UIImageView!

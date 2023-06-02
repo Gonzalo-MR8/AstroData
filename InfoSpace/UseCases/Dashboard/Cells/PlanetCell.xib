@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="260"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nh-WK-RbL" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nh-WK-RbL" customClass="CIView" customModule="CustomUIKitItems">
                         <rect key="frame" x="5" y="60" width="190" height="200"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-Fo-M0e">
@@ -38,7 +38,7 @@
                                 <color key="textColor" name="TextSecondaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsN-zZ-lP2" customClass="Label" customModule="InfoSpace" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsN-zZ-lP2" customClass="CILabel" customModule="CustomUIKitItems">
                                 <rect key="frame" x="10" y="60" width="77.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="SpaceRangerBold" family="Space Ranger Bold" pointSize="23"/>
                                 <color key="textColor" name="titleColor"/>
@@ -110,11 +110,6 @@ Earth description 1234</string>
             <point key="canvasLocation" x="240.57971014492756" y="196.20535714285714"/>
         </collectionViewCell>
     </objects>
-    <designables>
-        <designable name="xsN-zZ-lP2">
-            <size key="intrinsicContentSize" width="77.5" height="20.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="moon" width="851.5" height="852"/>
         <namedColor name="TextColor">

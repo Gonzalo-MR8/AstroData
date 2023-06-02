@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7W-Zt-aHd" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7W-Zt-aHd" customClass="CIView" customModule="CustomUIKitItems">
                                 <rect key="frame" x="29.333333333333343" y="258.33333333333337" width="334.33333333333326" height="335.33333333333337"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTr-Nl-xWL" customClass="AnimationView" customModule="Lottie">
@@ -52,7 +52,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="noInternet"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSo-DU-HTB" customClass="Button" customModule="InfoSpace" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSo-DU-HTB" customClass="CIButton" customModule="CustomUIKitItems">
                                         <rect key="frame" x="17" y="283.33333333333331" width="300.33333333333331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LkH-7c-wSL"/>
@@ -88,7 +88,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1xt-vU-CwF">
                                         <rect key="frame" x="17" y="184" width="300.33333333333331" height="79.333333333333314"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Oops…" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1d-fe-OeL" customClass="Label" customModule="InfoSpace" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Oops…" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1d-fe-OeL" customClass="CILabel" customModule="CustomUIKitItems">
                                                 <rect key="frame" x="0.0" y="0.0" width="300.33333333333331" height="24.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="17"/>
                                                 <color key="textColor" name="black85"/>
@@ -158,11 +158,6 @@
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
-    <designables>
-        <designable name="TSo-DU-HTB">
-            <size key="intrinsicContentSize" width="103" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

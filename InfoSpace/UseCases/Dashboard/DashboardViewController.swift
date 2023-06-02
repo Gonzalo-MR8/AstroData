@@ -20,7 +20,7 @@ class DashboardViewController: UIViewController {
     // Margin used to leave a gap when resizing the cell
     private let kCollectionViewPlanetsHeightMargin: CGFloat = 35
     
-    @IBOutlet private weak var containerView: View!
+    @IBOutlet private weak var containerView: CIView!
     @IBOutlet private weak var imageViewSatelite: UIImageView!
     @IBOutlet private weak var imageViewComet: UIImageView!
     @IBOutlet private weak var imageViewMoon: UIImageView!
