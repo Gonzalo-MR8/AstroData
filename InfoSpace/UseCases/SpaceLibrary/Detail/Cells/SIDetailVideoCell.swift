@@ -10,7 +10,7 @@ import AVKit
 
 class SIDetailVideoCell: UITableViewCell {
     
-    @IBOutlet private weak var viewPlayer: View!
+    @IBOutlet private weak var viewPlayer: CIView!
     @IBOutlet private weak var viewHeight: NSLayoutConstraint!
     @IBOutlet private weak var buttonFullScreen: UIButton!
     

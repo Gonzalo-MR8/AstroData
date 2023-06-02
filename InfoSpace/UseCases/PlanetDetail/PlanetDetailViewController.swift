@@ -17,7 +17,7 @@ class PlanetDetailViewController: UIViewController {
     @IBOutlet private weak var labelDescription: UILabel!
     @IBOutlet private weak var labelSatelites: UILabel!
     @IBOutlet private weak var viewDecorativeTag: UIView!
-    @IBOutlet private weak var viewDrag: View!
+    @IBOutlet private weak var viewDrag: CIView!
     @IBOutlet private weak var viewDragHeight: NSLayoutConstraint!
     @IBOutlet private weak var collectionViewImages: UICollectionView!
     

@@ -9,7 +9,7 @@ import UIKit
 
 class APODImageCell: UITableViewCell {
 
-    @IBOutlet private weak var imageViewApod: ImageView!
+    @IBOutlet private weak var imageViewApod: CIImageView!
     @IBOutlet private weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet private weak var labelCopyright: UILabel!
     @IBOutlet private weak var labelCopyrightAutor: UILabel!

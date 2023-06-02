@@ -9,9 +9,9 @@ import UIKit
 
 class SpaceLibraryItemCell: UICollectionViewCell {
     
-    @IBOutlet private weak var imageView: ImageView!
-    @IBOutlet private weak var audioView: View!
-    @IBOutlet private weak var videoView: View!
+    @IBOutlet private weak var imageView: CIImageView!
+    @IBOutlet private weak var audioView: CIView!
+    @IBOutlet private weak var videoView: CIView!
     @IBOutlet private weak var titleLabel: UILabel!
     
     private let kBorderWidth: CGFloat = 1

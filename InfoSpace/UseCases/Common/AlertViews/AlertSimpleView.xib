@@ -37,13 +37,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUn-9U-f5m">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-jh-7lb" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-jh-7lb" customClass="CIView" customModule="CustomUIKitItems">
                             <rect key="frame" x="31" y="319.33333333333331" width="331" height="213.66666666666669"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-Op-8Hz">
                                     <rect key="frame" x="16.666666666666657" y="12" width="297.66666666666674" height="129.66666666666666"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="¡Cuidado!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-TQ-7io" customClass="Label" customModule="InfoSpace" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="¡Cuidado!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-TQ-7io" customClass="CILabel" customModule="CustomUIKitItems">
                                             <rect key="frame" x="0.0" y="0.0" width="297.66666666666669" height="26.333333333333332"/>
                                             <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="18"/>
                                             <color key="textColor" name="black85"/>
@@ -74,7 +74,7 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oN-Ff-wMR" customClass="View" customModule="InfoSpace" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oN-Ff-wMR" customClass="CIView" customModule="CustomUIKitItems">
                                     <rect key="frame" x="16.666666666666664" y="117.66666666666669" width="26" height="26"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1C-Fe-uNc" customClass="View" customModule="InfoSpace" customModuleProvider="target">
@@ -120,7 +120,7 @@
                                         <action selector="noShowAgainPressed:" destination="-1" eventType="touchUpInside" id="MlT-g5-sdb"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z46-bO-Hqc" customClass="Button" customModule="InfoSpace" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z46-bO-Hqc" customClass="CIButton" customModule="CustomUIKitItems">
                                     <rect key="frame" x="16.666666666666657" y="161.66666666666669" width="297.66666666666674" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="zsp-qf-qd6"/>
@@ -148,6 +148,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                             <real key="value" value="12"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="tapAnimation" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="acceptPressed:" destination="-1" eventType="touchUpInside" id="dzA-N4-rAv"/>
@@ -204,11 +205,6 @@
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
-    <designables>
-        <designable name="z46-bO-Hqc">
-            <size key="intrinsicContentSize" width="88" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

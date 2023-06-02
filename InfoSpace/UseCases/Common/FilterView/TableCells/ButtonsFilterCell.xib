@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6y4-7b-TcI">
                         <rect key="frame" x="32" y="0.0" width="256" height="35"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45f-dU-xMt" customClass="Button" customModule="InfoSpace" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45f-dU-xMt" customClass="CIButton" customModule="CustomUIKitItems">
                                 <rect key="frame" x="0.0" y="0.0" width="118" height="35"/>
                                 <color key="backgroundColor" red="0.4584272525590104" green="0.092715624113058254" blue="0.82413888100496269" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="SpaceRangerCondensed" family="Space Ranger Condensed" pointSize="20"/>
@@ -48,7 +48,7 @@
                                     <action selector="resetButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1KB-aW-jse"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x81-EI-5dS" customClass="Button" customModule="InfoSpace" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x81-EI-5dS" customClass="CIButton" customModule="CustomUIKitItems">
                                 <rect key="frame" x="138" y="0.0" width="118" height="35"/>
                                 <fontDescription key="fontDescription" name="SpaceRangerCondensed" family="Space Ranger Condensed" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -89,14 +89,6 @@
             <point key="canvasLocation" x="129.7709923664122" y="-10.563380281690142"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="45f-dU-xMt">
-            <size key="intrinsicContentSize" width="235" height="30"/>
-        </designable>
-        <designable name="x81-EI-5dS">
-            <size key="intrinsicContentSize" width="234" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="brownStar">
             <color red="0.90588235294117647" green="0.49411764705882355" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

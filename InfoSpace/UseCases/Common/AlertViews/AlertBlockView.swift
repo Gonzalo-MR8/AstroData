@@ -13,11 +13,11 @@ enum AlertBlockType {
     case update
 }
 
-class AlertBlockView: View {
+class AlertBlockView: CIView {
 
     @IBOutlet private weak var animationView: AnimationView!
     @IBOutlet private weak var textLabel: UILabel!
-    @IBOutlet private weak var button: Button!
+    @IBOutlet private weak var button: CIButton!
 
     private var alertType: AlertBlockType = .internet
 
