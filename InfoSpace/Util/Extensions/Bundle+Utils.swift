@@ -18,7 +18,7 @@ extension Bundle {
     }
 
     public static func isUpdateAvailable() throws -> Bool {
-        guard let currentVersion = self.string(for: "CFBundleShortVersionString"),
+        guard var currentVersion = self.string(for: "CFBundleShortVersionString"),
             let identifier = Bundle.main.bundleIdentifier,
             let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else {
             throw VersionError.invalidBundleInfo
@@ -29,8 +29,19 @@ extension Bundle {
             throw VersionError.invalidResponse
         }
 
-        if let result = (json["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
-            return version != currentVersion
+        if let result = (json["results"] as? [Any])?.first as? [String: Any], var storeVersion = result["version"] as? String {
+            storeVersion = storeVersion.replacingOccurrences(of: ".", with: "")
+            currentVersion = currentVersion.replacingOccurrences(of: ".", with: "")
+
+            while storeVersion.count < currentVersion.count {
+                storeVersion += "0"
+            }
+
+            while storeVersion.count > currentVersion.count {
+                currentVersion += "0"
+            }
+
+            return Int(storeVersion) ?? 0 > Int(currentVersion) ?? 0
         }
 
         throw VersionError.invalidResponse
