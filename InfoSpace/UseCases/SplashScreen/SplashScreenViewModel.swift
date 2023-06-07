@@ -26,6 +26,8 @@ final class SplashScreenViewModel {
         case .success(let apodData):
             apod = apodData
         case .failure(let failure):
+            /// This init is to avoid blocking the rest of the app when apod is unavailable, and to be able to continue using app.
+            apod = APOD()
             requestError = failure
         }
         

@@ -79,12 +79,16 @@ final class CustomNavigationController: UINavigationController {
     }
     
     func presentDefaultAlert(title: String, message: String, actionTitle: String = "OKEY".localized, completion: ((UIAlertAction) -> Void)? = nil) {
+        closeAlertView()
+
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: completion))
         self.present(to: alert, animated: true)
     }
     
     func presentAcceptOrCancelAlert(title: String, message: String, acceptActionTitle: String = "ACCEPT".localized, cancelActionTitle: String = "CANCEL".localized, acceptCompletion: ((UIAlertAction) -> Void)? = nil, cancelCompletion: ((UIAlertAction) -> Void)? = nil) {
+        closeAlertView()
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let acceptAction = UIAlertAction(title: acceptActionTitle, style: .default, handler: acceptCompletion)
@@ -140,6 +144,8 @@ extension CustomNavigationController {
 // MARK: - Show Custom Alerts
 extension CustomNavigationController {
     func presentDefaultInfoAlert(title: String, message: String) {
+        closeAlertView()
+
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
 
         self.present(to: alert, animated: true, completion: {
@@ -168,7 +174,14 @@ extension CustomNavigationController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    func closeAlertView() {
+        self.view.subviews.first(where: { type(of: $0) == UIAlertController.self })?.removeFromSuperview()
+    }
+
     func showAlertBlockView(alertType: AlertBlockType) {
+        closeAlertBlockView()
+        closeAlertView()
+
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
 
@@ -184,7 +197,8 @@ extension CustomNavigationController {
 
     func showAlertSimpleView(alertType: AlertSimpleType) {
         closeAlertSimpleView()
-        
+        closeAlertView()
+
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
 
@@ -196,5 +210,9 @@ extension CustomNavigationController {
 
     func closeAlertSimpleView() {
         self.view.subviews.first(where: { type(of: $0) == AlertSimpleView.self })?.removeFromSuperview()
+    }
+
+    func isAlertViewPresented() -> Bool {
+        return self.view.subviews.first(where: { type(of: $0) == AlertSimpleView.self || type(of: $0) == UIAlertController.self || type(of: $0) == AlertBlockView.self }) != nil
     }
 }

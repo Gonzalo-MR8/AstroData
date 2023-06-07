@@ -28,7 +28,9 @@ class SplashScreenViewController: UIViewController {
                         CustomNavigationController.instance.showAlertBlockView(alertType: .update)
                     }
                 }
-            } catch {}
+            } catch {
+                print("Update Available Error")
+            }
         }
         
         getInitialData()
@@ -46,6 +48,8 @@ class SplashScreenViewController: UIViewController {
                 }
             case .failure:
                 DispatchQueue.main.async {
+                    guard !CustomNavigationController.instance.isAlertViewPresented() else { return }
+                    
                     CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPLASH_SCREEN_LOAD_ERROR".localized, completion: { [weak self] _ in
                         guard let self else { return }
                         getInitialData()
