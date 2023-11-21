@@ -20,9 +20,11 @@ enum Colors: String {
     case elementColor
     
     case primaryColor
+    case primaryColor50
     case secondaryColor
     case tertiaryColor
-    
+    case tertiaryColor50
+
     case textColor
     case textSecondaryColor
     case titleColor

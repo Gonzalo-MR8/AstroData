@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "customuikititems",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Gonzalo-MR8/CustomUIKitItems.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b983016b9dd7600cc0c919db261d27f7a838c03f"
+      }
+    }
+  ],
+  "version" : 2
+}
