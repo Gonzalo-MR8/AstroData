@@ -43,8 +43,8 @@
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="1Kw-Mx-yOq">
                                         <rect key="frame" x="158" y="0.0" width="130" height="62"/>
-                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-175010400">
-                                            <!--1995-06-16 10:00:00 +0000-->
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-174664800">
+                                            <!--1995-06-20 10:00:00 +0000-->
                                         </date>
                                         <connections>
                                             <action selector="datePickerEditingEnd:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="agK-Tb-cwQ"/>

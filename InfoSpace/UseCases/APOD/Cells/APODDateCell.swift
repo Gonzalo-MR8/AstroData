@@ -29,6 +29,7 @@ class APODDateCell: UITableViewCell {
 
             if state {
                 lastSelectedDate = datePicker.date
+                enableDisabledButtons(pickerDate: datePicker.date)
             } else {
                 datePicker.date = lastSelectedDate
             }
@@ -36,7 +37,10 @@ class APODDateCell: UITableViewCell {
     }
     
     private func enableDisabledButtons(pickerDate: Date) {
-        if pickerDate == Date() {
+        let calendar = Calendar.current
+        let datesAreInTheSameDay = calendar.isDate(pickerDate, equalTo: Date(), toGranularity: .day)
+
+        if datesAreInTheSameDay {
             buttonNextDate.gradientStartColor = Colors.tertiaryColor50.value
             buttonNextDate.gradientEndColor = Colors.primaryColor50.value
             buttonNextDate.isEnabled = false
@@ -46,7 +50,8 @@ class APODDateCell: UITableViewCell {
             buttonNextDate.isEnabled = true
         }
 
-        if let minimunDate = datePicker.minimumDate, minimunDate == pickerDate {
+        if let minimunDate = datePicker.minimumDate, 
+            calendar.isDate(pickerDate, equalTo: minimunDate, toGranularity: .day) {
             buttonPreviousDate.gradientStartColor = Colors.tertiaryColor50.value
             buttonPreviousDate.gradientEndColor = Colors.primaryColor50.value
             buttonPreviousDate.isEnabled = false
@@ -72,7 +77,6 @@ class APODDateCell: UITableViewCell {
         let calendar = Calendar.current
 
         if let date = calendar.date(byAdding: .day, value: -1, to: datePicker.date) {
-            enableDisabledButtons(pickerDate: date)
             changeDatePicker?(date)
             datePicker.setDate(date, animated: true)
         }
@@ -82,7 +86,6 @@ class APODDateCell: UITableViewCell {
         let calendar = Calendar.current
 
         if let date = calendar.date(byAdding: .day, value: 1, to: datePicker.date) {
-            enableDisabledButtons(pickerDate: date)
             changeDatePicker?(date)
             datePicker.setDate(date, animated: true)
         }
