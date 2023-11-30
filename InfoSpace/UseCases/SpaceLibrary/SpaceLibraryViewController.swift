@@ -43,6 +43,8 @@ class SpaceLibraryViewController: UIViewController {
         if Locale.currentLanguage == .spanish, !UserDefaults.standard.spaceLAlertNoShowAgain {
             CustomNavigationController.instance.showAlertSimpleView(alertType: .spaceLibrary)
         }
+
+      NotificationsManager().checkNotificationsPermission()
     }
     
     // MARK: - Private methods

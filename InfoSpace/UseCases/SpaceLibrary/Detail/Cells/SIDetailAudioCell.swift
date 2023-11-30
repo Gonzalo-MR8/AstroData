@@ -7,6 +7,8 @@
 
 import UIKit
 import AVFoundation
+import UserNotifications
+import MediaPlayer
 
 class SIDetailAudioCell: UITableViewCell {
     
@@ -34,9 +36,32 @@ class SIDetailAudioCell: UITableViewCell {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.sliderTapped(_:)))
         sliderProgress.addGestureRecognizer(gestureRecognizer)
+
+      let commandCenter = MPRemoteCommandCenter.shared()
+      commandCenter.playCommand.addTarget { [unowned self] event in
+          playPauseButtonPressed(event)
+          return .success
+      }
+
+      commandCenter.pauseCommand.addTarget { [unowned self] event in
+          playPauseButtonPressed(event)
+          return .success
+      }
+
+      commandCenter.changePlaybackPositionCommand.addTarget { [unowned self] event in
+        guard let event = event as? MPChangePlaybackPositionCommandEvent else {
+            return .commandFailed
+        }
+
+        player.seek(to: CMTime(seconds: event.positionTime, preferredTimescale: 1), completionHandler: { _ in
+            self.sliderProgress.value = Float(event.positionTime / self.durationInSeconds)
+        })
+
+        return .success
+      }
     }
     
-    func configure(player: AVPlayer) {
+    func configure(player: AVPlayer, title: String, photographer: String?) {
         self.player = player
         
         do {
@@ -60,6 +85,22 @@ class SIDetailAudioCell: UITableViewCell {
         durationInSeconds = Double(duration.value) / Double(duration.timescale)
 
         labelDuration.text = setTimeFormat(timeInSeconds: durationInSeconds)
+
+      var nowPlayingInfo: [String: Any] = [:]
+
+      if let image = UIImage(named: "baseAppIcon") {
+        nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+          return image.imageWith(newSize: size)
+        }
+      }
+
+      nowPlayingInfo[MPMediaItemPropertyTitle] = title
+      if let photographer {
+        nowPlayingInfo[MPMediaItemPropertyArtist] = photographer
+      }
+
+      nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
+      MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
 
     private func addPeriodicTimeObserver() {
@@ -70,12 +111,16 @@ class SIDetailAudioCell: UITableViewCell {
             guard let self else { return }
             setLabelCurrentTime(time: time)
             
-            let timeInSeconds = Int(time.value) / Int(time.timescale)
-            
-            if Int(durationInSeconds) == timeInSeconds {
+            let timeInSeconds = CMTimeGetSeconds(time)
+
+            if durationInSeconds == timeInSeconds {
                 player.pause()
                 imageViewPlayPause.image = UIImage(systemName: "play")
             }
+
+          var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
+          nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = timeInSeconds
+          MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
     }
     
