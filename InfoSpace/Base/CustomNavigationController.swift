@@ -117,7 +117,7 @@ final class CustomNavigationController: UINavigationController {
         return presentedViewController
     }
     
-    func openUrl(_ url: URL, animated: Bool) {
+    func openUrl(_ url: URL) {
         UIApplication.shared.open(url)
     }
 }

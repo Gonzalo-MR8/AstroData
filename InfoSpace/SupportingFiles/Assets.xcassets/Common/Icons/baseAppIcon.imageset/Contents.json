@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "INFOSPACE ICON BACKGROUND.png",
+      "filename" : "ASTRODATA_ICON_BACKGROUND.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND-1.png",
+      "filename" : "ASTRODATA_ICON_BACKGROUND 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "INFOSPACE ICON BACKGROUND-2.png",
+      "filename" : "ASTRODATA_ICON_BACKGROUND 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

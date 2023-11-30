@@ -53,7 +53,7 @@ class AlertBlockView: CIView {
             let appId = "6449099410"
             guard let countryCode = NSLocale.current.regionCode, let appURL = URL.init(string: "https://apps.apple.com/\(countryCode.lowercased())/app/astrodata/id" + appId) else { return }
 
-            CustomNavigationController.instance.openUrl(appURL, animated: true)
+            CustomNavigationController.instance.openUrl(appURL)
         }
     }
 
