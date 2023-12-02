@@ -25,7 +25,7 @@ class OpenUrlCell: UITableViewCell {
         let event = AnalyticsEvent(name: AnalyticsConstantsEvents.kAnalyticsOpenUrl, parameters: parameters)
         AnalyticsManager.shared.send(event: event)
 
-        CustomNavigationController.instance.openUrl(url, animated: true)
+        CustomNavigationController.instance.openUrl(url)
     }
     
 }

@@ -7,24 +7,26 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>kNasaDetailBaseUrl</key>
-	<string>https://images.nasa.gov/details-</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
+	<key>kFirebaseDataUrl</key>
+	<string>https://infospace-4c8c9-default-rtdb.europe-west1.firebasedatabase.app/</string>
 	<key>kNasaApiKey</key>
 	<string>DEMO_KEY</string>
 	<key>kNasaBaseUrl</key>
 	<string>https://api.nasa.gov/</string>
-	<key>kFirebaseDataUrl</key>
-	<string>https://infospace-4c8c9-default-rtdb.europe-west1.firebasedatabase.app/</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need this permision to save the photo in the photo library</string>
+	<key>kNasaDetailBaseUrl</key>
+	<string>https://images.nasa.gov/details-</string>
 	<key>kNasaLibraryBaseUrl</key>
 	<string>https://images-api.nasa.gov/search</string>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UISceneConfigurations</key>
-		<dict/>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-	</dict>
 </dict>
 </plist>

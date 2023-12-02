@@ -12,7 +12,7 @@ enum SpaceItemDetailCellType: Equatable {
     case title
     case image(UIImage, String?)
     case video(URL)
-    case audio(URL)
+    case audio(URL, String, String?)
     case description
     case separator
     case date(String)
@@ -77,15 +77,6 @@ class SpaceItemDetailViewController: UIViewController {
                 }
                 videoCell.player.pause()
                 videoCell.player = nil
-                return
-            }
-            
-            if let url = URL(completedString: viewModel.getAudioUrl()), item == .audio(url) {
-                guard let audioCell = tableView.cellForRow(at: IndexPath(row: position, section: 0)) as? SIDetailAudioCell else {
-                    return
-                }
-                audioCell.player.pause()
-                audioCell.player = nil
                 return
             }
         })
@@ -185,7 +176,7 @@ class SpaceItemDetailViewController: UIViewController {
         let spaceItemData: SpaceItemData = viewModel.getSpaceItemData()
         
         if let url = URL(completedString: viewModel.getAudioUrl()) {
-            cellTypes.append(.audio(url))
+          cellTypes.append(.audio(url, spaceItemData.title, spaceItemData.photographer))
             cellTypes.append(.separator)
         } else {
             CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
@@ -232,14 +223,14 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
             }
             
             return cell
-        case .audio(let url):
+        case .audio(let url, let title, let photographer):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SIDetailAudioCell.identifier) as? SIDetailAudioCell else { return UITableViewCell() }
             
             if let player = player {
-                cell.configure(player: player)
+                cell.configure(player: player, title: title, photographer: photographer)
             } else {
                 let newPlayer = AVPlayer(url: url)
-                cell.configure(player: newPlayer)
+                cell.configure(player: newPlayer, title: title, photographer: photographer)
             }
             
             return cell
@@ -298,9 +289,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
 extension SpaceItemDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // This code save the player to save the progrees of the audio or the video when you scroll down the cell
-        if let audioCell = cell as? SIDetailAudioCell {
-            player = audioCell.player
-        } else if let videoCell = cell as? SIDetailVideoCell {
+        if let videoCell = cell as? SIDetailVideoCell {
             player = videoCell.player
         }
     }
