@@ -79,15 +79,6 @@ class SpaceItemDetailViewController: UIViewController {
                 videoCell.player = nil
                 return
             }
-            
-            /*if let url = URL(completedString: viewModel.getAudioUrl()), item == .audio(url) {
-                guard let audioCell = tableView.cellForRow(at: IndexPath(row: position, section: 0)) as? SIDetailAudioCell else {
-                    return
-                }
-                audioCell.player.pause()
-                audioCell.player = nil
-                return
-            }*/
         })
     }
     
@@ -298,9 +289,7 @@ extension SpaceItemDetailViewController: UITableViewDataSource {
 extension SpaceItemDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // This code save the player to save the progrees of the audio or the video when you scroll down the cell
-        if let audioCell = cell as? SIDetailAudioCell {
-            player = audioCell.player
-        } else if let videoCell = cell as? SIDetailVideoCell {
+        if let videoCell = cell as? SIDetailVideoCell {
             player = videoCell.player
         }
     }

@@ -92,6 +92,7 @@
 		9B38CD2C28722362006712EE /* SpaceLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */; };
 		9B38CD2D28722362006712EE /* SpaceLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */; };
 		9B38CD2F28722373006712EE /* SpaceLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38CD2E28722373006712EE /* SpaceLibraryViewModel.swift */; };
+		9B3B1F982B195A4B00EE5DAE /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B1F972B195A4B00EE5DAE /* AudioPlayer.swift */; };
 		9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C3609285C093C00E19B8C /* HeaderView.swift */; };
 		9B3C360D285C095100E19B8C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3C360C285C095100E19B8C /* HeaderView.xib */; };
 		9B4238CC2A045D5200871225 /* AlertBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4238CB2A045D5200871225 /* AlertBlockView.swift */; };
@@ -136,7 +137,6 @@
 		9B8769E92857A87100FEB405 /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8769E82857A87100FEB405 /* APODViewModel.swift */; };
 		9B8CABDD2850091100C4667B /* PlanetImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8CABDB2850091100C4667B /* PlanetImageCell.swift */; };
 		9B8CABDE2850091100C4667B /* PlanetImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B8CABDC2850091100C4667B /* PlanetImageCell.xib */; };
-		9B9144972B18EC9A004E2B6F /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9144962B18EC9A004E2B6F /* NotificationsManager.swift */; };
 		9B931160283E79E20052EF1B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93115F283E79E20052EF1B /* UIView+Utils.swift */; };
 		9B931164283E814B0052EF1B /* splashScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931162283E814B0052EF1B /* splashScreen.json */; };
 		9B931165283E814B0052EF1B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B931163283E814B0052EF1B /* loading.json */; };
@@ -253,6 +253,7 @@
 		9B38CD2A28722362006712EE /* SpaceLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryViewController.swift; sourceTree = "<group>"; };
 		9B38CD2B28722362006712EE /* SpaceLibraryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceLibraryViewController.xib; sourceTree = "<group>"; };
 		9B38CD2E28722373006712EE /* SpaceLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLibraryViewModel.swift; sourceTree = "<group>"; };
+		9B3B1F972B195A4B00EE5DAE /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		9B3C3609285C093C00E19B8C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9B3C360C285C095100E19B8C /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		9B4238CB2A045D5200871225 /* AlertBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBlockView.swift; sourceTree = "<group>"; };
@@ -298,7 +299,6 @@
 		9B8769E82857A87100FEB405 /* APODViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModel.swift; sourceTree = "<group>"; };
 		9B8CABDB2850091100C4667B /* PlanetImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetImageCell.swift; sourceTree = "<group>"; };
 		9B8CABDC2850091100C4667B /* PlanetImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetImageCell.xib; sourceTree = "<group>"; };
-		9B9144962B18EC9A004E2B6F /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		9B93115F283E79E20052EF1B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9B931162283E814B0052EF1B /* splashScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashScreen.json; sourceTree = "<group>"; };
 		9B931163283E814B0052EF1B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -657,14 +657,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		9B9144952B18EC86004E2B6F /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				9B9144962B18EC9A004E2B6F /* NotificationsManager.swift */,
-			);
-			path = Notifications;
-			sourceTree = "<group>";
-		};
 		9B931161283E7F8C0052EF1B /* AnimationFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,13 +739,13 @@
 		9BB44416283D5FBB0043EF4E /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				9B9144952B18EC86004E2B6F /* Notifications */,
 				9BB4441C283D62190043EF4E /* Extensions */,
 				9B270E302840013000F4FFED /* Constants.swift */,
 				9B02743F284A817C00C2303A /* Colors.swift */,
 				9B98B61F2852DA7D00975043 /* ImageDownloader.swift */,
 				9B19495B286902CE00B8322B /* Utils.swift */,
 				9B84C975296B3BCB00821734 /* Localizable.swift */,
+				9B3B1F972B195A4B00EE5DAE /* AudioPlayer.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1084,10 +1076,10 @@
 				9B342628292D633B004BB8BC /* OpenUrlCell.swift in Sources */,
 				9BC3668529983CD400371E03 /* NetworkClient.swift in Sources */,
 				9B270E34284001A000F4FFED /* NetworkManager.swift in Sources */,
+				9B3B1F982B195A4B00EE5DAE /* AudioPlayer.swift in Sources */,
 				9B1F8C7D284679BD00BCCEBE /* DashboardItem.swift in Sources */,
 				9B3C360A285C093C00E19B8C /* HeaderView.swift in Sources */,
 				9B98B6202852DA7D00975043 /* ImageDownloader.swift in Sources */,
-				9B9144972B18EC9A004E2B6F /* NotificationsManager.swift in Sources */,
 				9BE6E44E28F6536A003A63DF /* SpaceLibraryItems.swift in Sources */,
 				9B82C9DD285210F1003EAF59 /* ImagesGalleryViewController.swift in Sources */,
 				9B0EF17D291B19D400A87F1E /* ReloadCollectionViewCell.swift in Sources */,

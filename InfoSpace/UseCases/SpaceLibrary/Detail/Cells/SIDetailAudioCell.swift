@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
-import UserNotifications
 import MediaPlayer
 
 class SIDetailAudioCell: UITableViewCell {
@@ -16,18 +14,19 @@ class SIDetailAudioCell: UITableViewCell {
     @IBOutlet private weak var sliderProgress: CISlider!
     @IBOutlet private weak var labelCurrentTime: UILabel!
     @IBOutlet private weak var labelDuration: UILabel!
-    
-    public var player: AVPlayer!
-    private var timeObserverToken: Any?
+
     private var sliderIsBeingModified: Bool = false
     
     private let kThumbSize: CGFloat = 14
     private let kMinPercentageToChnageColor: Float = 0.06
     private let kTimeToMove: Int64 = 10
     
-    private var playerDuration: CMTime!
-    private var durationInSeconds: Double!
-    
+    private var auPlayer = AudioPlayer.shared
+    private var playerCandidate: AVPlayer!
+    private var titleCandidate: String!
+    private var photographerCandidate: String?
+    private var isConfigured = false
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -36,92 +35,29 @@ class SIDetailAudioCell: UITableViewCell {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.sliderTapped(_:)))
         sliderProgress.addGestureRecognizer(gestureRecognizer)
-
-      let commandCenter = MPRemoteCommandCenter.shared()
-      commandCenter.playCommand.addTarget { [unowned self] event in
-          playPauseButtonPressed(event)
-          return .success
-      }
-
-      commandCenter.pauseCommand.addTarget { [unowned self] event in
-          playPauseButtonPressed(event)
-          return .success
-      }
-
-      commandCenter.changePlaybackPositionCommand.addTarget { [unowned self] event in
-        guard let event = event as? MPChangePlaybackPositionCommandEvent else {
-            return .commandFailed
-        }
-
-        player.seek(to: CMTime(seconds: event.positionTime, preferredTimescale: 1), completionHandler: { _ in
-            self.sliderProgress.value = Float(event.positionTime / self.durationInSeconds)
-        })
-
-        return .success
-      }
     }
     
     func configure(player: AVPlayer, title: String, photographer: String?) {
-        self.player = player
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-        } catch {
-            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
-                CustomNavigationController.instance.dismissVC(animated: true)
-            }
+      playerCandidate = player
+      titleCandidate = title
+      photographerCandidate = photographer
+
+      guard let duration = player.currentItem?.asset.duration else {
+        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
+          CustomNavigationController.instance.dismissVC(animated: true)
         }
-
-        addPeriodicTimeObserver()
-        
-        guard let duration = player.currentItem?.asset.duration else {
-            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "TRY_IT_LATER".localized) { _ in
-                CustomNavigationController.instance.dismissVC(animated: true)
-            }
-            return
-        }
-        
-        playerDuration = duration
-        durationInSeconds = Double(duration.value) / Double(duration.timescale)
-
-        labelDuration.text = setTimeFormat(timeInSeconds: durationInSeconds)
-
-      var nowPlayingInfo: [String: Any] = [:]
-
-      if let image = UIImage(named: "baseAppIcon") {
-        nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-          return image.imageWith(newSize: size)
-        }
+        return
       }
 
-      nowPlayingInfo[MPMediaItemPropertyTitle] = title
-      if let photographer {
-        nowPlayingInfo[MPMediaItemPropertyArtist] = photographer
+      let durationInSeconds = Double(duration.value) / Double(duration.timescale)
+
+      labelDuration.text = setTimeFormat(timeInSeconds: durationInSeconds)
+
+      if let time = auPlayer.sameTime(title: title) {
+        auPlayer.delegate = self
+        setLabelCurrentTime(time: time)
+        auPlayer.reloadPlayer()
       }
-
-      nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
-      MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-    }
-
-    private func addPeriodicTimeObserver() {
-        let timeScale = CMTimeScale(NSEC_PER_SEC)
-        let time = CMTime(seconds: 1, preferredTimescale: timeScale)
-
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
-            guard let self else { return }
-            setLabelCurrentTime(time: time)
-            
-            let timeInSeconds = CMTimeGetSeconds(time)
-
-            if durationInSeconds == timeInSeconds {
-                player.pause()
-                imageViewPlayPause.image = UIImage(systemName: "play")
-            }
-
-          var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
-          nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = timeInSeconds
-          MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-        }
     }
     
     private func setTimeFormat(timeInSeconds: Double) -> String {
@@ -143,8 +79,8 @@ class SIDetailAudioCell: UITableViewCell {
         
         guard !sliderIsBeingModified else { return }
         
-        sliderProgress.setValue(Float(timeInSeconds / durationInSeconds), animated: true)
-        
+        sliderProgress.setValue(Float(timeInSeconds / auPlayer.getPlayerDurationInSeconds()), animated: true)
+
         updateThumbColor()
     }
     
@@ -162,7 +98,7 @@ class SIDetailAudioCell: UITableViewCell {
         sliderIsBeingModified = true
         updateThumbColor()
         
-        let timeInSeconds = Double(player.currentTime().value) / Double(player.currentTime().timescale)
+        let timeInSeconds = Double(auPlayer.getPlayer().currentTime().value) / Double(auPlayer.getPlayer().currentTime().timescale)
         let targetTime: CMTime
         
         if sum {
@@ -171,60 +107,48 @@ class SIDetailAudioCell: UITableViewCell {
             targetTime = CMTimeMake(value: Int64(timeInSeconds) - kTimeToMove, timescale: 1)
         }
         
-        player.seek(to: targetTime) { [weak self] _ in
+        auPlayer.setPlayerTime(targetTime: targetTime) { [weak self] _ in
             guard let self else { return }
             sliderIsBeingModified = false
         }
     }
-    
+
     @objc func sliderTapped(_ sender: UIGestureRecognizer) {
-        sliderIsBeingModified = true
-        
-        guard let slider = sender.view as? UISlider, !slider.isHighlighted else { return }
-                                   
-        let point: CGPoint = sender.location(in: slider)
-        let percentage = point.x / slider.bounds.size.width
-        let delta = Float(percentage) * Float(slider.maximumValue - slider.minimumValue)
-        let value = slider.minimumValue + delta
-        slider.setValue(Float(value), animated: true)
-        
-        updateThumbColor()
-        
-        let targetTime: CMTime = CMTimeMake(value: Int64(Float(playerDuration.value) * value), timescale: playerDuration.timescale)
-        player.seek(to: targetTime) { [weak self] _ in
-            guard let self else { return }
-            sliderIsBeingModified = false
-        }
+      sliderIsBeingModified = true
+
+      guard let slider = sender.view as? UISlider, !slider.isHighlighted else { return }
+
+      let point: CGPoint = sender.location(in: slider)
+      let percentage = point.x / slider.bounds.size.width
+      let delta = Float(percentage) * Float(slider.maximumValue - slider.minimumValue)
+      let value = slider.minimumValue + delta
+      slider.setValue(Float(value), animated: true)
+
+      updateThumbColor()
+
+      let targetTime: CMTime = CMTimeMake(value: Int64(Float(auPlayer.getPlayerDuration().value) * value), timescale: auPlayer.getPlayerDuration().timescale)
+      auPlayer.setPlayerTime(targetTime: targetTime) { [weak self] _ in
+        guard let self else { return }
+        sliderIsBeingModified = false
+      }
     }
     
     @IBAction func playPauseButtonPressed(_ sender: Any) {
-        let timeInSeconds = Int(player.currentTime().value) / Int(player.currentTime().timescale)
-        
-        guard Int(durationInSeconds) != timeInSeconds else {
-            let targetTime: CMTime = CMTimeMake(value: 0, timescale: 1)
-            player.seek(to: targetTime) { [weak self] _ in
-                guard let self else { return }
-                imageViewPlayPause.image = UIImage(systemName: "pause")
-                player.play()
-            }
-            return
-        }
-        
-        if player.rate != 0 {
-            player.pause()
-            imageViewPlayPause.image = UIImage(systemName: "play")
-        } else {
-            player.play()
-            imageViewPlayPause.image = UIImage(systemName: "pause")
-        }
+      /// Check if is the first press and if it is then configure de Audio Player
+      if !isConfigured {
+        AudioPlayer.shared.delegate = self
+        auPlayer.configureNewPlayer(player: playerCandidate, title: titleCandidate, photographer: photographerCandidate)
+        isConfigured = true
+      }
+      auPlayer.playPauseToggle()
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
-        sliderIsBeingModified = true
-        updateThumbColor()
-        
-        let targetTime: CMTime = CMTimeMake(value: Int64(Float(playerDuration.value) * sliderProgress.value), timescale: playerDuration.timescale)
-        player.seek(to: targetTime)
+      sliderIsBeingModified = true
+      updateThumbColor()
+
+      let targetTime: CMTime = CMTimeMake(value: Int64(Float(auPlayer.getPlayerDuration().value) * sliderProgress.value), timescale: auPlayer.getPlayerDuration().timescale)
+      auPlayer.setPlayerTime(targetTime: targetTime)
     }
     
     @IBAction func goBackPressed(_ sender: Any) {
@@ -238,4 +162,29 @@ class SIDetailAudioCell: UITableViewCell {
     @IBAction func sliderDidEndDrag(_ sender: Any) {
         sliderIsBeingModified = false
     }
+}
+
+extension SIDetailAudioCell: AudioPlayerProtocol {
+  func played() {
+    imageViewPlayPause.image = UIImage(systemName: "pause")
+  }
+  
+  func paused() {
+    imageViewPlayPause.image = UIImage(systemName: "play")
+  }
+  
+  func changePlaybackPosition(event: MPChangePlaybackPositionCommandEvent) {
+    sliderIsBeingModified = true
+    updateThumbColor()
+
+    auPlayer.setPlayerTime(targetTime: CMTime(seconds: event.positionTime, preferredTimescale: 1)) { [weak self] _ in
+      guard let self else { return }
+      self.sliderProgress.value = Float(event.positionTime / auPlayer.getPlayerDurationInSeconds())
+    }
+  }
+  
+  func periodicTimeObserver(time: CMTime) {
+    updateThumbColor()
+    setLabelCurrentTime(time: time)
+  }
 }
