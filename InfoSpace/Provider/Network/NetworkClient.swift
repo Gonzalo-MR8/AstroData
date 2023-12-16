@@ -8,19 +8,19 @@
 import Foundation
 
 protocol NetworkClient {
-    func sendRequest<T: Decodable>(endPoint: EndPoint, responseModel: T.Type) async -> Result<T, RequestError>
+    func sendRequest<T: Decodable>(endPoint: EndPoint, responseModel: T.Type) async throws -> T
 }
 
 extension NetworkClient {
-    func sendRequest<T>(endPoint: EndPoint, responseModel: T.Type) async -> Result<T, RequestError> where T: Decodable {
+    func sendRequest<T>(endPoint: EndPoint, responseModel: T.Type) async throws -> T where T: Decodable {
         let kRequestTimeout: TimeInterval = 20
 
         guard NetworkManager.shared.isConnected else {
-            return .failure(.noInternetConnection)
+            throw RequestError.noInternetConnection
         }
 
         guard let request = createRequest(from: endPoint) else {
-            return .failure(.invalidURL)
+            throw RequestError.invalidURL
         }
         
         do {
@@ -29,23 +29,23 @@ extension NetworkClient {
             let (data, response) = try await URLSession.shared.data(for: request)
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                return .failure(.noHttpResponse)
+              throw RequestError.noHttpResponse
             }
             
             switch httpResponse.statusCode {
             case 200...299:
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
-                    return .failure(.parseError)
+                  throw RequestError.parseError
                 }
                 
-                return .success(decodedResponse)
+                return decodedResponse
             case 401:
-                return .failure(.unauthorized)
+              throw RequestError.unauthorized
             default:
-                return .failure(.statusError(code: httpResponse.statusCode))
+              throw RequestError.statusError(code: httpResponse.statusCode)
             }
         } catch {
-            return .failure(.unknown)
+          throw RequestError.unknown
         }
     }
     

@@ -22,16 +22,8 @@ final class SpaceItemDetailViewModel {
         self.services = NasaLibraryServices()
     }
     
-    func getMediaURLs() async -> Result<Void, RequestError> {
-        let result = await services.getMediaURLs(jsonUrl: spaceItem.href)
-        
-        switch result {
-        case .success(let strings):
-            self.mediaURLs = strings
-            return .success(())
-        case .failure(let failure):
-            return .failure(failure)
-        }
+    func getMediaURLs() async throws {
+      self.mediaURLs = try await services.getMediaURLs(jsonUrl: spaceItem.href)
     }
     
     public func getSpaceItemData() -> SpaceItemData {

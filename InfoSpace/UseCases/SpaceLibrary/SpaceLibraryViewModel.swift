@@ -33,7 +33,7 @@ final class SpaceLibraryViewModel {
     
     // MARK: - Network Methods
     
-    public func getSpaceLibraryItemsFilters(reset: Bool? = nil, filters: SpaceLibraryFilters) async -> Result<Void, RequestError> {
+    public func getSpaceLibraryItemsFilters(reset: Bool? = nil, filters: SpaceLibraryFilters) async throws {
         order = filters.order
         
         if let reset = reset, reset {
@@ -45,53 +45,29 @@ final class SpaceLibraryViewModel {
         pageUpdateFilters.page = page
         
         /// This call gets the last page of the spaceItems, call to handle when you need to take the last or the first items depending on the order
-        let slItemResult = await services.getSLastPageItemFilters(filters: filters)
-        
-        switch slItemResult {
-        case .success(let slItemData):
-            self.slItem = slItemData
-            self.getDesiredPage()
-        case .failure(let failure):
-            return .failure(failure)
-        }
-        
-        let libraryResult = await services.getLibraryFilters(filters: pageUpdateFilters)
-        
-        switch libraryResult {
-        case .success(let spaceLibraryItems):
-            self.spaceLibraryItems = nil
-            self.spaceLibraryItems = spaceLibraryItems
-        case .failure(let failure):
-            return .failure(failure)
-        }
-        
-        let spaceItemsNewPage = await getSpaceLibraryItemsFiltersNewPage(filters: filters)
-        
-        switch spaceItemsNewPage {
-        case .success:
-            return .success(())
-        case .failure:
-            self.orderSpaceItems(order: self.order)
-            /// No failure is returned here because this point is only reached when the second page does not exist.
-            return .success(())
+        slItem = try await services.getSLastPageItemFilters(filters: filters)
+        getDesiredPage()
+
+        spaceLibraryItems = nil
+        spaceLibraryItems = try await services.getLibraryFilters(filters: pageUpdateFilters)
+
+        do {
+          try await getSpaceLibraryItemsFiltersNewPage(filters: filters)
+        } catch {
+          /// No failure is returned here because this point is only reached when the second page does not exist.
+          orderSpaceItems(order: order)
         }
     }
     
-    public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters) async -> Result<Void, RequestError> {
+    public func getSpaceLibraryItemsFiltersNewPage(filters: SpaceLibraryFilters) async throws {
         calculateNextPage()
         var pageUpdateFilters = filters
         pageUpdateFilters.page = page
         
-        let libraryResultSecondPage = await services.getLibraryFilters(filters: pageUpdateFilters)
-        
-        switch libraryResultSecondPage {
-        case .success(let spaceLibraryItems):
-            self.spaceLibraryItems.collection.appendNewItemsToSpaceItems(spaceItems: spaceLibraryItems.collection.spaceItems)
-            self.orderSpaceItems(order: self.order)
-            return .success(())
-        case .failure(let failure):
-            return .failure(failure)
-        }
+        let spaceLibraryData = try await services.getLibraryFilters(filters: pageUpdateFilters)
+
+        spaceLibraryItems.collection.appendNewItemsToSpaceItems(spaceItems: spaceLibraryData.collection.spaceItems)
+        orderSpaceItems(order: order)
     }
     
     // MARK: - Private Methods

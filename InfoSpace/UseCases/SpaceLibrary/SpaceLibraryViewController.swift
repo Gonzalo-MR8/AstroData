@@ -189,17 +189,15 @@ extension SpaceLibraryViewController: FilterViewProtocol {
             Task { [weak self] in
                 guard let self else { return }
 
-                let result = await viewModel.getSpaceLibraryItemsFilters(filters: filters)
-                
-                switch result {
-                case .success:
-                    resetOfChangeFiltersSuccess()
-                case .failure:
-                    DispatchQueue.main.async {
-                        CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
-                        CustomNavigationController.instance.closeHudView()
-                    }
+              do {
+                try await viewModel.getSpaceLibraryItemsFilters(filters: filters)
+                resetOfChangeFiltersSuccess()
+              } catch {
+                DispatchQueue.main.async {
+                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_FILTERS_ERROR".localized)
+                    CustomNavigationController.instance.closeHudView()
                 }
+              }
             }
         }
     }
@@ -219,19 +217,17 @@ extension SpaceLibraryViewController: FilterViewProtocol {
         Task { [weak self] in
             guard let self else { return }
 
-            let result = await viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters)
-            
-            switch result {
-            case .success:
-                resetOfChangeFiltersSuccess()
-            case .failure:
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else { return }
+          do {
+            try await viewModel.getSpaceLibraryItemsFilters(reset: true, filters: filterView.filters)
+            resetOfChangeFiltersSuccess()
+          } catch {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
 
-                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
-                    CustomNavigationController.instance.closeHudView()
-                }
+                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_RESET_ERROR".localized)
+                CustomNavigationController.instance.closeHudView()
             }
+          }
         }
     }
 }
@@ -257,22 +253,20 @@ extension SpaceLibraryViewController: UIScrollViewDelegate {
         })
         
         Task {
-            let result = await viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters)
-            
-            switch result {
-            case .success:
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else { return }
-                    spaceItemsCollectionView.reloadData()
-                }
-            case .failure:
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else { return }
-
-                    CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
-                    spaceItemsCollectionView.reloadData()
-                }
+          do {
+            try await viewModel.getSpaceLibraryItemsFiltersNewPage(filters: filterView.filters)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                spaceItemsCollectionView.reloadData()
             }
+          } catch {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+
+                CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "SPACE_LIBRARY_LOAD_ERROR".localized)
+                spaceItemsCollectionView.reloadData()
+            }
+          }
         }
     }
 }

@@ -21,15 +21,7 @@ final class APODViewModel {
         return apod
     }
     
-    func getNewAPOD(date: Date) async -> ((Result<Void, RequestError>)) {
-        let apodResult = await services.getApod(date: date)
-        
-        switch apodResult {
-        case .success(let apodData):
-            apod = apodData
-            return .success(())
-        case .failure(let failure):
-            return .failure(failure)
-        }
+    func getNewAPOD(date: Date) async throws {
+      apod = try await services.getApod(date: date)
     }
 }

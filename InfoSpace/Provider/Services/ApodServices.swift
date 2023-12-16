@@ -9,11 +9,11 @@ import Foundation
 
 /// It conforms to the Serviceable protocol, which is critical for testing and dependency injection.
 protocol ApodServiceable {
-    func getApod(date: Date?) async -> Result<APOD, RequestError>
+    func getApod(date: Date?) async throws -> APOD
 }
 
 struct ApodServices: NetworkClient, ApodServiceable {
-    func getApod(date: Date?) async -> Result<APOD, RequestError> {
-        return await sendRequest(endPoint: ApodEndPoint.getApod(date: date), responseModel: APOD.self)
-    }
+  func getApod(date: Date?) async throws -> APOD {
+    return try await sendRequest(endPoint: ApodEndPoint.getApod(date: date), responseModel: APOD.self)
+  }
 }

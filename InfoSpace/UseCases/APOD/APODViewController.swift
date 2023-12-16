@@ -110,21 +110,20 @@ extension APODViewController: UITableViewDataSource {
                 guard let self else { return }
 
                 CustomNavigationController.instance.showHudView()
-                Task {
-                    let result = await self.viewModel.getNewAPOD(date: date)
-                    
-                    switch result {
-                    case .failure:
-                        cell.updateSelectedDate(state: false)
-                        DispatchQueue.main.async {
-                            CustomNavigationController.instance.closeHudView()
-                            CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "APOD_NO_VALID_DATE".localized)
-                        }
-                    case .success:
-                        cell.updateSelectedDate(state: true)
-                        self.configureImageOrUrl()
-                    }
+              Task {
+                do {
+                  try await self.viewModel.getNewAPOD(date: date)
+
+                  cell.updateSelectedDate(state: true)
+                  self.configureImageOrUrl()
+                } catch {
+                  cell.updateSelectedDate(state: false)
+                  DispatchQueue.main.async {
+                      CustomNavigationController.instance.closeHudView()
+                      CustomNavigationController.instance.presentDefaultAlert(title: "ERROR".localized, message: "APOD_NO_VALID_DATE".localized)
+                  }
                 }
+              }
             }
             
             return cell
