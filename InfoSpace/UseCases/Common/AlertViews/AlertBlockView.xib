@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7W-Zt-aHd" customClass="CIView" customModule="CustomUIKitItems">
-                                <rect key="frame" x="29.333333333333343" y="258.33333333333337" width="334.33333333333326" height="335.33333333333337"/>
+                                <rect key="frame" x="29.333333333333343" y="257.66666666666669" width="334.33333333333326" height="337.00000000000006"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTr-Nl-xWL" customClass="AnimationView" customModule="Lottie">
                                         <rect key="frame" x="57.333333333333343" y="0.0" width="220.00000000000003" height="184"/>
@@ -53,7 +53,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSo-DU-HTB" customClass="CIButton" customModule="CustomUIKitItems">
-                                        <rect key="frame" x="17" y="283.33333333333331" width="300.33333333333331" height="40"/>
+                                        <rect key="frame" x="17" y="284.99999999999994" width="300.33333333333331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LkH-7c-wSL"/>
                                         </constraints>
@@ -86,11 +86,11 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1xt-vU-CwF">
-                                        <rect key="frame" x="17" y="184" width="300.33333333333331" height="79.333333333333314"/>
+                                        <rect key="frame" x="17" y="184" width="300.33333333333331" height="81"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Oops…" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1d-fe-OeL" customClass="CILabel" customModule="CustomUIKitItems">
-                                                <rect key="frame" x="0.0" y="0.0" width="300.33333333333331" height="24.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300.33333333333331" height="26.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="18"/>
                                                 <color key="textColor" name="black85"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -106,7 +106,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Parece que no tienes conexión a internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvC-o9-jDN">
-                                                <rect key="frame" x="0.0" y="32.666666666666686" width="300.33333333333331" height="46.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="34.333333333333314" width="300.33333333333331" height="46.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="16"/>
                                                 <color key="textColor" name="black85"/>
                                                 <nil key="highlightedColor"/>
@@ -158,6 +158,14 @@
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
+    <designables>
+        <designable name="TSo-DU-HTB">
+            <size key="intrinsicContentSize" width="103" height="34"/>
+        </designable>
+        <designable name="w1d-fe-OeL">
+            <size key="intrinsicContentSize" width="66" height="26.333333333333332"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

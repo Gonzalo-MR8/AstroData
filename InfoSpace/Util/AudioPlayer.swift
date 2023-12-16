@@ -10,7 +10,6 @@ import MediaPlayer
 protocol AudioPlayerProtocol: AnyObject {
   func played()
   func paused()
-  func changePlaybackPosition(event: MPChangePlaybackPositionCommandEvent)
   func periodicTimeObserver(time: CMTime)
 }
 
@@ -42,7 +41,7 @@ class AudioPlayer {
 
     commandCenter.changePlaybackPositionCommand.addTarget { [weak self] event in
       guard let self, let event = event as? MPChangePlaybackPositionCommandEvent else { return .commandFailed }
-      delegate?.changePlaybackPosition(event: event)
+      player.seek(to: CMTime(seconds: event.positionTime, preferredTimescale: 1))
       return .success
     }
   }
@@ -161,7 +160,7 @@ class AudioPlayer {
   public func setPlayerTime(targetTime: CMTime) {
     player.seek(to: targetTime)
   }
-  
+
   public func setPlayerTime(targetTime: CMTime, completionHandler: @escaping (Bool) -> Void) {
     player.seek(to: targetTime, completionHandler: completionHandler)
   }

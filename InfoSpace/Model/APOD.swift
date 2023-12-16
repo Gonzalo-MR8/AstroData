@@ -65,7 +65,7 @@ struct APOD: Decodable {
     }
 
     /// This init is to avoid blocking the rest of the app when apod is unavailable, and to be able to continue using app.
-    init()  {
+    init() {
         date = Date()
         explanation = "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later."
         mediaType = .image
